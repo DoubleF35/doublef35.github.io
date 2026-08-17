@@ -279,16 +279,40 @@ html[data-theme="light"] .tg__sun,html[data-theme="dark"] .tg__moon{display:none
 #map{
   position:fixed;top:var(--bar);left:0;width:50vw;bottom:0;z-index:1;
   border-right:1px solid var(--rule-2);
+  cursor:grab;
+  /* pan-y lascia al browser lo scorrimento verticale della pagina — che su
+     telefono serve, perché la mappa è una fascia in cima — e tiene per noi il
+     trascinamento orizzontale, che ruota la scena. */
+  touch-action:pan-y;
 }
-/* Solo i due canvas a tutta area, elencati per id.
+#map:active{cursor:grabbing}
+#map.is-hit,#map.is-hit:active{cursor:pointer}
+
+/* Il canvas WebGL, elencato per id.
    NON usare `#map canvas`: quel selettore è più specifico di `#minimap`
    (un id più un tipo batte un id solo), quindi prenderebbe anche la
    minimappa, la renderebbe absolute su .mini e la stamperebbe sopra il
    proprio titolo. */
-#bg,#fg{position:absolute;inset:0;width:100%;height:100%;display:block}
-#bg{z-index:1}
-#fg{z-index:2}
-#map.is-hit{cursor:pointer}
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
+
+/* Etichette dei nodi: HTML sovrapposto alla scena, non texture dentro la
+   scena. Restano nitide a ogni distanza, si traducono col resto della pagina
+   e si possono selezionare. Le posiziona map.js proiettando il nodo. */
+#labels{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+.lbl{
+  position:absolute;top:0;left:0;white-space:nowrap;
+  font-family:var(--label);font-size:.58rem;font-weight:500;letter-spacing:.06em;
+  color:var(--ink-2);
+  transition:color .2s var(--ease);
+  will-change:transform,opacity;
+}
+.lbl--big{font-weight:700;font-size:.62rem;letter-spacing:.12em;color:var(--lc)}
+.lbl.is-hot{color:var(--lc)}
+
+/* Senza WebGL la mappa sparisce e il pannello prende tutta la larghezza: il
+   contenuto è tutto nel DOM, quindi non si perde niente. */
+html.no-gl #map{display:none}
+html.no-gl #panel{margin-left:0}
 
 .legend{
   position:absolute;left:0;right:0;bottom:0;z-index:4;
@@ -523,6 +547,20 @@ html[data-theme="light"] .tg__sun,html[data-theme="dark"] .tg__moon{display:none
 .figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:1rem;margin-top:1.9rem}
 .figs .fig{margin:0}
 
+/* Ritratto accanto al nome. align-items:end allinea la base della foto con
+   l'ultima riga del nome invece che con la cima del blocco, che con un titolo
+   di due righe lascerebbe un vuoto sopra la foto. */
+.idcard{
+  display:grid;grid-template-columns:minmax(0,1fr) clamp(9rem,38%,15.5rem);
+  gap:clamp(1rem,3vw,2rem);align-items:end;
+}
+.idcard__ph{margin:0}
+.idcard__ph .fig__cap{font-size:.5rem;letter-spacing:.08em}
+@media (max-width:34rem){
+  .idcard{grid-template-columns:minmax(0,1fr) 6.5rem;gap:.9rem}
+  .idcard__ph .fig__cap{display:none}
+}
+
 /* ==========================================================================
    13c. Percorso — esperienza e formazione
    --------------------------------------------------------------------------
@@ -646,8 +684,8 @@ html[data-theme="light"] .tg__sun,html[data-theme="dark"] .tg__moon{display:none
      nascosto alle tecnologie assistive invece di essere reso navigabile due
      volte. -->
 <div id="map" aria-hidden="true">
-  <canvas id="bg"></canvas>
-  <canvas id="fg"></canvas>
+  <canvas id="gl"></canvas>
+  <div id="labels"></div>
 
   <div class="mini">
     <span class="micro mini__t">
@@ -671,12 +709,26 @@ html[data-theme="light"] .tg__sun,html[data-theme="dark"] .tg__moon{display:none
 <main id="panel">
 <!-- ===================== CENTRO ===================== -->
 <section class="view" id="v-centro" data-area="centro">
-  <p class="eyebrow"><i class="dot"></i>
-    <span class="micro" data-l="it">FEDERICO · IL CENTRO</span>
-    <span class="micro" data-l="en">FEDERICO · THE CENTRE</span>
-  </p>
+  <div class="idcard">
+    <div>
+      <p class="eyebrow"><i class="dot"></i>
+        <span class="micro" data-l="it">FEDERICO · IL CENTRO</span>
+        <span class="micro" data-l="en">FEDERICO · THE CENTRE</span>
+      </p>
+      <h1 class="display display--grad">Federico<br>Fassio</h1>
+    </div>
 
-  <h1 class="display display--grad">Federico<br>Fassio</h1>
+    <figure class="fig idcard__ph">
+      <!-- FOTO — ritratto.
+           1. metti il file in  img/ritratto.jpg  (verticale 4:5, es. 1000×1250)
+           2. cancella il <div class="plate…"> qui sotto
+           3. togli il commento a questo <img>:
+      <img src="img/ritratto.jpg" alt="Federico Fassio" width="1000" height="1250" style="aspect-ratio:4/5;object-fit:cover">
+      -->
+      <div class="plate plate--tall"><p>Ritratto<br><b>img/ritratto.jpg</b><br>4:5</p></div>
+      <figcaption class="fig__cap"><b>Fig.&nbsp;1</b> <span>Torino.</span></figcaption>
+    </figure>
+  </div>
 
   <div data-l="it">
     <p class="deck" style="margin-top:1.5rem">Progetto sistemi che devono funzionare lontano da chi li ha costruiti.</p>
@@ -739,16 +791,6 @@ html[data-theme="light"] .tg__sun,html[data-theme="dark"] .tg__moon{display:none
     <a class="out" href="#/contatti"><span data-l="it">Parliamone</span><span data-l="en">Let's talk</span> <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   </p>
 
-  <figure class="fig" style="max-width:22rem">
-    <!-- FOTO — ritratto.
-         1. metti il file in  img/ritratto.jpg  (verticale 4:5, es. 1000×1250)
-         2. cancella il <div class="plate…"> qui sotto
-         3. togli il commento a questo <img>:
-    <img src="img/ritratto.jpg" alt="Federico Fassio" width="1000" height="1250" style="aspect-ratio:4/5;object-fit:cover">
-    -->
-    <div class="plate plate--tall"><p>Ritratto da inserire<br><b>img/ritratto.jpg</b><br>verticale 4:5</p></div>
-    <figcaption class="fig__cap"><b>Fig.&nbsp;1</b> <span>Federico Fassio, Torino.</span></figcaption>
-  </figure>
 </section>
 
 <!-- ===================== AREA · ORBITA ===================== -->
@@ -1767,550 +1809,7 @@ html[data-theme="light"] .tg__sun,html[data-theme="dark"] .tg__moon{display:none
   <p class="ns">Senza JavaScript la mappa radar non funziona — qui sotto c'è tutto il contenuto, in italiano.</p>
 </noscript>
 
-<script>
-(() => {
-'use strict';
-
-/* ==========================================================================
-   1. Modello del grafo
-   --------------------------------------------------------------------------
-   Gli accenti sono gli stessi del CSS, riscritti qui perché il canvas non
-   legge le variabili CSS: se ne cambi uno, cambialo in entrambi i posti.
-   Le rotte del pannello sono derivate da questa struttura, così aggiungere un
-   progetto vuole dire aggiungere una foglia qui e una <section class="view">.
-   ========================================================================== */
-const ACC = {centro:'#9B8FFF',orbita:'#5BE9FF',volo:'#FF6A3D',impresa:'#E84FD0',dati:'#CFFF04'};
-
-/* Albero: centro → aree → (programma) → progetti.
-   La profondità NON è uniforme. Il ramo Volo ha un livello in più — il
-   programma Seeker — perché Seeker-One e Seeker-II sono due vettori dello
-   stesso programma, non due progetti separati. Il layout legge la profondità
-   dal nodo, quindi aggiungere un altro programma non richiede altro codice. */
-const TREE = {
-  id:'centro', label:{it:'FEDERICO',en:'FEDERICO'}, children:[
-    {id:'volo', bearing:-2.36, label:{it:'VOLO',en:'FLIGHT'}, children:[
-      {id:'seeker', label:{it:'SEEKER',en:'SEEKER'}, children:[
-        {id:'seeker1', label:{it:'Seeker-One',en:'Seeker-One'}},
-        {id:'seeker2', label:{it:'Seeker-II',en:'Seeker-II'}}
-      ]}
-    ]},
-    {id:'orbita', bearing:-0.78, label:{it:'ORBITA',en:'ORBIT'}, children:[
-      {id:'iceroute', label:{it:'IceRoute',en:'IceRoute'}, star:true},
-      {id:'cubesar',  label:{it:'CubeSAR',en:'CubeSAR'}}
-    ]},
-    {id:'dati', bearing:0.78, label:{it:'DATI',en:'DATA'}, children:[
-      {id:'f4kit', label:{it:'f4kit',en:'f4kit'}}
-    ]},
-    {id:'impresa', bearing:2.36, label:{it:'IMPRESA',en:'VENTURES'}, children:[
-      {id:'edunity', label:{it:'EdUnity',en:'EdUnity'}},
-      {id:'yet',     label:{it:'YET',en:'YET'}}
-    ]}
-  ]
-};
-
-/* Legami trasversali: non gerarchia, ma "stesso principio a scale diverse".
-   Disegnati tratteggiati per non farli sembrare un rapporto padre-figlio. */
-const XLINKS = [['cubesar','iceroute']];
-
-/* Appiattimento in ordine DFS: i genitori vengono sempre prima dei figli, e il
-   secondo passaggio sui rilevamenti conta su questo. */
-const N = [];
-(function walk(node, parent, area, depth){
-  N.push({
-    id:node.id, label:node.label, star:!!node.star, depth,
-    parent: parent ? parent.id : null,
-    area: depth === 0 ? 'centro' : depth === 1 ? node.id : area,
-    kind: depth === 0 ? 'centro' : depth === 1 ? 'area' : node.children ? 'prog' : 'leaf',
-    kids: (node.children || []).map(c => c.id),
-    bearing: node.bearing !== undefined ? node.bearing : 0
-  });
-  (node.children || []).forEach(c => walk(c, node, depth === 0 ? c.id : area, depth+1));
-})(TREE, null, 'centro', 0);
-
-const byId = id => N.find(n => n.id === id);
-
-/* Rilevamenti: le aree li hanno fissi, tutti gli altri li ereditano a
-   ventaglio attorno al genitore. */
-N.forEach(n => {
-  if(n.kind === 'centro') return;              /* le aree hanno bearing fisso */
-  const kids = n.kids.map(byId);
-  if(!kids.length) return;
-  /* I figli di un programma si aprono più larghi: sono all'anello più esterno,
-     dove lo stesso angolo dà meno distanza fra le etichette. */
-  const step = n.kind === 'prog' ? 0.66 : 0.46;
-  kids.forEach((k,i) => k.bearing = n.bearing + (i - (kids.length-1)/2) * step);
-});
-
-N.forEach(n => {n.x=n.y=n.tx=n.ty=0; n.a=0; n.ta=1; n.echo=0; n.hot=0;});
-
-/* Un nodo si può aprire — e quindi porta l'anello — se ha figli o è il
-   flagship. */
-const ringed = n => n.kind === 'area' || n.kind === 'prog' || n.star;
-
-/* Rotte: ogni nodo è una vista, più le due pagine fuori dal radar. */
-const ROUTES = {};
-N.forEach(n => ROUTES[n.id] = {view:'v-'+n.id, area:n.area, kind:n.kind});
-ROUTES.percorso = {view:'v-percorso', area:'centro', kind:'extra'};
-ROUTES.contatti = {view:'v-contatti', area:'centro', kind:'extra'};
-
-/* ==========================================================================
-   2. Stato
-   ========================================================================== */
-const html  = document.documentElement;
-const mapEl = document.getElementById('map');
-const bg    = document.getElementById('bg');
-const fg    = document.getElementById('fg');
-const mm    = document.getElementById('minimap');
-const bgx   = bg.getContext('2d');
-const fgx   = fg.getContext('2d');
-const mmx   = mm.getContext('2d');
-
-const reduce = matchMedia('(prefers-reduced-motion: reduce)');
-let W = 0, H = 0, CX = 0, CY = 0, R = 0, dpr = 1;
-let route = 'centro', focusArea = null, selected = null;
-let sweep = -Math.PI/2, hover = null, last = 0, raf = 0;
-
-const lang  = () => html.dataset.lang;
-const ink   = (o=1) => html.dataset.theme === 'light' ? `rgba(10,10,10,${o})` : `rgba(255,255,255,${o})`;
-const paper = () => html.dataset.theme === 'light' ? '#EFE7D4' : '#070B0C';
-const TAU = Math.PI*2;
-const norm = a => ((a % TAU) + TAU) % TAU;
-
-/* ==========================================================================
-   3. Dimensioni
-   ========================================================================== */
-function resize(){
-  const r = mapEl.getBoundingClientRect();
-  W = Math.max(1, r.width); H = Math.max(1, r.height);
-  dpr = Math.min(2, window.devicePixelRatio || 1);
-  [bg,fg].forEach(c => {c.width = W*dpr|0; c.height = H*dpr|0;});
-  [bgx,fgx].forEach(c => c.setTransform(dpr,0,0,dpr,0,0));
-  CX = W/2; CY = H/2;
-  R = Math.min(W,H) * 0.5;
-  const mr = mm.getBoundingClientRect();
-  mm.width = Math.max(1,mr.width)*dpr|0; mm.height = Math.max(1,mr.height)*dpr|0;
-  mmx.setTransform(dpr,0,0,dpr,0,0);
-  layout(true); drawBg(); drawMini();
-}
-
-/* ==========================================================================
-   4. Disposizione dei nodi
-   --------------------------------------------------------------------------
-   Due configurazioni. Vista d'insieme: centro al centro, aree su un anello,
-   foglie su un anello più esterno a ventaglio. Vista di un'area: l'area
-   scelta prende il centro, le sue foglie si distribuiscono attorno, le altre
-   aree vengono spinte al bordo e sbiadiscono, le loro foglie si spengono. Il
-   passaggio fra le due è la riaggregazione che si vede al cambio di rotta.
-   ========================================================================== */
-function layout(snap){
-  const c = byId('centro');
-
-  if(!focusArea){
-    /* Vista d'insieme: anelli per profondità. Il terzo anello esiste solo per
-       il ramo che ha un programma in mezzo. */
-    const RAD = [0, R*0.40, R*0.66, R*0.86];
-    c.tx = 0; c.ty = 0; c.ta = 1;
-    N.forEach(n => {
-      if(n.kind === 'centro') return;
-      const rr = RAD[Math.min(n.depth, 3)];
-      n.tx = Math.cos(n.bearing)*rr; n.ty = Math.sin(n.bearing)*rr;
-      n.ta = n.depth >= 3 ? .82 : n.depth === 2 ? .9 : 1;
-    });
-  } else {
-    /* Vista d'area: l'area scelta prende il centro e il suo sottoalbero si
-       apre a ventaglio; le altre aree vanno al bordo e i loro discendenti si
-       spengono. Il raggio segue la profondità RELATIVA all'area. */
-    const f = byId(focusArea);
-    /* Raggi contenuti: le etichette dei nodi a sinistra sono allineate a
-       destra e crescono verso il bordo, quindi oltre ~0.70R si tagliano. */
-    const REL = [0, R*0.38, R*0.68];
-
-    c.tx = Math.cos(f.bearing + Math.PI)*R*0.72;
-    c.ty = Math.sin(f.bearing + Math.PI)*R*0.72;
-    c.ta = .45;
-    f.tx = 0; f.ty = 0; f.ta = 1;
-
-    /* Ventaglio ampio: con un figlio solo resta sulla direzione dell'area. */
-    const spread = (node, kids, base) => {
-      const wide = kids.length === 1 ? 0 : 1.6;
-      kids.forEach((k,i) => {
-        const ang = base + (i - (kids.length-1)/2) * (wide/Math.max(1,kids.length-1));
-        k._ang = ang;
-        const rel = Math.min(k.depth - f.depth, 2);
-        k.tx = Math.cos(ang)*REL[rel]; k.ty = Math.sin(ang)*REL[rel]; k.ta = 1;
-        const gk = k.kids.map(byId);
-        if(gk.length) spread(k, gk, ang);
-      });
-    };
-    spread(f, f.kids.map(byId), f.bearing);
-
-    N.forEach(n => {
-      if(n.kind === 'centro') return;
-      if(n.area === focusArea) return;
-      if(n.kind === 'area'){
-        n.tx = Math.cos(n.bearing)*R*0.86; n.ty = Math.sin(n.bearing)*R*0.86; n.ta = .22;
-      } else {
-        const p = byId(n.area); n.tx = p.tx; n.ty = p.ty; n.ta = 0;
-      }
-    });
-  }
-
-  if(snap || reduce.matches) N.forEach(n => {n.x = n.tx; n.y = n.ty; n.a = n.ta;});
-}
-
-/* ==========================================================================
-   5. Sfondo: griglia polare
-   --------------------------------------------------------------------------
-   Statico: si ridisegna solo al resize, al cambio tema e al cambio lingua.
-   ========================================================================== */
-function drawBg(){
-  bgx.clearRect(0,0,W,H);
-  bgx.save(); bgx.translate(CX,CY);
-
-  /* Punti sparsi, deterministici: nessun Math.random, così il fondo non
-     cambia a ogni ridisegno. */
-  bgx.fillStyle = ink(.16);
-  for(let i=0;i<190;i++){
-    const a = i*2.39996, rr = Math.sqrt(i/190)*R*1.5;
-    const s = (i%7===0) ? 1.5 : .9;
-    bgx.beginPath(); bgx.arc(Math.cos(a)*rr, Math.sin(a)*rr, s, 0, TAU); bgx.fill();
-  }
-
-  /* Range gate: cerchi concentrici, con l'etichetta della frazione di raggio. */
-  bgx.strokeStyle = ink(.10); bgx.lineWidth = 1;
-  [.25,.46,.62,.78,.94].forEach(f => {
-    bgx.beginPath(); bgx.arc(0,0,R*f,0,TAU); bgx.stroke();
-  });
-
-  /* Raggi ogni 30°, con il rilievo sui quattro assi. */
-  for(let d=0; d<360; d+=30){
-    const a = d*Math.PI/180, maj = d%90===0;
-    bgx.strokeStyle = ink(maj ? .14 : .07);
-    bgx.beginPath();
-    bgx.moveTo(Math.cos(a)*R*.10, Math.sin(a)*R*.10);
-    bgx.lineTo(Math.cos(a)*R*.98, Math.sin(a)*R*.98);
-    bgx.stroke();
-  }
-
-  /* Rilevamenti in gradi, come su un PPI. */
-  bgx.font = "600 8px Archivo,system-ui,sans-serif";
-  bgx.fillStyle = ink(.30); bgx.textAlign = 'center'; bgx.textBaseline = 'middle';
-  for(let d=0; d<360; d+=90){
-    const a = d*Math.PI/180;
-    bgx.fillText(String((d+90)%360).padStart(3,'0'), Math.cos(a)*R*1.03, Math.sin(a)*R*1.03);
-  }
-  bgx.restore();
-}
-
-/* ==========================================================================
-   6. Primo piano: sweep, connessioni, nodi
-   ========================================================================== */
-function nodeR(n){
-  const base = n.kind === 'centro' ? 8 : n.kind === 'area' ? 6.5 : n.kind === 'prog' ? 5.6 : 4.4;
-  return base * (1 + n.echo*.42 + n.hot*.30) * (selected === n.id ? 1.35 : 1);
-}
-
-function drawFg(dt){
-  fgx.clearRect(0,0,W,H);
-  fgx.save(); fgx.translate(CX,CY);
-
-  /* --- Spazzata ---------------------------------------------------------
-     Una coda di spicchi con alpha decrescente invece di un gradiente conico:
-     createConicGradient non è disponibile sui browser più vecchi. */
-  const TRAIL = 1.15, SLICES = 26;
-  for(let i=0;i<SLICES;i++){
-    const t0 = sweep - TRAIL*(i+1)/SLICES, t1 = sweep - TRAIL*i/SLICES;
-    const al = Math.pow(1 - i/SLICES, 2.1) * .13;
-    fgx.fillStyle = html.dataset.theme === 'light'
-      ? `rgba(10,10,10,${al*.55})` : `rgba(255,255,255,${al})`;
-    fgx.beginPath(); fgx.moveTo(0,0); fgx.arc(0,0,R*.98,t0,t1); fgx.closePath(); fgx.fill();
-  }
-  const acc = ACC[html.dataset.area] || ACC.centro;
-  fgx.strokeStyle = acc; fgx.globalAlpha = .55; fgx.lineWidth = 1.4;
-  fgx.beginPath(); fgx.moveTo(0,0);
-  fgx.lineTo(Math.cos(sweep)*R*.98, Math.sin(sweep)*R*.98); fgx.stroke();
-  fgx.globalAlpha = 1;
-
-  /* --- Connessioni gerarchiche ------------------------------------------ */
-  fgx.lineWidth = 1;
-  N.forEach(n => {
-    if(!n.parent) return;
-    const p = byId(n.parent);
-    const al = Math.min(n.a, p.a) * .34;
-    if(al < .01) return;
-    fgx.strokeStyle = html.dataset.theme === 'light'
-      ? `rgba(10,10,10,${al*.8})` : `rgba(255,255,255,${al})`;
-    fgx.beginPath(); fgx.moveTo(p.x,p.y); fgx.lineTo(n.x,n.y); fgx.stroke();
-  });
-
-  /* --- Legami trasversali ------------------------------------------------
-     Tratteggiati, e nell'accento dell'area: dicono "stesso principio", non
-     "uno contiene l'altro". */
-  fgx.setLineDash([3,4]);
-  XLINKS.forEach(([a,b]) => {
-    const p = byId(a), q = byId(b);
-    if(!p || !q) return;
-    const al = Math.min(p.a, q.a) * .55;
-    if(al < .02) return;
-    fgx.strokeStyle = ACC[p.area] || ACC.centro;
-    fgx.globalAlpha = al;
-    fgx.beginPath(); fgx.moveTo(p.x,p.y); fgx.lineTo(q.x,q.y); fgx.stroke();
-    fgx.globalAlpha = 1;
-  });
-  fgx.setLineDash([]);
-
-  /* --- Nodi ------------------------------------------------------------- */
-  N.forEach(n => {
-    if(n.a < .02) return;
-    const col = ACC[n.area] || ACC.centro, r = nodeR(n);
-    fgx.globalAlpha = n.a;
-
-    /* Anello di vetro: segnala "questo si può aprire". */
-    if(ringed(n) || selected === n.id){
-      const rr = r + (n.kind === 'area' ? 11 : n.kind === 'prog' ? 9 : 8);
-      fgx.strokeStyle = col; fgx.globalAlpha = n.a * (.20 + n.echo*.5 + n.hot*.3);
-      fgx.lineWidth = 1; fgx.beginPath(); fgx.arc(n.x,n.y,rr,0,TAU); fgx.stroke();
-      fgx.globalAlpha = n.a * (.05 + n.echo*.14);
-      fgx.fillStyle = col; fgx.beginPath(); fgx.arc(n.x,n.y,rr,0,TAU); fgx.fill();
-      fgx.globalAlpha = n.a;
-    }
-
-    /* Eco: il bagliore che il passaggio della spazzata accende. */
-    if(n.echo > .01){
-      fgx.shadowColor = col; fgx.shadowBlur = 26 * n.echo;
-    }
-    fgx.fillStyle = col;
-    fgx.beginPath(); fgx.arc(n.x,n.y,r,0,TAU); fgx.fill();
-    fgx.shadowBlur = 0;
-
-    /* Etichetta. */
-    const lab = (n.label[lang()] || n.label.it) + (n.star ? ' ★' : '');
-    fgx.font = (n.kind === 'leaf' ? "500 10px" : "700 10.5px") + " Archivo,system-ui,sans-serif";
-    fgx.globalAlpha = n.a * (n.kind === 'leaf' ? .78 + n.echo*.22 + n.hot*.22 : .95);
-    fgx.fillStyle = (n.kind !== 'leaf' || n.hot > .1 || selected === n.id) ? col : ink(.72);
-
-    /* Si disegna sempre allineata a sinistra e con il bordo sinistro
-       calcolato a mano: serve per poterlo poi vincolare dentro al canvas.
-       Le etichette dei nodi di sinistra crescono verso il bordo e senza
-       questo vincolo "Seeker-One" finiva tagliata a metà. */
-    const tw = fgx.measureText(lab).width;
-    let left, baseY = n.y;
-
-    if(n.kind === 'prog'){
-      /* Un programma sta sullo stesso rilevamento dei suoi vettori: messa di
-         fianco, la sua etichetta finisce addosso a quelle dei figli. Sopra il
-         nodo, invece, non collide con niente. */
-      left = n.x - tw/2; baseY = n.y - (r + 10);
-      fgx.textBaseline = 'bottom';
-    } else {
-      const off = r + (n.kind === 'area' ? 17 : 12);
-      left = n.x > -R*.15 ? n.x + off : n.x - off - tw;
-      fgx.textBaseline = 'middle';
-    }
-
-    /* Coordinate relative al centro: il bordo assoluto è CX + left. */
-    left = Math.max(6 - CX, Math.min(left, W - 6 - CX - tw));
-    fgx.textAlign = 'left';
-    fgx.fillText(lab, left, baseY);
-    fgx.globalAlpha = 1;
-  });
-
-  fgx.restore();
-}
-
-/* ==========================================================================
-   7. Minimappa
-   ========================================================================== */
-function drawMini(){
-  const w = mm.width/dpr, h = mm.height/dpr;
-  mmx.clearRect(0,0,w,h);
-  const cx = w/2, cy = h/2, rr = Math.min(w,h)*0.40;
-  mmx.save(); mmx.translate(cx,cy);
-  mmx.strokeStyle = ink(.13); mmx.lineWidth = 1;
-  mmx.beginPath(); mmx.arc(0,0,rr,0,TAU); mmx.stroke();
-
-  /* La minimappa mostra sempre la vista d'insieme, anche quando la mappa
-     grande è entrata in un'area: serve da bussola, non da specchio. */
-  const F = [0,.48,.76,.98];
-  const pos = n => {
-    const f = F[Math.min(n.depth,3)];
-    return [Math.cos(n.bearing)*rr*f, Math.sin(n.bearing)*rr*f];
-  };
-
-  mmx.strokeStyle = ink(.16);
-  N.forEach(n => {
-    if(!n.parent) return;
-    const [x1,y1] = pos(n), [x0,y0] = pos(byId(n.parent));
-    mmx.beginPath(); mmx.moveTo(x0,y0); mmx.lineTo(x1,y1); mmx.stroke();
-  });
-  N.forEach(n => {
-    const [x,y] = pos(n);
-    const here = n.id === route;
-    mmx.fillStyle = ACC[n.area] || ACC.centro;
-    mmx.globalAlpha = here ? 1 : .42;
-    mmx.beginPath(); mmx.arc(x,y, here ? 3.2 : n.kind === 'leaf' ? 1.5 : 2.1, 0, TAU); mmx.fill();
-    if(here){
-      mmx.globalAlpha = .9; mmx.strokeStyle = ACC[n.area] || ACC.centro; mmx.lineWidth = 1;
-      mmx.beginPath(); mmx.arc(x,y,6.5,0,TAU); mmx.stroke();
-    }
-    mmx.globalAlpha = 1;
-  });
-  mmx.restore();
-}
-
-/* ==========================================================================
-   8. Ciclo di animazione
-   ========================================================================== */
-const SPEED = 0.62;      /* rad/s — un giro ogni ~10 s */
-const DECAY = 0.55;      /* l'eco si spegne in ~1.8 s */
-
-function frame(ts){
-  raf = requestAnimationFrame(frame);
-  const dt = Math.min(.05, (ts - last)/1000 || 0); last = ts;
-
-  /* Interpolazione verso la posizione bersaglio: è la riaggregazione. */
-  const k = reduce.matches ? 1 : 1 - Math.pow(0.0016, dt);
-  N.forEach(n => {
-    n.x += (n.tx - n.x)*k; n.y += (n.ty - n.y)*k; n.a += (n.ta - n.a)*k;
-    n.hot += ((hover === n.id ? 1 : 0) - n.hot) * (1 - Math.pow(0.002, dt));
-  });
-
-  if(!reduce.matches){
-    const prev = sweep; sweep += dt*SPEED;
-    /* Chi è stato attraversato dalla spazzata in questo fotogramma si accende. */
-    const span = norm(sweep - prev);
-    N.forEach(n => {
-      if(n.a < .1) return;
-      const ang = Math.atan2(n.y, n.x);
-      if(norm(ang - prev) <= span) n.echo = 1;
-    });
-    if(sweep > TAU) sweep -= TAU;
-  }
-  N.forEach(n => n.echo = Math.max(0, n.echo - dt*DECAY));
-
-  drawFg(dt);
-}
-
-function start(){ if(!raf){ last = performance.now(); raf = requestAnimationFrame(frame); } }
-function stop(){ if(raf){ cancelAnimationFrame(raf); raf = 0; } }
-document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
-
-/* ==========================================================================
-   9. Interazione con la mappa
-   ========================================================================== */
-function pick(ev){
-  const r = mapEl.getBoundingClientRect();
-  const x = ev.clientX - r.left - CX, y = ev.clientY - r.top - CY;
-  /* Il più vicino fra quelli effettivamente centrati: ogni nodo ha il proprio
-     raggio di presa, e vince la distanza minore. */
-  let best = null, bd = Infinity;
-  N.forEach(n => {
-    if(n.a < .3) return;
-    const rad = nodeR(n) + (n.kind === 'area' ? 16 : 12);
-    const d = Math.hypot(n.x - x, n.y - y);
-    if(d <= rad && d < bd){ bd = d; best = n; }
-  });
-  return best;
-}
-mapEl.addEventListener('pointermove', ev => {
-  const n = pick(ev);
-  hover = n ? n.id : null;
-  mapEl.classList.toggle('is-hit', !!n);
-});
-mapEl.addEventListener('pointerleave', () => {hover = null; mapEl.classList.remove('is-hit');});
-mapEl.addEventListener('click', ev => {
-  const n = pick(ev);
-  if(n) location.hash = '#/' + n.id;
-});
-
-/* ==========================================================================
-   10. Rotte
-   ========================================================================== */
-/* Conteggi calcolati dall'albero, così la legenda non mente quando aggiungi
-   o togli un nodo. */
-const COUNT = {
-  area: N.filter(n => n.kind === 'area').length,
-  prog: N.filter(n => n.kind === 'prog').length,
-  leaf: N.filter(n => n.kind === 'leaf').length
-};
-function legend(){
-  const it = lang() === 'it';
-  document.getElementById('lg-1').textContent = it
-    ? "CLICCA UN NODO CON L'ANELLO PER ESPLORARE · UN PROGETTO PER APRIRLO"
-    : 'CLICK A RINGED NODE TO EXPLORE · CLICK A PROJECT TO OPEN IT';
-  document.getElementById('lg-2').textContent = it
-    ? `${COUNT.area} AREE · ${COUNT.prog} PROGRAMMA · ${COUNT.leaf} PROGETTI · 1 FLAGSHIP`
-    : `${COUNT.area} AREAS · ${COUNT.prog} PROGRAMME · ${COUNT.leaf} PROJECTS · 1 FLAGSHIP`;
-}
-
-function go(){
-  const h = location.hash.replace(/^#\/?/,'').replace(/\/$/,'');
-  route = ROUTES[h] ? h : 'centro';
-  const r = ROUTES[route];
-
-  html.dataset.area = r.area;
-  focusArea = r.kind === 'area' ? route
-            : (r.kind === 'prog' || r.kind === 'leaf') ? byId(route).area
-            : null;
-  selected = (r.kind === 'prog' || r.kind === 'leaf') ? route : null;
-
-  document.querySelectorAll('.view').forEach(v => v.classList.toggle('is-on', v.id === r.view));
-
-  /* Se esiste una pill per la rotta esatta si accende solo quella; altrimenti
-     si accende quella dell'area, che fa da traccia di percorso. */
-  const pills = [...document.querySelectorAll('.pill')];
-  const targets = pills.map(p => p.getAttribute('href').replace('#/',''));
-  const exact = targets.includes(route);
-  pills.forEach((p,i) => p.classList.toggle('is-on',
-    targets[i] === route || (!exact && targets[i] === focusArea)));
-
-  mapEl.classList.toggle('is-deep', !!focusArea);
-
-  layout(false); drawMini(); drawBg();
-  window.scrollTo(0,0);
-}
-addEventListener('hashchange', go);
-
-/* ==========================================================================
-   11. Lingua e tema
-   ========================================================================== */
-const store = (k,v) => {try{ v === undefined ? 0 : localStorage.setItem('ff.'+k,v); return localStorage.getItem('ff.'+k);}catch(e){return null;}};
-
-document.getElementById('lang').addEventListener('click', () => {
-  const l = lang() === 'it' ? 'en' : 'it';
-  html.dataset.lang = l; html.lang = l; store('lang', l);
-  legend(); drawBg();
-});
-document.getElementById('theme').addEventListener('click', () => {
-  const t = html.dataset.theme === 'dark' ? 'light' : 'dark';
-  html.dataset.theme = t; store('theme', t);
-  drawBg(); drawMini();
-});
-
-/* Preferenze ritrovate; alla prima visita il tema segue il sistema. */
-(function init(){
-  const l = store('lang'); if(l === 'it' || l === 'en'){ html.dataset.lang = l; html.lang = l; }
-  const t = store('theme');
-  html.dataset.theme = (t === 'light' || t === 'dark') ? t
-    : (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-})();
-
-/* ==========================================================================
-   12. Avvio
-   ========================================================================== */
-/* Il browser ripristina lo scorrimento dopo il load, quindi ricaricare con un
-   hash profondo — per esempio #/iceroute — atterrava a metà del flagship,
-   dopo che go() aveva già riportato la pagina in cima. */
-if('scrollRestoration' in history) history.scrollRestoration = 'manual';
-
-addEventListener('resize', resize);
-reduce.addEventListener?.('change', () => {layout(true); drawFg(0);});
-if(document.fonts && document.fonts.ready) document.fonts.ready.then(() => {drawBg(); drawMini();});
-
-resize(); legend(); go(); start();
-
-})();
-</script>
+<script type="module" src="map.js"></script>
 
 </body>
 </html>

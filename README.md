@@ -3,14 +3,31 @@
 Sito personale di Federico Fassio — Torino.
 **Live:** https://doublef35.github.io/
 
-Una pagina sola: `index.html` contiene HTML, CSS e JavaScript. Nessun
-framework, nessun build step, nessuna dipendenza da installare. Si modifica con
-un editor, si salva, `git push`: GitHub Pages aggiorna il sito da solo in un
-minuto.
+Nessun build step, niente da installare, niente da compilare: si modifica con un
+editor, si salva, `git push`, e GitHub Pages aggiorna il sito in un minuto.
 
-Non è un portfolio a scorrimento: è una **mappa radar interattiva**. A sinistra
-un grafo su canvas con una spazzata che gira e accende i nodi al passaggio; a
-destra il pannello che cambia senza ricaricare la pagina.
+Non è un portfolio a scorrimento: è una **mappa radar tridimensionale**. A
+sinistra una scena WebGL che si può ruotare col trascinamento e avvicinare con
+la rotella, con una spazzata che gira e accende i nodi al passaggio; a destra il
+pannello che cambia senza ricaricare la pagina.
+
+## Struttura dei file
+
+| File | Cosa |
+|---|---|
+| `index.html` | Markup, CSS e tutti i contenuti nelle due lingue |
+| `map.js` | La mappa 3D: modello del grafo, scena, controlli, rotte |
+| `vendor/three.module.min.js` | three.js r165, MIT — l'unica dipendenza |
+| `fonts/`, `img/` | Caratteri e fotografie, con le rispettive istruzioni |
+
+three.js sta **nel repository e non su un CDN**: il sito deve continuare a
+funzionare anche se un CDN cade o cambia politica. Costa 664 KB nel repo, che
+viaggiano compressi a circa 170 KB e vengono messi in cache dal browser al
+primo caricamento.
+
+Finché la mappa era su canvas 2D il sito stava in un file solo. Con three.js
+quella proprietà era già persa, quindi la mappa è passata in `map.js` invece di
+gonfiare `index.html` a 2700 righe.
 
 ---
 
@@ -30,12 +47,18 @@ Fuori dal radar, raggiungibili dalla barra: **Percorso** (esperienza e
 formazione) e **Contatti**. Un curriculum è una sequenza di date, e una mappa
 radiale non sa rappresentare il tempo.
 
+Nell'area **Volo** parte un razzo dal nodo e sale girando; nell'area **Orbita**
+un satellite gira attorno al nodo su un'orbita inclinata. Sono costruiti con
+primitive di three.js, non caricati da un file: un GLTF vorrebbe l'addon
+`GLTFLoader`, una importmap e un asset da scaricare, per due oggetti che sono
+un cilindro con un cono sopra e una scatola con due ali.
+
 ### Aggiungere un progetto
 
 Due cose, e nient'altro:
 
-1. una foglia nell'albero `TREE`, in cima allo `<script>`;
-2. una `<section class="view" id="v-NOME">` nel `<main>`.
+1. una foglia nell'albero `TREE`, in cima a `map.js`;
+2. una `<section class="view" id="v-NOME">` nel `<main>` di `index.html`.
 
 Le rotte, la pill, il conteggio nella legenda e la minimappa si aggiornano da
 soli: sono derivati dall'albero. La profondità non è fissa — se un nodo ha
@@ -109,12 +132,18 @@ segue le preferenze di sistema. Poi resta quello scelto (`localStorage`).
 
 ## Accessibilità
 
-- Il canvas è `aria-hidden`: ogni nodo cliccabile esiste anche come link nella
+- La scena è `aria-hidden`: ogni nodo cliccabile esiste anche come link nella
   barra e nelle schede, quindi non si naviga la stessa cosa due volte.
 - Senza JavaScript le viste si mostrano tutte una sotto l'altra, in italiano.
   Un portfolio non deve essere una pagina bianca per chi ha lo script bloccato.
-- `prefers-reduced-motion`: la spazzata si ferma e i nodi non si riaggregano,
-  saltano direttamente in posizione.
+- **Senza WebGL** la mappa sparisce e il pannello prende tutta la larghezza:
+  `map.js` intercetta l'errore e mette `no-gl` sull'`<html>`. Il contenuto è
+  tutto nel DOM, quindi non si perde niente.
+- `prefers-reduced-motion`: la spazzata si ferma, il razzo e il satellite
+  restano immobili e i nodi saltano in posizione invece di riaggregarsi.
+- Su schermo stretto restano solo le etichette dei nodi apribili: tredici
+  etichette a corpo fisso dentro una fascia di 38vh si accavallano. I progetti
+  si toccano lo stesso e sono elencati nel pannello.
 
 ---
 
