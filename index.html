@@ -1,0 +1,1142 @@
+<!doctype html>
+<html lang="it" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Federico Fassio — Aerospazio, software, imprenditoria. Torino.</title>
+<meta name="description" content="Federico Fassio, studente al Liceo Scientifico Galileo Ferraris di Torino. Razzi progettati e strumentati, simulazioni numeriche, web app in produzione. Cofondatore di EdUnity.">
+<meta name="author" content="Federico Fassio">
+<link rel="canonical" href="https://doublef35.github.io/">
+
+<!-- ==========================================================================
+     DA COMPLETARE (bozza v0.1 — cerca "TODO" nel file)
+     1. FOTO: metti i file in img/ e togli il commento all'<img> sotto ogni
+        segnaposto .plate (le istruzioni sono accanto a ognuno).
+        Servono: img/ritratto.jpg, img/seeker-ii.jpg, img/edunity.jpg
+     2. SOCIAL: LinkedIn e Instagram sono pronti nella sezione Contatti,
+        commentati: incolla l'URL e togli il commento.
+     3. GARA STARTUP: manca il nome della competizione (sezione Imprenditoria).
+     4. og:image: quando hai una foto, aggiungila qui sotto per le anteprime
+        nei messaggi e sui social.
+     ========================================================================== -->
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Federico Fassio — Aerospazio, software, imprenditoria">
+<meta property="og:description" content="Studente a Torino. Razzi progettati e strumentati, simulazioni numeriche, web app in produzione. Cofondatore di EdUnity.">
+<meta property="og:url" content="https://doublef35.github.io/">
+<meta property="og:locale" content="it_IT">
+<!-- TODO og:image: <meta property="og:image" content="https://doublef35.github.io/img/ritratto.jpg"> -->
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23F3F1EC'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='40' text-anchor='middle' fill='%2314171A'%3EF%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script>document.documentElement.className = document.documentElement.className.replace('no-js','js');</script>
+
+<style>
+/* ==========================================================================
+   1. Token
+   ========================================================================== */
+:root{
+  color-scheme: light;
+
+  --paper:#F3F1EC;
+  --paper-2:#EAE7E0;
+  --ink:#14171A;
+  --ink-2:#4A5057;
+  --ink-3:#61686E;
+  --rule:#D6D2C8;
+  --accent:#B23A25;
+
+  --night:#111417;
+  --night-2:#191D21;
+  --night-ink:#E8E4DB;
+  --night-ink-2:#A6A29A;
+  --night-ink-3:#8A8880;
+  --night-rule:#2B3136;
+  --accent-hi:#E4674A;
+
+  --serif:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --sans:'Inter Tight',system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+
+  --wrap:74rem;
+  --pad:clamp(1.15rem,4vw,3rem);
+  --rail:8.5rem;
+  --gap:clamp(1.5rem,4vw,3.25rem);
+  --sec-y:clamp(3.25rem,7.5vw,6.5rem);
+
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+
+/* ==========================================================================
+   2. Base
+   ========================================================================== */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font:400 1.0625rem/1.62 var(--sans);
+  font-feature-settings:"kern" 1;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* grana di carta, sottile, non interattiva */
+body::after{
+  content:'';
+  position:fixed; inset:0; z-index:90; pointer-events:none;
+  opacity:.038;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3,h4{margin:0;font-weight:400;text-wrap:balance}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+a{color:inherit}
+
+::selection{background:var(--accent);color:var(--paper)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:200;
+  background:var(--ink);color:var(--paper);padding:.7rem 1rem;
+  font:500 .8rem/1 var(--mono);text-decoration:none;
+}
+.skip:focus{left:.5rem;top:.5rem}
+
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--pad)}
+
+/* ==========================================================================
+   3. Tipografia di servizio
+   ========================================================================== */
+.mono{font-family:var(--mono);font-size:.75rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
+.serif{font-family:var(--serif)}
+.lede{font-size:clamp(1.0625rem,1.4vw,1.1875rem);color:var(--ink-2);max-width:62ch}
+.lede + .lede{margin-top:1.1em}
+.deck{
+  font-family:var(--serif);font-style:italic;
+  font-size:clamp(1.3rem,2.9vw,2rem);line-height:1.24;letter-spacing:-.01em;
+  color:var(--ink);max-width:34ch;
+}
+em{font-family:var(--serif);font-style:italic;font-size:1.06em}
+
+/* collegamenti nel testo: sottolineatura tipografica, non decorativa */
+.lk{
+  text-decoration:none;
+  background-image:linear-gradient(var(--accent),var(--accent));
+  background-repeat:no-repeat;
+  background-position:0 100%;
+  background-size:100% 1px;
+  padding-bottom:1px;
+  transition:background-size .25s var(--ease),color .25s var(--ease);
+}
+.lk:hover{color:var(--accent);background-size:100% 2px}
+
+.ico{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* ==========================================================================
+   4. Testata
+   ========================================================================== */
+.masthead{
+  position:sticky;top:0;z-index:100;
+  background:var(--paper);
+  border-bottom:1px solid transparent;
+  transition:border-color .2s linear;
+}
+.masthead.is-scrolled{border-bottom-color:var(--rule)}
+.masthead__in{
+  max-width:var(--wrap);margin-inline:auto;padding:.85rem var(--pad);
+  display:flex;align-items:center;gap:1.5rem;
+}
+.sig{
+  font-family:var(--mono);font-size:.75rem;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;text-decoration:none;
+  white-space:nowrap;
+}
+.sig b{font-weight:500}
+.sig span{color:var(--ink-3)}
+.nav{
+  margin-left:auto;display:flex;gap:1.35rem;
+  overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;
+  mask-image:linear-gradient(90deg,#000 0,#000 92%,transparent 100%);
+}
+.nav::-webkit-scrollbar{display:none}
+.nav a{
+  font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.1em;
+  text-transform:uppercase;text-decoration:none;color:var(--ink-3);
+  white-space:nowrap;padding-block:.15rem;
+  border-bottom:1px solid transparent;
+  transition:color .2s var(--ease),border-color .2s var(--ease);
+}
+.nav a:hover{color:var(--ink)}
+.nav a.is-cur{color:var(--ink);border-bottom-color:var(--accent)}
+
+/* ==========================================================================
+   5. Apertura
+   ========================================================================== */
+.hero{padding-block:clamp(2.75rem,8vw,6rem) clamp(2.5rem,6vw,4.5rem)}
+.hero__grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:var(--gap);align-items:end}
+.hero__kicker{display:flex;align-items:center;gap:.6rem;margin-bottom:clamp(1rem,2.5vw,1.75rem)}
+.hero__kicker::after{content:'';height:1px;flex:1;background:var(--rule)}
+h1{
+  font-family:var(--serif);
+  font-size:clamp(3.1rem,11.5vw,7.5rem);
+  line-height:.9;letter-spacing:-.025em;
+  margin-bottom:clamp(1rem,2.4vw,1.5rem);
+}
+h1 .h1-2{display:block}
+.hero__deck{margin-bottom:clamp(1.25rem,3vw,1.85rem)}
+.hero__foot{margin-top:clamp(1.5rem,3.5vw,2.25rem);display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;align-items:center}
+
+/* scheda d'identità: blocco dati come in un cartiglio */
+.card{border-top:2px solid var(--ink);padding-top:.9rem}
+.card__t{margin-bottom:.6rem}
+.dl{margin:0}
+.dl > div{
+  display:flex;align-items:baseline;gap:.55rem;
+  padding:.52rem 0;border-bottom:1px solid var(--rule);
+}
+.dl dt{
+  font-family:var(--mono);font-size:.68rem;font-weight:500;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);flex:none;
+}
+.dl .lead{flex:1;min-width:.75rem;border-bottom:1px dotted var(--rule);transform:translateY(-.22em)}
+.dl dd{margin:0;font-size:.92rem;text-align:right;color:var(--ink)}
+.dl dd a{text-decoration:none;border-bottom:1px solid var(--rule)}
+.dl dd a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* ==========================================================================
+   6. Sezioni e tavole
+   ========================================================================== */
+.sec{border-top:1px solid var(--rule);padding-block:var(--sec-y)}
+.sec__in{display:grid;grid-template-columns:var(--rail) minmax(0,1fr);gap:var(--gap)}
+.rail{position:sticky;top:4.5rem;align-self:start}
+.rail__n{font-family:var(--mono);font-size:.75rem;font-weight:500;letter-spacing:.12em;color:var(--accent);display:block}
+.rail__l{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);display:block;margin-top:.4rem}
+.rail::after{content:'';display:block;width:1.75rem;height:1px;background:var(--rule);margin-top:.9rem}
+
+h2{font-family:var(--serif);font-size:clamp(1.9rem,4.6vw,3rem);line-height:1.02;letter-spacing:-.02em;max-width:26ch}
+.sec__head{margin-bottom:clamp(1.5rem,3.5vw,2.5rem)}
+.sec__head .lede{margin-top:1.1rem}
+
+/* tavola: voce principale, due colonne, nessuna card */
+.plate-set{display:grid;gap:clamp(2.25rem,5vw,3.5rem)}
+.tav{border-top:1px solid var(--rule);padding-top:1.4rem}
+.tav__top{display:flex;align-items:baseline;gap:.75rem;flex-wrap:wrap;margin-bottom:.9rem}
+.tav__n{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.12em;color:var(--accent)}
+h3{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.05rem);line-height:1.1;letter-spacing:-.015em}
+.tav__sub{font-family:var(--serif);font-style:italic;font-size:1.0625rem;color:var(--ink-2)}
+.tav__body{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:var(--gap)}
+.tav__txt > * + *{margin-top:1.05em}
+.tav__links{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;margin-top:1.3em}
+
+.out{
+  display:inline-flex;align-items:center;gap:.45rem;
+  font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.09em;
+  text-transform:uppercase;text-decoration:none;color:var(--ink-2);
+  border-bottom:1px solid var(--rule);padding-bottom:.2rem;
+  transition:color .2s var(--ease),border-color .2s var(--ease);
+}
+.out .ico{width:.85em;height:.85em;transition:transform .2s var(--ease)}
+.out:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.out:hover .ico{transform:translate(1px,-1px)}
+
+/* specifiche: etichetta, filo, valore */
+.spec{border-top:1px solid var(--ink);padding-top:.75rem}
+.spec--soft{border-top-color:var(--rule)}
+.spec > div{display:flex;align-items:baseline;gap:.5rem;padding:.42rem 0;border-bottom:1px solid var(--rule)}
+.spec dt{font-family:var(--mono);font-size:.68rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);flex:none}
+.spec .lead{flex:1;min-width:.75rem;border-bottom:1px dotted var(--rule);transform:translateY(-.22em)}
+.spec dd{margin:0;font-family:var(--mono);font-size:.78rem;text-align:right;color:var(--ink)}
+
+/* segnaposto fotografico: cornice con tacche d'angolo */
+.plate{
+  position:relative;border:1px solid var(--rule);background:var(--paper-2);
+  aspect-ratio:4/3;display:grid;place-items:center;text-align:center;padding:1rem;
+}
+.plate--tall{aspect-ratio:4/5}
+.plate::before,.plate::after{
+  content:'';position:absolute;width:9px;height:9px;border:1px solid var(--accent);
+}
+.plate::before{top:6px;left:6px;border-right:0;border-bottom:0}
+.plate::after{bottom:6px;right:6px;border-left:0;border-top:0}
+.plate figcaption,.plate p{font-family:var(--mono);font-size:.68rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);line-height:1.7}
+.fig{margin:0}
+.fig__cap{
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);margin-top:.6rem;display:flex;gap:.5rem;
+}
+.fig__cap b{color:var(--accent);font-weight:500;flex:none}
+
+/* ==========================================================================
+   7. Banda scura
+   ========================================================================== */
+.sec--night{
+  --paper:var(--night);--paper-2:var(--night-2);
+  --ink:var(--night-ink);--ink-2:var(--night-ink-2);--ink-3:var(--night-ink-3);
+  --rule:var(--night-rule);--accent:var(--accent-hi);
+  background:var(--night);color:var(--night-ink);border-top-color:var(--night);
+}
+.sec--night .spec{border-top-color:var(--night-ink-2)}
+.sec--night .card{border-top-color:var(--night-ink-2)}
+.sec--night ::selection{background:var(--accent-hi);color:var(--night)}
+
+/* ==========================================================================
+   8. Griglia di voci minori
+   ========================================================================== */
+.mini{display:grid;grid-template-columns:repeat(auto-fit,minmax(15.5rem,1fr));gap:0 var(--gap);margin-top:clamp(2.25rem,5vw,3.25rem)}
+.mini > li{border-top:1px solid var(--rule);padding:1.1rem 0 1.35rem}
+.mini h4{font-family:var(--serif);font-size:1.28rem;line-height:1.16;margin:.35rem 0 .45rem}
+.mini p{font-size:.94rem;color:var(--ink-2)}
+.mini .out{margin-top:.85rem}
+.mini__k{font-family:var(--mono);font-size:.66rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+
+/* ==========================================================================
+   9. Indice dei lavori
+   ========================================================================== */
+.idx{border-top:1px solid var(--ink)}
+.idx > li{border-bottom:1px solid var(--rule)}
+.idx a,.idx .row{
+  display:grid;
+  grid-template-columns:5.5rem minmax(7rem,1.05fr) minmax(0,1.75fr) 6.5rem 1.1rem;
+  gap:1rem;align-items:baseline;
+  padding:.85rem .5rem .85rem 0;
+  text-decoration:none;position:relative;
+  transition:background-color .18s linear,padding-left .18s var(--ease);
+}
+.idx a::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--accent);
+  transform:scaleY(0);transform-origin:top;transition:transform .22s var(--ease);
+}
+.idx a:hover{background:var(--paper-2);padding-left:.6rem}
+.idx a:hover::before{transform:scaleY(1)}
+.idx__d{font-family:var(--mono);font-size:.72rem;color:var(--ink-3);white-space:nowrap}
+.idx__n{font-family:var(--serif);font-size:1.16rem;line-height:1.2}
+.idx__w{font-size:.9rem;color:var(--ink-2)}
+.idx__t{font-family:var(--mono);font-size:.66rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);text-align:right;white-space:nowrap}
+.idx__a{justify-self:end;color:var(--ink-3)}
+.idx a:hover .idx__a{color:var(--accent)}
+.idx .row{color:var(--ink-3)}
+.idx .row .idx__n{color:var(--ink-2)}
+.idx__foot{margin-top:1.25rem;display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;align-items:baseline}
+
+/* ==========================================================================
+   10. Metodo
+   ========================================================================== */
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:0 var(--gap)}
+.method > li{border-top:1px solid var(--rule);padding:1.1rem 0 1.5rem}
+.method h4{font-family:var(--serif);font-size:1.3rem;line-height:1.14;margin:.4rem 0 .5rem}
+.method p{font-size:.94rem;color:var(--ink-2)}
+.method__n{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.12em;color:var(--accent)}
+
+/* ==========================================================================
+   11. Contatti
+   ========================================================================== */
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--gap)}
+.mail{
+  display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;
+  font-family:var(--serif);font-size:clamp(1.35rem,3.2vw,2.1rem);line-height:1.15;
+  letter-spacing:-.01em;word-break:break-word;
+}
+.mail .ico{width:.72em;height:.72em;color:var(--accent)}
+.mail:hover{color:var(--accent)}
+.clist{margin-top:1.75rem;border-top:1px solid var(--rule)}
+.clist > li{border-bottom:1px solid var(--rule)}
+.clist a{
+  display:flex;align-items:center;gap:.75rem;padding:.8rem 0;text-decoration:none;
+  transition:padding-left .18s var(--ease),color .18s var(--ease);
+}
+.clist a:hover{padding-left:.4rem;color:var(--accent)}
+.clist .ico{width:1.05rem;height:1.05rem;color:var(--ink-3)}
+.clist a:hover .ico{color:var(--accent)}
+.clist__l{font-family:var(--mono);font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);flex:none;width:5.5rem}
+.clist__v{font-size:.95rem;overflow-wrap:anywhere}
+.clist .ico--a{margin-left:auto;width:.8rem;height:.8rem}
+
+/* ==========================================================================
+   12. Cartiglio
+   ========================================================================== */
+.foot{border-top:2px solid var(--ink);padding-block:clamp(1.75rem,4vw,2.5rem) clamp(2.25rem,5vw,3rem)}
+.foot__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));border-bottom:1px solid var(--rule)}
+.foot__cell{padding:.9rem 1rem .9rem 0}
+.foot__cell dt{font-family:var(--mono);font-size:.64rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.foot__cell dd{margin:.35rem 0 0;font-size:.9rem}
+.foot__note{margin-top:1.1rem;display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:space-between;font-size:.82rem;color:var(--ink-3)}
+
+/* ==========================================================================
+   13. Comparsa allo scorrimento
+   ========================================================================== */
+html.js .r{opacity:0;transform:translateY(9px)}
+html.js .r.in{
+  opacity:1;transform:none;
+  transition:opacity .62s var(--ease) var(--d,0ms),transform .62s var(--ease) var(--d,0ms);
+}
+@media (prefers-reduced-motion:reduce){
+  html.js .r{opacity:1;transform:none;transition:none}
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important}
+}
+
+/* ==========================================================================
+   14. Adattamenti
+   ========================================================================== */
+@media (max-width:60rem){
+  .hero__grid{grid-template-columns:1fr;gap:clamp(2rem,6vw,3rem);align-items:start}
+  .tav__body{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr}
+  .idx a,.idx .row{grid-template-columns:5rem minmax(0,1fr) 1.1rem;row-gap:.35rem}
+  .idx__w{grid-column:2/4;font-size:.88rem}
+  .idx__t{grid-column:1/2;text-align:left}
+  .idx__a{grid-row:1;grid-column:3}
+}
+@media (max-width:52rem){
+  .sec__in{grid-template-columns:1fr;gap:1.15rem}
+  .rail{position:static;display:flex;align-items:center;gap:.8rem}
+  .rail__l{margin-top:0}
+  .rail::after{margin-top:0;flex:1;width:auto}
+  h2{max-width:none}
+}
+@media (max-width:26rem){
+  .idx a,.idx .row{grid-template-columns:4.5rem minmax(0,1fr) 1rem;gap:.6rem}
+  .clist__l{width:4.5rem}
+}
+
+@media print{
+  body::after,.masthead,.nav{display:none}
+  body{background:#fff;font-size:10pt}
+  .sec--night{background:#fff;color:#000;--ink:#000;--ink-2:#333;--ink-3:#555;--rule:#bbb;--accent:#000}
+  .sec{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Salta al contenuto</a>
+
+<!-- Set di icone: SVG a linea, 24×24, stroke 1.5, currentColor -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9.5 7H17v7.5"/></symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M12 2.6c2.8 2.7 4.2 6.1 4.2 9.4v2.9l2.3 3.5H5.5l2.3-3.5v-2.9c0-3.3 1.4-6.7 4.2-9.4Z"/><circle cx="12" cy="10" r="1.7"/><path d="M10.2 21.4 12 19l1.8 2.4"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="M9 7.5 4.5 12 9 16.5M15 7.5 19.5 12 15 16.5"/></symbol>
+  <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8.2" r="3.2"/><path d="M3.4 19.4c.5-3 2.8-4.8 5.6-4.8s5.1 1.8 5.6 4.8"/><path d="M16.2 5.4a3.2 3.2 0 0 1 0 5.6M17.4 14.9c2.1.5 3.6 2.2 4 4.5"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="1"/><path d="M3.4 6.4 12 13l8.6-6.6"/></symbol>
+  <symbol id="i-git" viewBox="0 0 24 24"><circle cx="7" cy="4.5" r="2.1"/><circle cx="7" cy="19.5" r="2.1"/><circle cx="17" cy="6.5" r="2.1"/><path d="M7 6.6v10.8M17 8.6v2.1c0 2.1-1.7 3.8-3.8 3.8H7"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.2s6.6-6.3 6.6-10.6a6.6 6.6 0 1 0-13.2 0C5.4 14.9 12 21.2 12 21.2Z"/><circle cx="12" cy="10.4" r="2.3"/></symbol>
+  <symbol id="i-wave" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.8"/><path d="M8.4 15.6a5.1 5.1 0 0 1 0-7.2M15.6 8.4a5.1 5.1 0 0 1 0 7.2M5.6 18.4a9 9 0 0 1 0-12.8M18.4 5.6a9 9 0 0 1 0 12.8"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h7.5L18.5 8v13H6z"/><path d="M13.5 3v5h5M9 13h6M9 16.5h4"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10.5 13.5a3.6 3.6 0 0 0 5.1 0l2.9-2.9a3.6 3.6 0 0 0-5.1-5.1l-1.1 1.1"/><path d="M13.5 10.5a3.6 3.6 0 0 0-5.1 0l-2.9 2.9a3.6 3.6 0 0 0 5.1 5.1l1.1-1.1"/></symbol>
+</svg>
+
+<header class="masthead">
+  <div class="masthead__in">
+    <a class="sig" href="#top"><b>Federico Fassio</b> <span>— Torino</span></a>
+    <nav class="nav" aria-label="Sezioni">
+      <a href="#profilo">Profilo</a>
+      <a href="#ricerca">Ricerca</a>
+      <a href="#imprenditoria">Imprenditoria</a>
+      <a href="#lavori">Lavori</a>
+      <a href="#indice">Indice</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ===================== APERTURA ===================== -->
+<section class="hero wrap" aria-labelledby="h-nome">
+  <div class="hero__grid">
+    <div>
+      <p class="mono hero__kicker">Torino, Italia &middot; Bozza v0.1</p>
+      <h1 id="h-nome">Federico<span class="h1-2">Fassio</span></h1>
+      <p class="deck">Progetto razzi e li strumento, simulo prima di costruire, e scrivo software che finisce online.</p>
+      <p class="lede">Studente al Liceo Scientifico Galileo Ferraris di Torino. Ho cofondato <strong>EdUnity</strong>, un'app di studio con l'AI gratuita per tutti gli studenti, e costruito <strong>Seeker-II</strong>, un razzo modello con avionica e telemetria progettate da zero. Nel mezzo: simulazioni CFD, un CubeSat radar da tavolo, e siti per attività che avevano bisogno di esistere online.</p>
+      <p class="hero__foot">
+        <a class="out" href="#ricerca">Ricerca e ingegneria <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="out" href="#indice">Indice dei lavori <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="out" href="#contatti">Contatti <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </p>
+    </div>
+
+    <div class="card r">
+      <p class="mono card__t">Scheda</p>
+      <dl class="dl">
+        <div><dt>Luogo</dt><span class="lead" aria-hidden="true"></span><dd>Torino, Italia</dd></div>
+        <div><dt>Scuola</dt><span class="lead" aria-hidden="true"></span><dd>Liceo Scientifico G. Ferraris</dd></div>
+        <div><dt>Fondatore</dt><span class="lead" aria-hidden="true"></span><dd><a href="https://edunityedu.it" rel="noopener">EdUnity</a></dd></div>
+        <div><dt>Campi</dt><span class="lead" aria-hidden="true"></span><dd>Aerospazio, software, imprenditoria</dd></div>
+        <div><dt>Strumenti</dt><span class="lead" aria-hidden="true"></span><dd>Fusion&nbsp;360, OpenRocket, ESP32, JavaScript, Firebase</dd></div>
+        <div><dt>Codice</dt><span class="lead" aria-hidden="true"></span><dd><a href="https://github.com/DoubleF35" rel="noopener">@DoubleF35</a></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== N.01 PROFILO ===================== -->
+<section class="sec" id="profilo" aria-labelledby="h-profilo">
+  <div class="wrap sec__in">
+    <div class="rail"><span class="rail__n">N.01</span><span class="rail__l">Profilo</span></div>
+    <div>
+      <div class="sec__head">
+        <h2 id="h-profilo">Costruisco cose finite, non dimostrazioni</h2>
+        <p class="lede r">Ho iniziato dai progetti che volevo esistessero e non trovavo: un'app che trasformasse le registrazioni delle lezioni in materiale di studio, un razzo che mi dicesse cosa era successo in volo, un lettore musicale che fosse solo mio. Ogni volta la parte interessante è la stessa: capire il fenomeno abbastanza bene da poterlo simulare, poi costruire la cosa e vedere di quanto ci si sbagliava.</p>
+        <p class="lede r">Lavoro su tre fronti che sembrano distanti e non lo sono. L'aerospazio mi insegna a misurare e a non fidarmi delle intuizioni; il software mi permette di consegnare in giornata; l'imprenditoria mi obbliga a chiedermi per chi sto costruendo. Quasi tutto quello che c'è in questa pagina è online e in uso, servito da servizi gratuiti usati fino in fondo.</p>
+      </div>
+
+      <div class="tav__body">
+        <ul class="mini" style="margin-top:0">
+          <li class="r">
+            <p class="mini__k"><svg class="ico" aria-hidden="true" style="vertical-align:-.15em"><use href="#i-rocket"/></svg> Fronte 01</p>
+            <h4>Aerospazio e simulazione</h4>
+            <p>Razzi progettati, simulati, costruiti e strumentati. Fluidodinamica, radar ad apertura sintetica, termodinamica.</p>
+            <a class="out" href="#ricerca">Vedi la ricerca <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </li>
+          <li class="r">
+            <p class="mini__k"><svg class="ico" aria-hidden="true" style="vertical-align:-.15em"><use href="#i-people"/></svg> Fronte 02</p>
+            <h4>Imprenditoria</h4>
+            <p>EdUnity, app di studio con AI gratuita, nata in cinque studenti da un liceo di Torino. E YET, la community dei giovani builder torinesi.</p>
+            <a class="out" href="#imprenditoria">Vedi i progetti <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </li>
+          <li class="r">
+            <p class="mini__k"><svg class="ico" aria-hidden="true" style="vertical-align:-.15em"><use href="#i-code"/></svg> Fronte 03</p>
+            <h4>Software e web</h4>
+            <p>Siti e applicazioni per attività reali e per me: un file, nessun backend, online in giornata e mantenibili da chi li usa.</p>
+            <a class="out" href="#lavori">Vedi i lavori <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </li>
+        </ul>
+
+        <figure class="fig r">
+          <!-- TODO FOTO — ritratto.
+               1. metti il file in  img/ritratto.jpg
+               2. cancella il blocco <div class="plate ..."> qui sotto
+               3. togli il commento a questo <img>:
+          <img src="img/ritratto.jpg" alt="Federico Fassio" width="1000" height="1250" style="aspect-ratio:4/5;object-fit:cover;border:1px solid var(--rule)">
+          -->
+          <div class="plate plate--tall"><p>Ritratto<br>da inserire<br>img/ritratto.jpg</p></div>
+          <figcaption class="fig__cap"><b>Fig.&nbsp;1</b> <span>Federico Fassio, Torino.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== N.02 RICERCA (banda scura) ===================== -->
+<section class="sec sec--night" id="ricerca" aria-labelledby="h-ricerca">
+  <div class="wrap sec__in">
+    <div class="rail"><span class="rail__n">N.02</span><span class="rail__l">Ricerca</span></div>
+    <div>
+      <div class="sec__head">
+        <h2 id="h-ricerca">Aerospazio, simulazione, strumentazione</h2>
+        <p class="lede r">Progetti in cui la verifica non è un'opinione: una simulazione che sbaglia si vede al lancio, un dato di volo che manca non si recupera. Qui il metodo conta più del risultato — modello numerico, prototipo, misura, correzione.</p>
+      </div>
+
+      <div class="plate-set">
+
+        <article class="tav r">
+          <div class="tav__top">
+            <span class="tav__n">Tav. I</span>
+            <h3>Seeker-II</h3>
+            <p class="tav__sub">Razzo modello a progetto integrale: aerodinamica, struttura, avionica, recupero.</p>
+          </div>
+          <div class="tav__body">
+            <div class="tav__txt">
+              <p class="lede">Il progetto parte in simulazione, con OpenRocket, per ottimizzare stabilità, centro di pressione e profilo di volo. Da lì il dimensionamento definitivo e il modello CAD completo in Fusion&nbsp;360: fusoliera, ogiva e struttura interna, con attenzione alla distribuzione delle masse e all'integrità strutturale. Le parti sono state fabbricate e assemblate, e il sistema di recupero a paracadute progettato e costruito per garantire un'apertura affidabile e una discesa controllata del payload.</p>
+              <p class="lede">Sopra al razzo c'è un computer di volo autoprogettato: un ESP32-C3 a architettura RISC-V che campiona altimetro e IMU e trasmette la telemetria a terra via LoRa a lungo raggio. Ho scritto anche l'interfaccia per visualizzare e analizzare i dati dopo il volo, perché un sistema che misura ma non racconta niente è mezzo sistema. Più iterazioni per aumentare l'affidabilità e proteggere il carico.</p>
+              <p class="tav__links">
+                <a class="out" href="https://github.com/DoubleF35/Seeker-II" rel="noopener">Repository e simulazione <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                <a class="out" href="https://www.thingiverse.com/thing:7338519" rel="noopener">Modello CAD <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              </p>
+            </div>
+            <div>
+              <dl class="spec">
+                <div><dt>Massa al lancio</dt><span class="lead" aria-hidden="true"></span><dd>≈364 g</dd></div>
+                <div><dt>Propulsione</dt><span class="lead" aria-hidden="true"></span><dd>Tsp E20-6</dd></div>
+                <div><dt>Calcolatore</dt><span class="lead" aria-hidden="true"></span><dd>ESP32-C3 (RISC-V)</dd></div>
+                <div><dt>Telemetria</dt><span class="lead" aria-hidden="true"></span><dd>LoRa SX1276, 433 MHz</dd></div>
+                <div><dt>Altimetro</dt><span class="lead" aria-hidden="true"></span><dd>BMP280</dd></div>
+                <div><dt>Inerziale</dt><span class="lead" aria-hidden="true"></span><dd>MPU6050, 6-DOF</dd></div>
+                <div><dt>Fondo scala</dt><span class="lead" aria-hidden="true"></span><dd>16 g</dd></div>
+                <div><dt>Campionamento</dt><span class="lead" aria-hidden="true"></span><dd>≈7 Hz</dd></div>
+                <div><dt>Recupero</dt><span class="lead" aria-hidden="true"></span><dd>Paracadute</dd></div>
+                <div><dt>Progetto</dt><span class="lead" aria-hidden="true"></span><dd>OpenRocket + Fusion 360</dd></div>
+              </dl>
+              <figure class="fig" style="margin-top:1.5rem">
+                <!-- TODO FOTO — razzo o render CAD.  Metti img/seeker-ii.jpg, cancella il .plate e usa:
+                <img src="img/seeker-ii.jpg" alt="Il razzo Seeker-II" width="1000" height="750" style="aspect-ratio:4/3;object-fit:cover;border:1px solid var(--rule)">
+                -->
+                <div class="plate"><p>Foto o render<br>img/seeker-ii.jpg</p></div>
+                <figcaption class="fig__cap"><b>Fig.&nbsp;2</b> <span>Seeker-II, vista d'assieme.</span></figcaption>
+              </figure>
+            </div>
+          </div>
+        </article>
+
+        <article class="tav r">
+          <div class="tav__top">
+            <span class="tav__n">Tav. II</span>
+            <h3>CubeSAR</h3>
+            <p class="tav__sub">Un CubeSat da scrivania che riprende l'ambiente con radar ad apertura sintetica.</p>
+          </div>
+          <div class="tav__body">
+            <div class="tav__txt">
+              <p class="lede">Lo stesso principio del Sentinel-1 — ricostruire un'immagine muovendo l'antenna e ricombinando gli echi in fase — portato alla scala di un tavolo. Un banco di prova per capire davvero come nasce un'immagine radar, invece di leggerlo.</p>
+              <p class="tav__links">
+                <a class="out" href="https://github.com/DoubleF35/CubeSAR" rel="noopener">Repository <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              </p>
+            </div>
+            <div>
+              <dl class="spec spec--soft">
+                <div><dt>Principio</dt><span class="lead" aria-hidden="true"></span><dd>Apertura sintetica</dd></div>
+                <div><dt>Riferimento</dt><span class="lead" aria-hidden="true"></span><dd>Sentinel-1, in scala</dd></div>
+                <div><dt>Formato</dt><span class="lead" aria-hidden="true"></span><dd>CubeSat da tavolo</dd></div>
+                <div><dt>Stato</dt><span class="lead" aria-hidden="true"></span><dd>In sviluppo</dd></div>
+              </dl>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <ul class="mini">
+        <li class="r">
+          <p class="mini__k">Simulazione &middot; 2026</p>
+          <h4>Water Rocket Simulator</h4>
+          <p>Progetti il razzo ad acqua nel browser e ne simuli il volo: geometria, pressione, massa d'acqua, traiettoria.</p>
+          <a class="out" href="https://doublef35.github.io/waterrocketsim/" rel="noopener">Provalo <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li class="r">
+          <p class="mini__k">Fluidodinamica &middot; 2026</p>
+          <h4>Stasis</h4>
+          <p>Simulazioni CFD: campi di flusso, grafici, confronto tra configurazioni. Il posto dove sbaglio prima di tagliare materiale.</p>
+          <a class="out" href="https://github.com/DoubleF35/stasisproject" rel="noopener">Repository <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li class="r">
+          <p class="mini__k">Termodinamica &middot; 2026</p>
+          <h4>Motore di particelle 2D</h4>
+          <p>Simulatore termodinamico interattivo: migliaia di particelle, urti elastici, e le grandezze macroscopiche che emergono da sole.</p>
+          <a class="out" href="https://github.com/DoubleF35/particle-engine-2d" rel="noopener">Repository <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li class="r">
+          <p class="mini__k">Avionica &middot; 2026</p>
+          <h4>Eagle Launch Simulator</h4>
+          <p>Due generazioni di simulatore di lancio, per provare profili di volo e logiche di bordo prima del campo. Repository privati.</p>
+          <p class="mini__k" style="margin-top:.85rem">Non pubblico</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== N.03 IMPRENDITORIA ===================== -->
+<section class="sec" id="imprenditoria" aria-labelledby="h-impresa">
+  <div class="wrap sec__in">
+    <div class="rail"><span class="rail__n">N.03</span><span class="rail__l">Imprenditoria</span></div>
+    <div>
+      <div class="sec__head">
+        <h2 id="h-impresa">Prodotti nati a scuola, usati fuori</h2>
+        <p class="lede r">Due progetti che esistono perché mancava qualcosa a noi: uno strumento di studio che nessuno ci dava, e un posto dove i ragazzi che costruiscono cose si trovassero.</p>
+      </div>
+
+      <div class="plate-set">
+
+        <article class="tav r">
+          <div class="tav__top">
+            <span class="tav__n">Tav. III</span>
+            <h3>EdUnity</h3>
+            <p class="tav__sub">Studia meglio con l'AI, gratis. Cofondata con quattro compagni di liceo.</p>
+          </div>
+          <div class="tav__body">
+            <div class="tav__txt">
+              <p class="lede">Cercavamo uno strumento che trasformasse registrazioni e appunti in materiale di studio pronto: non esisteva, così l'abbiamo costruito. EdUnity registra la lezione con una trascrizione ibrida — anteprima in tempo reale nel browser, trascrizione finale con Whisper — e da lì genera riassunti, flashcard, quiz con correzione, mappe concettuali. C'è un tutor che risponde a domande invece che dare soluzioni, e la matematica si risolve da una foto.</p>
+              <p class="lede">È pensata per tutti, con attenzione specifica a chi ha un <strong>DSA</strong> e agli <strong>studenti-atleti</strong>, che di tempo ne hanno meno di tutti. Tecnicamente: una web app installabile, Firebase per account e dati, e un Cloudflare Worker che fa da proxy verso i modelli con una cascata di fallback — nessuna chiave AI finisce nel browser. Gratuita, senza abbonamenti.</p>
+              <!-- TODO Federico: qui va il nome esatto della competizione (finale nazionale, giugno 2026) -->
+              <p class="tav__links">
+                <a class="out" href="https://edunityedu.it" rel="noopener">edunityedu.it <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                <a class="out" href="https://doublef35.github.io/EdUnity/" rel="noopener">Apri l'app <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                <a class="out" href="https://github.com/DoubleF35/EdUnity" rel="noopener">Repository <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              </p>
+            </div>
+            <div>
+              <dl class="spec">
+                <div><dt>Ruolo</dt><span class="lead" aria-hidden="true"></span><dd>Cofondatore</dd></div>
+                <div><dt>Squadra</dt><span class="lead" aria-hidden="true"></span><dd>5 studenti, Torino</dd></div>
+                <div><dt>Traguardo</dt><span class="lead" aria-hidden="true"></span><dd>Finale nazionale, 2026</dd></div>
+                <div><dt>Per chi</dt><span class="lead" aria-hidden="true"></span><dd>Studenti, DSA, atleti</dd></div>
+                <div><dt>Trascrizione</dt><span class="lead" aria-hidden="true"></span><dd>Web Speech + Whisper</dd></div>
+                <div><dt>Genera</dt><span class="lead" aria-hidden="true"></span><dd>Riassunti, flashcard, quiz, mappe</dd></div>
+                <div><dt>Piattaforma</dt><span class="lead" aria-hidden="true"></span><dd>Web app installabile</dd></div>
+                <div><dt>Dati</dt><span class="lead" aria-hidden="true"></span><dd>Firebase</dd></div>
+                <div><dt>AI</dt><span class="lead" aria-hidden="true"></span><dd>Cloudflare Worker, chiavi lato server</dd></div>
+                <div><dt>Prezzo</dt><span class="lead" aria-hidden="true"></span><dd>Gratis</dd></div>
+              </dl>
+              <figure class="fig" style="margin-top:1.5rem">
+                <!-- TODO FOTO — schermata dell'app.  Metti img/edunity.jpg, cancella il .plate e usa:
+                <img src="img/edunity.jpg" alt="EdUnity, schermata dell'app" width="1000" height="750" style="aspect-ratio:4/3;object-fit:cover;border:1px solid var(--rule)">
+                -->
+                <div class="plate"><p>Schermata<br>img/edunity.jpg</p></div>
+                <figcaption class="fig__cap"><b>Fig.&nbsp;3</b> <span>EdUnity, generazione del materiale.</span></figcaption>
+              </figure>
+            </div>
+          </div>
+        </article>
+
+        <article class="tav r">
+          <div class="tav__top">
+            <span class="tav__n">Tav. IV</span>
+            <h3>YET — Young Entrepreneurs Together</h3>
+            <p class="tav__sub">La community dei giovani builder di Torino, dai 16 ai 23 anni.</p>
+          </div>
+          <div class="tav__body">
+            <div class="tav__txt">
+              <p class="lede">Ho costruito il sito e la piattaforma della community: profili dei membri, notizie con allegati, iscrizione con approvazione, area riservata agli amministratori. Sito statico in React con Firebase per accesso e contenuti: nessun backend, nessuna funzione cloud, tutto dentro il piano gratuito — perché una community non deve avere costi fissi per esistere.</p>
+              <p class="tav__links">
+                <a class="out" href="https://doublef35.github.io/yet/" rel="noopener">Apri il sito <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                <a class="out" href="https://github.com/DoubleF35/yet" rel="noopener">Repository <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              </p>
+            </div>
+            <div>
+              <dl class="spec spec--soft">
+                <div><dt>Ruolo</dt><span class="lead" aria-hidden="true"></span><dd>Sito e piattaforma</dd></div>
+                <div><dt>Community</dt><span class="lead" aria-hidden="true"></span><dd>16–23 anni, Torino</dd></div>
+                <div><dt>Stack</dt><span class="lead" aria-hidden="true"></span><dd>React + Firebase</dd></div>
+                <div><dt>Backend</dt><span class="lead" aria-hidden="true"></span><dd>Nessuno</dd></div>
+                <div><dt>Costo</dt><span class="lead" aria-hidden="true"></span><dd>Piano gratuito</dd></div>
+              </dl>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== N.04 LAVORI ===================== -->
+<section class="sec" id="lavori" aria-labelledby="h-lavori">
+  <div class="wrap sec__in">
+    <div class="rail"><span class="rail__n">N.04</span><span class="rail__l">Lavori</span></div>
+    <div>
+      <div class="sec__head">
+        <h2 id="h-lavori">Siti per attività vere, e vetrine per dimostrarlo</h2>
+        <p class="lede r">Un sito serve se il proprietario può aggiornarlo da solo e se sta in piedi da telefono, in negozio, con una mano occupata. Parto dalla tipografia e dai contenuti reali — orari, prezzi, indirizzo — non da un template.</p>
+      </div>
+
+      <div class="plate-set">
+        <article class="tav r">
+          <div class="tav__top">
+            <span class="tav__n">Tav. V</span>
+            <h3>Frutta e Verdura Enrico</h3>
+            <p class="tav__sub">Albenga (SV). Sito editoriale e pannello di gestione per un fruttivendolo.</p>
+          </div>
+          <div class="tav__body">
+            <div class="tav__txt">
+              <p class="lede">Una pagina sola, costruita come un listino stampato: nomi in serif, filetti di guida, prezzi in mono, e lo stato del negozio — aperto o chiuso — calcolato dagli orari veri. Una banda animata racconta il percorso dalla terra al banco, e si spegne da sola per chi ha chiesto meno animazioni.</p>
+              <p class="lede">La parte che conta sta dietro: un pannello riservato, con accesso e dati su Firebase, da cui Enrico aggiorna prodotti, prezzi, offerte e orari senza chiamare nessuno. Le foto vengono ridimensionate nel browser prima del salvataggio.</p>
+              <p class="tav__links">
+                <a class="out" href="https://doublef35.github.io/fruttaeverduraenrico/" rel="noopener">Apri il sito <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              </p>
+            </div>
+            <div>
+              <dl class="spec spec--soft">
+                <div><dt>Cliente</dt><span class="lead" aria-hidden="true"></span><dd>Negozio, Albenga (SV)</dd></div>
+                <div><dt>Consegna</dt><span class="lead" aria-hidden="true"></span><dd>Una pagina, un file</dd></div>
+                <div><dt>Gestione</dt><span class="lead" aria-hidden="true"></span><dd>Pannello con accesso</dd></div>
+                <div><dt>Dati</dt><span class="lead" aria-hidden="true"></span><dd>Firebase + copia locale</dd></div>
+                <div><dt>Animazione</dt><span class="lead" aria-hidden="true"></span><dd>GSAP, disattivabile</dd></div>
+                <div><dt>Costo di gestione</dt><span class="lead" aria-hidden="true"></span><dd>Zero</dd></div>
+              </dl>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <ul class="mini">
+        <li class="r">
+          <p class="mini__k">Cliente &middot; Torino</p>
+          <h4>Aurea Hair Studio</h4>
+          <p>Sito per un parrucchiere: taglio, colore, trasformazioni. Presentazione dei servizi e contatto immediato.</p>
+          <a class="out" href="https://doublef35.github.io/aureaparrucchieri/" rel="noopener">Apri <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li class="r">
+          <p class="mini__k">Cliente &middot; Torino</p>
+          <h4>Polpo d'Amor</h4>
+          <p>Osteria di mare e di Langhe: identità, menù e prenotazione, con un tono che sta al ristorante.</p>
+          <a class="out" href="https://doublef35.github.io/polpodamor/" rel="noopener">Apri <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li class="r">
+          <p class="mini__k">Dimostrativo &middot; Portofino</p>
+          <h4>Levante</h4>
+          <p>Vetrina per un charter nautico: sei barche col nome dei venti, tipografia editoriale, scorrimento sincronizzato. React, GSAP e Lenis.</p>
+          <a class="out" href="https://doublef35.github.io/levante-charter/" rel="noopener">Apri <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li class="r">
+          <p class="mini__k">Dimostrativo &middot; Ospitalità</p>
+          <h4>Atrio</h4>
+          <p>Landing per chi vende siti a hotel e B&amp;B: costo delle OTA, prenotazione diretta, video in cornice, dati strutturati.</p>
+          <a class="out" href="https://doublef35.github.io/atrio/" rel="noopener">Apri <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== N.05 STRUMENTI ===================== -->
+<section class="sec" id="strumenti" aria-labelledby="h-strumenti">
+  <div class="wrap sec__in">
+    <div class="rail"><span class="rail__n">N.05</span><span class="rail__l">Strumenti</span></div>
+    <div>
+      <div class="sec__head">
+        <h2 id="h-strumenti">Strumenti e applicazioni</h2>
+        <p class="lede r">Cose piccole che risolvono un problema preciso — il mio, o di chi vende siti web, o di chi si allena. Tutte statiche, tutte gratuite da tenere in vita.</p>
+      </div>
+      <ul class="mini" style="margin-top:0">
+        <li class="r">
+          <p class="mini__k">Strumento &middot; Mappe</p>
+          <h4>Unsited</h4>
+          <p>Trova sulla mappa le attività locali che non hanno un sito. Interroga OpenStreetMap chiedendo l'assenza del campo "sito web": nessuna chiave, nessun server, nessun costo.</p>
+          <a class="out" href="https://doublef35.github.io/unsited/" rel="noopener">Apri <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li class="r">
+          <p class="mini__k">App &middot; Musica</p>
+          <h4>Spoty</h4>
+          <p>Lettore musicale personale: libreria, playlist, coda, schermata a tutto schermo. I tag dei file vengono letti da un'automazione e la libreria vive su storage a oggetti.</p>
+          <a class="out" href="https://doublef35.github.io/spoty/" rel="noopener">Apri <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li class="r">
+          <p class="mini__k">App &middot; Allenamento</p>
+          <h4>Allenamento</h4>
+          <p>Calisthenics e bici: piano settimanale, calendario, promemoria, e un generatore di percorsi ad anello che restituisce il GPX pronto da caricare.</p>
+          <a class="out" href="https://doublef35.github.io/allenamento/" rel="noopener">Apri <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li class="r">
+          <p class="mini__k">Didattico &middot; Scraping</p>
+          <h4>Geocheat</h4>
+          <p>Legge le coordinate esposte nel DOM di un gioco di geolocalizzazione e le traduce in indirizzi con OpenStreetMap. Esercizio su scraping e reverse-geocoding, non su come vincere.</p>
+          <a class="out" href="https://github.com/DoubleF35/geocheat" rel="noopener">Repository <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== N.06 INDICE ===================== -->
+<section class="sec" id="indice" aria-labelledby="h-indice">
+  <div class="wrap sec__in">
+    <div class="rail"><span class="rail__n">N.06</span><span class="rail__l">Indice</span></div>
+    <div>
+      <div class="sec__head">
+        <h2 id="h-indice">Indice dei lavori</h2>
+        <p class="lede r">Tutto quello che ho pubblicato, in ordine di data. Il codice è aperto tranne dove indicato.</p>
+      </div>
+
+      <!-- Per aggiungere un lavoro: copia un <li> e cambia i cinque campi.
+           data / nome / cosa è / tipo / href -->
+      <ol class="idx">
+        <li><a href="https://doublef35.github.io/yet/" rel="noopener">
+          <span class="idx__d">2026 · 08</span><span class="idx__n">YET</span>
+          <span class="idx__w">Sito e piattaforma della community dei giovani builder di Torino</span>
+          <span class="idx__t">Community</span>
+          <svg class="ico idx__a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+
+        <li><a href="https://doublef35.github.io/spoty/" rel="noopener">
+          <span class="idx__d">2026 · 07</span><span class="idx__n">Spoty</span>
+          <span class="idx__w">Lettore musicale personale, libreria su storage a oggetti</span>
+          <span class="idx__t">App</span>
+          <svg class="ico idx__a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+
+        <li><a href="https://github.com/DoubleF35/CubeSAR" rel="noopener">
+          <span class="idx__d">2026 · 07</span><span class="idx__n">CubeSAR</span>
+          <span class="idx__w">CubeSat da tavolo con radar ad apertura sintetica</span>
+          <span class="idx__t">Ricerca</span>
+          <svg class="ico idx__a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+
+        <li><a href="https://doublef35.github.io/levante-charter/" rel="noopener">
+          <span class="idx__d">2026 · 07</span><span class="idx__n">Levante</span>
+          <span class="idx__w">Vetrina per un charter nautico a Portofino</span>
+          <span class="idx__t">Dimostrativo</span>
+          <svg class="ico idx__a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+
+        <li><a href="https://doublef35.github.io/fruttaeverduraenrico/" rel="noopener">
+          <span class="idx__d">2026 · 06</span><span class="idx__n">Frutta e Verdura Enrico</span>
+          <span class="idx__w">Sito e pannello di gestione per un fruttivendolo di Albenga</span>
+          <span class="idx__t">Cliente</span>
+          <svg class="ico idx__a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+
+        <li><a href="https://doublef35.github.io/aureaparrucchieri/" rel="noopener">
+          <span class="idx__d">2026 · 06</span><span class="idx__n">Aurea Hair Studio</span>
+          <span class="idx__w">Sito per un parrucchiere di Torino</span>
+          <span class="idx__t">Cliente</span>
+          <svg class="ico idx__a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+
+        <li><a href="https://doublef35.github.io/polpodamor/" rel="noopener">
+          <span class="idx__d">2026 · 06</span><span class="idx__n">Polpo d'Amor</span>
+          <span class="idx__w">Sito per un'osteria di Torino, mare e Langhe</span>
+          <span class="idx__t">Cliente</span>
+          <svg class="ico idx__a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+
+        <li><a href="https://doublef35.github.io/unsited/" rel="noopener">
+          <span class="idx__d">2026 · 06</span><span class="idx__n">Unsited</span>
+          <span class="idx__w">Trova sulla mappa le attività senza sito, via OpenStreetMap</span>
+          <span class="idx__t">Strumento</span>
+          <svg class="ico idx__a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+
+        <li><a href="https://doublef35.github.io/allenamento/" rel="noopener">
+          <span class="idx__d">2026 · 06</span><span class="idx__n">Allenamento</span>
+          <span class="idx__w">Calisthenics e bici, con generatore di percorsi ad anello in GPX</span>
+          <span class="idx__t">App</span>
+          <svg class="ico idx__a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+
+        <li><a href="https://doublef35.github.io/atrio/" rel="noopener">
+          <span class="idx__d">2026 · 06</span><span class="idx__n">Atrio</span>
+          <span class="idx__w">Landing dimostrativa per hotel, B&amp;B e resort</span>
+          <span class="idx__t">Dimostrativo</span>
+          <svg class="ico idx__a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+
+        <li><a href="https://github.com/DoubleF35/geocheat" rel="noopener">
+          <span class="idx__d">2026 · 06</span><span class="idx__n">Geocheat</span>
+          <span class="idx__w">Coordinate della Street View tradotte in indirizzi, progetto didattico</span>
+          <span class="idx__t">Didattico</span>
+          <svg class="ico idx__a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+
+        <li><div class="row">
+          <span class="idx__d">2026 · 06</span><span class="idx__n">Eagle Launch Simulator</span>
+          <span class="idx__w">Simulatore di lancio, seconda versione</span>
+          <span class="idx__t">Privato</span>
+          <span class="idx__a" aria-hidden="true">·</span></div></li>
+
+        <li><a href="https://doublef35.github.io/cantoXXXIIIinferno/" rel="noopener">
+          <span class="idx__d">2026 · 05</span><span class="idx__n">Inferno, Canto XXXIII</span>
+          <span class="idx__w">Lettura del canto di Dante in pagina, progetto scolastico</span>
+          <span class="idx__t">Scuola</span>
+          <svg class="ico idx__a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+
+        <li><a href="https://github.com/DoubleF35/Seeker-II" rel="noopener">
+          <span class="idx__d">2026 · 04</span><span class="idx__n">Seeker-II</span>
+          <span class="idx__w">Razzo modello con avionica, telemetria e recupero progettati da zero</span>
+          <span class="idx__t">Hardware</span>
+          <svg class="ico idx__a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+
+        <li><a href="https://doublef35.github.io/waterrocketsim/" rel="noopener">
+          <span class="idx__d">2026 · 04</span><span class="idx__n">Water Rocket Simulator</span>
+          <span class="idx__w">Progetta un razzo ad acqua e simulane il volo nel browser</span>
+          <span class="idx__t">Simulazione</span>
+          <svg class="ico idx__a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+
+        <li><a href="https://github.com/DoubleF35/stasisproject" rel="noopener">
+          <span class="idx__d">2026 · 04</span><span class="idx__n">Stasis</span>
+          <span class="idx__w">Simulazioni CFD e analisi dei campi di flusso</span>
+          <span class="idx__t">Ricerca</span>
+          <svg class="ico idx__a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+
+        <li><a href="https://github.com/DoubleF35/particle-engine-2d" rel="noopener">
+          <span class="idx__d">2026 · 04</span><span class="idx__n">Motore di particelle 2D</span>
+          <span class="idx__w">Simulatore termodinamico interattivo</span>
+          <span class="idx__t">Simulazione</span>
+          <svg class="ico idx__a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+
+        <li><a href="https://edunityedu.it" rel="noopener">
+          <span class="idx__d">2026 · 03</span><span class="idx__n">EdUnity</span>
+          <span class="idx__w">App di studio con AI, gratuita: trascrizione, riassunti, quiz, mappe</span>
+          <span class="idx__t">Startup</span>
+          <svg class="ico idx__a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      </ol>
+
+      <p class="idx__foot">
+        <a class="out" href="https://github.com/DoubleF35?tab=repositories" rel="noopener">Tutti i repository su GitHub <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <span class="mono">Aggiornato ad agosto 2026</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== N.07 METODO ===================== -->
+<section class="sec" id="metodo" aria-labelledby="h-metodo">
+  <div class="wrap sec__in">
+    <div class="rail"><span class="rail__n">N.07</span><span class="rail__l">Metodo</span></div>
+    <div>
+      <div class="sec__head">
+        <h2 id="h-metodo">Come lavoro</h2>
+      </div>
+      <ol class="method">
+        <li class="r">
+          <p class="method__n">01</p>
+          <h4>Simulare prima di costruire</h4>
+          <p>OpenRocket, CFD, modelli numerici scritti a mano. Sbagliare sullo schermo costa un pomeriggio; sbagliare al lancio costa il razzo.</p>
+        </li>
+        <li class="r">
+          <p class="method__n">02</p>
+          <h4>Un file, nessun backend</h4>
+          <p>HTML e JavaScript senza framework quando bastano, dati su Firebase quando servono davvero. Meno pezzi, meno cose che si rompono da sole.</p>
+        </li>
+        <li class="r">
+          <p class="method__n">03</p>
+          <h4>Gratis fino in fondo</h4>
+          <p>Piani gratuiti usati bene: nessun costo fisso da mantenere, nessuna chiave esposta nel browser. Un progetto che costa zero resta online.</p>
+        </li>
+        <li class="r">
+          <p class="method__n">04</p>
+          <h4>Finito, e in mano a qualcuno</h4>
+          <p>Un lavoro conta quando lo usa una persona che non sono io: il fruttivendolo che cambia i prezzi da solo, il compagno che studia con l'app.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== N.08 CONTATTI ===================== -->
+<section class="sec" id="contatti" aria-labelledby="h-contatti">
+  <div class="wrap sec__in">
+    <div class="rail"><span class="rail__n">N.08</span><span class="rail__l">Contatti</span></div>
+    <div>
+      <div class="contact">
+        <div>
+          <div class="sec__head">
+            <h2 id="h-contatti">Scrivimi</h2>
+            <p class="lede r">Per un progetto, una collaborazione, un sito da fare, o per parlare di razzi. Rispondo.</p>
+          </div>
+          <a class="mail" href="mailto:federico.fassio@spaceeagle.it">
+            <svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>
+            federico.fassio@spaceeagle.it
+          </a>
+        </div>
+
+        <div>
+          <ul class="clist">
+            <li><a href="mailto:federico.fassio@spaceeagle.it">
+              <svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>
+              <span class="clist__l">Email</span>
+              <span class="clist__v">federico.fassio@spaceeagle.it</span>
+              <svg class="ico ico--a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+
+            <li><a href="mailto:fedefas.210@gmail.com">
+              <svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>
+              <span class="clist__l">Alternativa</span>
+              <span class="clist__v">fedefas.210@gmail.com</span>
+              <svg class="ico ico--a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+
+            <li><a href="https://github.com/DoubleF35" rel="noopener">
+              <svg class="ico" aria-hidden="true"><use href="#i-git"/></svg>
+              <span class="clist__l">GitHub</span>
+              <span class="clist__v">@DoubleF35</span>
+              <svg class="ico ico--a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+
+            <!-- TODO SOCIAL — incolla l'URL al posto di INDIRIZZO e togli i commenti.
+            <li><a href="INDIRIZZO" rel="noopener">
+              <svg class="ico" aria-hidden="true"><use href="#i-link"/></svg>
+              <span class="clist__l">LinkedIn</span>
+              <span class="clist__v">Federico Fassio</span>
+              <svg class="ico ico--a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+
+            <li><a href="INDIRIZZO" rel="noopener">
+              <svg class="ico" aria-hidden="true"><use href="#i-link"/></svg>
+              <span class="clist__l">Instagram</span>
+              <span class="clist__v">@nomeutente</span>
+              <svg class="ico ico--a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            -->
+
+            <li><a href="https://edunityedu.it" rel="noopener">
+              <svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg>
+              <span class="clist__l">EdUnity</span>
+              <span class="clist__v">edunityedu.it</span>
+              <svg class="ico ico--a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+
+            <li><a href="https://www.openstreetmap.org/relation/44881" rel="noopener">
+              <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>
+              <span class="clist__l">Dove</span>
+              <span class="clist__v">Torino, Italia</span>
+              <svg class="ico ico--a" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== CARTIGLIO ===================== -->
+<footer class="foot">
+  <div class="wrap">
+    <dl class="foot__grid">
+      <div class="foot__cell"><dt>Documento</dt><dd>Presentazione personale</dd></div>
+      <div class="foot__cell"><dt>Autore</dt><dd>Federico Fassio</dd></div>
+      <div class="foot__cell"><dt>Luogo</dt><dd>Torino, Italia</dd></div>
+      <div class="foot__cell"><dt>Revisione</dt><dd>v0.1 — agosto 2026</dd></div>
+    </dl>
+    <div class="foot__note">
+      <span>Scritto a mano in un file HTML. Nessun framework, nessun backend, nessun tracciamento. Servito da GitHub&nbsp;Pages.</span>
+      <span>&copy; <span id="y">2026</span> Federico Fassio</span>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Person",
+  "name":"Federico Fassio",
+  "url":"https://doublef35.github.io/",
+  "email":"mailto:federico.fassio@spaceeagle.it",
+  "address":{"@type":"PostalAddress","addressLocality":"Torino","addressCountry":"IT"},
+  "affiliation":{"@type":"HighSchool","name":"Liceo Scientifico Galileo Ferraris","address":{"@type":"PostalAddress","addressLocality":"Torino","addressCountry":"IT"}},
+  "knowsAbout":["Ingegneria aerospaziale","Razzimodellismo","Simulazione CFD","Radar ad apertura sintetica","Sviluppo web","Firebase","Imprenditoria giovanile"],
+  "sameAs":["https://github.com/DoubleF35","https://edunityedu.it"]
+}
+</script>
+
+<script>
+(function(){
+  'use strict';
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var head = document.querySelector('.masthead');
+
+  /* filetto sotto la testata solo quando si è scesi */
+  var onScroll = function(){ head.classList.toggle('is-scrolled', window.scrollY > 8); };
+  addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* comparsa allo scorrimento */
+  var targets = [].slice.call(document.querySelectorAll('.r'));
+  if (reduce || !('IntersectionObserver' in window)) {
+    targets.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        e.target.classList.add('in');
+      });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.06});
+    targets.forEach(function(el, i){
+      el.style.setProperty('--d', (i % 5) * 55 + 'ms');
+      io.observe(el);
+    });
+  }
+
+  /* sezione corrente nella navigazione */
+  var links = [].slice.call(document.querySelectorAll('.nav a[href^="#"]'));
+  var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  if ('IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        links.forEach(function(l){ l.classList.toggle('is-cur', l.getAttribute('href') === '#' + e.target.id); });
+      });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    secs.forEach(function(s){ if (s) spy.observe(s); });
+  }
+
+  var y = document.getElementById('y');
+  if (y) y.textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
