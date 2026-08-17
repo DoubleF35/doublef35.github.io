@@ -123,10 +123,12 @@ segue le preferenze di sistema. Poi resta quello scelto (`localStorage`).
 | Cosa | Dove |
 |---|---|
 | **Le 13 foto** | Riquadri grigi nel sito, ognuno col nome del file. Vedi [img/README.md](img/README.md) |
-| **Scheda di Seeker-One** | Massa, motore, apogeo simulato e misurato: nel sito è tutto `—`, e c'è un commento che lo dice |
-| **LinkedIn e Instagram** | Sezione Contatti, c'è un `TODO SOCIAL` |
+| **Scheda di Seeker-One** | La pagina dice «scheda tecnica in arrivo». Quando hai massa, motore e apogeo simulato/misurato, copia la `<dl class="spec">` da `#v-seeker2` e riempila — poi togli il badge `.award--soon` |
 | **`og:image`** | Nel `<head>`, `TODO og:image` |
 | **Athelas e Vanguard** | `fonts/`, se decidi di comprarli |
+
+Niente tabelle di trattini al posto dei dati mancanti: un buco dichiarato si
+legge come una scelta, una riga di `—` sembra un errore.
 
 ---
 

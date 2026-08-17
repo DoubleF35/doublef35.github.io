@@ -19,6 +19,28 @@
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23070B0C'/%3E%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='%235BE9FF' stroke-width='2'/%3E%3Ccircle cx='32' cy='32' r='10' fill='none' stroke='%235BE9FF' stroke-width='2' opacity='.55'/%3E%3Cpath d='M32 32 52 18' stroke='%23CFFF04' stroke-width='3'/%3E%3C/svg%3E">
 
+<!-- Dati strutturati: legano il nome ai profili e a Space Eagle, così chi
+     cerca "Federico Fassio" trova una scheda sola invece di frammenti sparsi.
+     Niente alumniOf: implica un percorso concluso, e il liceo è in corso. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Federico Fassio",
+  "url": "https://doublef35.github.io/",
+  "jobTitle": "Project manager — IceRoute, CubeSAR",
+  "email": "mailto:federico.fassio@spaceeagle.it",
+  "address": {"@type": "PostalAddress", "addressLocality": "Torino", "addressCountry": "IT"},
+  "affiliation": {"@type": "Organization", "name": "Space Eagle APS", "url": "https://www.spaceeagle.it"},
+  "knowsAbout": ["Synthetic aperture radar", "Earth observation", "Onboard edge computing", "Rocketry", "Data analysis"],
+  "sameAs": [
+    "https://www.linkedin.com/in/federico-fassio-202a623b8/",
+    "https://www.instagram.com/federicofassioo/",
+    "https://github.com/DoubleF35"
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Archivo:wght@500;600;700&display=swap" rel="stylesheet">
@@ -534,6 +556,9 @@ html[data-theme="light"] .tg__sun,html[data-theme="dark"] .tg__moon{display:none
   font-family:var(--label);font-size:.55rem;font-weight:600;
   letter-spacing:.1em;text-transform:uppercase;color:var(--acc);
 }
+/* Stato "non c'è ancora": stessa forma del premio, tratteggiata e spenta, così
+   si legge come un vuoto dichiarato e non come un riconoscimento. */
+.award--soon{border-style:dashed;border-color:var(--rule);color:var(--ink-3)}
 
 /* ==========================================================================
    14. Adattamenti
@@ -585,6 +610,8 @@ html[data-theme="light"] .tg__sun,html[data-theme="dark"] .tg__moon{display:none
   <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3.2 9.5h17.6M3.2 14.5h17.6M12 3a14 14 0 0 1 0 18A14 14 0 0 1 12 3Z"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="1"/><path d="M3.4 6.4 12 13l8.6-6.6"/></symbol>
   <symbol id="i-git" viewBox="0 0 24 24"><circle cx="7" cy="4.5" r="2.1"/><circle cx="7" cy="19.5" r="2.1"/><circle cx="17" cy="6.5" r="2.1"/><path d="M7 6.6v10.8M17 8.6v2.1c0 2.1-1.7 3.8-3.8 3.8H7"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.3 10.6v6.1"/><circle cx="7.3" cy="7.5" r=".9"/><path d="M11.5 16.7v-6.1M11.5 13.4c0-1.7 1-2.8 2.5-2.8s2.5 1.1 2.5 2.8v3.3"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.3" cy="6.7" r=".9"/></symbol>
 </svg>
 
 <header class="bar">
@@ -829,8 +856,8 @@ html[data-theme="light"] .tg__sun,html[data-theme="dark"] .tg__moon{display:none
       <span class="card__g">I</span>
       <span>
         <h4>Seeker-One</h4>
-        <p data-l="it">Il primo della famiglia: la base da cui è nato tutto il resto</p>
-        <p data-l="en">The first of the family: the baseline everything else grew from</p>
+        <p data-l="it">Il primo della famiglia: la base da cui è nato tutto il resto — scheda in arrivo</p>
+        <p data-l="en">The first of the family: the baseline everything else grew from — spec sheet coming soon</p>
       </span>
       <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
     <li><a class="card" href="#/seeker2" style="--cc:var(--c-volo)">
@@ -862,42 +889,31 @@ html[data-theme="light"] .tg__sun,html[data-theme="dark"] .tg__moon{display:none
     <a class="crumb" href="#/seeker2">Seeker-II</a>
   </p>
   <p class="eyebrow"><i class="dot"></i>
-    <span class="micro" data-l="it">SEEKER-ONE · VETTORE 01</span>
-    <span class="micro" data-l="en">SEEKER-ONE · VEHICLE 01</span>
+    <span class="micro" data-l="it">SEEKER-ONE · VETTORE 01 · IN ARRIVO</span>
+    <span class="micro" data-l="en">SEEKER-ONE · VEHICLE 01 · COMING SOON</span>
   </p>
 
   <h2 class="display display--sm display--grad">Seeker-One</h2>
 
-  <!-- ====================================================================
-       DA COMPLETARE — Federico, di Seeker-One non ho i dati tecnici: negli
-       appunti c'è solo Seeker-II. Riempi la scheda qui sotto e i due
-       paragrafi, oppure dimmi i numeri e li scrivo io. Non ho inventato
-       niente di proposito: meglio un buco dichiarato che un dato falso.
-       Servono: massa al lancio, motore, apogeo simulato, apogeo misurato,
-       materiali, tipo di recupero, data del lancio.
-       ==================================================================== -->
-  <div data-l="it" style="margin-top:1.5rem">
-    <p class="deck">Il primo vettore del programma: la base da cui è nato tutto il resto.</p>
-    <p class="body" style="margin-top:1.4rem">Progettato in OpenRocket e costruito per stabilire il riferimento del programma: geometria, indice di stabilità, sistema di recupero. Senza questo volo non ci sarebbe stato niente da correggere in <a class="lk" href="#/seeker2">Seeker-II</a>.</p>
-    <p class="body" style="color:var(--acc)">→ Scheda tecnica da completare: massa, motore, apogeo simulato e misurato.</p>
-  </div>
-  <div data-l="en" style="margin-top:1.5rem">
-    <p class="deck">The programme's first vehicle: the baseline everything else grew from.</p>
-    <p class="body" style="margin-top:1.4rem">Designed in OpenRocket and built to set the programme's reference point: geometry, stability margin, recovery system. Without this flight there would have been nothing to correct in <a class="lk" href="#/seeker2">Seeker-II</a>.</p>
-    <p class="body" style="color:var(--acc)">→ Spec sheet to be completed: mass, motor, simulated and measured apogee.</p>
-  </div>
+  <!-- Scheda tecnica volutamente assente: i numeri di Seeker-One (massa,
+       motore, apogeo simulato e misurato) non li ho, e una tabella di
+       trattini sembra un errore. Quando arrivano, copia la <dl class="spec">
+       da #v-seeker2 e riempila. -->
+  <p class="award award--soon">
+    <span data-l="it">Scheda tecnica in arrivo</span>
+    <span data-l="en">Spec sheet coming soon</span>
+  </p>
 
-  <dl class="spec">
-    <div><dt data-l="it">Ruolo nel programma</dt><dt data-l="en">Role in the programme</dt><span class="lead"></span>
-      <dd data-l="it">Vettore di riferimento</dd><dd data-l="en">Baseline vehicle</dd></div>
-    <div><dt data-l="it">Progetto</dt><dt data-l="en">Design tools</dt><span class="lead"></span><dd>OpenRocket</dd></div>
-    <div><dt data-l="it">Massa al lancio</dt><dt data-l="en">Launch mass</dt><span class="lead"></span><dd>—</dd></div>
-    <div><dt data-l="it">Propulsione</dt><dt data-l="en">Propulsion</dt><span class="lead"></span><dd>—</dd></div>
-    <div><dt data-l="it">Apogeo simulato</dt><dt data-l="en">Simulated apogee</dt><span class="lead"></span><dd>—</dd></div>
-    <div><dt data-l="it">Apogeo misurato</dt><dt data-l="en">Measured apogee</dt><span class="lead"></span><dd>—</dd></div>
-    <div><dt data-l="it">Recupero</dt><dt data-l="en">Recovery</dt><span class="lead"></span>
-      <dd data-l="it">Paracadute</dd><dd data-l="en">Parachute</dd></div>
-  </dl>
+  <div data-l="it">
+    <p class="deck">Il primo vettore del programma: la base da cui è nato tutto il resto.</p>
+    <p class="body" style="margin-top:1.4rem">Progettato in OpenRocket e costruito per stabilire il riferimento del programma: geometria, indice di stabilità, sistema di recupero. Senza questo volo non ci sarebbe stato niente da correggere in <a class="lk" href="#/seeker2">Seeker-II</a>, che è nato proprio dalle cose che qui mancavano — a partire da un computer di bordo che misurasse davvero il volo.</p>
+    <p class="body">Numeri, foto e confronto fra apogeo simulato e apogeo reale arrivano presto.</p>
+  </div>
+  <div data-l="en">
+    <p class="deck">The programme's first vehicle: the baseline everything else grew from.</p>
+    <p class="body" style="margin-top:1.4rem">Designed in OpenRocket and built to set the programme's reference point: geometry, stability margin, recovery system. Without this flight there would have been nothing to correct in <a class="lk" href="#/seeker2">Seeker-II</a>, which grew directly out of what was missing here — starting with an on-board computer that actually measured the flight.</p>
+    <p class="body">Numbers, photos and the simulated-versus-measured apogee are coming shortly.</p>
+  </div>
 
   <figure class="fig">
     <!-- FOTO — Seeker-One. Metti img/seeker-one.jpg (orizzontale 4:3),
@@ -1704,19 +1720,24 @@ html[data-theme="light"] .tg__sun,html[data-theme="dark"] .tg__moon{display:none
     <svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>federico.fassio@spaceeagle.it
   </a>
 
+  <p class="links">
+    <a class="out" href="https://www.linkedin.com/in/federico-fassio-202a623b8/" rel="noopener">
+      <svg class="ico" aria-hidden="true"><use href="#i-in"/></svg> LinkedIn</a>
+    <a class="out" href="https://www.instagram.com/federicofassioo/" rel="noopener">
+      <svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg> Instagram</a>
+    <a class="out" href="https://github.com/DoubleF35" rel="noopener">
+      <svg class="ico" aria-hidden="true"><use href="#i-git"/></svg> GitHub</a>
+  </p>
+
   <dl class="spec">
     <div><dt data-l="it">Altra mail</dt><dt data-l="en">Other email</dt><span class="lead"></span>
       <dd><a class="lk" href="mailto:fedefas.210@gmail.com">fedefas.210@gmail.com</a></dd></div>
-    <div><dt>GitHub</dt><span class="lead"></span>
-      <dd><a class="lk" href="https://github.com/DoubleF35" rel="noopener">@DoubleF35</a></dd></div>
     <div><dt>Team</dt><span class="lead"></span>
       <dd><a class="lk" href="https://www.spaceeagle.it" rel="noopener">spaceeagle.it</a></dd></div>
     <div><dt>EdUnity</dt><span class="lead"></span>
       <dd><a class="lk" href="https://edunityedu.it" rel="noopener">edunityedu.it</a></dd></div>
     <div><dt data-l="it">Dove</dt><dt data-l="en">Where</dt><span class="lead"></span><dd>Torino, Italia</dd></div>
   </dl>
-  <!-- TODO SOCIAL — LinkedIn e Instagram: aggiungi due righe come quelle sopra,
-       con l'URL vero al posto del segnaposto. -->
 
   <p class="foot">
     <span class="micro">© 2026 Federico Fassio</span>
