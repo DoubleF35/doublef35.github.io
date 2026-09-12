@@ -1,149 +1,47 @@
-# doublef35.github.io
+# Foto
 
-Sito personale di Federico Fassio — Torino.
-**Live:** https://doublef35.github.io/
+Undici posti dove va una foto. Ogni segnaposto nel sito dice già il nome del
+file che si aspetta, quindi non serve consultare questa tabella per capire
+dov'è: basta guardare il riquadro tratteggiato.
 
-Nessun build step, niente da installare, niente da compilare: si modifica con un
-editor, si salva, `git push`, e GitHub Pages aggiorna il sito in un minuto.
+| File | Formato | Dove | Cosa |
+|---|---|---|---|
+| `ritratto.jpg` | verticale 4:5 | Chi sono | Il tuo ritratto |
+| `iceroute-premio.jpg` | 4:3 | IceRoute | Il team all'EO Makerspace Hackathon, o la premiazione |
+| `iceroute-sistema.jpg` | 4:3 | IceRoute | Una slide del pitch, o il devkit ZCU104 |
+| `cubesar.jpg` | 16:9 | CubeSAR | Il banco, l'antenna, o una prima immagine radar |
+| `seeker-ii.jpg` | 16:9 | Programma Seeker | Il razzo assemblato, la rampa, o il render CAD |
+| `edunity.jpg` | 16:9 | EdUnity | Schermata dell'app, o il team al Fin4Teen |
+| `yet.jpg` | 16:9 | YET | Un incontro della community |
+| `f4kit.jpg` | 16:9 | f4kit | Una schermata dell'output, o il PDF cronometrico |
+| `space-eagle.jpg` | 4:3 | Percorso | Il team, o l'officina |
+| `esa-hackathon.jpg` | 4:3 | Percorso | Frascati, ESA |
+| `fin4teen.jpg` | 4:3 | Percorso | La premiazione SellaLab |
 
-È una pagina sola, nello stesso linguaggio visivo del README del profilo
-[github.com/DoubleF35](https://github.com/DoubleF35): banner con gradiente navy
-verso blu e onda in movimento, JetBrains Mono per tutto ciò che è codice o
-etichetta, badge piatti dello stack, schede con bordo. Chi arriva dal profilo
-deve riconoscere lo stesso posto.
+## Come si mette una foto
 
-## Struttura dei file
+In `index.html` cerca il nome del file. Trovi un commento che spiega cosa
+fare, ed è sempre lo stesso:
 
-| File | Cosa |
-|---|---|
-| `index.html` | Markup, CSS, script e tutti i contenuti nelle due lingue |
-| `img/` | Le fotografie, con le istruzioni in [img/README.md](img/README.md) |
-| `robots.txt`, `.nojekyll` | Indicizzazione e niente pipeline Jekyll |
+1. metti il file qui, con quel nome esatto;
+2. cancella il `<span class="plate">…</span>`;
+3. togli il commento all'`<img>` che sta subito sopra.
 
-Tutto in un file solo: CSS e JavaScript sono poche centinaia di righe in tutto,
-e un file unico è la sola struttura che non si può sbagliare a distribuire.
+L'`<img>` ha già `width`, `height` e `loading` scritti, e il riquadro che lo
+contiene ha `aspect-ratio` e `object-fit:cover`: sono lì per evitare che la
+pagina salti mentre l'immagine carica.
 
-## Le sezioni
+## Formati
 
-    Banner          nome, sottotitolo, riga che si scrive da sola
-    Hey             chi sono, ritratto, la bio come dizionario Python
-    Progetti        IceRoute (a tutta larghezza) + CubeSAR, Seeker,
-                    EdUnity, YET, f4kit, e tre repo secondari
-    Stack           badge divisi per famiglia
-    Percorso        esperienza e formazione, in ordine di data
-    Serpente        l'animazione dei commit, dal repo del profilo
-    Contatti        email, social, riferimenti
+Esporta in JPEG qualità 80, larghezza massima 1400 px. Sopra i 300 KB per
+immagine il sito comincia a rallentare da telefono.
 
-### Aggiungere un progetto
+Se una foto non rispetta le proporzioni indicate non si deforma: viene
+ritagliata al centro da `object-fit:cover`. Ma se il soggetto è decentrato,
+ritaglialo tu prima.
 
-Una `<article class="card">` dentro `.grid`, copiata da una esistente. Serve:
-la sigla nel `.ico` (due o tre caratteri in monospazio, non emoji), il titolo,
-i due paragrafi `data-l`, e i link nel `.foot`. Se ha una foto, la `<figure
-class="shot shot--169">` va per prima, subito dentro la scheda.
+## og:image
 
----
-
-## Lingua
-
-Italiano e inglese convivono nel documento; il toggle nella barra riscrive solo
-`html[data-lang]` e salva la scelta in `localStorage`. Ogni blocco esiste due
-volte, con `data-l="it"` e `data-l="en"`.
-
-La regola CSS **nasconde solo la lingua inattiva** e non ne mostra mai nessuna:
-
-```css
-html[data-lang="it"] [data-l="en"],
-html[data-lang="en"] [data-l="it"]{display:none}
-```
-
-Così l'elemento attivo conserva il display del suo componente. Il primo
-tentativo faceva il contrario — `display:none` su tutto e una regola di
-ripristino per tipo — e si rompeva sui `.tag`, che sono `inline-flex`.
-**Non tornare indietro.**
-
-Nel markup `<html>` ha `data-lang="en"`: l'inglese è quello che si legge senza
-JavaScript, ed è la lingua del README del profilo. Per invertire il default
-basta cambiare quell'attributo e il `lang` accanto.
-
-Uno script minuscolo nel `<head>` rilegge `localStorage` **prima** del disegno:
-senza, chi ha scelto l'italiano vedrebbe un lampo di inglese a ogni caricamento.
-
----
-
-## Caratteri e colori
-
-Inter per il testo, JetBrains Mono per codice ed etichette, entrambi da Google
-Fonts con una catena di riserve di sistema: se il CDN non risponde la pagina
-resta leggibile, non bianca.
-
-Tutti i colori stanno nelle variabili in cima allo `<style>`. I tre stop del
-banner sono gli stessi del `capsule-render` nel README del profilo:
-
-| Ruolo | Valore |
-|---|---|
-| Navy, inizio gradiente | `#0b1d3a` |
-| Blu medio | `#14508c` |
-| Blu accento | `#1f6feb` |
-| Azzurro dei link | `#58a6ff` |
-| Oro dei premi | `#e3b341` |
-
-Il sito è **solo scuro**. Non c'è un tema chiaro: il gradiente del banner e i
-segnaposto delle foto sono costruiti su un fondo scuro, e una seconda palette
-sarebbe una seconda cosa da tenere allineata a ogni modifica.
-
-## Le onde
-
-Due `<svg>` sovrapposti, larghi il doppio del contenitore, con lo stesso
-tracciato disegnato due volte a distanza di un periodo. L'animazione li fa
-scorrere di `-50%`: a fine ciclo la seconda copia è esattamente dove stava la
-prima, quindi il giro non si vede.
-
-Il tracciato è periodico per costruzione — stessa `y` e stessa pendenza a
-`x=0` e `x=1440` — ed è l'unica cosa che rende il ciclo invisibile. Se lo
-modifichi, mantieni quella proprietà.
-
-## Accessibilità
-
-- Ogni testo esiste in entrambe le lingue nel DOM: senza JavaScript si legge
-  l'inglese, e il sito non è mai una pagina bianca.
-- Le sigle nelle schede (`SAR`, `SK`, `Ed`) sono `aria-hidden`: sono decorative,
-  il nome del progetto è scritto accanto.
-- `prefers-reduced-motion`: le onde si fermano, il cursore smette di lampeggiare
-  e la riga che si scrive resta ferma sulla prima frase.
-- Barra stretta: sotto i 620 px il tasto GitHub esce, perché lo stesso link è
-  ripetuto due righe più in basso.
-
----
-
-## Cosa manca
-
-| Cosa | Dove |
-|---|---|
-| **Le 11 foto** | Riquadri tratteggiati nel sito, ognuno col nome del file. Vedi [img/README.md](img/README.md) |
-| **`og:image`** | Nel `<head>`, `TODO og:image`. Serve orizzontale, 1200×630 |
-
-Niente riempitivi al posto dei dati mancanti: un buco dichiarato si legge come
-una scelta, un segnaposto finto sembra un errore.
-
----
-
-## Dominio personale (facoltativo)
-
-Se compri `federicofassio.it`:
-
-1. crea un file `CNAME` in questa cartella con dentro solo `federicofassio.it`;
-2. dal pannello del dominio punta un record `A` agli IP di GitHub Pages
-   (`185.199.108.153`, `.109.153`, `.110.153`, `.111.153`) e un `CNAME` per
-   `www` a `doublef35.github.io`;
-3. in *Settings → Pages* attiva **Enforce HTTPS**.
-
-Poi aggiorna `<link rel="canonical">` e `og:url` nel `<head>`.
-
----
-
-## Sviluppo in locale
-
-    python3 -m http.server 8099
-
-e apri <http://localhost:8099>. Serve un server vero, non `file://`: i font e
-`localStorage` si comportano diversamente.
+Quando hai una foto buona, mettila anche come anteprima per WhatsApp e social:
+in `index.html`, nel `<head>`, c'è un `TODO og:image`. Serve orizzontale,
+1200×630.
