@@ -1,0 +1,1161 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Federico Fassio · onboard ML, SAR, rockets</title>
+<meta name="description" content="Federico Fassio, Torino. Project manager of IceRoute and CubeSAR at Space Eagle APS. Onboard machine learning, synthetic aperture radar, rocketry, student ventures.">
+<meta name="author" content="Federico Fassio">
+<link rel="canonical" href="https://doublef35.github.io/">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Federico Fassio · onboard ML, SAR, rockets">
+<meta property="og:description" content="Project manager of IceRoute and CubeSAR at Space Eagle APS. Onboard ML, SAR, rocketry. Torino.">
+<meta property="og:url" content="https://doublef35.github.io/">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#070d18">
+<!-- TODO og:image: orizzontale 1200x630, quando c'è una foto buona. Vedi img/README.md -->
+
+<!-- Favicon: la stessa onda del banner, in blu su navy -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1d3a'/%3E%3Cpath d='M4 40c8-10 16 6 24-2s16 6 24-4v18H4z' fill='%231f6feb'/%3E%3Ccircle cx='22' cy='22' r='6' fill='none' stroke='%2358a6ff' stroke-width='2.5'/%3E%3C/svg%3E">
+
+<!-- Dati strutturati: legano il nome ai profili e a Space Eagle, così chi
+     cerca "Federico Fassio" trova una scheda sola invece di frammenti sparsi. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Federico Fassio",
+  "url": "https://doublef35.github.io/",
+  "jobTitle": "Project manager · IceRoute, CubeSAR",
+  "email": "mailto:fedefas.210@gmail.com",
+  "address": {"@type": "PostalAddress", "addressLocality": "Torino", "addressCountry": "IT"},
+  "affiliation": {"@type": "Organization", "name": "Space Eagle APS", "url": "https://www.spaceeagle.it"},
+  "knowsAbout": ["Synthetic aperture radar", "Earth observation", "Onboard edge computing", "Rocketry", "Data analysis"],
+  "sameAs": [
+    "https://www.linkedin.com/in/federico-fassio-202a623b8/",
+    "https://www.instagram.com/federicofassioo/",
+    "https://github.com/DoubleF35"
+  ]
+}
+</script>
+
+<!-- La lingua scelta si applica prima del disegno, così non si vede il cambio -->
+<script>
+try{
+  var L = localStorage.getItem('lang');
+  if(L === 'it' || L === 'en'){
+    document.documentElement.setAttribute('data-lang', L);
+    document.documentElement.setAttribute('lang', L === 'it' ? 'it' : 'en');
+  }
+}catch(e){}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   Stesso linguaggio visivo del README di github.com/DoubleF35: gradiente
+   navy -> blu, onda in testa e in coda, JetBrains Mono per tutto ciò che è
+   codice o etichetta, badge piatti, blocchi con bordo.
+   Una pagina sola, nessun framework, nessun build step.
+   ========================================================================== */
+
+:root{
+  /* Superfici: GitHub dark, virato verso il navy del banner */
+  --bg:#070d18;
+  --bg-soft:#0c1424;
+  --panel:#0e1828;
+  --panel-2:#111f34;
+  --line:#1d2c45;
+  --line-soft:#16243a;
+
+  /* Testo */
+  --fg:#e8eef6;
+  --fg-dim:#9fb0c6;
+  --fg-mute:#6f8199;
+
+  /* Accento: gli stessi tre stop del capsule-render nel README */
+  --navy:#0b1d3a;
+  --mid:#14508c;
+  --blue:#1f6feb;
+  --blue-soft:#58a6ff;
+  --gold:#e3b341;
+
+  --radius:14px;
+  --w:1000px;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{
+  margin:0;background:var(--bg);color:var(--fg);
+  font:400 16px/1.65 var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:var(--blue-soft);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%}
+::selection{background:rgba(31,111,235,.35)}
+:focus-visible{outline:2px solid var(--blue-soft);outline-offset:3px;border-radius:4px}
+
+/* --------------------------------------------------------------------------
+   Due lingue nello stesso documento. La regola nasconde SOLO la lingua
+   inattiva e non ne mostra mai nessuna: così l'elemento attivo conserva il
+   display del suo componente (inline-flex, grid, block...). Il primo
+   tentativo faceva il contrario, display:none su tutto e una regola di
+   ripristino per tipo, e si rompeva sui .tag. Non tornare indietro.
+   -------------------------------------------------------------------------- */
+html[data-lang="it"] [data-l="en"],
+html[data-lang="en"] [data-l="it"]{display:none}
+
+.skip{position:absolute;left:-9999px;top:0;z-index:99;background:var(--blue);color:#fff;padding:10px 16px;border-radius:0 0 8px 0}
+.skip:focus{left:0}
+
+.wrap{max-width:var(--w);margin:0 auto;padding:0 22px}
+
+/* ---------- Barra di navigazione ------------------------------------- */
+.nav{
+  position:sticky;top:0;z-index:20;
+  background:rgba(7,13,24,.82);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line-soft);
+}
+.nav .wrap{display:flex;align-items:center;gap:16px;height:56px}
+.brand{
+  font:700 14px/1 var(--mono);color:var(--fg);letter-spacing:-.02em;
+  white-space:nowrap;flex:none;
+}
+.brand:hover{text-decoration:none;color:var(--blue-soft)}
+.brand .at{color:var(--blue)}
+.nav ul{
+  list-style:none;display:flex;gap:2px;margin:0;padding:0;
+  flex:1 1 auto;min-width:0;
+  overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;
+}
+.nav ul::-webkit-scrollbar{display:none}
+.nav a.lnk{
+  display:block;padding:7px 10px;border-radius:8px;
+  font:500 13.5px/1 var(--sans);color:var(--fg-dim);white-space:nowrap;
+}
+.nav a.lnk:hover{background:var(--panel);color:var(--fg);text-decoration:none}
+.nav .spacer{flex:0 0 0}
+
+/* Selettore di lingua: due tasti, quello attivo acceso */
+.lang{
+  flex:none;display:flex;padding:2px;gap:2px;
+  border:1px solid var(--line);border-radius:8px;background:var(--panel);
+}
+.lang button{
+  border:0;background:none;cursor:pointer;padding:5px 9px;border-radius:6px;
+  font:600 11.5px/1 var(--mono);letter-spacing:.06em;color:var(--fg-mute);
+}
+.lang button:hover{color:var(--fg)}
+html[data-lang="it"] .lang button[value="it"],
+html[data-lang="en"] .lang button[value="en"]{background:var(--blue);color:#fff}
+
+.nav .gh{
+  flex:none;display:inline-flex;align-items:center;gap:7px;
+  padding:7px 11px;border:1px solid var(--line);border-radius:8px;
+  font:500 13px/1 var(--mono);color:var(--fg-dim);background:var(--panel);
+}
+.nav .gh:hover{border-color:var(--blue);color:var(--fg);text-decoration:none}
+.nav .gh svg{width:15px;height:15px;fill:currentColor}
+
+/* ---------- Banner con onda (il capsule-render, rifatto in CSS) ------- */
+.banner{
+  position:relative;
+  background:linear-gradient(100deg,var(--navy) 0%,var(--mid) 52%,var(--blue) 100%);
+  padding:74px 0 96px;text-align:center;overflow:hidden;
+}
+.banner::before{ /* bagliore morbido, così il gradiente non sembra piatto */
+  content:"";position:absolute;inset:-40% -10% auto;height:320px;
+  background:radial-gradient(60% 100% at 50% 0,rgba(255,255,255,.15),transparent 70%);
+  pointer-events:none;
+}
+.banner h1{
+  position:relative;margin:0;
+  font:800 clamp(38px,7.4vw,62px)/1.05 var(--sans);
+  letter-spacing:-.035em;color:#fff;
+  text-shadow:0 2px 24px rgba(4,12,28,.45);
+}
+.banner p{
+  position:relative;margin:14px 0 0;
+  font:500 clamp(13px,2.4vw,16px)/1.5 var(--sans);
+  color:rgba(255,255,255,.86);letter-spacing:.02em;
+}
+.waves{position:absolute;left:0;right:0;bottom:-1px;height:92px;overflow:hidden;pointer-events:none}
+.waves--up{top:-1px;bottom:auto;transform:rotate(180deg)}
+.wv{position:absolute;left:0;bottom:0;width:200%;height:100%;display:block;fill:#070d18}
+.wv--back{opacity:.42;animation:drift 17s linear infinite}
+.wv--front{animation:drift 11s linear infinite}
+@keyframes drift{to{transform:translateX(-50%)}}
+
+/* ---------- Riga typing + pill sotto il banner ------------------------ */
+.intro{padding:34px 0 6px;text-align:center}
+.typing{
+  font:500 clamp(14px,2.6vw,19px)/1.5 var(--mono);
+  color:var(--blue-soft);min-height:1.7em;margin:0;
+  letter-spacing:-.01em;
+}
+.caret{display:inline-block;width:.62em;margin-left:2px;color:var(--blue);animation:blink 1.05s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+
+.pills{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:20px 0 0}
+.pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 14px;border-radius:999px;
+  border:1px solid var(--line);background:var(--panel);
+  font:500 12.5px/1 var(--mono);color:var(--fg-dim);letter-spacing:.02em;
+}
+.pill:hover{border-color:var(--blue);color:var(--fg);text-decoration:none}
+.pill svg{width:14px;height:14px;fill:currentColor;flex:none}
+.pill--on{background:var(--blue);border-color:var(--blue);color:#fff}
+.pill--on:hover{background:#2b7cf3;color:#fff}
+
+/* ---------- Sezioni --------------------------------------------------- */
+section{padding:44px 0}
+.rule{border:0;height:1px;margin:0;background:linear-gradient(90deg,transparent,var(--line) 18%,var(--line) 82%,transparent)}
+h2{
+  display:flex;align-items:baseline;gap:11px;flex-wrap:wrap;
+  margin:0 0 10px;font:700 clamp(22px,3.6vw,28px)/1.25 var(--sans);letter-spacing:-.025em;
+}
+.lede{margin:0 0 14px;color:var(--fg-dim);font-size:16.5px;max-width:70ch}
+.lede:last-of-type{margin-bottom:26px}
+.lede strong{color:var(--fg);font-weight:600}
+p{margin:0 0 14px}
+
+/* ---------- Chi sono: testo + ritratto -------------------------------- */
+.about{display:grid;grid-template-columns:1fr 250px;gap:34px;align-items:start}
+
+/* ---------- Riquadri per le foto -------------------------------------- */
+.shot{position:relative;margin:0;border-radius:10px;overflow:hidden;background:var(--bg-soft)}
+.shot .frame{position:relative;display:block;width:100%;overflow:hidden;border-radius:10px}
+.shot--45 .frame{aspect-ratio:4/5}
+.shot--43 .frame{aspect-ratio:4/3}
+.shot--169 .frame{aspect-ratio:16/9}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.plate{
+  position:absolute;inset:0;display:grid;place-content:center;gap:7px;text-align:center;padding:12px;
+  background:repeating-linear-gradient(45deg,#0b1424,#0b1424 11px,#0d1828 11px,#0d1828 22px);
+  border:1px dashed var(--line);border-radius:10px;
+  font:500 12px/1.5 var(--mono);color:var(--fg-mute);
+}
+.plate b{display:block;font-weight:500;color:var(--fg-dim)}
+.plate span{display:block;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.shot figcaption{margin-top:8px;font:400 12px/1.5 var(--mono);color:var(--fg-mute)}
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+
+/* ---------- Blocco di codice (la bio, come nel README) ---------------- */
+.code{
+  margin:22px 0 0;padding:18px 20px;
+  background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);
+  overflow-x:auto;
+}
+.code pre{margin:0;font:400 13.5px/1.85 var(--mono);color:#c9d6e4}
+.k{color:#79c0ff}   /* chiavi   */
+.s{color:#a5d6ff}   /* stringhe */
+.v{color:#ffa657}   /* variabile */
+.p{color:#8b98a9}   /* punteggiatura */
+
+/* ---------- Schede progetto ------------------------------------------ */
+.grid{display:grid;gap:16px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.card{
+  position:relative;display:flex;flex-direction:column;
+  padding:22px;background:var(--panel);
+  border:1px solid var(--line);border-radius:var(--radius);
+  transition:border-color .18s,box-shadow .18s;
+}
+.card:hover{border-color:#2c4a77;box-shadow:0 0 0 1px rgba(31,111,235,.16)}
+.card>.shot:first-child{margin:-22px -22px 18px;border-radius:var(--radius) var(--radius) 0 0}
+.card>.shot:first-child .frame,.card>.shot:first-child .plate{border-radius:var(--radius) var(--radius) 0 0}
+.card>.shot:first-child figcaption{padding:0 22px}
+.card__top{display:flex;align-items:center;gap:11px;margin-bottom:12px;flex-wrap:wrap}
+.ico{
+  flex:none;min-width:38px;height:38px;padding:0 9px;border-radius:10px;
+  display:grid;place-items:center;
+  font:700 12.5px/1 var(--mono);letter-spacing:-.02em;color:var(--blue-soft);
+  background:linear-gradient(145deg,var(--navy),#16365f);border:1px solid var(--line);
+}
+.ico--star{font-size:18px;color:var(--gold)}
+.card h3{margin:0;font:700 18px/1.2 var(--mono);letter-spacing:-.02em;color:var(--fg)}
+.card h3 a{color:inherit}
+.card h3 a:hover{color:var(--blue-soft)}
+.card p{margin:0 0 14px;color:var(--fg-dim);font-size:14.8px;line-height:1.62}
+.card .foot{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;padding-top:4px}
+
+.tag{
+  padding:4px 9px;border-radius:999px;font:500 11px/1.3 var(--mono);
+  letter-spacing:.04em;text-transform:uppercase;
+  background:rgba(31,111,235,.13);color:var(--blue-soft);border:1px solid rgba(31,111,235,.3);
+}
+.tag--live{background:rgba(46,160,67,.13);color:#7ee787;border-color:rgba(46,160,67,.32)}
+.tag--wip{background:rgba(227,179,65,.12);color:#e3b341;border-color:rgba(227,179,65,.3)}
+.tag--win{background:rgba(227,179,65,.16);color:#f0c86a;border-color:rgba(227,179,65,.4)}
+
+.go{font:500 13px/1 var(--mono);color:var(--blue-soft)}
+.go::after{content:" ↗";opacity:.7}
+.muted{font:400 12.5px/1 var(--mono);color:var(--fg-mute)}
+
+/* Scheda ammiraglia: tutta larghezza, con la striscia di numeri */
+.card--flag{grid-column:1/-1;background:linear-gradient(160deg,var(--panel-2),var(--panel) 55%)}
+.card--flag h3{font-size:22px}
+.card--flag>p{font-size:16px;max-width:78ch}
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  margin:6px 0 18px;background:var(--line);
+  border:1px solid var(--line);border-radius:10px;overflow:hidden;
+}
+.stat{background:var(--bg-soft);padding:14px 16px}
+.stat b{display:block;font:700 20px/1.2 var(--mono);color:var(--blue-soft);letter-spacing:-.02em}
+.stat i{display:block;margin-top:4px;font:400 11.5px/1.35 var(--sans);color:var(--fg-mute);font-style:normal}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:4px 0 18px}
+
+/* Riga piccola di repo secondari */
+.mini{display:grid;gap:12px;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:16px}
+.mini a{
+  display:block;padding:15px 16px;background:var(--bg-soft);
+  border:1px solid var(--line-soft);border-radius:12px;color:var(--fg);
+}
+.mini a:hover{border-color:#2c4a77;text-decoration:none;background:var(--panel)}
+.mini strong{display:block;font:700 14.5px/1.3 var(--mono);margin-bottom:5px}
+.mini strong::after{content:" ↗";color:var(--fg-mute);font-weight:400}
+.mini span{display:block;font-size:13.4px;color:var(--fg-dim);line-height:1.5}
+
+/* ---------- Badge dello stack (gli shields, in CSS) ------------------- */
+.stack{display:grid;gap:18px}
+.stack-row{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.stack-row>.lab{
+  flex:none;width:132px;
+  font:500 11.5px/1.4 var(--mono);color:var(--fg-mute);
+  text-transform:uppercase;letter-spacing:.08em;
+}
+.badges{display:flex;flex-wrap:wrap;gap:7px;flex:1;min-width:0}
+.badge{
+  display:inline-block;padding:5px 10px;border-radius:5px;
+  background:var(--c,#30363d);color:var(--t,#fff);
+  font:600 12px/1.35 var(--sans);letter-spacing:.01em;white-space:nowrap;
+}
+
+/* ---------- Percorso -------------------------------------------------- */
+.tl{list-style:none;margin:0;padding:0}
+.tl>li{
+  display:grid;grid-template-columns:170px 1fr;gap:0 26px;
+  padding:0 0 30px;position:relative;
+}
+.tl>li::before{ /* la riga verticale */
+  content:"";position:absolute;left:177px;top:12px;bottom:-6px;width:1px;background:var(--line);
+}
+.tl>li:last-child::before{display:none}
+.tl>li::after{ /* il pallino */
+  content:"";position:absolute;left:172px;top:7px;width:11px;height:11px;
+  border-radius:50%;background:var(--bg);border:2px solid var(--blue);
+}
+.tl .when{
+  font:500 12px/1.6 var(--mono);color:var(--fg-mute);
+  text-transform:uppercase;letter-spacing:.05em;text-align:right;padding-top:2px;
+}
+.tl .what{padding-left:22px}
+.tl h3{margin:0 0 2px;font:700 17px/1.35 var(--sans);letter-spacing:-.02em}
+.tl .role{margin:0 0 8px;font:500 13px/1.5 var(--mono);color:var(--blue-soft)}
+.tl p{margin:0 0 8px;color:var(--fg-dim);font-size:14.8px}
+.tl ul{margin:8px 0 0;padding-left:18px;color:var(--fg-dim);font-size:14.5px}
+.tl ul li{margin-bottom:4px}
+.tl>li.award::after{border-color:var(--gold)}
+.sub{margin:26px 0 16px;font:500 12px/1 var(--mono);color:var(--fg-mute);text-transform:uppercase;letter-spacing:.14em}
+
+/* ---------- Serpente -------------------------------------------------- */
+.snake{
+  padding:16px;background:var(--bg-soft);
+  border:1px solid var(--line);border-radius:var(--radius);
+}
+.snake img{display:block;width:100%}
+
+/* ---------- Contatti -------------------------------------------------- */
+.mail{
+  display:inline-block;margin:6px 0 20px;
+  font:600 clamp(17px,3.4vw,25px)/1.3 var(--mono);
+  color:var(--blue-soft);letter-spacing:-.02em;word-break:break-all;
+}
+.kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:26px}
+.kv>div{background:var(--panel);padding:14px 16px}
+.kv dt{font:500 11.5px/1.4 var(--mono);color:var(--fg-mute);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+.kv dd{margin:0;font-size:14.5px}
+
+/* ---------- Coda ------------------------------------------------------ */
+footer{position:relative;margin-top:56px;background:linear-gradient(100deg,var(--blue),var(--mid) 48%,var(--navy));padding:96px 0 26px}
+footer .wrap{position:relative;text-align:center}
+footer p{margin:0;font:400 12.5px/1.7 var(--mono);color:rgba(255,255,255,.78)}
+footer a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- Schermi stretti ------------------------------------------ */
+@media (max-width:860px){
+  .grid,.mini,.kv,.pair,.about{grid-template-columns:1fr}
+  .about .shot{max-width:250px}
+  .stats,.shots{grid-template-columns:repeat(2,1fr)}
+  .tl>li{grid-template-columns:1fr;gap:0}
+  .tl>li::before{left:5px;top:26px}
+  .tl>li::after{left:0;top:21px}
+  .tl .when{text-align:left;padding-left:24px}
+  .tl .what{padding-left:24px}
+  .stack-row>.lab{width:100%}
+  section{padding:36px 0}
+  .banner{padding:58px 0 80px}
+}
+
+/* Sotto i 620 px il tasto GitHub esce: è ripetuto due righe più in basso,
+   e i link delle sezioni valgono di più. */
+@media (max-width:620px){
+  .nav .gh{display:none}
+  .nav .wrap{gap:12px}
+}
+@media (max-width:520px){
+  .typing{min-height:3.4em}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#main" data-l="en">Skip to content</a>
+<a class="skip" href="#main" data-l="it">Salta al contenuto</a>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="at">@</span>DoubleF35</a>
+    <ul>
+      <li><a class="lnk" href="#about"><span data-l="en">About</span><span data-l="it">Chi sono</span></a></li>
+      <li><a class="lnk" href="#projects"><span data-l="en">Projects</span><span data-l="it">Progetti</span></a></li>
+      <li><a class="lnk" href="#stack">Stack</a></li>
+      <li><a class="lnk" href="#path"><span data-l="en">Path</span><span data-l="it">Percorso</span></a></li>
+      <li><a class="lnk" href="#contact"><span data-l="en">Contact</span><span data-l="it">Contatti</span></a></li>
+    </ul>
+    <span class="spacer"></span>
+    <div class="lang" id="lang" role="group" aria-label="Lingua / Language">
+      <button type="button" value="it" lang="it">IT</button>
+      <button type="button" value="en" lang="en">EN</button>
+    </div>
+    <a class="gh" href="https://github.com/DoubleF35" rel="me">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      GitHub
+    </a>
+  </div>
+</nav>
+
+<header class="banner" id="top">
+  <div class="wrap">
+    <h1>Federico Fassio</h1>
+    <p data-l="en">Aerospace · Software · Startups · Torino</p>
+    <p data-l="it">Aerospazio · Software · Startup · Torino</p>
+  </div>
+  <div class="waves" aria-hidden="true">
+    <svg class="wv wv--back" viewBox="0 0 2880 92" preserveAspectRatio="none">
+      <path d="M0,46 C90,28 270,28 360,46 S630,64 720,46 S990,28 1080,46 S1350,64 1440,46 L1440,92 L0,92 Z"/>
+      <path d="M0,46 C90,28 270,28 360,46 S630,64 720,46 S990,28 1080,46 S1350,64 1440,46 L1440,92 L0,92 Z" transform="translate(1440,0)"/>
+    </svg>
+    <svg class="wv wv--front" viewBox="0 0 2880 92" preserveAspectRatio="none">
+      <path d="M0,66 C90,84 270,84 360,66 S630,48 720,66 S990,84 1080,66 S1350,48 1440,66 L1440,92 L0,92 Z"/>
+      <path d="M0,66 C90,84 270,84 360,66 S630,48 720,66 S990,84 1080,66 S1350,48 1440,66 L1440,92 L0,92 Z" transform="translate(1440,0)"/>
+    </svg>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="wrap intro">
+    <p class="typing" id="typing">Onboard ML for satellites<span class="caret">▌</span></p>
+    <div class="pills">
+      <a class="pill pill--on" href="#projects"><span data-l="en">Featured projects</span><span data-l="it">Progetti in evidenza</span></a>
+      <a class="pill" href="https://github.com/DoubleF35" rel="me">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        @DoubleF35
+      </a>
+      <a class="pill" href="https://www.linkedin.com/in/federico-fassio-202a623b8/" rel="me">LinkedIn</a>
+      <a class="pill" href="mailto:fedefas.210@gmail.com">Email</a>
+      <span class="pill">Torino, Italia</span>
+    </div>
+  </div>
+
+  <!-- ====================== CHI SONO ====================== -->
+  <div class="wrap"><hr class="rule"></div>
+  <section id="about"><div class="wrap">
+    <h2><span data-l="en">Hey</span><span data-l="it">Ciao</span></h2>
+    <div class="about">
+      <div>
+        <p class="lede" data-l="en">
+          I build things that fly, things that predict, and things that ship. I work across
+          <strong>aerospace</strong>, <strong>applied machine learning</strong> and
+          <strong>products built from scratch</strong>: usually starting from a real physical
+          problem and ending with something that runs.
+        </p>
+        <p class="lede" data-l="it">
+          Progetto sistemi che devono funzionare lontano da chi li ha costruiti:
+          <strong>aerospazio</strong>, <strong>machine learning applicato</strong> e
+          <strong>prodotti costruiti da zero</strong>. Di solito si parte da un problema fisico
+          vero e si finisce con qualcosa che gira.
+        </p>
+        <p class="lede" data-l="en">
+          Secondary-school student at Liceo Scientifico Galileo Ferraris, Turin. Project manager of
+          <strong>IceRoute</strong> and <strong>CubeSAR</strong> at
+          <a href="https://www.spaceeagle.it">Space Eagle APS</a>, the student rocketry team founded
+          at Politecnico di Torino in 2019. I co-founded <strong>EdUnity</strong> and
+          <strong>YET</strong>, and built the <strong>Seeker</strong> programme: rockets designed in
+          simulation, instrumented, flown and recovered.
+        </p>
+        <p class="lede" data-l="it">
+          Studente al Liceo Scientifico Galileo Ferraris di Torino. Project manager di
+          <strong>IceRoute</strong> e <strong>CubeSAR</strong> in
+          <a href="https://www.spaceeagle.it">Space Eagle APS</a>, il team studentesco di
+          missilistica nato al Politecnico di Torino nel 2019. Ho cofondato <strong>EdUnity</strong>
+          e <strong>YET</strong>, e costruito il programma <strong>Seeker</strong>: razzi progettati
+          in simulazione, strumentati, lanciati e recuperati.
+        </p>
+        <p class="lede" data-l="en">
+          The thread is always the same. Measure instead of assuming; and when the data does not
+          exist, pull it out of somewhere nobody is looking.
+        </p>
+        <p class="lede" data-l="it">
+          Il filo è sempre lo stesso. Misurare invece di supporre; e quando i dati non esistono,
+          estrarli da dove nessuno sta guardando.
+        </p>
+      </div>
+
+      <figure class="shot shot--45">
+        <!-- foto: 1) metti img/ritratto.jpg  2) cancella il .plate  3) togli il commento all'<img> -->
+        <span class="frame">
+          <!-- <img src="img/ritratto.jpg" width="1000" height="1250" alt="Federico Fassio"> -->
+          <span class="plate"><b>img/ritratto.jpg</b><span>4:5</span></span>
+        </span>
+        <figcaption>Torino.</figcaption>
+      </figure>
+    </div>
+
+    <div class="code">
+<pre><span class="v">federico</span> <span class="p">=</span> <span class="p">{</span>
+    <span class="k">"location"</span><span class="p">:</span>  <span class="s">"Torino, IT"</span><span class="p">,</span>
+    <span class="k">"focus"</span><span class="p">:</span>     <span class="p">[</span><span class="s">"onboard ML"</span><span class="p">,</span> <span class="s">"SAR"</span><span class="p">,</span> <span class="s">"simulation"</span><span class="p">],</span>
+    <span class="k">"stack"</span><span class="p">:</span>     <span class="p">[</span><span class="s">"Python"</span><span class="p">,</span> <span class="s">"PyTorch"</span><span class="p">,</span> <span class="s">"ONNX"</span><span class="p">,</span> <span class="s">"React"</span><span class="p">],</span>
+    <span class="k">"currently"</span><span class="p">:</span> <span class="s">"segmenting sea ice inside a satellite"</span><span class="p">,</span>
+    <span class="k">"fun_fact"</span><span class="p">:</span>  <span class="s">"my water rockets have a serious simulator"</span><span class="p">,</span>
+<span class="p">}</span></pre>
+    </div>
+  </div></section>
+
+  <!-- ====================== PROGETTI ====================== -->
+  <div class="wrap"><hr class="rule"></div>
+  <section id="projects"><div class="wrap">
+    <h2><span data-l="en">Featured projects</span><span data-l="it">Progetti in evidenza</span></h2>
+    <p class="lede" data-l="en">Six projects across radar, flight, ventures and data.</p>
+    <p class="lede" data-l="it">Sei progetti tra radar, volo, impresa e dati.</p>
+
+    <div class="grid">
+
+      <article class="card card--flag">
+        <div class="card__top">
+          <span class="ico ico--star" aria-hidden="true">★</span>
+          <h3>IceRoute</h3>
+          <span class="tag" data-l="en">Flagship</span>
+          <span class="tag" data-l="it">Progetto di punta</span>
+          <span class="tag tag--win" data-l="en">★ 1st place · EO Makerspace Hackathon 2026</span>
+          <span class="tag tag--win" data-l="it">★ 1° posto · EO Makerspace Hackathon 2026</span>
+        </div>
+        <p data-l="en">
+          Sea ice segmentation <strong>onboard the satellite</strong>. An INT8 quantized U-Net runs on
+          Sentinel-1 C-band SAR imagery inside a GPU@SAT FPGA, produces the ice mask, computes the
+          optimal Arctic route within POLARIS operational limits, and downlinks mask and route instead
+          of the raw scene. Polar charts reach a bridge 12 to 24 hours late: by then the ice has moved.
+        </p>
+        <p data-l="it">
+          Segmentazione del ghiaccio marino <strong>a bordo del satellite</strong>. Una U-Net
+          quantizzata INT8 gira sulle immagini SAR in banda C di Sentinel-1 dentro un FPGA GPU@SAT,
+          produce la maschera del ghiaccio, calcola la rotta artica ottimale entro i limiti operativi
+          POLARIS e manda a terra maschera e rotta invece della scena grezza. Le carte polari arrivano
+          in plancia con 12-24 ore di ritardo: nel frattempo il ghiaccio si è mosso.
+        </p>
+        <div class="stats">
+          <div class="stat"><b>200 : 1</b><i data-l="en">onboard data reduction</i><i data-l="it">riduzione dati a bordo</i></div>
+          <div class="stat"><b>&lt; 4 KB</b><i data-l="en">the transmitted packet</i><i data-l="it">il pacchetto trasmesso</i></div>
+          <div class="stat"><b>5</b><i data-l="en">ice classes, segmented in orbit</i><i data-l="it">classi di ghiaccio, in orbita</i></div>
+          <div class="stat"><b>100 %</b><i data-l="en">of the vision work runs in space</i><i data-l="it">della computer vision gira in orbita</i></div>
+        </div>
+        <div class="pair">
+          <figure class="shot shot--43">
+            <!-- foto: 1) metti img/iceroute-premio.jpg  2) cancella il .plate  3) togli il commento all'<img> -->
+            <span class="frame">
+              <!-- <img src="img/iceroute-premio.jpg" width="1400" height="1050" alt="EO Makerspace Hackathon 2026" loading="lazy"> -->
+              <span class="plate"><b>img/iceroute-premio.jpg</b><span>4:3</span></span>
+            </span>
+            <figcaption data-l="en">EO Makerspace Hackathon 2026.</figcaption>
+            <figcaption data-l="it">EO Makerspace Hackathon 2026.</figcaption>
+          </figure>
+          <figure class="shot shot--43">
+            <!-- foto: 1) metti img/iceroute-sistema.jpg  2) cancella il .plate  3) togli il commento all'<img> -->
+            <span class="frame">
+              <!-- <img src="img/iceroute-sistema.jpg" width="1400" height="1050" alt="Il sistema IceRoute" loading="lazy"> -->
+              <span class="plate"><b>img/iceroute-sistema.jpg</b><span>4:3</span></span>
+            </span>
+            <figcaption data-l="en">The system.</figcaption>
+            <figcaption data-l="it">Il sistema.</figcaption>
+          </figure>
+        </div>
+        <div class="foot">
+          <span class="muted" data-l="en">Project manager · Space Eagle APS</span>
+          <span class="muted" data-l="it">Project manager · Space Eagle APS</span>
+          <span class="muted">12U CubeSat · Zynq UltraScale+ · IR-Net</span>
+          <a class="go" href="https://www.spaceeagle.it">spaceeagle.it</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <figure class="shot shot--169">
+          <!-- foto: 1) metti img/cubesar.jpg  2) cancella il .plate  3) togli il commento all'<img> -->
+          <span class="frame">
+            <!-- <img src="img/cubesar.jpg" width="1400" height="788" alt="CubeSAR" loading="lazy"> -->
+            <span class="plate"><b>img/cubesar.jpg</b><span>16:9</span></span>
+          </span>
+        </figure>
+        <div class="card__top">
+          <span class="ico" aria-hidden="true">SAR</span>
+          <h3><a href="https://github.com/DoubleF35/CubeSAR">CubeSAR</a></h3>
+          <span class="tag tag--wip" data-l="en">In development</span>
+          <span class="tag tag--wip" data-l="it">In sviluppo</span>
+        </div>
+        <p data-l="en">
+          A desk-sized CubeSat that images its surroundings using synthetic aperture radar: the same
+          principle as Sentinel-1, rebuilding an image by moving the antenna and recombining the echoes
+          in phase, scaled down to a tabletop. It is the step below IceRoute, where a mistake costs an
+          afternoon rather than a mission.
+        </p>
+        <p data-l="it">
+          Un CubeSat da tavolo che riprende quello che ha intorno con il radar ad apertura sintetica:
+          lo stesso principio di Sentinel-1, ricostruire un'immagine muovendo l'antenna e ricombinando
+          gli echi in fase, ridotto alle dimensioni di una scrivania. È il gradino sotto IceRoute, dove
+          uno sbaglio costa un pomeriggio e non una missione.
+        </p>
+        <div class="foot">
+          <span class="muted" data-l="en">Project manager</span>
+          <span class="muted" data-l="it">Project manager</span>
+          <a class="go" href="https://github.com/DoubleF35/CubeSAR" data-l="en">Repository</a>
+          <a class="go" href="https://github.com/DoubleF35/CubeSAR" data-l="it">Repository</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <figure class="shot shot--169">
+          <!-- foto: 1) metti img/seeker-ii.jpg  2) cancella il .plate  3) togli il commento all'<img> -->
+          <span class="frame">
+            <!-- <img src="img/seeker-ii.jpg" width="1400" height="788" alt="Seeker-II" loading="lazy"> -->
+            <span class="plate"><b>img/seeker-ii.jpg</b><span>16:9</span></span>
+          </span>
+        </figure>
+        <div class="card__top">
+          <span class="ico" aria-hidden="true">SK</span>
+          <h3><a href="https://github.com/DoubleF35/Seeker-II"><span data-l="en">Seeker programme</span><span data-l="it">Programma Seeker</span></a></h3>
+          <span class="tag" data-l="en">2 vehicles</span>
+          <span class="tag" data-l="it">2 vettori</span>
+        </div>
+        <p data-l="en">
+          Model rockets designed end to end: OpenRocket for stability and flight profile, Fusion 360
+          for structure and mass, fabrication, launch, recovery. Seeker-II carries a flight computer of
+          my own design: ESP32-C3, altimeter and IMU, telemetry over LoRa at 433 MHz. If the real
+          flight does not look like the simulation, the model is wrong, and it has to be found before
+          the next launch.
+        </p>
+        <p data-l="it">
+          Razzi modellistici progettati dall'inizio alla fine: OpenRocket per stabilità e profilo di
+          volo, Fusion 360 per struttura e masse, fabbricazione, lancio, recupero. Seeker-II porta a
+          bordo un computer di volo che ho progettato io: ESP32-C3, altimetro e IMU, telemetria su LoRa
+          a 433 MHz. Se il volo vero non somiglia alla simulazione, è il modello a essere sbagliato, e
+          va trovato prima del lancio dopo.
+        </p>
+        <div class="foot">
+          <span class="muted">≈364 g · Tsp E20-6 · ESP32-C3</span>
+          <a class="go" href="https://github.com/DoubleF35/Seeker-II">Repository</a>
+          <a class="go" href="https://www.thingiverse.com/thing:7338519" data-l="en">CAD model</a>
+          <a class="go" href="https://www.thingiverse.com/thing:7338519" data-l="it">Modello CAD</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <figure class="shot shot--169">
+          <!-- foto: 1) metti img/edunity.jpg  2) cancella il .plate  3) togli il commento all'<img> -->
+          <span class="frame">
+            <!-- <img src="img/edunity.jpg" width="1400" height="788" alt="EdUnity" loading="lazy"> -->
+            <span class="plate"><b>img/edunity.jpg</b><span>16:9</span></span>
+          </span>
+        </figure>
+        <div class="card__top">
+          <span class="ico" aria-hidden="true">Ed</span>
+          <h3><a href="https://edunityedu.it">EdUnity</a></h3>
+          <span class="tag tag--live">Live</span>
+          <span class="tag tag--win" data-l="en">★ 2nd, Fin4Teen 2026</span>
+          <span class="tag tag--win" data-l="it">★ 2° al Fin4Teen 2026</span>
+        </div>
+        <p data-l="en">
+          Study better with AI, for free. Co-founded with four schoolmates: it records the lesson with
+          hybrid transcription and generates summaries, flashcards, marked quizzes and concept maps.
+          Built for everyone, with specific attention to students with learning disabilities and student
+          athletes. No AI key ever reaches the browser.
+        </p>
+        <p data-l="it">
+          Studiare meglio con l'AI, gratis. Cofondata con quattro compagni di scuola: registra la
+          lezione con trascrizione ibrida e genera riassunti, flashcard, quiz corretti e mappe
+          concettuali. È pensata per tutti, con attenzione specifica agli studenti con DSA e agli
+          studenti-atleti. Nessuna chiave AI arriva mai al browser.
+        </p>
+        <div class="foot">
+          <span class="muted" data-l="en">Co-founder · Firebase + Cloudflare Worker</span>
+          <span class="muted" data-l="it">Cofondatore · Firebase + Cloudflare Worker</span>
+          <a class="go" href="https://edunityedu.it">edunityedu.it</a>
+          <a class="go" href="https://github.com/DoubleF35/EdUnity">Repository</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <figure class="shot shot--169">
+          <!-- foto: 1) metti img/yet.jpg  2) cancella il .plate  3) togli il commento all'<img> -->
+          <span class="frame">
+            <!-- <img src="img/yet.jpg" width="1400" height="788" alt="Un incontro della community YET" loading="lazy"> -->
+            <span class="plate"><b>img/yet.jpg</b><span>16:9</span></span>
+          </span>
+        </figure>
+        <div class="card__top">
+          <span class="ico" aria-hidden="true">YET</span>
+          <h3><a href="https://doublef35.github.io/yet/">YET</a></h3>
+          <span class="tag tag--live" data-l="en">100 members</span>
+          <span class="tag tag--live" data-l="it">100 membri</span>
+        </div>
+        <p data-l="en">
+          Young Entrepreneurs Together: Turin's community for 16-to-23-year-olds who actually build
+          things. I run the meetings where members present and get real criticism, handle relationships
+          with founders and mentors, and own the technical side. React, Vite and Firebase, entirely on
+          the free tier, with JSON export and restore, because "free tier" must not come to mean "one
+          day it disappears".
+        </p>
+        <p data-l="it">
+          Young Entrepreneurs Together: la community torinese dei sedici-ventitreenni che le cose le
+          costruiscono davvero. Conduco gli incontri in cui i membri presentano i progetti e ricevono
+          critiche vere, curo i rapporti con founder e mentor, e mi occupo di tutta la parte tecnica.
+          React, Vite e Firebase, interamente sul piano gratuito, con esportazione e ripristino in
+          JSON, perché «gira sul piano gratuito» non deve diventare «un giorno sparisce».
+        </p>
+        <div class="foot">
+          <span class="muted" data-l="en">Co-founder · tech and digital</span>
+          <span class="muted" data-l="it">Cofondatore · tecnica e digitale</span>
+          <a class="go" href="https://doublef35.github.io/yet/" data-l="en">Open the site</a>
+          <a class="go" href="https://doublef35.github.io/yet/" data-l="it">Apri il sito</a>
+          <a class="go" href="https://github.com/DoubleF35/yet">Repository</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <figure class="shot shot--169">
+          <!-- foto: 1) metti img/f4kit.jpg  2) cancella il .plate  3) togli il commento all'<img> -->
+          <span class="frame">
+            <!-- <img src="img/f4kit.jpg" width="1400" height="788" alt="f4kit" loading="lazy"> -->
+            <span class="plate"><b>img/f4kit.jpg</b><span>16:9</span></span>
+          </span>
+        </figure>
+        <div class="card__top">
+          <span class="ico" aria-hidden="true">F4</span>
+          <h3>f4kit</h3>
+          <span class="tag tag--wip" data-l="en">Not public yet</span>
+          <span class="tag tag--wip" data-l="it">Non ancora pubblico</span>
+        </div>
+        <p data-l="en">
+          Italian Formula 4 qualifying, read straight out of ACI Sport's official timing PDFs, to the
+          millisecond. One invariant holds the whole parser together: for two consecutive laps by the
+          same driver, the gap between the two line crossings must equal the lap time, within 2 ms. It
+          holds across all 416 laps of the two Misano 2025 sessions. A change that breaks it is wrong,
+          even when the output looks plausible.
+        </p>
+        <p data-l="it">
+          Le qualifiche della Formula 4 italiana, lette direttamente dai PDF cronometrici ufficiali di
+          ACI Sport, al millesimo. Un invariante tiene insieme tutto il parser: per due giri
+          consecutivi dello stesso pilota, lo scarto fra i due passaggi sul traguardo deve essere
+          uguale al tempo sul giro, con tolleranza di 2 ms. Regge su tutti i 416 giri delle due
+          sessioni di Misano 2025. Una modifica che lo rompe è sbagliata, anche quando il risultato
+          sembra plausibile.
+        </p>
+        <div class="foot">
+          <span class="muted" data-l="en">2 ms across 416 laps · 58 tests</span>
+          <span class="muted" data-l="it">2 ms su 416 giri · 58 test</span>
+          <a class="go" href="mailto:fedefas.210@gmail.com" data-l="en">Get in touch</a>
+          <a class="go" href="mailto:fedefas.210@gmail.com" data-l="it">Scrivimi</a>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="sub" data-l="en">Also on GitHub</p>
+    <p class="sub" data-l="it">Altro su GitHub</p>
+    <div class="mini">
+      <a href="https://doublef35.github.io/waterrocketsim/">
+        <strong>waterrocketsim</strong>
+        <span data-l="en">The most complete water rocket simulator on the web. Design your rocket, run the simulation.</span>
+        <span data-l="it">Il simulatore di razzi ad acqua più completo del web. Progetti il razzo, lanci la simulazione.</span>
+      </a>
+      <a href="https://github.com/DoubleF35/afterword">
+        <strong>afterword</strong>
+        <span data-l="en">Chat with someone from your message history, in their voice. Style and memory, no fine-tuning.</span>
+        <span data-l="it">Parlare con qualcuno a partire dalla cronologia dei messaggi, con la sua voce. Stile e memoria, senza fine-tuning.</span>
+      </a>
+      <a href="https://doublef35.github.io/unsited/">
+        <strong>unsited</strong>
+        <span data-l="en">Find local businesses with no website, on the map. Fully client-side, built on Google Maps.</span>
+        <span data-l="it">Trova sulla mappa le attività locali senza sito. Tutto lato client, costruito su Google Maps.</span>
+      </a>
+    </div>
+  </div></section>
+
+  <!-- ====================== STACK ====================== -->
+  <div class="wrap"><hr class="rule"></div>
+  <section id="stack"><div class="wrap">
+    <h2>Stack</h2>
+    <div class="stack">
+      <div class="stack-row">
+        <span class="lab" data-l="en">Core</span><span class="lab" data-l="it">Base</span>
+        <div class="badges">
+          <span class="badge" style="--c:#3776AB">Python</span>
+          <span class="badge" style="--c:#00599C">C++</span>
+          <span class="badge" style="--c:#F7DF1E;--t:#111">JavaScript</span>
+          <span class="badge" style="--c:#4EAA25">Bash</span>
+        </div>
+      </div>
+      <div class="stack-row">
+        <span class="lab" data-l="en">ML &amp; data</span><span class="lab" data-l="it">ML e dati</span>
+        <div class="badges">
+          <span class="badge" style="--c:#EE4C2C">PyTorch</span>
+          <span class="badge" style="--c:#005CED">ONNX Runtime</span>
+          <span class="badge" style="--c:#013243">NumPy</span>
+          <span class="badge" style="--c:#150458">pandas</span>
+          <span class="badge" style="--c:#F7931E;--t:#111">scikit-learn</span>
+          <span class="badge" style="--c:#FF4B4B">Streamlit</span>
+        </div>
+      </div>
+      <div class="stack-row">
+        <span class="lab">Web</span>
+        <div class="badges">
+          <span class="badge" style="--c:#61DAFB;--t:#111">React</span>
+          <span class="badge" style="--c:#646CFF">Vite</span>
+          <span class="badge" style="--c:#E34F26">HTML5</span>
+          <span class="badge" style="--c:#1572B6">CSS3</span>
+          <span class="badge" style="--c:#FFCA28;--t:#111">Firebase</span>
+          <span class="badge" style="--c:#F38020">Cloudflare</span>
+        </div>
+      </div>
+      <div class="stack-row">
+        <span class="lab" data-l="en">Hardware &amp; sim</span><span class="lab" data-l="it">Hardware e simulazione</span>
+        <div class="badges">
+          <span class="badge" style="--c:#E7352C">ESP32</span>
+          <span class="badge" style="--c:#0B7285">LoRa</span>
+          <span class="badge" style="--c:#0696D7">Fusion 360</span>
+          <span class="badge" style="--c:#C8102E">OpenRocket</span>
+          <span class="badge" style="--c:#1F6FEB">FPGA · VHDL</span>
+        </div>
+      </div>
+      <div class="stack-row">
+        <span class="lab" data-l="en">Tooling</span><span class="lab" data-l="it">Strumenti</span>
+        <div class="badges">
+          <span class="badge" style="--c:#FCC624;--t:#111">Linux</span>
+          <span class="badge" style="--c:#F05032">Git</span>
+          <span class="badge" style="--c:#2088FF">GitHub Actions</span>
+          <span class="badge" style="--c:#A42E2B">GNU Make</span>
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- ====================== PERCORSO ====================== -->
+  <div class="wrap"><hr class="rule"></div>
+  <section id="path"><div class="wrap">
+    <h2><span data-l="en">Path</span><span data-l="it">Percorso</span></h2>
+    <p class="lede" data-l="en">The dates matter: nearly everything on this page happened in the last two years, alongside school.</p>
+    <p class="lede" data-l="it">Le date contano: quasi tutto quello che sta in questa pagina è successo negli ultimi due anni, insieme alla scuola.</p>
+
+    <p class="sub" data-l="en">Experience</p>
+    <p class="sub" data-l="it">Esperienza</p>
+    <ol class="tl">
+      <li>
+        <div class="when"><span data-l="en">Feb 2026 → now</span><span data-l="it">Feb 2026 → oggi</span></div>
+        <div class="what">
+          <h3>Space Eagle APS</h3>
+          <p class="role" data-l="en">Project manager · Turin, part-time</p>
+          <p class="role" data-l="it">Project manager · Torino, part-time</p>
+          <p data-l="en">
+            A student rocketry team founded at Politecnico di Torino in 2019, which develops everything
+            in house, from propulsion to avionics. Since August 2026 I run the two radar projects,
+            CubeSAR and IceRoute: planning, splitting the work, and keeping the technical side and the
+            outward-facing side consistent. Associate member since February, on ICARO and IceRoute.
+          </p>
+          <p data-l="it">
+            Team studentesco di missilistica nato al Politecnico di Torino nel 2019, che sviluppa tutto
+            in casa, dalla propulsione all'avionica. Da agosto 2026 seguo i due progetti radar, CubeSAR
+            e IceRoute: pianificazione, divisione del lavoro, e coerenza fra la parte tecnica e quella
+            che si vede da fuori. Socio dal febbraio precedente, su ICARO e IceRoute.
+          </p>
+        </div>
+      </li>
+      <li>
+        <div class="when"><span data-l="en">Jul 2026 → now</span><span data-l="it">Lug 2026 → oggi</span></div>
+        <div class="what">
+          <h3>YET · Young Entrepreneurs Together</h3>
+          <p class="role" data-l="en">Co-founder · Turin</p>
+          <p class="role" data-l="it">Cofondatore · Torino</p>
+          <p data-l="en">
+            Founded because Piedmont has plenty of capable young people and almost nowhere to meet and
+            get concrete feedback before university. Today 100 members from across Italy.
+          </p>
+          <p data-l="it">
+            Fondata perché in Piemonte i ragazzi in gamba ci sono, ma non c'è quasi nessun posto dove
+            incontrarsi e ricevere un parere concreto prima dell'università. Oggi siamo 100 membri da
+            tutta Italia.
+          </p>
+          <ul data-l="en">
+            <li>I run the meetings where members present their projects and get real criticism</li>
+            <li>I handle relationships with founders, mentors and the local startup ecosystem</li>
+            <li>I own the technical and digital side: site, tools, online presence</li>
+          </ul>
+          <ul data-l="it">
+            <li>Conduco gli incontri in cui i membri presentano i progetti e ricevono critiche vere</li>
+            <li>Curo i rapporti con founder, mentor e l'ecosistema startup del territorio</li>
+            <li>Mi occupo di tutta la parte tecnica e digitale: sito, strumenti, presenza online</li>
+          </ul>
+        </div>
+      </li>
+      <li class="award">
+        <div class="when"><span data-l="en">Dec 2025 → Jun 2026</span><span data-l="it">Dic 2025 → Giu 2026</span></div>
+        <div class="what">
+          <h3>EO Makerspace Hackathon 2026
+            <span class="tag tag--win" data-l="en">★ 1st place</span>
+            <span class="tag tag--win" data-l="it">★ 1° posto</span>
+          </h3>
+          <p class="role">ESA Φ-lab Challenges · Frascati</p>
+          <p data-l="en">
+            First place with my team, presenting <strong>IceRoute</strong>. Run in collaboration with
+            WMF (We Make Future) and IngeniArs s.r.l. Team: Simone Avella, Federico Fassio, Giuseppe
+            Mondilla, Lorenzo Razzano. Advisor: Riccardo Apa.
+          </p>
+          <p data-l="it">
+            Primo posto con la mia squadra, presentando <strong>IceRoute</strong>. In collaborazione
+            con WMF (We Make Future) e IngeniArs s.r.l. Squadra: Simone Avella, Federico Fassio,
+            Giuseppe Mondilla, Lorenzo Razzano. Advisor: Riccardo Apa.
+          </p>
+        </div>
+      </li>
+      <li class="award">
+        <div class="when"><span data-l="en">Feb 2026 → Jun 2026</span><span data-l="it">Feb 2026 → Giu 2026</span></div>
+        <div class="what">
+          <h3>Fin4Teen 2026
+            <span class="tag tag--win" data-l="en">★ 2nd nationally</span>
+            <span class="tag tag--win" data-l="it">★ 2° a livello nazionale</span>
+          </h3>
+          <p class="role">SellaLab · Biella</p>
+          <p data-l="en">
+            SellaLab's startup programme, taken through with <strong>EdUnity</strong>, the platform for
+            improving school learning for students with learning disabilities and student athletes.
+          </p>
+          <p data-l="it">
+            Il programma per startup di SellaLab, affrontato con <strong>EdUnity</strong>, la
+            piattaforma per rendere lo studio più efficace per studenti con DSA e studenti-atleti.
+          </p>
+        </div>
+      </li>
+    </ol>
+
+    <p class="sub" data-l="en">Education</p>
+    <p class="sub" data-l="it">Formazione</p>
+    <ol class="tl">
+      <li>
+        <div class="when"><span data-l="en">2023 → now</span><span data-l="it">2023 → oggi</span></div>
+        <div class="what">
+          <h3>Liceo Scientifico Galileo Ferraris</h3>
+          <p class="role" data-l="en">Scientific track · Torino</p>
+          <p class="role" data-l="it">Indirizzo scientifico · Torino</p>
+          <p data-l="en">Everything on this page was built alongside school, not instead of it.</p>
+          <p data-l="it">Tutto quello che sta in questa pagina è stato costruito insieme alla scuola, non al posto della scuola.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="shots">
+      <figure class="shot shot--43">
+        <!-- foto: 1) metti img/space-eagle.jpg  2) cancella il .plate  3) togli il commento all'<img> -->
+        <span class="frame">
+          <!-- <img src="img/space-eagle.jpg" width="1400" height="1050" alt="Space Eagle APS" loading="lazy"> -->
+          <span class="plate"><b>img/space-eagle.jpg</b><span>4:3</span></span>
+        </span>
+        <figcaption>Space Eagle.</figcaption>
+      </figure>
+      <figure class="shot shot--43">
+        <!-- foto: 1) metti img/esa-hackathon.jpg  2) cancella il .plate  3) togli il commento all'<img> -->
+        <span class="frame">
+          <!-- <img src="img/esa-hackathon.jpg" width="1400" height="1050" alt="ESA, Frascati" loading="lazy"> -->
+          <span class="plate"><b>img/esa-hackathon.jpg</b><span>4:3</span></span>
+        </span>
+        <figcaption>ESA, Frascati.</figcaption>
+      </figure>
+      <figure class="shot shot--43">
+        <!-- foto: 1) metti img/fin4teen.jpg  2) cancella il .plate  3) togli il commento all'<img> -->
+        <span class="frame">
+          <!-- <img src="img/fin4teen.jpg" width="1400" height="1050" alt="Fin4Teen, SellaLab" loading="lazy"> -->
+          <span class="plate"><b>img/fin4teen.jpg</b><span>4:3</span></span>
+        </span>
+        <figcaption>Fin4Teen, SellaLab.</figcaption>
+      </figure>
+    </div>
+  </div></section>
+
+  <!-- ====================== SERPENTE ====================== -->
+  <div class="wrap"><hr class="rule"></div>
+  <section id="snake"><div class="wrap">
+    <h2><span data-l="en">The snake eats my commits</span><span data-l="it">Il serpente si mangia i miei commit</span></h2>
+    <p class="lede" data-l="en">Regenerated every morning by a GitHub Action on the profile repository.</p>
+    <p class="lede" data-l="it">Rigenerato ogni mattina da una GitHub Action sul repository del profilo.</p>
+    <div class="snake">
+      <img src="https://raw.githubusercontent.com/DoubleF35/DoubleF35/output/snake-dark.svg"
+           alt="A snake eating the squares of my GitHub contribution graph" loading="lazy">
+    </div>
+  </div></section>
+
+  <!-- ====================== CONTATTI ====================== -->
+  <div class="wrap"><hr class="rule"></div>
+  <section id="contact"><div class="wrap">
+    <h2><span data-l="en">Let's talk</span><span data-l="it">Parliamone</span></h2>
+    <p class="lede" data-l="en">
+      Write to me if you work on Earth observation, onboard computing or rocketry; if you are building
+      something in Turin; or if you have a public dataset nobody has properly looked at yet.
+    </p>
+    <p class="lede" data-l="it">
+      Scrivimi se ti occupi di osservazione della Terra, calcolo di bordo o missilistica; se stai
+      costruendo qualcosa a Torino; o se hai un dataset pubblico che nessuno ha ancora guardato davvero.
+    </p>
+    <a class="mail" href="mailto:fedefas.210@gmail.com">fedefas.210@gmail.com</a>
+    <div class="pills" style="justify-content:flex-start">
+      <a class="pill pill--on" href="https://www.linkedin.com/in/federico-fassio-202a623b8/" rel="me">LinkedIn</a>
+      <a class="pill" href="https://github.com/DoubleF35" rel="me">GitHub</a>
+      <a class="pill" href="https://www.instagram.com/federicofassioo/" rel="me">Instagram</a>
+    </div>
+    <dl class="kv">
+      <div>
+        <dt data-l="en">Other email</dt><dt data-l="it">Altra email</dt>
+        <dd><a href="mailto:federico.fassio@spaceeagle.it">federico.fassio@spaceeagle.it</a></dd>
+      </div>
+      <div>
+        <dt>Team</dt>
+        <dd><a href="https://www.spaceeagle.it">spaceeagle.it</a></dd>
+      </div>
+      <div>
+        <dt>EdUnity</dt>
+        <dd><a href="https://edunityedu.it">edunityedu.it</a></dd>
+      </div>
+      <div>
+        <dt data-l="en">Where</dt><dt data-l="it">Dove</dt>
+        <dd>Torino, Italia</dd>
+      </div>
+    </dl>
+  </div></section>
+
+</main>
+
+<footer>
+  <div class="waves waves--up" aria-hidden="true">
+    <svg class="wv wv--back" viewBox="0 0 2880 92" preserveAspectRatio="none">
+      <path d="M0,46 C90,28 270,28 360,46 S630,64 720,46 S990,28 1080,46 S1350,64 1440,46 L1440,92 L0,92 Z"/>
+      <path d="M0,46 C90,28 270,28 360,46 S630,64 720,46 S990,28 1080,46 S1350,64 1440,46 L1440,92 L0,92 Z" transform="translate(1440,0)"/>
+    </svg>
+    <svg class="wv wv--front" viewBox="0 0 2880 92" preserveAspectRatio="none">
+      <path d="M0,66 C90,84 270,84 360,66 S630,48 720,66 S990,84 1080,66 S1350,48 1440,66 L1440,92 L0,92 Z"/>
+      <path d="M0,66 C90,84 270,84 360,66 S630,48 720,66 S990,84 1080,66 S1350,48 1440,66 L1440,92 L0,92 Z" transform="translate(1440,0)"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <p data-l="en">© 2026 Federico Fassio · One page, no framework, no build step · <a href="https://github.com/DoubleF35/doublef35.github.io">source</a></p>
+    <p data-l="it">© 2026 Federico Fassio · Una pagina sola, nessun framework, nessun build step · <a href="https://github.com/DoubleF35/doublef35.github.io">sorgente</a></p>
+  </div>
+</footer>
+
+<script>
+/* -------- Lingua ---------------------------------------------------------
+   Il toggle riscrive solo html[data-lang]: il resto lo fa il CSS.          */
+(function(){
+  var box = document.getElementById('lang');
+  if(!box) return;
+  box.addEventListener('click', function(e){
+    var b = e.target.closest('button');
+    if(!b) return;
+    var v = b.value;
+    document.documentElement.setAttribute('data-lang', v);
+    document.documentElement.setAttribute('lang', v);
+    try{ localStorage.setItem('lang', v); }catch(err){}
+    if(window.retype) window.retype();
+  });
+})();
+
+/* -------- Le righe che si scrivono da sole -------------------------------
+   Le stesse del typing SVG nel README, scritte a mano invece che chieste a
+   un servizio esterno, e in due lingue. Con reduced-motion resta la prima. */
+(function(){
+  var el = document.getElementById('typing');
+  if(!el) return;
+
+  var LINES = {
+    en: [
+      'Onboard ML for satellites',
+      'Sentinel-1 SAR → ice maps → Arctic routes',
+      'An INT8 U-Net segmenting sea ice at 550 km',
+      'Rockets designed in simulation, flown, recovered',
+      'F4 timing PDFs → 416 laps, 2 ms tolerance',
+      'Water rockets, CubeSats, startups. From Torino.'
+    ],
+    it: [
+      'ML di bordo per satelliti',
+      'SAR Sentinel-1 → mappe del ghiaccio → rotte artiche',
+      'Una U-Net INT8 che segmenta il ghiaccio a 550 km',
+      'Razzi progettati in simulazione, lanciati, recuperati',
+      'PDF cronometrici F4 → 416 giri, 2 ms di tolleranza',
+      'Razzi ad acqua, CubeSat, startup. Da Torino.'
+    ]
+  };
+
+  function lang(){ return document.documentElement.getAttribute('data-lang') === 'it' ? 'it' : 'en'; }
+  function write(s){ el.firstChild.nodeValue = s; }
+
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var i = 0, n = 0, del = false, timer = null;
+
+  window.retype = function(){
+    clearTimeout(timer);
+    i = 0; n = 0; del = false;
+    if(still){ write(LINES[lang()][0]); return; }
+    write('');
+    timer = setTimeout(tick, 260);
+  };
+
+  function tick(){
+    var lines = LINES[lang()], line = lines[i % lines.length];
+    n += del ? -1 : 1;
+    write(line.slice(0, n));
+    var wait = del ? 28 : 55;
+    if(!del && n >= line.length){ del = true; wait = 2000; }
+    else if(del && n <= 0){ del = false; i++; wait = 300; }
+    timer = setTimeout(tick, wait);
+  }
+
+  if(still){ write(LINES[lang()][0]); return; }
+  timer = setTimeout(tick, 1800);
+})();
+</script>
+</body>
+</html>
