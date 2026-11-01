@@ -276,7 +276,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 .flag__text{grid-column:1;grid-row:1 / span 2}
 .flag__main{grid-column:2;grid-row:1}
 .flag__main .frame{aspect-ratio:1582 / 945}
-.flag__pair{grid-column:2;grid-row:2;display:grid;grid-template-columns:minmax(0,1.333fr) minmax(0,1.778fr);gap:16px;align-self:start}
+.flag__pair{grid-column:2;grid-row:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-self:start}
 .flag__pair .shot--43 .frame{aspect-ratio:4 / 3}
 .flag__pair .shot--169 .frame{aspect-ratio:16 / 9}
 .flag h3{margin:0 0 20px;font:400 clamp(56px, 5.6vw, 80px)/.92 var(--serif);letter-spacing:-.02em;color:#f4f8ff}
@@ -302,8 +302,8 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 .row__text{grid-area:text}
 .row__text > p{font-size:16.5px;color:var(--paper-dim);max-width:56ch}
 .row__fig{grid-area:fig;padding-top:10px}
-.row__fig .frame{aspect-ratio:16 / 9}
-.row__fig.shot--43 .frame{aspect-ratio:4 / 3}
+/* Ogni foto nelle sue proporzioni: width e height veri sull'<img>, nessun ritaglio. */
+.row__fig .frame img{height:auto}
 
 /* f4kit non ha ancora una foto: al suo posto l'invariante che regge il
    parser, scritto come una formula. Quando la foto c'è, si sostituisce. */
@@ -566,7 +566,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
         <p data-l="it">Di solito parto da un problema fisico vero e cerco di arrivare a qualcosa che gira.</p>
       </div>
       <figure class="portrait">
-        <span class="frame"><img src="img/ritratto.jpeg" width="1000" height="1250" alt="Federico Fassio"></span>
+        <span class="frame"><img src="img/ritratto.jpeg" width="1600" height="2133" alt="Federico Fassio" loading="lazy" decoding="async"></span>
       </figure>
     </div>
   </div></section>
@@ -611,8 +611,8 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
         <figcaption data-l="it">La console: scena SAR, maschera del ghiaccio, rotta, bilancio del downlink.</figcaption>
       </figure>
       <div class="flag__pair">
-        <figure class="shot--43">
-          <span class="frame"><img src="img/iceroute-premio.jpeg" width="1400" height="1050" alt="EO Makerspace Hackathon 2026 at ESA Φ-lab" data-alt-it="EO Makerspace Hackathon 2026 all'ESA Φ-lab" loading="lazy"></span>
+        <figure class="shot--169">
+          <span class="frame"><img src="img/iceroute-premio.jpeg" width="1600" height="900" alt="EO Makerspace Hackathon 2026 at ESA Φ-lab" data-alt-it="EO Makerspace Hackathon 2026 all'ESA Φ-lab" loading="lazy"></span>
         </figure>
         <figure class="shot--169">
           <span class="frame"><img src="img/teenventures-pitch.jpg" width="1600" height="900" alt="Presenting the IceRoute GUI at TeenVentures Demo Night" data-alt-it="La GUI di IceRoute presentata alla TeenVentures Demo Night" loading="lazy"></span>
@@ -651,7 +651,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
       <p class="meta"><span>Project manager</span><span><span data-l="en">In development</span><span data-l="it">In sviluppo</span></span></p>
       <h3><a href="https://github.com/DoubleF35/CubeSAR">CubeSAR</a></h3>
       <figure class="row__fig">
-        <span class="frame"><img src="img/cubesar.png" width="1400" height="788" alt="CubeSAR" loading="lazy"></span>
+        <span class="frame"><img src="img/cubesar.png" width="1600" height="1100" alt="CubeSAR" loading="lazy"></span>
       </figure>
       <div class="row__text">
         <p data-l="en">
@@ -672,7 +672,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
       <p class="meta"><span><span data-l="en">2 vehicles</span><span data-l="it">2 vettori</span></span></p>
       <h3><a href="https://github.com/DoubleF35/Seeker-II"><span data-l="en">Seeker programme</span><span data-l="it">Programma Seeker</span></a></h3>
       <figure class="row__fig">
-        <span class="frame"><img src="img/seeker-ii.jpeg" width="1400" height="788" alt="The Seeker-II rocket" data-alt-it="Il razzo Seeker-II" loading="lazy"></span>
+        <span class="frame"><img src="img/seeker-ii.jpeg" width="1600" height="1200" alt="The Seeker-II rocket" data-alt-it="Il razzo Seeker-II" loading="lazy"></span>
       </figure>
       <div class="row__text">
         <p data-l="en">
@@ -701,7 +701,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
       <p class="meta"><span><span data-l="en">Co-founder</span><span data-l="it">Cofondatore</span></span><span>Online</span></p>
       <h3><a href="https://edunityedu.it">EdUnity</a></h3>
       <figure class="row__fig">
-        <span class="frame"><img src="img/edunity.jpeg" width="1400" height="788" alt="EdUnity" loading="lazy"></span>
+        <span class="frame"><img src="img/edunity.jpeg" width="1600" height="1200" alt="EdUnity" loading="lazy"></span>
       </figure>
       <div class="row__text">
         <p data-l="en">
@@ -919,7 +919,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 
     <div class="photos">
       <figure>
-        <span class="frame"><img src="img/esa-hackathon.jpeg" width="1400" height="1050" alt="At ESA, Frascati" data-alt-it="All'ESA, Frascati" loading="lazy"></span>
+        <span class="frame"><img src="img/esa-hackathon.jpeg" width="1125" height="671" alt="At ESA, Frascati" data-alt-it="All'ESA, Frascati" loading="lazy"></span>
         <figcaption>ESA <span class="nw">Φ-lab</span>, Frascati</figcaption>
       </figure>
       <figure>
@@ -936,11 +936,11 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
         <figcaption data-l="it">Un incontro YET</figcaption>
       </figure>
       <figure>
-        <span class="frame"><img src="img/space-eagle.jpeg" width="1400" height="1050" alt="Space Eagle APS" loading="lazy"></span>
+        <span class="frame"><img src="img/space-eagle.jpeg" width="1280" height="853" alt="Space Eagle APS" loading="lazy"></span>
         <figcaption>Space Eagle APS</figcaption>
       </figure>
       <figure>
-        <span class="frame"><img src="img/fin4teen.jpeg" width="1400" height="1050" alt="Fin4Teen, SellaLab" loading="lazy"></span>
+        <span class="frame"><img src="img/fin4teen.jpeg" width="1600" height="1200" alt="Fin4Teen, SellaLab" loading="lazy"></span>
         <figcaption>Fin4Teen, SellaLab</figcaption>
       </figure>
       <figure>

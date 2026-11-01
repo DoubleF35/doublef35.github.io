@@ -1,47 +1,47 @@
-# Foto
+# federicofassio.it
 
-Undici posti dove va una foto. Ogni segnaposto nel sito dice già il nome del
-file che si aspetta, quindi non serve consultare questa tabella per capire
-dov'è: basta guardare il riquadro tratteggiato.
+Una pagina sola, `index.html`: HTML, CSS e JavaScript nello stesso file,
+nessun framework e nessun build step. GitHub Pages pubblica il branch
+`main` sul dominio scritto in `CNAME`.
 
-| File | Formato | Dove | Cosa |
-|---|---|---|---|
-| `ritratto.jpg` | verticale 4:5 | Chi sono | Il tuo ritratto |
-| `iceroute-premio.jpg` | 4:3 | IceRoute | Il team all'EO Makerspace Hackathon, o la premiazione |
-| `iceroute-sistema.jpg` | 4:3 | IceRoute | Una slide del pitch, o il devkit ZCU104 |
-| `cubesar.jpg` | 16:9 | CubeSAR | Il banco, l'antenna, o una prima immagine radar |
-| `seeker-ii.jpg` | 16:9 | Programma Seeker | Il razzo assemblato, la rampa, o il render CAD |
-| `edunity.jpg` | 16:9 | EdUnity | Schermata dell'app, o il team al Fin4Teen |
-| `yet.jpg` | 16:9 | YET | Un incontro della community |
-| `f4kit.jpg` | 16:9 | f4kit | Una schermata dell'output, o il PDF cronometrico |
-| `space-eagle.jpg` | 4:3 | Percorso | Il team, o l'officina |
-| `esa-hackathon.jpg` | 4:3 | Percorso | Frascati, ESA |
-| `fin4teen.jpg` | 4:3 | Percorso | La premiazione SellaLab |
+## Lingue
 
-## Come si mette una foto
+Ogni testo esiste due volte, con `data-l="en"` e `data-l="it"`. L'inglese
+è la lingua di default; la scelta del visitatore resta salvata nel suo
+browser. Per cambiare un testo vanno cambiate tutte e due le versioni.
 
-In `index.html` cerca il nome del file. Trovi un commento che spiega cosa
-fare, ed è sempre lo stesso:
+I testi alternativi delle immagini: inglese in `alt`, italiano in
+`data-alt-it`. Lo script li scambia insieme alla lingua.
 
-1. metti il file qui, con quel nome esatto;
-2. cancella il `<span class="plate">…</span>`;
-3. togli il commento all'`<img>` che sta subito sopra.
+## Foto
 
-L'`<img>` ha già `width`, `height` e `loading` scritti, e il riquadro che lo
-contiene ha `aspect-ratio` e `object-fit:cover`: sono lì per evitare che la
-pagina salti mentre l'immagine carica.
+Stanno tutte in `img/`. Ogni `<img>` dichiara `width` e `height` con le
+dimensioni vere del file: servono al browser per riservare lo spazio
+prima che la foto arrivi, così la pagina non salta.
 
-## Formati
+**Sostituire una foto con lo stesso nome**: se le proporzioni restano
+uguali non serve toccare niente. Se cambiano, aggiorna `width` e `height`.
 
-Esporta in JPEG qualità 80, larghezza massima 1400 px. Sopra i 300 KB per
-immagine il sito comincia a rallentare da telefono.
+**Il ritratto** in About è `img/ritratto.jpeg`, mostrato quadrato e
+centrato in alto sul viso. Va bene qualsiasi proporzione: viene ritagliato.
 
-Se una foto non rispetta le proporzioni indicate non si deforma: viene
-ritagliata al centro da `object-fit:cover`. Ma se il soggetto è decentrato,
-ritaglialo tu prima.
+**f4kit non ha ancora una foto.** Al suo posto c'è la formula
+dell'invariante. In `index.html`, cerca `f4kit`: un commento dice quale
+blocco sostituire con una `<figure class="row__fig">` come quella degli
+altri progetti.
 
-## og:image
+Esporta in JPEG qualità 80, lato lungo massimo 1600 px, sotto i 300 KB
+quando possibile.
 
-Quando hai una foto buona, mettila anche come anteprima per WhatsApp e social:
-in `index.html`, nel `<head>`, c'è un `TODO og:image`. Serve orizzontale,
-1200×630.
+## Il pettine
+
+L'hero è un `<canvas>` disegnato dallo script in fondo alla pagina. Le
+costanti all'inizio dello script (passo delle barre, durata dell'intro,
+luminosità delle fessure) sono commentate. Il disegno si ferma quando
+niente si muove, e con "riduci movimento" attivo resta un fotogramma
+fermo.
+
+## Anteprima per i social
+
+`og:image` nel `<head>` punta a `img/teenventures-iceroute.jpg`. Per
+cambiarla serve una foto orizzontale, idealmente 1200×630.
