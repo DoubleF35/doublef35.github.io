@@ -25,10 +25,11 @@ uguali non serve toccare niente. Se cambiano, aggiorna `width` e `height`.
 **Il ritratto** in About è `img/ritratto.jpeg`, mostrato quadrato e
 centrato in alto sul viso. Va bene qualsiasi proporzione: viene ritagliato.
 
-**CubeSAR ha tre foto in un mosaico**: `cubesar-2u.jpg` (verticale,
-3:4) a sinistra, `cubesar.png` (il CAD) e `cubesar-banco.jpg` (4:3)
-impilati a destra. Le colonne stanno a 1,13 : 1 (regola `.mosaic` nel
-CSS) perché le due altezze coincidano. Se cambi una di queste foto con
+**CubeSAR ha tre foto in un mosaico**: `cubesar-2u.jpg` (la demo da
+banco 2U, verticale 3:4) a sinistra, `cubesar.png` (il CAD del 6U) e
+`cubesar-banco.jpg` (la demo in montaggio, 4:3) impilati a destra. Le
+colonne stanno a 1,13 : 1 (regola `.mosaic` nel CSS) perché le due
+altezze coincidano. Se cambi una di queste foto con
 una di proporzioni diverse, quel rapporto va ricalcolato.
 
 **f4kit non ha ancora una foto.** Al suo posto c'è la formula
