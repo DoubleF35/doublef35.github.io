@@ -48,11 +48,13 @@ Uno script in fondo alla pagina la ricalcola da mese e anno di nascita
 dicembre di ogni anno sale di uno.
 
 Le età accanto alle tappe della timeline (`#path`, `ol.tl`) sono invece
-scritte a mano, perché sono l'età che avevi in quel momento. Una tappa
-nuova va in cima se è la più recente: copia un `<li>` esistente, cambia
-date, età e testi in tutte e due le lingue. `class="is-now"` per le cose
-ancora in corso (punto pieno). Il numero in oro (`.ord`) solo per i
-piazzamenti.
+scritte a mano, perché sono l'età che avevi in quel momento. Le prime due
+tappe (Space Eagle e YET, `class="is-key"`) restano sempre in cima; le
+altre seguono dalla più recente. Una tappa nuova va quindi subito dopo YET
+se è la più recente: copia un `<li>` senza `is-key`, cambia date, età e
+testi in tutte e due le lingue. `class="is-now"` per le cose ancora in
+corso (punto pieno), con l'età scritta "from age N" / "dai N anni". Il
+numero in oro (`.ord`) solo per i piazzamenti.
 
 ## Il pettine
 
