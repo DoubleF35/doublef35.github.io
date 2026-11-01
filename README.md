@@ -25,6 +25,13 @@ uguali non serve toccare niente. Se cambiano, aggiorna `width` e `height`.
 **Il ritratto** in About è `img/ritratto.jpeg`, mostrato quadrato e
 centrato in alto sul viso. Va bene qualsiasi proporzione: viene ritagliato.
 
+**CubeSAR ha tre foto in un mosaico**: `cubesar-2u.jpg` (la demo da
+banco 2U, verticale 3:4) a sinistra, `cubesar.png` (il CAD del 6U) e
+`cubesar-banco.jpg` (la demo in montaggio, 4:3) impilati a destra. Le
+colonne stanno a 1,13 : 1 (regola `.mosaic` nel CSS) perché le due
+altezze coincidano. Se cambi una di queste foto con
+una di proporzioni diverse, quel rapporto va ricalcolato.
+
 **f4kit non ha ancora una foto.** Al suo posto c'è la formula
 dell'invariante. In `index.html`, cerca `f4kit`: un commento dice quale
 blocco sostituire con una `<figure class="row__fig">` come quella degli
@@ -32,6 +39,20 @@ altri progetti.
 
 Esporta in JPEG qualità 80, lato lungo massimo 1600 px, sotto i 300 KB
 quando possibile.
+
+## Età e timeline
+
+L'età attuale compare nell'hero e in About dentro `<span class="age-now">`.
+Uno script in fondo alla pagina la ricalcola da mese e anno di nascita
+(novembre 2009), così nel sorgente non c'è la data completa: dal 1º
+dicembre di ogni anno sale di uno.
+
+Le età accanto alle tappe della timeline (`#path`, `ol.tl`) sono invece
+scritte a mano, perché sono l'età che avevi in quel momento. Una tappa
+nuova va in cima se è la più recente: copia un `<li>` esistente, cambia
+date, età e testi in tutte e due le lingue. `class="is-now"` per le cose
+ancora in corso (punto pieno). Il numero in oro (`.ord`) solo per i
+piazzamenti.
 
 ## Il pettine
 
