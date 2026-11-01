@@ -64,7 +64,15 @@ luminosità delle fessure) sono commentate. Il disegno si ferma quando
 niente si muove, e con "riduci movimento" attivo resta un fotogramma
 fermo.
 
-## Anteprima per i social
+## Anteprima dei link
 
-`og:image` nel `<head>` punta a `img/teenventures-iceroute.jpg`. Per
-cambiarla serve una foto orizzontale, idealmente 1200×630.
+Quando mandi il link (WhatsApp, iMessage, Telegram, LinkedIn, X) si vede
+`img/cover.jpg`: l'hero del sito a 1200×630, con il titolo grande, nome e
+ruoli. Titolo e descrizione dell'anteprima sono `og:title` /
+`og:description` (e i `twitter:` gemelli) nel `<head>`; sono in inglese
+come la lingua di default.
+
+Se cambiano i ruoli, aggiorna la riga in `tools/og-cover.js` e rigenera
+la copertina con `node tools/og-cover.js` (`it` per la versione
+italiana). WhatsApp tiene in memoria le anteprime per un po': per vedere
+subito quella nuova, manda `federicofassio.it/?v=2`.

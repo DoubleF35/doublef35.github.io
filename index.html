@@ -3,20 +3,31 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Federico Fassio · onboard ML, SAR, rockets</title>
+<title>Federico Fassio · I build things that have to work on their own</title>
 <meta name="description" content="Federico Fassio, Turin. CubeSat project manager at Space Eagle APS (IceRoute, CubeSAR), chief engineer of CubeSAR, co-founder of YET. Onboard machine learning, synthetic aperture radar, rocketry.">
 <meta name="author" content="Federico Fassio">
 <link rel="canonical" href="https://federicofassio.it/">
 
+<!-- L'anteprima quando si manda il link (WhatsApp, iMessage, Telegram,
+     LinkedIn, X): la copertina è l'hero del sito a 1200x630. -->
 <meta property="og:type" content="profile">
-<meta property="og:title" content="Federico Fassio · onboard ML, SAR, rockets">
-<meta property="og:description" content="CubeSat project manager and CubeSAR chief engineer at Space Eagle APS, co-founder of YET. Onboard ML, SAR, rocketry. Turin.">
+<meta property="og:site_name" content="Federico Fassio">
+<meta property="og:title" content="Federico Fassio · I build things that have to work on their own.">
+<meta property="og:description" content="CubeSat project manager and CubeSAR chief engineer at Space Eagle, co-founder of YET. Turin.">
 <meta property="og:url" content="https://federicofassio.it/">
 <meta property="og:locale" content="en_GB">
 <meta property="og:locale:alternate" content="it_IT">
+<meta property="og:image" content="https://federicofassio.it/img/cover.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Federico Fassio: I build things that have to work on their own.">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Federico Fassio · I build things that have to work on their own.">
+<meta name="twitter:description" content="CubeSat project manager and CubeSAR chief engineer at Space Eagle, co-founder of YET. Turin.">
+<meta name="twitter:image" content="https://federicofassio.it/img/cover.jpg">
+<meta name="twitter:image:alt" content="Federico Fassio: I build things that have to work on their own.">
 <meta name="theme-color" content="#03060e">
-<meta property="og:image" content="https://federicofassio.it/img/teenventures-iceroute.jpg">
 
 <!-- Favicon: il marchio, un cumulo di nove tacche sull'orizzonte -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2303060e'/%3E%3Cg fill='%239cc8ff'%3E%3Crect x='14' y='42' width='2.4' height='6'/%3E%3Crect x='18.4' y='38' width='2.4' height='10'/%3E%3Crect x='22.8' y='32' width='2.4' height='16'/%3E%3Crect x='27.2' y='25' width='2.4' height='23'/%3E%3Crect x='31.6' y='18' width='2.4' height='30'/%3E%3Crect x='36' y='25' width='2.4' height='23'/%3E%3Crect x='40.4' y='32' width='2.4' height='16'/%3E%3Crect x='44.8' y='38' width='2.4' height='10'/%3E%3Crect x='49.2' y='42' width='2.4' height='6'/%3E%3C/g%3E%3Crect x='12' y='48' width='40' height='1.4' fill='%232f7dff'/%3E%3C/svg%3E">
@@ -1158,7 +1169,13 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
   // I testi alternativi delle immagini: inglese nell'attributo alt (la lingua
   // di default), italiano in data-alt-it. Si scambiano con la lingua.
   var imgs = document.querySelectorAll('img[data-alt-it]');
+  // anche il titolo della scheda segue la lingua
+  var titles = {
+    en: 'Federico Fassio · I build things that have to work on their own',
+    it: 'Federico Fassio · Costruisco cose che devono funzionare da sole'
+  };
   function apply(l){
+    document.title = titles[l];
     var bs = box.querySelectorAll('button');
     for(var i = 0; i < bs.length; i++) bs[i].setAttribute('aria-pressed', bs[i].value === l ? 'true' : 'false');
     for(var j = 0; j < imgs.length; j++){
