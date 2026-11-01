@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Federico Fassio · onboard ML, SAR, rockets</title>
-<meta name="description" content="Federico Fassio, Turin. Project manager of IceRoute and CubeSAR at Space Eagle APS. Onboard machine learning, synthetic aperture radar, rocketry, student ventures.">
+<meta name="description" content="Federico Fassio, Turin. CubeSat project manager at Space Eagle APS (IceRoute, CubeSAR), chief engineer of CubeSAR, co-founder of YET. Onboard machine learning, synthetic aperture radar, rocketry.">
 <meta name="author" content="Federico Fassio">
 <link rel="canonical" href="https://federicofassio.it/">
 
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Federico Fassio · onboard ML, SAR, rockets">
-<meta property="og:description" content="Project manager of IceRoute and CubeSAR at Space Eagle APS. Onboard ML, SAR, rocketry. Turin.">
+<meta property="og:description" content="CubeSat project manager and CubeSAR chief engineer at Space Eagle APS, co-founder of YET. Onboard ML, SAR, rocketry. Turin.">
 <meta property="og:url" content="https://federicofassio.it/">
 <meta property="og:locale" content="en_GB">
 <meta property="og:locale:alternate" content="it_IT">
@@ -29,7 +29,7 @@
   "@type": "Person",
   "name": "Federico Fassio",
   "url": "https://federicofassio.it/",
-  "jobTitle": "Project manager · IceRoute, CubeSAR",
+  "jobTitle": "CubeSat project manager and CubeSAR chief engineer, Space Eagle APS",
   "email": "mailto:fedefas.210@gmail.com",
   "address": {"@type": "PostalAddress", "addressLocality": "Torino", "addressCountry": "IT"},
   "affiliation": {"@type": "Organization", "name": "Space Eagle APS", "url": "https://www.spaceeagle.it"},
@@ -37,6 +37,7 @@
   "sameAs": [
     "https://www.linkedin.com/in/federico-fassio-202a623b8/",
     "https://www.instagram.com/federicofassioo/",
+    "https://www.tiktok.com/@imdoublef",
     "https://github.com/DoubleF35"
   ]
 }
@@ -304,6 +305,13 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 .row__fig{grid-area:fig;padding-top:10px}
 /* Ogni foto nelle sue proporzioni: width e height veri sull'<img>, nessun ritaglio. */
 .row__fig .frame img{height:auto}
+/* CubeSAR: la foto verticale a sinistra, CAD e banco impilati a destra.
+   Le colonne stanno a 1,13 : 1 perché le due altezze coincidano; la foto
+   grande riempie l'altezza della colonna destra e perde al massimo pochi px. */
+.mosaic{display:grid;grid-template-columns:minmax(0,1.13fr) minmax(0,1fr);gap:16px;align-content:start}
+.mosaic__big{grid-row:1 / span 2;position:relative}
+.row__fig .mosaic__big img{position:absolute;inset:0;height:100%}
+.mosaic figcaption{grid-column:1 / -1;margin-top:-6px}
 
 /* f4kit non ha ancora una foto: al suo posto l'invariante che regge il
    parser, scritto come una formula. Quando la foto c'è, si sostituisce. */
@@ -329,26 +337,82 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
   margin:-20px 0 80px;max-width:30ch;text-wrap:pretty;
   font:italic 400 clamp(26px, 2.6vw, 36px)/1.25 var(--serif);color:var(--paper);
 }
-.block{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,10fr);column-gap:var(--gap);margin-bottom:80px}
-.block > h3{padding-top:30px;font:500 15px/1.4 var(--sans);color:var(--paper)}
-.ledger{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.ledger > li{
-  display:grid;grid-template-columns:minmax(0,3fr) minmax(0,7fr);
-  grid-template-areas:"when text";column-gap:var(--gap);
-  padding:30px 0;border-bottom:1px solid var(--line);
+/* La timeline: una rotaia verticale con un punto per tappa, la data e
+   l'età a sinistra. Scorrendo, la luce del pettine scende lungo la rotaia
+   e accende i punti che ha superato (lo script imposta --lit). */
+.tl{
+  --tw:calc((100% - 2 * var(--gap)) / 6);   /* larga quanto la colonna meta dei progetti */
+  --rx:calc(var(--tw) + var(--gap));        /* dove passa la rotaia */
+  --lit:0px;
+  position:relative;list-style:none;margin:0 0 96px;padding:0;
 }
-.when{grid-area:when;padding-top:9px;font:400 14px/1.5 var(--mono);color:var(--paper-mute)}
-.ledger__text{grid-area:text}
-.ledger h4{margin:0 0 6px;font:400 clamp(28px, 2.4vw, 34px)/1.12 var(--serif);color:#f2f6ff}
-.role{margin:0 0 14px;font:400 15px/1.5 var(--sans);color:var(--paper-dim)}
-.ledger__text > p:not(.role){font-size:16.5px;color:var(--paper-dim);max-width:60ch}
-.ledger ul{list-style:none;margin:0;padding:0;font-size:16.5px;color:var(--paper-dim)}
-.ledger ul li{position:relative;padding-left:22px;margin-bottom:6px}
-.ledger ul li::before{content:"";position:absolute;left:0;top:.8em;width:10px;height:1px;background:var(--paper-mute)}
+.tl::before,.tl::after{content:"";position:absolute;top:8px;left:var(--rx);width:1px;pointer-events:none}
+.tl::before{bottom:0;background:linear-gradient(var(--line), var(--line) calc(100% - 64px), transparent)}
+.tl::after{
+  height:min(var(--lit), calc(100% - 8px));
+  background:linear-gradient(rgba(47,125,255,0), rgba(47,125,255,.7) 90px, var(--beam-lit));
+  box-shadow:0 0 8px rgba(47,125,255,.55);
+}
+.tl > li{
+  position:relative;display:grid;grid-template-columns:var(--tw) minmax(0,1fr);
+  column-gap:calc(var(--gap) + 40px);padding:0 0 60px;
+}
+.tl > li:last-child{padding-bottom:0}
+/* il punto */
+.tl > li::before{
+  content:"";position:absolute;top:13px;left:calc(var(--rx) - 5px);
+  width:11px;height:11px;box-sizing:border-box;border-radius:50%;
+  border:1px solid var(--paper-mute);background:var(--ink);
+  transition:border-color .4s,background-color .4s,box-shadow .4s;
+}
+.tl > li.is-now::before{border-color:var(--paper);background:var(--paper)}
+.tl > li.is-side::before{top:15px;left:calc(var(--rx) - 3px);width:7px;height:7px}
+.tl > li.is-lit::before{border-color:var(--beam-lit);box-shadow:0 0 0 4px rgba(47,125,255,.16),0 0 14px rgba(47,125,255,.7)}
+.tl > li.is-now.is-lit::before{background:var(--beam-lit)}
+/* I due ruoli che pesano di più (Space Eagle, YET) stanno in cima e più grandi. */
+.tl > li.is-key .tl__name{font-size:clamp(40px, 3.6vw, 52px);line-height:1.04}
+.tl > li.is-key .tl__when{padding-top:14px}
+.tl > li.is-key::before{top:18px;left:calc(var(--rx) - 6px);width:13px;height:13px}
+
+.tl__when{margin:0;padding-top:8px;font:400 14px/1.5 var(--mono);color:var(--paper-mute)}
+.tl__date,.tl__age{display:block}
+.tl__age{color:var(--paper)}
+.tl__body{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:var(--gap);align-items:start}
+.tl__name{margin:0 0 6px;font:400 clamp(30px, 2.6vw, 38px)/1.1 var(--serif);letter-spacing:-.01em;color:#f2f6ff}
+.tl__name a{text-underline-offset:6px;text-decoration-color:rgba(156,200,255,.3)}
+.tl__role{margin:0 0 12px;font:400 15px/1.5 var(--sans);color:var(--paper-mute)}
+.tl__line{margin:0;font-size:16.5px;color:var(--paper-dim);max-width:58ch}
+.tl__prize{margin:12px 0 0;font:400 15px/1.45 var(--sans);color:var(--paper)}
 /* I piazzamenti: il numero in oro è l'unico segno di premio della pagina. */
-.ledger--prize > li{grid-template-columns:minmax(0,3fr) minmax(0,5.6fr) minmax(max-content,1.4fr);grid-template-areas:"when text ord"}
-.ord{grid-area:ord;text-align:right;font:400 clamp(60px, 6vw, 88px)/.86 var(--serif);color:var(--gold)}
+.ord{margin:0;text-align:right;font:400 clamp(60px, 6vw, 88px)/.86 var(--serif);color:var(--gold)}
 .ord [data-l="en"]{font-size:.72em}
+
+/* "Leggi la storia": un <details>, senza frecce. Il + diventa un -. */
+.tl__more{margin-top:8px}
+.tl__more summary{
+  display:inline-flex;align-items:center;gap:10px;min-height:44px;
+  list-style:none;cursor:pointer;font:400 15px/1.2 var(--sans);color:var(--paper);
+  -webkit-tap-highlight-color:transparent;
+}
+.tl__more summary::-webkit-details-marker{display:none}
+.tl__more summary > span{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;text-decoration-color:rgba(156,200,255,.4);transition:text-decoration-color .15s}
+@media (hover:hover){ .tl__more summary:hover > span{text-decoration-color:currentColor} }
+.tl__more summary::after{
+  content:"";flex:none;width:9px;height:9px;
+  background:linear-gradient(currentColor,currentColor) center / 9px 1px no-repeat,
+             linear-gradient(currentColor,currentColor) center / 1px 9px no-repeat;
+}
+.tl__more[open] summary::after{background:linear-gradient(currentColor,currentColor) center / 9px 1px no-repeat}
+.tl__story{padding:4px 0 6px;font-size:16px;color:var(--paper-dim);max-width:60ch}
+.tl__story p{margin:0}
+.tl__story ul{list-style:none;margin:0;padding:0}
+.tl__story li{position:relative;padding-left:22px;margin-bottom:6px}
+.tl__story li::before{content:"";position:absolute;left:0;top:.8em;width:10px;height:1px;background:var(--paper-mute)}
+@supports (interpolate-size:allow-keywords){
+  .tl__more{interpolate-size:allow-keywords}
+  .tl__more::details-content{height:0;overflow:clip;transition:height .35s ease,content-visibility .35s allow-discrete}
+  .tl__more[open]::details-content{height:auto}
+}
 
 .photos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 10px}
 .photos .frame{aspect-ratio:4 / 3}
@@ -395,6 +459,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
   .flag__main{margin-top:24px}
   .row{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"meta meta" "title title" "text fig";grid-template-rows:auto}
   .row .meta{padding-top:0}
+  .tl{--tw:24%}
 }
 
 /* Il menu: la stessa <ul> della barra, a tutto schermo. Nessun link
@@ -460,17 +525,27 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
   .row .meta > span + span::before{content:" · "}
   .row h3{margin-bottom:20px;font-size:clamp(38px, 10.5vw, 46px)}
   .row__fig{padding-top:0;margin-bottom:22px}
+  .mosaic{gap:10px}
+  .mosaic figcaption{margin-top:0}
 
   .more{grid-template-columns:1fr;margin-top:64px}
   .more h3{padding:0 0 14px}
   .more a{grid-template-columns:1fr;row-gap:4px;padding:16px 0}
 
   .lede-i{margin:-8px 0 56px}
-  .block{grid-template-columns:1fr;margin-bottom:56px}
-  .block > h3{padding:0 0 14px}
-  .ledger > li,.ledger--prize > li{grid-template-columns:1fr auto;grid-template-areas:"when ord" "text text";padding:24px 0}
-  .when{padding-top:0;margin-bottom:8px}
-  .ord{font-size:56px;margin-top:-6px}
+  .tl{--rx:5px;margin-bottom:64px}
+  .tl::before,.tl::after{top:6px}
+  .tl > li{grid-template-columns:minmax(0,1fr);padding:0 0 48px 32px}
+  .tl > li::before{top:5px}
+  .tl > li.is-side::before{top:7px}
+  .tl__when{padding-top:0;margin-bottom:8px}
+  .tl__date,.tl__age{display:inline}
+  .tl__age::before{content:" · ";color:var(--paper-mute)}
+  .tl__name{font-size:clamp(30px, 8.6vw, 36px)}
+  .tl > li.is-key .tl__name{font-size:clamp(36px, 10.4vw, 44px)}
+  .tl > li.is-key .tl__when{padding-top:0}
+  .tl > li.is-key::before{top:4px}
+  .ord{font-size:52px;margin-top:-2px}
   .photos{grid-template-columns:1fr 1fr;gap:10px 8px}
   .photos figcaption{font-size:12.5px}
 
@@ -507,6 +582,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
       <li><a href="#contact"><span data-l="en">Contact</span><span data-l="it">Contatti</span></a></li>
       <li class="nav__extra"><a href="https://github.com/DoubleF35" rel="me">GitHub</a></li>
       <li class="nav__extra"><a href="https://www.instagram.com/federicofassioo/" rel="me">Instagram</a></li>
+      <li class="nav__extra"><a href="https://www.tiktok.com/@imdoublef" rel="me">TikTok</a></li>
     </ul>
     <div class="nav__end">
       <div class="lang" id="lang" role="group" aria-label="Lingua / Language">
@@ -530,8 +606,8 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
       <span data-l="en">I build things that have to work <em>on their own</em>.</span>
       <span data-l="it">Costruisco cose che devono funzionare <em>da&nbsp;sole</em>.</span>
     </h1>
-    <p class="hero__deck" data-l="en">Federico Fassio, Turin. I work on onboard machine learning for satellites, on synthetic aperture radar and on model rockets.</p>
-    <p class="hero__deck" data-l="it">Federico Fassio, Torino. Lavoro su machine learning a bordo dei satelliti, su radar ad apertura sintetica e su razzi modellistici.</p>
+    <p class="hero__deck" data-l="en">Federico Fassio, <span class="age-now">16</span>, Turin. CubeSat project manager and CubeSAR chief engineer at Space Eagle, co-founder of YET.</p>
+    <p class="hero__deck" data-l="it">Federico Fassio, <span class="age-now">16</span> anni, Torino. Project manager dei CubeSat e chief engineer di CubeSAR in Space Eagle, cofondatore di YET.</p>
     <p class="hero__links">
       <a href="#projects"><span data-l="en">Projects</span><span data-l="it">Progetti</span></a>
       <a href="#contact"><span data-l="en">Get in touch</span><span data-l="it">Scrivimi</span></a>
@@ -547,20 +623,30 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
     <div class="about">
       <div>
         <p data-l="en">
-          Student at Liceo Scientifico Galileo Ferraris in Turin. I am project manager of
-          <a href="#iceroute">IceRoute</a> and <a href="#cubesar">CubeSAR</a> at
-          <a href="https://www.spaceeagle.it">Space Eagle APS</a>, the student rocketry team.
-          I co-founded <a href="#edunity">EdUnity</a> and <a href="#yet">YET</a>, and built the
+          I am <span class="age-now">16</span> and a student at Liceo Scientifico Galileo Ferraris in Turin.
+          At <a href="https://www.spaceeagle.it">Space Eagle APS</a>, the student rocketry team, I am
+          project manager of the CubeSat projects, <a href="#iceroute">IceRoute</a> and
+          <a href="#cubesar">CubeSAR</a>, and chief engineer of CubeSAR. I co-founded <a href="#yet">YET</a> and
+          <a href="#edunity">EdUnity</a>, and built the
           <a href="#seeker">Seeker programme</a>: rockets designed in simulation, instrumented,
           flown and recovered.
         </p>
         <p data-l="it">
-          Studente al Liceo Scientifico Galileo Ferraris di Torino. Sono project manager di
-          <a href="#iceroute">IceRoute</a> e <a href="#cubesar">CubeSAR</a> in
-          <a href="https://www.spaceeagle.it">Space Eagle APS</a>, il team studentesco di
-          missilistica. Ho cofondato <a href="#edunity">EdUnity</a> e <a href="#yet">YET</a>, e ho
+          Ho <span class="age-now">16</span> anni e studio al Liceo Scientifico Galileo Ferraris di Torino.
+          In <a href="https://www.spaceeagle.it">Space Eagle APS</a>, il team studentesco di
+          missilistica, sono project manager dei progetti CubeSat, <a href="#iceroute">IceRoute</a>
+          e <a href="#cubesar">CubeSAR</a>, e chief engineer di CubeSAR. Ho cofondato
+          <a href="#yet">YET</a> ed <a href="#edunity">EdUnity</a>, e ho
           costruito il <a href="#seeker">programma Seeker</a>: razzi progettati in simulazione,
           strumentati, lanciati e recuperati.
+        </p>
+        <p data-l="en">
+          I am also a content creator on <a href="https://www.tiktok.com/@imdoublef" rel="me">TikTok</a>:
+          almost 10k followers, and more than 10 million views across my accounts.
+        </p>
+        <p data-l="it">
+          Sono anche content creator su <a href="https://www.tiktok.com/@imdoublef" rel="me">TikTok</a>:
+          quasi 10k follower e più di 10 milioni di visualizzazioni complessive sui miei account.
         </p>
         <p data-l="en">I usually start from a real physical problem and try to end up with something that runs.</p>
         <p data-l="it">Di solito parto da un problema fisico vero e cerco di arrivare a qualcosa che gira.</p>
@@ -622,6 +708,61 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
       </div>
     </article>
 
+    <article class="row" id="cubesar">
+      <p class="meta"><span><span data-l="en">Project manager and chief engineer</span><span data-l="it">Project manager e chief engineer</span></span><span><span data-l="en">In development</span><span data-l="it">In sviluppo</span></span></p>
+      <h3><a href="https://github.com/DoubleF35/CubeSAR">CubeSAR</a></h3>
+      <figure class="row__fig mosaic">
+        <span class="frame mosaic__big"><img src="img/cubesar-2u.jpg" width="1200" height="1600" alt="The CubeSAR 2U bench demo, held in one hand" data-alt-it="La demo da banco CubeSAR 2U, tenuta in una mano" loading="lazy"></span>
+        <span class="frame"><img src="img/cubesar.png" width="1600" height="1100" alt="CAD model of the CubeSAR 6U" data-alt-it="Il modello CAD del CubeSAR 6U" loading="lazy"></span>
+        <span class="frame"><img src="img/cubesar-banco.jpg" width="1600" height="1200" alt="The 2U demo being assembled on the bench, with Seeker-II behind" data-alt-it="La demo 2U in montaggio sul banco, con Seeker-II sullo sfondo" loading="lazy"></span>
+        <figcaption data-l="en">Left, the 2U bench demo, built on an Arduino UNO&nbsp;Q. Right, the 6U in CAD and the demo during assembly.</figcaption>
+        <figcaption data-l="it">A sinistra la demo da banco 2U, costruita con una Arduino UNO&nbsp;Q. A destra il 6U in CAD e la demo durante il montaggio.</figcaption>
+      </figure>
+      <div class="row__text">
+        <p data-l="en">
+          A desk-sized CubeSat that makes radar images of what is around it. It uses the same
+          principle as Sentinel-1, synthetic aperture radar: the antenna moves and the echoes are
+          recombined in phase to rebuild the image. It is the step below IceRoute, where a mistake costs an afternoon rather than a mission.
+        </p>
+        <p data-l="it">
+          Un CubeSat da tavolo che fa immagini radar di quello che ha intorno. Usa lo stesso
+          principio di Sentinel-1, il radar ad apertura sintetica: l'antenna si sposta e gli echi
+          vengono ricombinati in fase per ricostruire l'immagine. È il gradino sotto IceRoute, dove uno sbaglio costa un pomeriggio e non una missione.
+        </p>
+        <p class="links"><a href="https://github.com/DoubleF35/CubeSAR">Repository</a></p>
+      </div>
+    </article>
+
+    <article class="row" id="yet">
+      <p class="meta"><span><span data-l="en">Co-founder</span><span data-l="it">Cofondatore</span></span><span><span data-l="en">150 members</span><span data-l="it">150 membri</span></span></p>
+      <h3><a href="https://yetcommunity.it">YET</a></h3>
+      <figure class="row__fig shot--43">
+        <span class="frame"><img src="img/yet.jpg" width="1600" height="1200" alt="A YET community evening" data-alt-it="Un incontro della community YET" loading="lazy"></span>
+        <figcaption data-l="en">A YET evening, Turin, October 2026.</figcaption>
+        <figcaption data-l="it">Una serata YET, Torino, ottobre 2026.</figcaption>
+      </figure>
+      <div class="row__text">
+        <p data-l="en">
+          Young Entrepreneurs Together is a club for 16 to 23-year-olds who are building something,
+          even if it is only an idea so far. There is no selection and no fee. We started it because
+          Turin had nothing like it, and at seventeen anyone trying to start a company usually does
+          it alone. There are 150 of us now, from Turin to Rome. At the meetings each person presents
+          what they are working on and gets direct criticism.
+        </p>
+        <p data-l="it">
+          Young Entrepreneurs Together è il club per ragazzi fra i 16 e i 23 anni che stanno
+          costruendo qualcosa, anche solo un'idea. Non c'è selezione e non si paga quota. L'abbiamo
+          fondato perché a Torino non c'era niente del genere, e a diciassette anni chi prova a fare
+          impresa di solito lo fa da solo. Oggi siamo 150, da Torino a Roma. Agli incontri ognuno
+          presenta quello che sta facendo e riceve critiche dirette.
+        </p>
+        <p class="links">
+          <a href="https://yetcommunity.it">yetcommunity.it</a>
+          <a href="https://github.com/DoubleF35/yet">Repository</a>
+        </p>
+      </div>
+    </article>
+
     <article class="row" id="tobe">
       <p class="meta"><span>hackTurin 2026</span><span>Space Eagle / To.Be</span></p>
       <h3>To.Be</h3>
@@ -644,27 +785,6 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
         </p>
         <p class="prize"><b><span data-l="en">2nd</span><span data-l="it">2º</span></b><span data-l="en">hackTurin 2026, Smart Crossing challenge by GOMA Elettronica</span><span data-l="it">hackTurin 2026, challenge Smart Crossing di GOMA Elettronica</span></p>
         <p class="specs">Arduino UNO&nbsp;Q, LiteRT int8, Next.js, Supabase</p>
-      </div>
-    </article>
-
-    <article class="row" id="cubesar">
-      <p class="meta"><span>Project manager</span><span><span data-l="en">In development</span><span data-l="it">In sviluppo</span></span></p>
-      <h3><a href="https://github.com/DoubleF35/CubeSAR">CubeSAR</a></h3>
-      <figure class="row__fig">
-        <span class="frame"><img src="img/cubesar.png" width="1600" height="1100" alt="CubeSAR" loading="lazy"></span>
-      </figure>
-      <div class="row__text">
-        <p data-l="en">
-          A desk-sized CubeSat that makes radar images of what is around it. It uses the same
-          principle as Sentinel-1, synthetic aperture radar: the antenna moves and the echoes are
-          recombined in phase to rebuild the image. It is the step below IceRoute, where a mistake costs an afternoon rather than a mission.
-        </p>
-        <p data-l="it">
-          Un CubeSat da tavolo che fa immagini radar di quello che ha intorno. Usa lo stesso
-          principio di Sentinel-1, il radar ad apertura sintetica: l'antenna si sposta e gli echi
-          vengono ricombinati in fase per ricostruire l'immagine. È il gradino sotto IceRoute, dove uno sbaglio costa un pomeriggio e non una missione.
-        </p>
-        <p class="links"><a href="https://github.com/DoubleF35/CubeSAR">Repository</a></p>
       </div>
     </article>
 
@@ -725,36 +845,6 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
       </div>
     </article>
 
-    <article class="row" id="yet">
-      <p class="meta"><span><span data-l="en">Co-founder</span><span data-l="it">Cofondatore</span></span><span><span data-l="en">150 members</span><span data-l="it">150 membri</span></span></p>
-      <h3><a href="https://yetcommunity.it">YET</a></h3>
-      <figure class="row__fig shot--43">
-        <span class="frame"><img src="img/yet.jpg" width="1600" height="1200" alt="A YET community evening" data-alt-it="Un incontro della community YET" loading="lazy"></span>
-        <figcaption data-l="en">A YET evening, Turin, October 2026.</figcaption>
-        <figcaption data-l="it">Una serata YET, Torino, ottobre 2026.</figcaption>
-      </figure>
-      <div class="row__text">
-        <p data-l="en">
-          Young Entrepreneurs Together is a club for 16 to 23-year-olds who are building something,
-          even if it is only an idea so far. There is no selection and no fee. We started it because
-          Turin had nothing like it, and at seventeen anyone trying to start a company usually does
-          it alone. There are 150 of us now, from Turin to Rome. At the meetings each person presents
-          what they are working on and gets direct criticism.
-        </p>
-        <p data-l="it">
-          Young Entrepreneurs Together è il club per ragazzi fra i 16 e i 23 anni che stanno
-          costruendo qualcosa, anche solo un'idea. Non c'è selezione e non si paga quota. L'abbiamo
-          fondato perché a Torino non c'era niente del genere, e a diciassette anni chi prova a fare
-          impresa di solito lo fa da solo. Oggi siamo 150, da Torino a Roma. Agli incontri ognuno
-          presenta quello che sta facendo e riceve critiche dirette.
-        </p>
-        <p class="links">
-          <a href="https://yetcommunity.it">yetcommunity.it</a>
-          <a href="https://github.com/DoubleF35/yet">Repository</a>
-        </p>
-      </div>
-    </article>
-
     <article class="row" id="f4kit">
       <p class="meta"><span><span data-l="en">Not public yet</span><span data-l="it">Non ancora pubblico</span></span></p>
       <h3>f4kit</h3>
@@ -811,111 +901,143 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
   <section id="path"><div class="wrap">
     <canvas class="sep" aria-hidden="true"></canvas>
     <h2><span data-l="en">Timeline</span><span data-l="it">Percorso</span></h2>
-    <p class="lede-i" data-l="en">Almost everything on this page happened in the last two years, alongside school.</p>
-    <p class="lede-i" data-l="it">Quasi tutto quello che c'è in questa pagina l'ho fatto negli ultimi due anni, insieme alla scuola.</p>
+    <p class="lede-i" data-l="en">Almost everything on this page I did at 16, alongside school.</p>
+    <p class="lede-i" data-l="it">Quasi tutto quello che c'è in questa pagina l'ho fatto a 16 anni, insieme alla scuola.</p>
 
-    <div class="block">
-      <h3><span data-l="en">Experience</span><span data-l="it">Esperienza</span></h3>
-      <ol class="ledger">
-        <li>
-          <p class="when"><span data-l="en">Feb&nbsp;2026 – now</span><span data-l="it">feb&nbsp;2026 – oggi</span></p>
-          <div class="ledger__text">
-            <h4>Space Eagle APS</h4>
-            <p class="role" data-l="en">Project manager · Turin, part-time</p>
-            <p class="role" data-l="it">Project manager · Torino, part-time</p>
-            <p data-l="en">
-              A student rocketry team that builds everything in house, from propulsion to avionics.
-              Associate member since February 2026, on ICARO and IceRoute. Since August 2026 I have
-              been project manager of the two radar projects, CubeSAR and IceRoute: I plan and split
-              the work, and check that what we present outside matches the technical side.
-            </p>
-            <p data-l="it">
-              Team studentesco di missilistica che sviluppa tutto in casa, dalla propulsione
-              all'avionica. Socio da febbraio 2026, su ICARO e IceRoute. Da agosto 2026 sono project
-              manager dei due progetti radar, CubeSAR e IceRoute: pianifico e divido il lavoro, e
-              controllo che quello che presentiamo all'esterno corrisponda alla parte tecnica.
-            </p>
+    <ol class="tl">
+      <li class="is-now is-key">
+        <p class="tl__when"><span class="tl__date"><span data-l="en">Feb&nbsp;2026 – now</span><span data-l="it">feb&nbsp;2026 – oggi</span></span><span class="tl__age"><span data-l="en">age 16</span><span data-l="it">16 anni</span></span></p>
+        <div class="tl__body">
+          <div class="tl__text">
+            <h3 class="tl__name"><a href="https://www.spaceeagle.it">Space Eagle APS</a></h3>
+            <p class="tl__role" data-l="en">CubeSat project manager, CubeSAR chief engineer · Turin</p>
+            <p class="tl__role" data-l="it">Project manager CubeSat, chief engineer di CubeSAR · Torino</p>
+            <p class="tl__line" data-l="en">A student rocketry team. I am project manager of its two CubeSat projects, <a href="#cubesar">CubeSAR</a> and <a href="#iceroute">IceRoute</a>, and chief engineer of CubeSAR.</p>
+            <p class="tl__line" data-l="it">Un team studentesco di missilistica. Sono project manager dei suoi due progetti CubeSat, <a href="#cubesar">CubeSAR</a> e <a href="#iceroute">IceRoute</a>, e chief engineer di CubeSAR.</p>
+            <details class="tl__more">
+              <summary><span data-l="en">Read the story</span><span data-l="it">Leggi la storia</span></summary>
+              <div class="tl__story">
+                <p data-l="en">
+                  The team builds everything in house, from propulsion to avionics. I joined as an
+                  associate member in February 2026 and worked on ICARO and IceRoute. Since August 2026
+                  I plan and split the work on the two radar projects, and check that what we present
+                  outside matches the technical side.
+                </p>
+                <p data-l="it">
+                  Il team sviluppa tutto in casa, dalla propulsione all'avionica. Sono entrato come socio
+                  a febbraio 2026 e ho lavorato su ICARO e IceRoute. Da agosto 2026 pianifico e divido il
+                  lavoro sui due progetti radar, e controllo che quello che presentiamo all'esterno
+                  corrisponda alla parte tecnica.
+                </p>
+              </div>
+            </details>
           </div>
-        </li>
-        <li>
-          <p class="when"><span data-l="en">Jul&nbsp;2026 – now</span><span data-l="it">lug&nbsp;2026 – oggi</span></p>
-          <div class="ledger__text">
-            <h4>YET · Young Entrepreneurs Together</h4>
-            <p class="role" data-l="en">Co-founder · Turin</p>
-            <p class="role" data-l="it">Cofondatore · Torino</p>
-            <ul data-l="en">
-              <li>I run the meetings where members present their projects and get direct criticism</li>
-              <li>I keep in touch with local founders, mentors and startups</li>
-              <li>I look after the website, the tools and the online channels</li>
-            </ul>
-            <ul data-l="it">
-              <li>Conduco gli incontri in cui i membri presentano i loro progetti e ricevono critiche dirette</li>
-              <li>Tengo i contatti con founder, mentor e startup del territorio</li>
-              <li>Curo il sito, gli strumenti e i canali online</li>
-            </ul>
+        </div>
+      </li>
+      <li class="is-now is-key">
+        <p class="tl__when"><span class="tl__date"><span data-l="en">Jul&nbsp;2026 – now</span><span data-l="it">lug&nbsp;2026 – oggi</span></span><span class="tl__age"><span data-l="en">age 16</span><span data-l="it">16 anni</span></span></p>
+        <div class="tl__body">
+          <div class="tl__text">
+            <h3 class="tl__name"><a href="#yet">YET · Young Entrepreneurs Together</a></h3>
+            <p class="tl__role" data-l="en">Co-founder · Turin</p>
+            <p class="tl__role" data-l="it">Cofondatore · Torino</p>
+            <p class="tl__line" data-l="en">A club for young people who are building something. 150 members, from Turin to Rome.</p>
+            <p class="tl__line" data-l="it">Un club per ragazzi che stanno costruendo qualcosa. 150 membri, da Torino a Roma.</p>
+            <details class="tl__more">
+              <summary><span data-l="en">Read the story</span><span data-l="it">Leggi la storia</span></summary>
+              <div class="tl__story">
+                <ul data-l="en">
+                  <li>I run the meetings where members present their projects and get direct criticism</li>
+                  <li>I keep in touch with local founders, mentors and startups</li>
+                  <li>I look after the website, the tools and the online channels</li>
+                </ul>
+                <ul data-l="it">
+                  <li>Conduco gli incontri in cui i membri presentano i loro progetti e ricevono critiche dirette</li>
+                  <li>Tengo i contatti con founder, mentor e startup del territorio</li>
+                  <li>Curo il sito, gli strumenti e i canali online</li>
+                </ul>
+              </div>
+            </details>
           </div>
-        </li>
-      </ol>
-    </div>
-
-    <div class="block">
-      <h3><span data-l="en">Awards</span><span data-l="it">Riconoscimenti</span></h3>
-      <ol class="ledger ledger--prize">
-        <li>
-          <p class="when"><span data-l="en">Oct&nbsp;2026</span><span data-l="it">ott&nbsp;2026</span></p>
-          <div class="ledger__text">
-            <h4>hackTurin 2026</h4>
-            <p class="role" data-l="en">Smart Crossing challenge, GOMA Elettronica · Turin</p>
-            <p class="role" data-l="it">Challenge Smart Crossing, GOMA Elettronica · Torino</p>
-            <p data-l="en">A €1,000 prize with the Space Eagle / To.Be team, presenting <a href="#tobe">To.Be</a>.</p>
-            <p data-l="it">Un riconoscimento da 1.000 € con il team Space Eagle / To.Be, presentando <a href="#tobe">To.Be</a>.</p>
+        </div>
+      </li>
+      <li>
+        <p class="tl__when"><span class="tl__date"><span data-l="en">Oct&nbsp;2026</span><span data-l="it">ott&nbsp;2026</span></span><span class="tl__age"><span data-l="en">age 16</span><span data-l="it">16 anni</span></span></p>
+        <div class="tl__body">
+          <div class="tl__text">
+            <h3 class="tl__name"><a href="#tobe">hackTurin 2026</a></h3>
+            <p class="tl__role" data-l="en">Space Eagle / To.Be team · Turin</p>
+            <p class="tl__role" data-l="it">Team Space Eagle / To.Be · Torino</p>
+            <p class="tl__line" data-l="en">A sensor on a city bus that spots potholes, litter and full bins. Four of us built it in a weekend.</p>
+            <p class="tl__line" data-l="it">Un sensore su un bus di linea che riconosce buche, rifiuti e cassonetti pieni. L'abbiamo costruito in quattro in un fine settimana.</p>
+            <p class="tl__prize" data-l="en">Smart Crossing challenge by GOMA Elettronica, €1,000</p>
+            <p class="tl__prize" data-l="it">Challenge Smart Crossing di GOMA Elettronica, 1.000&nbsp;€</p>
           </div>
           <p class="ord"><span data-l="en">2nd</span><span data-l="it">2º</span></p>
-        </li>
-        <li>
-          <p class="when"><span data-l="en">Dec&nbsp;2025 – Jun&nbsp;2026</span><span data-l="it">dic&nbsp;2025 – giu&nbsp;2026</span></p>
-          <div class="ledger__text">
-            <h4>EO Makerspace Hackathon 2026</h4>
-            <p class="role">ESA <span class="nw">Φ-lab</span> Challenges · Frascati</p>
-            <p data-l="en">
-              With my team, presenting <a href="#iceroute">IceRoute</a>. Run in collaboration with WMF
-              (We Make Future) and IngeniArs s.r.l. Team: Simone Avella, Federico Fassio, Giuseppe
-              Mondilla, Lorenzo Razzano. Advisor: Riccardo Apa.
-            </p>
-            <p data-l="it">
-              Con la mia squadra, presentando <a href="#iceroute">IceRoute</a>. In collaborazione con
-              WMF (We Make Future) e IngeniArs s.r.l. Squadra: Simone Avella, Federico Fassio,
-              Giuseppe Mondilla, Lorenzo Razzano. Advisor: Riccardo Apa.
-            </p>
+        </div>
+      </li>
+      <li>
+        <p class="tl__when"><span class="tl__date"><span data-l="en">Feb – Jun&nbsp;2026</span><span data-l="it">feb – giu&nbsp;2026</span></span><span class="tl__age"><span data-l="en">age 16</span><span data-l="it">16 anni</span></span></p>
+        <div class="tl__body">
+          <div class="tl__text">
+            <h3 class="tl__name"><a href="#edunity">EdUnity</a></h3>
+            <p class="tl__role" data-l="en">Co-founder, with four schoolmates</p>
+            <p class="tl__role" data-l="it">Cofondatore, con quattro compagni di scuola</p>
+            <p class="tl__line" data-l="en">A free platform for studying with AI, designed for students with learning disabilities and student athletes.</p>
+            <p class="tl__line" data-l="it">Una piattaforma gratuita per studiare con l'AI, pensata per studenti con DSA e studenti-atleti.</p>
+            <p class="tl__prize" data-l="en">Fin4Teen 2026, SellaLab's startup programme, national ranking</p>
+            <p class="tl__prize" data-l="it">Fin4Teen 2026, il programma per startup di SellaLab, classifica nazionale</p>
+          </div>
+          <p class="ord"><span data-l="en">2nd</span><span data-l="it">2º</span></p>
+        </div>
+      </li>
+      <li>
+        <p class="tl__when"><span class="tl__date"><span data-l="en">Dec&nbsp;2025 – Jun&nbsp;2026</span><span data-l="it">dic&nbsp;2025 – giu&nbsp;2026</span></span><span class="tl__age"><span data-l="en">age 16</span><span data-l="it">16 anni</span></span></p>
+        <div class="tl__body">
+          <div class="tl__text">
+            <h3 class="tl__name"><a href="#iceroute">EO Makerspace Hackathon 2026</a></h3>
+            <p class="tl__role">ESA <span class="nw">Φ-lab</span> Challenges · Frascati</p>
+            <p class="tl__line" data-l="en">With IceRoute: sea ice segmentation running onboard the satellite.</p>
+            <p class="tl__line" data-l="it">Con IceRoute: la segmentazione del ghiaccio marino fatta a bordo del satellite.</p>
+            <details class="tl__more">
+              <summary><span data-l="en">Read the story</span><span data-l="it">Leggi la storia</span></summary>
+              <div class="tl__story">
+                <p data-l="en">
+                  Run in collaboration with WMF (We Make Future) and IngeniArs s.r.l. Team: Simone Avella,
+                  Federico Fassio, Giuseppe Mondilla, Lorenzo Razzano. Advisor: Riccardo Apa.
+                </p>
+                <p data-l="it">
+                  In collaborazione con WMF (We Make Future) e IngeniArs s.r.l. Squadra: Simone Avella,
+                  Federico Fassio, Giuseppe Mondilla, Lorenzo Razzano. Advisor: Riccardo Apa.
+                </p>
+              </div>
+            </details>
           </div>
           <p class="ord"><span data-l="en">1st</span><span data-l="it">1º</span></p>
-        </li>
-        <li>
-          <p class="when"><span data-l="en">Feb – Jun&nbsp;2026</span><span data-l="it">feb – giu&nbsp;2026</span></p>
-          <div class="ledger__text">
-            <h4>Fin4Teen 2026</h4>
-            <p class="role">SellaLab · Biella</p>
-            <p data-l="en">SellaLab's startup programme, which we entered with <a href="#edunity">EdUnity</a>. Second nationally.</p>
-            <p data-l="it">Il programma per startup di SellaLab, a cui abbiamo partecipato con <a href="#edunity">EdUnity</a>. Secondi a livello nazionale.</p>
+        </div>
+      </li>
+      <li class="is-now">
+        <p class="tl__when"><span class="tl__date"><span data-l="en">2023 – now</span><span data-l="it">2023 – oggi</span></span><span class="tl__age"><span data-l="en">from age 13</span><span data-l="it">dai 13 anni</span></span></p>
+        <div class="tl__body">
+          <div class="tl__text">
+            <h3 class="tl__name">Liceo Scientifico Galileo Ferraris</h3>
+            <p class="tl__role" data-l="en">Student · Turin</p>
+            <p class="tl__role" data-l="it">Studente · Torino</p>
           </div>
-          <p class="ord"><span data-l="en">2nd</span><span data-l="it">2º</span></p>
-        </li>
-      </ol>
-    </div>
-
-    <div class="block">
-      <h3><span data-l="en">Education</span><span data-l="it">Formazione</span></h3>
-      <ol class="ledger">
-        <li>
-          <p class="when"><span data-l="en">2023 – now</span><span data-l="it">2023 – oggi</span></p>
-          <div class="ledger__text">
-            <h4>Liceo Scientifico Galileo Ferraris</h4>
-            <p class="role" data-l="en">Student · Turin</p>
-            <p class="role" data-l="it">Studente · Torino</p>
+        </div>
+      </li>
+      <li class="is-side">
+        <p class="tl__when"><span class="tl__date"><span data-l="en">Alongside</span><span data-l="it">In parallelo</span></span></p>
+        <div class="tl__body">
+          <div class="tl__text">
+            <h3 class="tl__name"><a href="https://www.tiktok.com/@imdoublef" rel="me">TikTok</a></h3>
+            <p class="tl__role">Content creator · @imdoublef</p>
+            <p class="tl__line" data-l="en">Almost 10k followers, and more than 10 million views across my accounts.</p>
+            <p class="tl__line" data-l="it">Quasi 10k follower e più di 10 milioni di visualizzazioni complessive sui miei account.</p>
           </div>
-        </li>
-      </ol>
-    </div>
+        </div>
+      </li>
+    </ol>
 
     <div class="photos">
       <figure>
@@ -982,6 +1104,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
         <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/federico-fassio-202a623b8/" rel="me">Federico Fassio</a></dd></div>
         <div><dt>GitHub</dt><dd><a href="https://github.com/DoubleF35" rel="me">@DoubleF35</a></dd></div>
         <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/federicofassioo/" rel="me">@federicofassioo</a></dd></div>
+        <div><dt>TikTok</dt><dd><a href="https://www.tiktok.com/@imdoublef" rel="me">@imdoublef</a></dd></div>
         <div><dt>Space Eagle</dt><dd><a href="mailto:federico.fassio@spaceeagle.it">federico.fassio@spaceeagle.it</a></dd></div>
       </dl>
     </div>
@@ -1380,6 +1503,46 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
     w0 = window.innerWidth;
     for(var j = 0; j < list.length; j++) if(list[j].resize) list[j].resize();
   });
+})();
+/* L'età si aggiorna da sola: conta solo mese e anno di nascita (nov 2009),
+   così nella pagina non c'è la data completa. Dal 1º dicembre scatta l'anno. */
+(function(){
+  var d = new Date(), age = d.getFullYear() - 2009 - (d.getMonth() < 11 ? 1 : 0);
+  if(age < 16 || age > 40) return;
+  var els = document.querySelectorAll('.age-now');
+  for(var i = 0; i < els.length; i++) els[i].textContent = age;
+})();
+
+/* La rotaia della timeline si accende mentre scorri: la luce arriva fino a
+   poco sopra la metà dello schermo. Nessun rAF a pagina ferma; con
+   "riduci movimento" è accesa tutta da subito. */
+(function(){
+  var tl = document.querySelector('.tl');
+  if(!tl) return;
+  var items = tl.querySelectorAll(':scope > li'), pending = false, near = false;
+  var mq = window.matchMedia ? matchMedia('(prefers-reduced-motion: reduce)') : null;
+  function update(){
+    pending = false;
+    var r = tl.getBoundingClientRect();
+    var lit = mq && mq.matches ? r.height : Math.max(0, Math.min(r.height, window.innerHeight * .58 - r.top));
+    tl.style.setProperty('--lit', lit.toFixed(1) + 'px');
+    for(var i = 0; i < items.length; i++){
+      var y = items[i].offsetTop + 10;
+      items[i].classList.toggle('is-lit', y <= lit);
+    }
+  }
+  function kick(){ if(!pending && near){ pending = true; requestAnimationFrame(update); } }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(en){
+      near = en[en.length - 1].isIntersecting;
+      if(near) kick();
+    }, { rootMargin:'50% 0px 50% 0px' }).observe(tl);
+  } else near = true;
+  addEventListener('scroll', kick, { passive:true });
+  addEventListener('resize', kick);
+  if(mq && mq.addEventListener) mq.addEventListener('change', kick);
+  tl.addEventListener('toggle', kick, true);
+  update();
 })();
 </script>
 </body>
