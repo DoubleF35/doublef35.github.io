@@ -40,6 +40,20 @@ altri progetti.
 Esporta in JPEG qualità 80, lato lungo massimo 1600 px, sotto i 300 KB
 quando possibile.
 
+## Età e timeline
+
+L'età attuale compare nell'hero e in About dentro `<span class="age-now">`.
+Uno script in fondo alla pagina la ricalcola da mese e anno di nascita
+(novembre 2009), così nel sorgente non c'è la data completa: dal 1º
+dicembre di ogni anno sale di uno.
+
+Le età accanto alle tappe della timeline (`#path`, `ol.tl`) sono invece
+scritte a mano, perché sono l'età che avevi in quel momento. Una tappa
+nuova va in cima se è la più recente: copia un `<li>` esistente, cambia
+date, età e testi in tutte e due le lingue. `class="is-now"` per le cose
+ancora in corso (punto pieno). Il numero in oro (`.ord`) solo per i
+piazzamenti.
+
 ## Il pettine
 
 L'hero è un `<canvas>` disegnato dallo script in fondo alla pagina. Le
