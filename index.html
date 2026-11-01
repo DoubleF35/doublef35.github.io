@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Federico Fassio · onboard ML, SAR, rockets</title>
-<meta name="description" content="Federico Fassio, Torino. Project manager of IceRoute and CubeSAR at Space Eagle APS. Onboard machine learning, synthetic aperture radar, rocketry, student ventures.">
+<meta name="description" content="Federico Fassio, Turin. Project manager of IceRoute and CubeSAR at Space Eagle APS. Onboard machine learning, synthetic aperture radar, rocketry, student ventures.">
 <meta name="author" content="Federico Fassio">
 <link rel="canonical" href="https://federicofassio.it/">
 
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Federico Fassio · onboard ML, SAR, rockets">
-<meta property="og:description" content="Project manager of IceRoute and CubeSAR at Space Eagle APS. Onboard ML, SAR, rocketry. Torino.">
+<meta property="og:description" content="Project manager of IceRoute and CubeSAR at Space Eagle APS. Onboard ML, SAR, rocketry. Turin.">
 <meta property="og:url" content="https://federicofassio.it/">
 <meta property="og:locale" content="en_GB">
 <meta property="og:locale:alternate" content="it_IT">
@@ -157,16 +157,16 @@ html[data-lang="en"] [data-l="it"]{display:none !important}
 .brand svg rect{fill:var(--beam-lit)}
 .brand svg .h{fill:var(--beam)}
 .nav__links{flex:1;display:flex;justify-content:center;gap:28px;list-style:none;margin:0;padding:0}
-.nav__links a{display:block;padding:14px 0;font:400 13px/1 var(--mono);color:var(--paper-dim);text-decoration:none}
+.nav__links a{display:block;padding:15.5px 0;font:400 13px/1 var(--mono);color:var(--paper-dim);text-decoration:none;white-space:nowrap}
 @media (hover:hover){ .nav__links a:hover{color:#fff} }
 .nav__extra{display:none}
 .nav__end{display:flex;align-items:center;gap:22px;flex:none}
 .lang{display:flex;align-items:center;font:400 13px/1 var(--mono);color:var(--paper-mute)}
-.lang button{padding:14px 5px;color:var(--paper-mute);transition:color .15s}
+.lang button{min-height:44px;min-width:32px;padding:0 6px;color:var(--paper-mute);transition:color .15s}
 .lang button:hover{color:var(--paper)}
 html[data-lang="it"] .lang [value="it"],
 html[data-lang="en"] .lang [value="en"]{color:var(--paper)}
-.nav__gh{padding:14px 0;font:400 13px/1 var(--mono);color:var(--paper-dim);text-decoration:none}
+.nav__gh{padding:15.5px 0;font:400 13px/1 var(--mono);color:var(--paper-dim);text-decoration:none}
 @media (hover:hover){ .nav__gh:hover{color:#fff} }
 .burger{display:none}
 
@@ -199,12 +199,12 @@ html.menu-open .nav__comb{opacity:0 !important}
 .hero{
   position:relative;z-index:1;isolation:isolate;
   min-height:100vh;min-height:100svh;
-  padding:clamp(128px, 19vh, 210px) var(--m) 0;
+  padding:clamp(96px, 19vh, 210px) var(--m) 0;
   text-align:center;
 }
 /* Nuvole indaco in alto: l'unica luce che non viene dal pettine. */
 .hero__sky{
-  position:absolute;inset:0;z-index:-2;pointer-events:none;
+  position:absolute;inset:0;z-index:-2;pointer-events:none;will-change:opacity;
   background:
     radial-gradient(30% 34% at 9% 22%,rgba(70,54,150,.32),transparent 72%),
     radial-gradient(28% 30% at 92% 14%,rgba(62,48,140,.28),transparent 72%),
@@ -214,7 +214,7 @@ html.menu-open .nav__comb{opacity:0 !important}
 .hero__horizon{bottom:0;height:3px;z-index:-1;transform-origin:50% 100%}
 .hero__in{position:relative;max-width:1120px;margin:0 auto}
 .hero h1{
-  font:400 clamp(50px, 7.4vw, 116px)/.98 var(--serif);letter-spacing:-.018em;
+  font:400 clamp(44px, min(7.4vw, 13.5vh), 116px)/.98 var(--serif);letter-spacing:-.018em;
   color:#f4f8ff;text-wrap:balance;
   text-shadow:0 1px 30px rgba(3,6,14,.5);
 }
@@ -262,6 +262,8 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 .prize{display:flex;align-items:baseline;gap:12px;margin:24px 0 0;font:400 15.5px/1.45 var(--sans);color:var(--paper)}
 .prize b{flex:none;font:400 36px/1 var(--serif);color:var(--gold)}
 .specs{margin:18px 0 0;font:400 14px/1.6 var(--sans);color:var(--paper-mute)}
+.specs.num{font-family:var(--mono)}
+.nw{white-space:nowrap}
 .links{display:flex;flex-wrap:wrap;gap:0 26px;margin:14px 0 0;font-size:15.5px}
 .links a{display:inline-flex;align-items:center;min-height:44px}
 
@@ -324,7 +326,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 
 /* ---------- Percorso ------------------------------------------------------ */
 .lede-i{
-  margin:-20px 0 80px;max-width:30ch;
+  margin:-20px 0 80px;max-width:30ch;text-wrap:pretty;
   font:italic 400 clamp(26px, 2.6vw, 36px)/1.25 var(--serif);color:var(--paper);
 }
 .block{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,10fr);column-gap:var(--gap);margin-bottom:80px}
@@ -344,8 +346,9 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 .ledger ul li{position:relative;padding-left:22px;margin-bottom:6px}
 .ledger ul li::before{content:"";position:absolute;left:0;top:.8em;width:10px;height:1px;background:var(--paper-mute)}
 /* I piazzamenti: il numero in oro è l'unico segno di premio della pagina. */
-.ledger--prize > li{grid-template-columns:minmax(0,3fr) minmax(0,5.6fr) minmax(0,1.4fr);grid-template-areas:"when text ord"}
+.ledger--prize > li{grid-template-columns:minmax(0,3fr) minmax(0,5.6fr) minmax(max-content,1.4fr);grid-template-areas:"when text ord"}
 .ord{grid-area:ord;text-align:right;font:400 clamp(60px, 6vw, 88px)/.86 var(--serif);color:var(--gold)}
+.ord [data-l="en"]{font-size:.72em}
 
 .photos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 10px}
 .photos .frame{aspect-ratio:4 / 3}
@@ -377,13 +380,14 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 }
 .foot__in{position:relative;display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;font:400 14px/1.5 var(--sans);color:var(--paper-dim)}
 .foot__in p{margin:0}
-.foot__in a{display:inline-block;padding:10px 0;margin:-10px 0}
+.foot__in a{display:inline-block;padding:12px 0;margin:-12px 0}
 
 /* --------------------------------------------------------------------------
    Schermi stretti
    -------------------------------------------------------------------------- */
 @media (max-width:980px){
   .nav__links{gap:20px}
+  .nav__in{gap:22px}
   .about,.contact{grid-template-columns:1fr;row-gap:40px}
   .about .portrait{max-width:300px}
   .flag{grid-template-columns:1fr}
@@ -400,7 +404,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
   .nav__in{gap:16px;justify-content:space-between}
   .brand,.nav__end{position:relative;z-index:1}
   .nav__gh{display:none}
-  .nav__end{gap:14px}
+  .nav__end{gap:10px}
   .burger{
     display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0 2px;
     font:400 13px/1 var(--mono);color:var(--paper);
@@ -415,18 +419,23 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 
   .nav__links{
     position:fixed;inset:0;z-index:0;
-    flex-direction:column;justify-content:center;gap:0;
-    padding:calc(var(--nav-h) + 24px) var(--m) 40px;
+    flex-direction:column;justify-content:flex-start;gap:0;
+    padding:calc(var(--nav-h) + 16px) var(--m) 32px;
+    overflow-y:auto;overscroll-behavior:contain;
     background:var(--ink);
     opacity:0;visibility:hidden;transition:opacity .25s,visibility 0s linear .25s;
   }
   html.menu-open .nav__links{opacity:1;visibility:visible;transition:opacity .25s}
+  /* A menu aperto la riga della barra è piena: le voci che scorrono ci passano sotto. */
+  html.menu-open .nav::before{opacity:1;z-index:1;background:var(--ink)}
   .nav__links li{border-bottom:1px solid var(--line)}
+  .nav__links > li:first-child{margin-top:auto}
+  .nav__links > li:last-child{margin-bottom:auto}
   .nav__links a{padding:16px 0;font:400 36px/1.1 var(--serif);color:var(--paper)}
   .nav__extra{display:block}
   .nav__links li.nav__extra{border:0}
   .nav__links li.nav__extra:first-of-type{margin-top:28px}
-  .nav__links .nav__extra a{display:inline-block;padding:12px 0;font:400 15px/1.2 var(--sans);color:var(--paper-dim);text-decoration:underline;text-decoration-color:rgba(156,200,255,.4)}
+  .nav__links .nav__extra a{display:inline-block;padding:13px 0;font:400 15px/1.2 var(--sans);color:var(--paper-dim);text-decoration:underline;text-decoration-color:rgba(156,200,255,.4)}
 
   .hero{min-height:88vh;min-height:88svh;padding-top:clamp(104px, 15svh, 140px)}
   .hero h1{font-size:clamp(42px, 12.2vw, 62px);line-height:1}
@@ -501,7 +510,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
     </ul>
     <div class="nav__end">
       <div class="lang" id="lang" role="group" aria-label="Lingua / Language">
-        <button type="button" value="it" lang="it">IT</button><span aria-hidden="true">·</span><button type="button" value="en" lang="en">EN</button>
+        <button type="button" value="en" lang="en" aria-pressed="true">EN</button><span aria-hidden="true">·</span><button type="button" value="it" lang="it" aria-pressed="false">IT</button>
       </div>
       <a class="nav__gh" href="https://github.com/DoubleF35" rel="me">GitHub</a>
       <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="navlinks">
@@ -521,8 +530,8 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
       <span data-l="en">I build things that have to work <em>on their own</em>.</span>
       <span data-l="it">Costruisco cose che devono funzionare <em>da&nbsp;sole</em>.</span>
     </h1>
-    <p class="hero__deck" data-l="en">Federico Fassio, Turin. I work on onboard machine learning for satellites, radar and rockets.</p>
-    <p class="hero__deck" data-l="it">Federico Fassio, Torino. Lavoro su machine learning a bordo dei satelliti, radar e razzi.</p>
+    <p class="hero__deck" data-l="en">Federico Fassio, Turin. I work on onboard machine learning for satellites, on synthetic aperture radar and on model rockets.</p>
+    <p class="hero__deck" data-l="it">Federico Fassio, Torino. Lavoro su machine learning a bordo dei satelliti, su radar ad apertura sintetica e su razzi modellistici.</p>
     <p class="hero__links">
       <a href="#projects"><span data-l="en">Projects</span><span data-l="it">Progetti</span></a>
       <a href="#contact"><span data-l="en">Get in touch</span><span data-l="it">Scrivimi</span></a>
@@ -574,40 +583,39 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
         <p class="deck" data-l="en">Sea ice segmentation onboard the satellite.</p>
         <p class="deck" data-l="it">Segmentazione del ghiaccio marino a bordo del satellite.</p>
         <p data-l="en">
-          Polar charts reach a ship's bridge 12 to 24 hours late, and by then the ice has moved.
+          Polar charts reach a ship's bridge 12 to 24&nbsp;hours late, and by then the ice has moved.
           In IceRoute an INT8 quantized U-Net runs on Sentinel-1 C-band SAR imagery inside a GPU@SAT
           FPGA, produces the ice mask, computes the optimal Arctic route within POLARIS operational
           limits, and downlinks mask and route instead of the raw scene.
         </p>
         <p data-l="it">
-          Le carte polari arrivano in plancia con 12-24 ore di ritardo, e nel frattempo il ghiaccio
+          Le carte polari arrivano in plancia con 12-24&nbsp;ore di ritardo, e nel frattempo il ghiaccio
           si è mosso. In IceRoute una U-Net quantizzata INT8 gira sulle immagini SAR in banda C di
           Sentinel-1 dentro un FPGA GPU@SAT, produce la maschera del ghiaccio, calcola la rotta
           artica ottimale entro i limiti operativi POLARIS e manda a terra maschera e rotta invece
           della scena grezza.
         </p>
-        <p class="prize"><b>1°</b> EO Makerspace Hackathon 2026, ESA Φ-lab</p>
+        <p class="prize"><b><span data-l="en">1st</span><span data-l="it">1º</span></b><span>EO Makerspace Hackathon 2026, ESA <span class="nw">Φ-lab</span></span></p>
         <dl class="sheet">
           <div><dt><span data-l="en">Onboard data reduction</span><span data-l="it">Riduzione dei dati a bordo</span></dt><dd>200 : 1</dd></div>
           <div><dt><span data-l="en">Transmitted packet</span><span data-l="it">Pacchetto trasmesso</span></dt><dd>&lt; 4 KB</dd></div>
           <div><dt><span data-l="en">Ice classes</span><span data-l="it">Classi di ghiaccio</span></dt><dd>5</dd></div>
           <div><dt><span data-l="en">Altitude</span><span data-l="it">Quota</span></dt><dd>550 km</dd></div>
-          <div><dt><span data-l="en">Platform</span><span data-l="it">Piattaforma</span></dt><dd>12U CubeSat, Zynq UltraScale+</dd></div>
+          <div><dt><span data-l="en">Platform</span><span data-l="it">Piattaforma</span></dt><dd>12U CubeSat, Zynq&nbsp;UltraScale+</dd></div>
         </dl>
         <p class="links"><a href="https://www.spaceeagle.it">spaceeagle.it</a></p>
       </div>
       <figure class="flag__main">
-        <span class="frame"><img src="img/iceroute-console.jpg" width="1582" height="945" alt="La console di IceRoute: scena SAR, maschera del ghiaccio, rotta e bilancio del downlink" loading="lazy"></span>
+        <span class="frame"><img src="img/iceroute-console.jpg" width="1582" height="945" alt="IceRoute console: SAR scene, ice mask, route and downlink budget" data-alt-it="La console di IceRoute: scena SAR, maschera del ghiaccio, rotta e bilancio del downlink" loading="lazy"></span>
         <figcaption data-l="en">The console: SAR scene, ice mask, route, downlink budget.</figcaption>
         <figcaption data-l="it">La console: scena SAR, maschera del ghiaccio, rotta, bilancio del downlink.</figcaption>
       </figure>
       <div class="flag__pair">
         <figure class="shot--43">
-          <span class="frame"><img src="img/iceroute-premio.jpeg" width="1400" height="1050" alt="EO Makerspace Hackathon 2026 all'ESA Φ-lab" loading="lazy"></span>
-          <figcaption>EO Makerspace Hackathon, ESA Φ-lab.</figcaption>
+          <span class="frame"><img src="img/iceroute-premio.jpeg" width="1400" height="1050" alt="EO Makerspace Hackathon 2026 at ESA Φ-lab" data-alt-it="EO Makerspace Hackathon 2026 all'ESA Φ-lab" loading="lazy"></span>
         </figure>
         <figure class="shot--169">
-          <span class="frame"><img src="img/teenventures-pitch.jpg" width="1600" height="900" alt="La GUI di IceRoute presentata alla TeenVentures Demo Night" loading="lazy"></span>
+          <span class="frame"><img src="img/teenventures-pitch.jpg" width="1600" height="900" alt="Presenting the IceRoute GUI at TeenVentures Demo Night" data-alt-it="La GUI di IceRoute presentata alla TeenVentures Demo Night" loading="lazy"></span>
           <figcaption data-l="en">Presenting the GUI at TeenVentures Demo Night.</figcaption>
           <figcaption data-l="it">La GUI alla TeenVentures Demo Night.</figcaption>
         </figure>
@@ -618,26 +626,24 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
       <p class="meta"><span>hackTurin 2026</span><span>Space Eagle / To.Be</span></p>
       <h3>To.Be</h3>
       <figure class="row__fig">
-        <span class="frame"><img src="img/hackturin-premio.jpg" width="1600" height="1067" alt="Premiazione di hackTurin 2026" loading="lazy"></span>
-        <figcaption data-l="en">hackTurin 2026, with the Space Eagle / To.Be team.</figcaption>
-        <figcaption data-l="it">hackTurin 2026, con il team Space Eagle / To.Be.</figcaption>
+        <span class="frame"><img src="img/hackturin-premio.jpg" width="1600" height="1067" alt="Award ceremony at hackTurin 2026" data-alt-it="Premiazione di hackTurin 2026" loading="lazy"></span>
       </figure>
       <div class="row__text">
         <p data-l="en">
           A citizen-science sensor that rides on a city bus. A phone collects GPS, images and IMU and
-          feeds an Arduino UNO Q, where an INT8 vision model recognises potholes, litter and full bins
+          feeds an Arduino UNO&nbsp;Q, where an INT8 vision model recognises potholes, litter and full bins
           and files a report with its position. The reports land on TorinoSegnala, a platform with a
           public map, a dashboard and a council-side area. Four of us built it over a weekend.
         </p>
         <p data-l="it">
           Un sensore di citizen science che viaggia su un bus di linea. Un telefono raccoglie GPS,
-          immagini e IMU e li passa a una Arduino UNO Q, dove un modello di visione INT8 riconosce
+          immagini e IMU e li passa a una Arduino UNO&nbsp;Q, dove un modello di visione INT8 riconosce
           buche, rifiuti e cassonetti pieni e salva una segnalazione con la sua posizione. Le
           segnalazioni arrivano su TorinoSegnala, piattaforma con mappa pubblica, statistiche e area
           riservata al Comune. L'abbiamo costruito in quattro, in un fine settimana.
         </p>
-        <p class="prize"><b>2°</b><span data-l="en">hackTurin 2026, Smart Crossing challenge by GOMA Elettronica</span><span data-l="it">hackTurin 2026, challenge Smart Crossing di GOMA Elettronica</span></p>
-        <p class="specs">Arduino UNO Q, LiteRT int8, Next.js, Supabase</p>
+        <p class="prize"><b><span data-l="en">2nd</span><span data-l="it">2º</span></b><span data-l="en">hackTurin 2026, Smart Crossing challenge by GOMA Elettronica</span><span data-l="it">hackTurin 2026, challenge Smart Crossing di GOMA Elettronica</span></p>
+        <p class="specs">Arduino UNO&nbsp;Q, LiteRT int8, Next.js, Supabase</p>
       </div>
     </article>
 
@@ -651,12 +657,12 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
         <p data-l="en">
           A desk-sized CubeSat that makes radar images of what is around it. It uses the same
           principle as Sentinel-1, synthetic aperture radar: the antenna moves and the echoes are
-          recombined in phase to rebuild the image. It sits one step below IceRoute.
+          recombined in phase to rebuild the image. It is the step below IceRoute, where a mistake costs an afternoon rather than a mission.
         </p>
         <p data-l="it">
           Un CubeSat da tavolo che fa immagini radar di quello che ha intorno. Usa lo stesso
           principio di Sentinel-1, il radar ad apertura sintetica: l'antenna si sposta e gli echi
-          vengono ricombinati in fase per ricostruire l'immagine. È il gradino sotto IceRoute.
+          vengono ricombinati in fase per ricostruire l'immagine. È il gradino sotto IceRoute, dove uno sbaglio costa un pomeriggio e non una missione.
         </p>
         <p class="links"><a href="https://github.com/DoubleF35/CubeSAR">Repository</a></p>
       </div>
@@ -666,20 +672,20 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
       <p class="meta"><span><span data-l="en">2 vehicles</span><span data-l="it">2 vettori</span></span></p>
       <h3><a href="https://github.com/DoubleF35/Seeker-II"><span data-l="en">Seeker programme</span><span data-l="it">Programma Seeker</span></a></h3>
       <figure class="row__fig">
-        <span class="frame"><img src="img/seeker-ii.jpeg" width="1400" height="788" alt="Il razzo Seeker-II" loading="lazy"></span>
+        <span class="frame"><img src="img/seeker-ii.jpeg" width="1400" height="788" alt="The Seeker-II rocket" data-alt-it="Il razzo Seeker-II" loading="lazy"></span>
       </figure>
       <div class="row__text">
         <p data-l="en">
           Model rockets designed end to end. Stability and flight profile in OpenRocket, structure
           and mass in Fusion 360, then fabrication, launch and recovery. Seeker-II carries a flight
-          computer I designed, with an ESP32-C3, altimeter, IMU and LoRa telemetry at 433&nbsp;MHz.
+          computer I designed, with an <span class="nw">ESP32-C3</span>, altimeter, IMU and LoRa telemetry at 433&nbsp;MHz.
           If the real flight does not match the simulation, the model is wrong, and the error has to
           be found before the next launch.
         </p>
         <p data-l="it">
           Razzi modellistici progettati dall'inizio alla fine. Stabilità e profilo di volo in
           OpenRocket, struttura e masse in Fusion 360, poi fabbricazione, lancio e recupero.
-          Seeker-II porta un computer di volo progettato da me, con ESP32-C3, altimetro, IMU e
+          Seeker-II porta un computer di volo progettato da me, con <span class="nw">ESP32-C3</span>, altimetro, IMU e
           telemetria LoRa a 433&nbsp;MHz. Se il volo vero non somiglia alla simulazione, è sbagliato
           il modello, e l'errore va trovato prima del lancio successivo.
         </p>
@@ -710,7 +716,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
           correzione e mappe concettuali. È pensata in particolare per studenti con DSA e
           studenti-atleti. Nessuna chiave AI arriva al browser.
         </p>
-        <p class="prize"><b>2°</b>Fin4Teen 2026, SellaLab</p>
+        <p class="prize"><b><span data-l="en">2nd</span><span data-l="it">2º</span></b><span>Fin4Teen 2026, SellaLab</span></p>
         <p class="specs">Firebase, Cloudflare Worker</p>
         <p class="links">
           <a href="https://edunityedu.it">edunityedu.it</a>
@@ -723,7 +729,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
       <p class="meta"><span><span data-l="en">Co-founder</span><span data-l="it">Cofondatore</span></span><span><span data-l="en">150 members</span><span data-l="it">150 membri</span></span></p>
       <h3><a href="https://yetcommunity.it">YET</a></h3>
       <figure class="row__fig shot--43">
-        <span class="frame"><img src="img/yet.jpg" width="1600" height="1200" alt="Un incontro della community YET" loading="lazy"></span>
+        <span class="frame"><img src="img/yet.jpg" width="1600" height="1200" alt="A YET community evening" data-alt-it="Un incontro della community YET" loading="lazy"></span>
         <figcaption data-l="en">A YET evening, Turin, October 2026.</figcaption>
         <figcaption data-l="it">Una serata YET, Torino, ottobre 2026.</figcaption>
       </figure>
@@ -755,23 +761,23 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
       <!-- Quando c'è una foto: sostituire questo blocco con una <figure class="row__fig"> come le altre -->
       <div class="row__fig eq">
         <p class="eq__f" data-l="en">crossing<sub>2</sub> − crossing<sub>1</sub> = lap&nbsp;time ±&nbsp;2&nbsp;ms</p>
-        <p class="eq__f" data-l="it">passaggio<sub>2</sub> − passaggio<sub>1</sub> = tempo sul&nbsp;giro ±&nbsp;2&nbsp;ms</p>
-        <p class="eq__n" data-l="en">416 / 416 laps · 58 tests</p>
-        <p class="eq__n" data-l="it">416 / 416 giri · 58 test</p>
+        <p class="eq__f" data-l="it">passaggio<sub>2</sub> − passaggio<sub>1</sub> = tempo&nbsp;sul&nbsp;giro ±&nbsp;2&nbsp;ms</p>
+        <p class="eq__n" data-l="en">416 / 416&nbsp;laps · 58&nbsp;tests</p>
+        <p class="eq__n" data-l="it">416 / 416&nbsp;giri · 58&nbsp;test</p>
       </div>
       <div class="row__text">
         <p data-l="en">
           Italian Formula 4 qualifying, read straight out of ACI Sport's official timing PDFs, to the
           millisecond. One invariant holds the whole parser together: for two consecutive laps by the
           same driver, the gap between the two line crossings must equal the lap time, within
-          2&nbsp;ms. It holds across all 416 laps of the two Misano 2025 sessions. A change that
+          2&nbsp;ms. It holds across all 416&nbsp;laps of the two Misano 2025 sessions. A change that
           breaks it is wrong, even when the output looks plausible.
         </p>
         <p data-l="it">
           Le qualifiche della Formula 4 italiana, lette direttamente dai PDF cronometrici ufficiali di
           ACI Sport, al millesimo. Un invariante tiene insieme tutto il parser: per due giri
           consecutivi dello stesso pilota, lo scarto fra i due passaggi sul traguardo deve essere
-          uguale al tempo sul giro, con tolleranza di 2&nbsp;ms. Regge su tutti i 416 giri delle due
+          uguale al tempo sul giro, con tolleranza di 2&nbsp;ms. Regge su tutti i 416&nbsp;giri delle due
           sessioni di Misano 2025. Una modifica che lo rompe è sbagliata, anche quando il risultato
           sembra plausibile.
         </p>
@@ -812,7 +818,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
       <h3><span data-l="en">Experience</span><span data-l="it">Esperienza</span></h3>
       <ol class="ledger">
         <li>
-          <p class="when"><span data-l="en">Feb 2026 – now</span><span data-l="it">feb 2026 – oggi</span></p>
+          <p class="when"><span data-l="en">Feb&nbsp;2026 – now</span><span data-l="it">feb&nbsp;2026 – oggi</span></p>
           <div class="ledger__text">
             <h4>Space Eagle APS</h4>
             <p class="role" data-l="en">Project manager · Turin, part-time</p>
@@ -832,7 +838,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
           </div>
         </li>
         <li>
-          <p class="when"><span data-l="en">Jul 2026 – now</span><span data-l="it">lug 2026 – oggi</span></p>
+          <p class="when"><span data-l="en">Jul&nbsp;2026 – now</span><span data-l="it">lug&nbsp;2026 – oggi</span></p>
           <div class="ledger__text">
             <h4>YET · Young Entrepreneurs Together</h4>
             <p class="role" data-l="en">Co-founder · Turin</p>
@@ -856,7 +862,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
       <h3><span data-l="en">Awards</span><span data-l="it">Riconoscimenti</span></h3>
       <ol class="ledger ledger--prize">
         <li>
-          <p class="when"><span data-l="en">Oct 2026</span><span data-l="it">ott 2026</span></p>
+          <p class="when"><span data-l="en">Oct&nbsp;2026</span><span data-l="it">ott&nbsp;2026</span></p>
           <div class="ledger__text">
             <h4>hackTurin 2026</h4>
             <p class="role" data-l="en">Smart Crossing challenge, GOMA Elettronica · Turin</p>
@@ -864,13 +870,13 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
             <p data-l="en">A €1,000 prize with the Space Eagle / To.Be team, presenting <a href="#tobe">To.Be</a>.</p>
             <p data-l="it">Un riconoscimento da 1.000 € con il team Space Eagle / To.Be, presentando <a href="#tobe">To.Be</a>.</p>
           </div>
-          <p class="ord" aria-label="secondo posto">2°</p>
+          <p class="ord"><span data-l="en">2nd</span><span data-l="it">2º</span></p>
         </li>
         <li>
-          <p class="when"><span data-l="en">Dec 2025 – Jun 2026</span><span data-l="it">dic 2025 – giu 2026</span></p>
+          <p class="when"><span data-l="en">Dec&nbsp;2025 – Jun&nbsp;2026</span><span data-l="it">dic&nbsp;2025 – giu&nbsp;2026</span></p>
           <div class="ledger__text">
             <h4>EO Makerspace Hackathon 2026</h4>
-            <p class="role">ESA Φ-lab Challenges · Frascati</p>
+            <p class="role">ESA <span class="nw">Φ-lab</span> Challenges · Frascati</p>
             <p data-l="en">
               With my team, presenting <a href="#iceroute">IceRoute</a>. Run in collaboration with WMF
               (We Make Future) and IngeniArs s.r.l. Team: Simone Avella, Federico Fassio, Giuseppe
@@ -882,17 +888,17 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
               Giuseppe Mondilla, Lorenzo Razzano. Advisor: Riccardo Apa.
             </p>
           </div>
-          <p class="ord" aria-label="primo posto">1°</p>
+          <p class="ord"><span data-l="en">1st</span><span data-l="it">1º</span></p>
         </li>
         <li>
-          <p class="when"><span data-l="en">Feb – Jun 2026</span><span data-l="it">feb – giu 2026</span></p>
+          <p class="when"><span data-l="en">Feb – Jun&nbsp;2026</span><span data-l="it">feb – giu&nbsp;2026</span></p>
           <div class="ledger__text">
             <h4>Fin4Teen 2026</h4>
             <p class="role">SellaLab · Biella</p>
             <p data-l="en">SellaLab's startup programme, which we entered with <a href="#edunity">EdUnity</a>. Second nationally.</p>
             <p data-l="it">Il programma per startup di SellaLab, a cui abbiamo partecipato con <a href="#edunity">EdUnity</a>. Secondi a livello nazionale.</p>
           </div>
-          <p class="ord" aria-label="secondo posto">2°</p>
+          <p class="ord"><span data-l="en">2nd</span><span data-l="it">2º</span></p>
         </li>
       </ol>
     </div>
@@ -913,19 +919,19 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 
     <div class="photos">
       <figure>
-        <span class="frame"><img src="img/esa-hackathon.jpeg" width="1400" height="1050" alt="All'ESA, Frascati" loading="lazy"></span>
-        <figcaption>ESA Φ-lab, Frascati</figcaption>
+        <span class="frame"><img src="img/esa-hackathon.jpeg" width="1400" height="1050" alt="At ESA, Frascati" data-alt-it="All'ESA, Frascati" loading="lazy"></span>
+        <figcaption>ESA <span class="nw">Φ-lab</span>, Frascati</figcaption>
       </figure>
       <figure>
-        <span class="frame"><img src="img/hackturin-team.jpg" width="1400" height="933" alt="Il team a hackTurin 2026" loading="lazy"></span>
+        <span class="frame"><img src="img/hackturin-team.jpg" width="1400" height="933" alt="The team at hackTurin 2026" data-alt-it="Il team a hackTurin 2026" loading="lazy"></span>
         <figcaption>hackTurin 2026</figcaption>
       </figure>
       <figure>
-        <span class="frame"><img src="img/teenventures-iceroute.jpg" width="1396" height="785" alt="IceRoute alla TeenVentures Demo Night" loading="lazy"></span>
+        <span class="frame"><img src="img/teenventures-iceroute.jpg" width="1396" height="785" alt="IceRoute at TeenVentures Demo Night" data-alt-it="IceRoute alla TeenVentures Demo Night" loading="lazy"></span>
         <figcaption>TeenVentures Demo Night</figcaption>
       </figure>
       <figure>
-        <span class="frame"><img src="img/yet-sala.jpg" width="1600" height="1200" alt="Un incontro YET" loading="lazy"></span>
+        <span class="frame"><img src="img/yet-sala.jpg" width="1600" height="1200" alt="A YET meeting" data-alt-it="Un incontro YET" loading="lazy"></span>
         <figcaption data-l="en">A YET meeting</figcaption>
         <figcaption data-l="it">Un incontro YET</figcaption>
       </figure>
@@ -938,12 +944,12 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
         <figcaption>Fin4Teen, SellaLab</figcaption>
       </figure>
       <figure>
-        <span class="frame"><img src="img/yet-palco.jpg" width="1100" height="825" alt="Sul palco a una serata YET" loading="lazy"></span>
+        <span class="frame"><img src="img/yet-palco.jpg" width="1100" height="825" alt="On stage at a YET evening" data-alt-it="Sul palco a una serata YET" loading="lazy"></span>
         <figcaption data-l="en">Opening a YET evening</figcaption>
         <figcaption data-l="it">L'apertura di una serata YET</figcaption>
       </figure>
       <figure>
-        <span class="frame"><img src="img/teenventures-team.jpg" width="1400" height="788" alt="Il team a TeenVentures" loading="lazy"></span>
+        <span class="frame"><img src="img/teenventures-team.jpg" width="1400" height="788" alt="The team at TeenVentures" data-alt-it="Il team a TeenVentures" loading="lazy"></span>
         <figcaption>TeenVentures</figcaption>
       </figure>
     </div>
@@ -997,12 +1003,26 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 (function(){
   var box = document.getElementById('lang');
   if(!box) return;
+  // I testi alternativi delle immagini: inglese nell'attributo alt (la lingua
+  // di default), italiano in data-alt-it. Si scambiano con la lingua.
+  var imgs = document.querySelectorAll('img[data-alt-it]');
+  function apply(l){
+    var bs = box.querySelectorAll('button');
+    for(var i = 0; i < bs.length; i++) bs[i].setAttribute('aria-pressed', bs[i].value === l ? 'true' : 'false');
+    for(var j = 0; j < imgs.length; j++){
+      var im = imgs[j];
+      if(!im.hasAttribute('data-alt-en')) im.setAttribute('data-alt-en', im.alt);
+      im.alt = l === 'it' ? im.getAttribute('data-alt-it') : im.getAttribute('data-alt-en');
+    }
+  }
+  apply(document.documentElement.getAttribute('data-lang') === 'it' ? 'it' : 'en');
   box.addEventListener('click', function(e){
     var b = e.target.closest('button');
     if(!b) return;
     document.documentElement.setAttribute('data-lang', b.value);
     document.documentElement.setAttribute('lang', b.value);
     try{ localStorage.setItem('lang', b.value); }catch(err){}
+    apply(b.value);
   });
 })();
 
@@ -1012,16 +1032,20 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
    si allarga. Il fuoco entra nel pannello e torna al pulsante.           */
 (function(){
   var b = document.getElementById('burger'), list = document.getElementById('navlinks');
-  var root = document.documentElement;
-  if(!b || !list) return;
+  var nav = document.getElementById('nav'), root = document.documentElement;
+  if(!b || !list || !nav) return;
+  // A menu aperto tutto ciò che sta sotto il pannello diventa inerte: il Tab
+  // e i lettori di schermo non possono finire su link nascosti.
+  var behind = document.querySelectorAll('.skip, header.hero, main, footer');
   function set(open, keepFocus){
     root.classList.toggle('menu-open', open);
     b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    for(var i = 0; i < behind.length; i++) behind[i].inert = open;
     if(open){ var a = list.querySelector('a'); if(a) setTimeout(function(){ a.focus(); }, 30); }
     else if(!keepFocus) b.focus();
   }
   b.addEventListener('click', function(){ set(!root.classList.contains('menu-open')); });
-  list.addEventListener('click', function(e){ if(e.target.closest('a') && root.classList.contains('menu-open')) set(false, true); });
+  nav.addEventListener('click', function(e){ if(e.target.closest('a') && root.classList.contains('menu-open')) set(false, true); });
   addEventListener('keydown', function(e){ if(e.key === 'Escape' && root.classList.contains('menu-open')) set(false); });
   var wide = matchMedia('(min-width:761px)');
   var onWide = function(m){ if(m.matches && root.classList.contains('menu-open')) set(false, true); };
@@ -1088,21 +1112,31 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
   // che resta blu: la luce si vede anche fra un dente e l'altro.
   function slat(I, q){ var s = I * (GAP + (1 - GAP) * I * I); return q === 3 ? s : q === 0 ? (I + s) / 2 : I; }
 
+  var inn = hero.querySelector('.hero__in'), dpr0 = 0;
+  function fit(){
+    if(!inn) return;
+    hero.style.minHeight = '';
+    // In verticale il fascio sale di più in proporzione: serve più cielo.
+    var need = Math.ceil((inn.offsetTop + inn.offsetHeight) / (hero.offsetHeight > hero.clientWidth * 1.1 ? .565 : .6));
+    if(hero.offsetHeight < need) hero.style.minHeight = need + 'px';
+  }
   function measure(){
     W = hero.clientWidth; H = hero.offsetHeight; navH = nav.offsetHeight || navH;
     O = Math.round(Math.min(220, H * .24));
   }
-  function sizeCanvas(){
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    var area = W * (H + O) * VS;
-    if(area * dpr * dpr > MAXPX) dpr = Math.max(1, Math.sqrt(MAXPX / area));
+  function sizeCanvas(keep){
+    if(!keep){
+      dpr0 = Math.min(window.devicePixelRatio || 1, 2); dpr = dpr0;
+      var area = W * (H + O) * VS;
+      if(area * dpr * dpr > MAXPX) dpr = Math.max(1, Math.sqrt(MAXPX / area));
+    }
     sy = dpr * VS;
     cv.width = Math.round(W * dpr); cv.height = Math.round((H + O) * sy);
     cv.style.height = H + O + 'px'; cv.style.bottom = -O + 'px';
   }
 
   function build(){
-    measure(); sizeCanvas();
+    fit(); measure(); sizeCanvas(false);
     var pitch = W < 520 ? 4 : 5;
     P = Math.max(3, Math.round(pitch * dpr));
     var Wd = cv.width;
@@ -1218,7 +1252,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
     var c = Math.max(qs, Math.pow(1 - k, 3));
     if(Math.abs(c - lastC) > 1e-4 || Math.abs(dist - lastDist) > .5){
       draw(c, dist); lastC = c; lastDist = dist;
-      if(sky){ var so = (1 - .75 * sstep(0, .9, qs)).toFixed(3); if(so !== skyO) sky.style.opacity = skyO = so; }
+      if(sky){ var so = (1 - .75 * sstep(0, .9, qs)).toFixed(2); if(so !== skyO) sky.style.opacity = skyO = so; }
     }
     // Il ciclo vive solo mentre qualcosa si muove.
     if(qs !== q || (introAt && !introDone)) raf = requestAnimationFrame(frame);
@@ -1226,17 +1260,33 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 
   function kick(){ if(!raf) raf = requestAnimationFrame(frame); }
   function onResize(){
+    var c = lastC;
+    fit();
     var w = hero.clientWidth, h = hero.offsetHeight;
-    if(w !== W || Math.abs(h - H) > 120){ build(); }
-    else { measure(); sizeCanvas(); lastC = -1; }
+    if(w !== W || Math.abs(h - H) > 120 || Math.min(window.devicePixelRatio || 1, 2) !== dpr0) build();
+    else { measure(); sizeCanvas(true); }
+    lastC = -1;
+    if(c >= 0 && onScreen && !document.hidden){
+      lastDist = H - Math.max(0, window.scrollY) - navH;
+      draw(c, lastDist); lastC = c;
+    }
     kick();
   }
+  // Una finestra spostata fra uno schermo normale e uno Retina cambia la
+  // densità di pixel senza un evento resize.
+  function watchDpr(){
+    if(!window.matchMedia) return;
+    var m = matchMedia('(resolution: ' + (window.devicePixelRatio || 1) + 'dppx)');
+    var on = function(){ if(m.removeEventListener) m.removeEventListener('change', on); onResize(); watchDpr(); };
+    if(m.addEventListener) m.addEventListener('change', on);
+  }
+  watchDpr();
 
   addEventListener('scroll', kick, { passive:true });
   addEventListener('resize', onResize);
-  if(window.ResizeObserver) new ResizeObserver(function(){
-    if(hero.clientWidth !== W || hero.offsetHeight !== H) onResize();
-  }).observe(hero);
+  // Osserva il blocco di testo: se si allunga (un'altra lingua, i font che
+  // arrivano) l'hero può dover crescere anche se la finestra è la stessa.
+  if(window.ResizeObserver) new ResizeObserver(function(){ if(W) onResize(); }).observe(inn || hero);
   document.addEventListener('visibilitychange', function(){ lastT = 0; kick(); });
   if(window.IntersectionObserver) new IntersectionObserver(function(es){
     onScreen = es[es.length - 1].isIntersecting;
@@ -1253,7 +1303,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
   // niente salita del cumulo: si disegna direttamente lo stato giusto.
   if(still || window.scrollY > 40) introDone = true;
   else {
-    var go = function(){ if(!introAt) requestAnimationFrame(function(t){ introAt = t; kick(); }); };
+    var go = function(){ if(!introAt){ onResize(); requestAnimationFrame(function(t){ introAt = t; kick(); }); } };
     if(document.fonts && document.fonts.ready) document.fonts.ready.then(go);
     setTimeout(go, 1500);
   }
@@ -1269,7 +1319,8 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 (function(){
   var els = document.querySelectorAll('canvas.sep');
   if(!els.length) return;
-  var still = (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) || !window.IntersectionObserver;
+  var mq = window.matchMedia ? matchMedia('(prefers-reduced-motion: reduce)') : null;
+  var still = (mq && mq.matches) || !window.IntersectionObserver;
   var SWEEP = 900, DECAY = 320, BEAM = '#2f7dff', LIT = '#cfe6ff';
 
   function Sep(el){
@@ -1302,15 +1353,18 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
     }
     function run(t0){
       requestAnimationFrame(function step(now){
+        if(done) return;
         var t = now - t0;
         if(t > SWEEP + DECAY * 5){ done = true; draw(Infinity); return; }
         draw(t); requestAnimationFrame(step);
       });
     }
+    var io = null;
     size(); draw(done ? Infinity : -1);
     this.resize = function(){ size(); draw(done ? Infinity : -1); };
+    this.settle = function(){ done = true; if(io) io.disconnect(); draw(Infinity); };
     if(done) return;
-    var io = new IntersectionObserver(function(en){
+    io = new IntersectionObserver(function(en){
       if(en[en.length - 1].isIntersecting){ io.disconnect(); run(performance.now()); }
     }, { threshold:1, rootMargin:'0px 0px -18% 0px' });
     io.observe(el);
@@ -1318,6 +1372,9 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 
   var list = [], w0 = window.innerWidth;
   for(var i = 0; i < els.length; i++) list.push(new Sep(els[i]));
+  if(mq && mq.addEventListener) mq.addEventListener('change', function(){
+    if(mq.matches) for(var k = 0; k < list.length; k++) if(list[k].settle) list[k].settle();
+  });
   addEventListener('resize', function(){
     if(window.innerWidth === w0) return;
     w0 = window.innerWidth;
