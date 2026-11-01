@@ -343,13 +343,14 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 .tl{
   --tw:calc((100% - 2 * var(--gap)) / 6);   /* larga quanto la colonna meta dei progetti */
   --rx:calc(var(--tw) + var(--gap));        /* dove passa la rotaia */
-  --lit:0px;
+  --r0:24px;                                /* la rotaia parte dal centro del primo punto */
+  --lit:0px;                                /* lunghezza del tratto acceso, la calcola lo script */
   position:relative;list-style:none;margin:0 0 96px;padding:0;
 }
-.tl::before,.tl::after{content:"";position:absolute;top:8px;left:var(--rx);width:1px;pointer-events:none}
+.tl::before,.tl::after{content:"";position:absolute;top:var(--r0);left:var(--rx);width:1px;pointer-events:none}
 .tl::before{bottom:0;background:linear-gradient(var(--line), var(--line) calc(100% - 64px), transparent)}
 .tl::after{
-  height:min(var(--lit), calc(100% - 8px));
+  height:var(--lit);
   background:linear-gradient(rgba(47,125,255,0), rgba(47,125,255,.7) 90px, var(--beam-lit));
   box-shadow:0 0 8px rgba(47,125,255,.55);
 }
@@ -364,6 +365,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
   width:11px;height:11px;box-sizing:border-box;border-radius:50%;
   border:1px solid var(--paper-mute);background:var(--ink);
   transition:border-color .4s,background-color .4s,box-shadow .4s;
+  z-index:1;
 }
 .tl > li.is-now::before{border-color:var(--paper);background:var(--paper)}
 .tl > li.is-side::before{top:15px;left:calc(var(--rx) - 3px);width:7px;height:7px}
@@ -534,7 +536,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 
   .lede-i{margin:-8px 0 56px}
   .tl{--rx:5px;margin-bottom:64px}
-  .tl::before,.tl::after{top:6px}
+  .tl{--r0:10px}
   .tl > li{grid-template-columns:minmax(0,1fr);padding:0 0 48px 32px}
   .tl > li::before{top:5px}
   .tl > li.is-side::before{top:7px}
@@ -560,6 +562,9 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none !important;transition:none !important}
+}
+@media (prefers-reduced-motion:reduce){
+  .tl__more::details-content{transition:none !important}
 }
 </style>
 </head>
@@ -906,7 +911,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 
     <ol class="tl">
       <li class="is-now is-key">
-        <p class="tl__when"><span class="tl__date"><span data-l="en">Feb&nbsp;2026 – now</span><span data-l="it">feb&nbsp;2026 – oggi</span></span><span class="tl__age"><span data-l="en">age 16</span><span data-l="it">16 anni</span></span></p>
+        <p class="tl__when"><span class="tl__date"><span data-l="en">Feb&nbsp;2026 – now</span><span data-l="it">feb&nbsp;2026 – oggi</span></span><span class="tl__age"><span data-l="en">from age 16</span><span data-l="it">dai 16 anni</span></span></p>
         <div class="tl__body">
           <div class="tl__text">
             <h3 class="tl__name"><a href="https://www.spaceeagle.it">Space Eagle APS</a></h3>
@@ -919,13 +924,13 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
               <div class="tl__story">
                 <p data-l="en">
                   The team builds everything in house, from propulsion to avionics. I joined as an
-                  associate member in February 2026 and worked on ICARO and IceRoute. Since August 2026
-                  I plan and split the work on the two radar projects, and check that what we present
-                  outside matches the technical side.
+                  associate member in February 2026 and have worked on ICARO and IceRoute since then.
+                  Since August 2026 I have been planning and splitting the work on the two radar
+                  projects, and checking that what we present outside matches the technical side.
                 </p>
                 <p data-l="it">
                   Il team sviluppa tutto in casa, dalla propulsione all'avionica. Sono entrato come socio
-                  a febbraio 2026 e ho lavorato su ICARO e IceRoute. Da agosto 2026 pianifico e divido il
+                  a febbraio 2026 e da allora lavoro su ICARO e IceRoute. Da agosto 2026 pianifico e divido il
                   lavoro sui due progetti radar, e controllo che quello che presentiamo all'esterno
                   corrisponda alla parte tecnica.
                 </p>
@@ -935,7 +940,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
         </div>
       </li>
       <li class="is-now is-key">
-        <p class="tl__when"><span class="tl__date"><span data-l="en">Jul&nbsp;2026 – now</span><span data-l="it">lug&nbsp;2026 – oggi</span></span><span class="tl__age"><span data-l="en">age 16</span><span data-l="it">16 anni</span></span></p>
+        <p class="tl__when"><span class="tl__date"><span data-l="en">Jul&nbsp;2026 – now</span><span data-l="it">lug&nbsp;2026 – oggi</span></span><span class="tl__age"><span data-l="en">from age 16</span><span data-l="it">dai 16 anni</span></span></p>
         <div class="tl__body">
           <div class="tl__text">
             <h3 class="tl__name"><a href="#yet">YET · Young Entrepreneurs Together</a></h3>
@@ -995,8 +1000,8 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
             <h3 class="tl__name"><a href="#edunity">EdUnity</a></h3>
             <p class="tl__role" data-l="en">Co-founder, with four schoolmates</p>
             <p class="tl__role" data-l="it">Cofondatore, con quattro compagni di scuola</p>
-            <p class="tl__line" data-l="en">A free platform for studying with AI, designed for students with learning disabilities and student athletes.</p>
-            <p class="tl__line" data-l="it">Una piattaforma gratuita per studiare con l'AI, pensata per studenti con DSA e studenti-atleti.</p>
+            <p class="tl__line" data-l="en">A free platform for studying with AI, designed especially for students with learning disabilities and student athletes.</p>
+            <p class="tl__line" data-l="it">Una piattaforma gratuita per studiare con l'AI, pensata in particolare per studenti con DSA e studenti-atleti.</p>
             <p class="tl__prize" data-l="en">Fin4Teen 2026, SellaLab's startup programme, national ranking</p>
             <p class="tl__prize" data-l="it">Fin4Teen 2026, il programma per startup di SellaLab, classifica nazionale</p>
           </div>
@@ -1538,22 +1543,31 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 })();
 
 /* La rotaia della timeline si accende mentre scorri: la luce arriva fino a
-   poco sopra la metà dello schermo. Nessun rAF a pagina ferma; con
-   "riduci movimento" è accesa tutta da subito. */
+   poco sopra la metà dello schermo e si ferma sull'ultimo punto. Un punto si
+   accende quando la luce raggiunge il suo centro. Nessun rAF a pagina ferma;
+   con "riduci movimento" è accesa tutta da subito. */
 (function(){
   var tl = document.querySelector('.tl');
   if(!tl) return;
-  var items = tl.querySelectorAll(':scope > li'), pending = false, near = false;
+  var items = tl.querySelectorAll(':scope > li'), pending = false, near = false, off = [], r0 = 0;
   var mq = window.matchMedia ? matchMedia('(prefers-reduced-motion: reduce)') : null;
+  // dove sta il centro di ogni punto dentro la sua tappa, e dove parte la rotaia
+  function measure(){
+    r0 = parseFloat(getComputedStyle(tl, '::after').top) || 0;
+    for(var i = 0; i < items.length; i++){
+      var d = getComputedStyle(items[i], '::before');
+      off[i] = (parseFloat(d.top) || 0) + (parseFloat(d.height) || 0) / 2;
+    }
+  }
   function update(){
     pending = false;
     var r = tl.getBoundingClientRect();
-    var lit = mq && mq.matches ? r.height : Math.max(0, Math.min(r.height, window.innerHeight * .58 - r.top));
-    tl.style.setProperty('--lit', lit.toFixed(1) + 'px');
+    var head = mq && mq.matches ? r.height : window.innerHeight * .58 - r.top;
+    var last = items.length ? items[items.length - 1].offsetTop + off[items.length - 1] : r0;
     for(var i = 0; i < items.length; i++){
-      var y = items[i].offsetTop + 10;
-      items[i].classList.toggle('is-lit', y <= lit);
+      items[i].classList.toggle('is-lit', items[i].offsetTop + off[i] <= head + .5);
     }
+    tl.style.setProperty('--lit', Math.max(0, Math.min(head, last) - r0).toFixed(1) + 'px');
   }
   function kick(){ if(!pending && near){ pending = true; requestAnimationFrame(update); } }
   if('IntersectionObserver' in window){
@@ -1563,10 +1577,12 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
     }, { rootMargin:'50% 0px 50% 0px' }).observe(tl);
   } else near = true;
   addEventListener('scroll', kick, { passive:true });
-  addEventListener('resize', kick);
+  addEventListener('resize', function(){ measure(); kick(); });
   if(mq && mq.addEventListener) mq.addEventListener('change', kick);
   tl.addEventListener('toggle', kick, true);
-  update();
+  // aprire una storia allunga la lista mentre si anima: si ricalcola finché cambia misura
+  if('ResizeObserver' in window) new ResizeObserver(kick).observe(tl);
+  measure(); update();
 })();
 </script>
 </body>
