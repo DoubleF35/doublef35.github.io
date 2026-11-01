@@ -2,24 +2,24 @@
 <html lang="en" data-lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Federico Fassio · onboard ML, SAR, rockets</title>
 <meta name="description" content="Federico Fassio, Torino. Project manager of IceRoute and CubeSAR at Space Eagle APS. Onboard machine learning, synthetic aperture radar, rocketry, student ventures.">
 <meta name="author" content="Federico Fassio">
-<link rel="canonical" href="https://doublef35.github.io/">
+<link rel="canonical" href="https://federicofassio.it/">
 
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Federico Fassio · onboard ML, SAR, rockets">
 <meta property="og:description" content="Project manager of IceRoute and CubeSAR at Space Eagle APS. Onboard ML, SAR, rocketry. Torino.">
-<meta property="og:url" content="https://doublef35.github.io/">
+<meta property="og:url" content="https://federicofassio.it/">
 <meta property="og:locale" content="en_GB">
 <meta property="og:locale:alternate" content="it_IT">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#03060e">
 <meta property="og:image" content="https://federicofassio.it/img/teenventures-iceroute.jpg">
 
-<!-- Favicon: il marchio della pagina, le cinque barre, su fondo notte -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2303060e'/%3E%3Cg fill='%239cc8ff'%3E%3Crect x='13' y='27' width='4' height='10' rx='2' fill='%232f7dff'/%3E%3Crect x='21.5' y='20' width='4' height='24' rx='2'/%3E%3Crect x='30' y='12' width='4' height='40' rx='2'/%3E%3Crect x='38.5' y='20' width='4' height='24' rx='2'/%3E%3Crect x='47' y='27' width='4' height='10' rx='2' fill='%232f7dff'/%3E%3C/g%3E%3C/svg%3E">
+<!-- Favicon: il marchio, un cumulo di nove tacche sull'orizzonte -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2303060e'/%3E%3Cg fill='%239cc8ff'%3E%3Crect x='14' y='42' width='2.4' height='6'/%3E%3Crect x='18.4' y='38' width='2.4' height='10'/%3E%3Crect x='22.8' y='32' width='2.4' height='16'/%3E%3Crect x='27.2' y='25' width='2.4' height='23'/%3E%3Crect x='31.6' y='18' width='2.4' height='30'/%3E%3Crect x='36' y='25' width='2.4' height='23'/%3E%3Crect x='40.4' y='32' width='2.4' height='16'/%3E%3Crect x='44.8' y='38' width='2.4' height='10'/%3E%3Crect x='49.2' y='42' width='2.4' height='6'/%3E%3C/g%3E%3Crect x='12' y='48' width='40' height='1.4' fill='%232f7dff'/%3E%3C/svg%3E">
 
 <!-- Dati strutturati: legano il nome ai profili e a Space Eagle, così chi
      cerca "Federico Fassio" trova una scheda sola invece di frammenti sparsi. -->
@@ -28,7 +28,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Federico Fassio",
-  "url": "https://doublef35.github.io/",
+  "url": "https://federicofassio.it/",
   "jobTitle": "Project manager · IceRoute, CubeSAR",
   "email": "mailto:fedefas.210@gmail.com",
   "address": {"@type": "PostalAddress", "addressLocality": "Torino", "addressCountry": "IT"},
@@ -48,1514 +48,1281 @@ try{
   var L = localStorage.getItem('lang');
   if(L === 'it' || L === 'en'){
     document.documentElement.setAttribute('data-lang', L);
-    document.documentElement.setAttribute('lang', L === 'it' ? 'it' : 'en');
+    document.documentElement.setAttribute('lang', L);
   }
 }catch(e){}
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
 <style>
 /* ==========================================================================
-   Identità visiva: notte, fascio, serif.
+   Notte, una sola sorgente di luce, una serif.
 
-   Tre regole, e tutto il resto scende da queste.
-   1. Il fondo è buio quasi nero e la luce arriva da un punto solo, in basso
-      al centro: una sorgente, non un gradiente spalmato ovunque.
-   2. I titoli sono in serif ad alto contrasto, con il corsivo usato come
-      accento sulla parola che porta il senso. Mai due corsivi nella stessa
-      riga.
-   3. Il monospace non è decorazione: marca solo ciò che è misura, etichetta
-      o codice. Se un testo si legge, è in sans; se si conta, è in mono.
-
-   Niente ombre colorate sparse, niente card tutte uguali, niente badge
-   arcobaleno: i colori dei linguaggi sono ridotti a un punto di 6 px.
+   Regole, e tutto il resto scende da queste:
+   1. Il fondo è quasi nero e la luce arriva da un punto solo, il pettine
+      dell'hero. Il resto della pagina ne riprende solo il segno: la riga
+      sotto la barra e i righelli fra le sezioni.
+   2. I titoli sono in Instrument Serif. Il corsivo è un accento, uno solo.
+   3. Il monospace serve solo a ciò che si conta: date, misure, unità, nomi
+      di repository. Sempre in minuscolo normale, mai spaziato.
+   4. Niente schede, pillole, vetro, frecce, stelle, ombre colorate.
+      Le cose si separano con una riga da 1 px e con lo spazio.
    Una pagina sola, nessun framework, nessun build step.
    ========================================================================== */
 
 :root{
-  /* Superfici: nero-blu, quasi tutto uguale. La differenza la fa la luce. */
   --ink:#03060e;
-  --ink-2:#050914;
-  --ink-3:#070d1a;
-
-  /* Linee: mai nere, mai bianche. Blu slavato a bassissima opacità. */
-  --line:rgba(150,180,230,.16);
-  --line-2:rgba(150,180,230,.085);
-  --line-3:rgba(150,180,230,.045);
-
-  /* Testo */
+  --ink-2:#070b16;
+  --line:rgba(150,180,230,.13);
   --paper:#e9effa;
-  --paper-dim:#9fb0cb;
-  --paper-mute:#64748f;
-
-  /* La luce */
+  --paper-dim:#a3b2cb;
+  --paper-mute:#7a8aa8;   /* 5,8:1 sul fondo: passa AA anche sui testi piccoli */
   --beam:#2f7dff;
   --beam-lit:#9cc8ff;
-  --beam-deep:#0b2f7a;
-  --gold:#e6c276;
-  --live:#6ee7a8;
+  --gold:#e6c276;         /* solo per i piazzamenti */
 
-  --radius:16px;
-  --radius-s:10px;
-  --w:1120px;
+  --w:1200px;
+  --m:max(20px, 5vw);
+  --gap:clamp(24px, 3vw, 48px);
+  --nav-h:56px;
   --serif:"Instrument Serif",ui-serif,Georgia,"Times New Roman",serif;
-  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
 }
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:96px;background:var(--ink)}
+html{
+  background:var(--ink);scroll-behavior:smooth;
+  scroll-padding-top:calc(var(--nav-h) + 16px);
+  -webkit-text-size-adjust:100%;text-size-adjust:100%;
+}
 body{
   margin:0;background:var(--ink);color:var(--paper);
-  font:400 16.5px/1.7 var(--sans);
+  font:400 17px/1.6 var(--sans);
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
   overflow-x:hidden;
 }
-a{color:var(--beam-lit);text-decoration:none}
-a:hover{color:#cfe3ff}
-img{max-width:100%}
-::selection{background:rgba(47,125,255,.32);color:#fff}
-:focus-visible{outline:1px solid var(--beam-lit);outline-offset:4px;border-radius:3px}
+a{
+  color:inherit;
+  text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;
+  text-decoration-color:rgba(156,200,255,.4);
+  -webkit-tap-highlight-color:transparent;
+  transition:color .15s,text-decoration-color .15s;
+}
+@media (hover:hover){ a:hover{color:#fff;text-decoration-color:currentColor} }
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+::selection{background:rgba(47,125,255,.35);color:#fff}
+:focus-visible{outline:1px solid var(--beam-lit);outline-offset:4px}
+h1,h2,h3,h4{font-weight:400;margin:0}
+p{margin:0 0 18px}
+p:last-child{margin-bottom:0}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
 
 /* Due lingue nello stesso documento. La regola nasconde SOLO la lingua
    inattiva e non ne mostra mai nessuna: così l'elemento attivo conserva il
-   display del suo componente (inline-flex, grid, block...). Il primo
-   tentativo faceva il contrario, display:none su tutto e una regola di
-   ripristino per tipo, e si rompeva sui .tag. Non tornare indietro. */
+   display del suo componente. È !important perché nessuna regola di
+   layout, nemmeno in una media query, deve poter riaccendere la lingua
+   spenta. Non tornare indietro. */
 html[data-lang="it"] [data-l="en"],
-html[data-lang="en"] [data-l="it"]{display:none}
+html[data-lang="en"] [data-l="it"]{display:none !important}
 
-.skip{position:absolute;left:-9999px;top:0;z-index:99;background:#fff;color:#000;padding:12px 18px;font:500 13px/1 var(--mono);border-radius:0 0 10px 0}
+.skip{position:absolute;left:-9999px;top:0;z-index:99;background:#fff;color:#000;padding:12px 18px;font:500 14px/1 var(--sans);text-decoration:none}
 .skip:focus{left:0}
 
-.wrap{max-width:var(--w);margin:0 auto;padding:0 28px}
-
-/* Etichetta minuscola in mono: ricorre ovunque, è la voce di servizio
-   della pagina. Tutto ciò che la usa deve essere breve. */
-.eyebrow,.sub,.lab,.tag,.muted,.when,.stat i,.kv dt{
-  font-family:var(--mono);
-  letter-spacing:.16em;text-transform:uppercase;
-}
+.wrap{max-width:calc(var(--w) + 2 * var(--m));margin:0 auto;padding:0 var(--m)}
 
 /* --------------------------------------------------------------------------
-   Barra: trasparente in cima, si materializza appena si scorre.
+   Barra. Trasparente sull'hero; scorrendo diventa inchiostro pieno, e il
+   suo bordo inferiore è la riga d'orizzonte che sale dall'hero.
+   L'altezza non cambia mai: è il riferimento per l'aggancio della riga.
+   Lo sfondo sta in un ::before e non sulla barra stessa: un backdrop-filter
+   sulla barra la renderebbe il contenitore del menu a tutto schermo.
    -------------------------------------------------------------------------- */
-.nav{
-  position:fixed;top:0;left:0;right:0;z-index:60;
-  padding:16px 0;
-  transition:padding .3s cubic-bezier(.2,.7,.2,1),background .3s,border-color .3s,backdrop-filter .3s;
-  border-bottom:1px solid transparent;
+.nav{position:fixed;top:0;left:0;right:0;z-index:60;height:var(--nav-h)}
+.nav::before{content:"";position:absolute;inset:0;background:rgba(3,6,14,.94);opacity:0;transition:opacity .25s}
+.nav.is-stuck::before{opacity:1}
+.nav__in{
+  position:relative;display:flex;align-items:center;gap:32px;height:100%;
+  max-width:calc(var(--w) + 2 * var(--m));margin:0 auto;padding:0 var(--m);
 }
-.nav.is-stuck{
-  padding:9px 0;
-  background:rgba(4,8,16,.72);
-  backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);
-  border-bottom-color:var(--line-3);
+.brand{
+  display:inline-flex;align-items:center;gap:11px;min-height:44px;flex:none;
+  font:500 15px/1 var(--sans);color:var(--paper);text-decoration:none;white-space:nowrap;
 }
-.nav__in{display:flex;align-items:center;gap:18px}
-
-.brand{display:inline-flex;align-items:center;gap:10px;flex:none;color:var(--paper)}
-.brand:hover{color:var(--paper)}
-/* Il marchio è l'onda del vecchio banner, ridotta a cinque barre: la stessa
-   idea di prima, ma in 20 px e senza animazione. */
-.brand__mark{width:26px;height:16px;flex:none;overflow:visible}
-.brand__mark rect{fill:var(--beam-lit)}
-.brand__mark rect:nth-child(1),.brand__mark rect:nth-child(5){fill:var(--beam);opacity:.75}
-.brand:hover .brand__mark rect{fill:#fff}
-.brand__name{font:500 14px/1 var(--mono);letter-spacing:-.02em;white-space:nowrap}
-
-.nav__links{
-  list-style:none;display:flex;align-items:center;gap:4px;margin:0;padding:0;
-  flex:1 1 auto;min-width:0;justify-content:center;
-  overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;
-}
-.nav__links::-webkit-scrollbar{display:none}
-.nav a.lnk{
-  display:block;padding:8px 13px;border-radius:999px;
-  font:400 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;
-  color:var(--paper-dim);white-space:nowrap;transition:color .18s,background .18s;
-}
-.nav a.lnk:hover{color:var(--paper);background:rgba(255,255,255,.055)}
-.nav__end{display:flex;align-items:center;gap:10px;flex:none}
-
-.lang{display:flex;gap:2px;padding:3px;border:1px solid var(--line-2);border-radius:999px}
-.lang button{
-  border:0;background:none;cursor:pointer;padding:5px 9px;border-radius:999px;
-  font:500 10.5px/1 var(--mono);letter-spacing:.12em;color:var(--paper-mute);
-  transition:color .18s,background .18s;
-}
+.brand svg{width:17px;height:14px;flex:none}
+.brand svg rect{fill:var(--beam-lit)}
+.brand svg .h{fill:var(--beam)}
+.nav__links{flex:1;display:flex;justify-content:center;gap:28px;list-style:none;margin:0;padding:0}
+.nav__links a{display:block;padding:14px 0;font:400 13px/1 var(--mono);color:var(--paper-dim);text-decoration:none}
+@media (hover:hover){ .nav__links a:hover{color:#fff} }
+.nav__extra{display:none}
+.nav__end{display:flex;align-items:center;gap:22px;flex:none}
+.lang{display:flex;align-items:center;font:400 13px/1 var(--mono);color:var(--paper-mute)}
+.lang button{padding:14px 5px;color:var(--paper-mute);transition:color .15s}
 .lang button:hover{color:var(--paper)}
-html[data-lang="it"] .lang button[value="it"],
-html[data-lang="en"] .lang button[value="en"]{background:#fff;color:#050914}
+html[data-lang="it"] .lang [value="it"],
+html[data-lang="en"] .lang [value="en"]{color:var(--paper)}
+.nav__gh{padding:14px 0;font:400 13px/1 var(--mono);color:var(--paper-dim);text-decoration:none}
+@media (hover:hover){ .nav__gh:hover{color:#fff} }
+.burger{display:none}
 
-.nav .gh{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:8px 15px;border-radius:999px;
-  background:#fff;color:#050914;
-  font:500 12px/1 var(--mono);letter-spacing:.06em;
-  transition:transform .18s,box-shadow .18s;
+/* La riga d'orizzonte e il bordo della barra sono la stessa riga: quella
+   dell'hero sale con la pagina e, arrivata sotto la barra, passa il
+   testimone. Stesso passo del pettine del canvas: --comb-p e --comb-x li
+   scrive lo script, così i denti della riga cadono sulle barre. */
+.nav__comb,.hero__horizon{
+  position:absolute;left:0;right:0;opacity:0;pointer-events:none;
+  -webkit-mask-image:repeating-linear-gradient(90deg,rgba(0,0,0,.84) 0,#000 calc(var(--comb-p,5px) * .25),rgba(0,0,0,.6) calc(var(--comb-p,5px) * .75),rgba(0,0,0,.84) var(--comb-p,5px));
+          mask-image:repeating-linear-gradient(90deg,rgba(0,0,0,.84) 0,#000 calc(var(--comb-p,5px) * .25),rgba(0,0,0,.6) calc(var(--comb-p,5px) * .75),rgba(0,0,0,.84) var(--comb-p,5px));
+  -webkit-mask-position:var(--comb-x,0) 0;mask-position:var(--comb-x,0) 0;
 }
-.nav .gh:hover{color:#050914;transform:translateY(-1px);box-shadow:0 10px 28px -12px rgba(255,255,255,.5)}
-.nav .gh svg{width:14px;height:14px;fill:currentColor}
+.hero__horizon,.nav__comb::before{
+  background:linear-gradient(90deg,rgba(47,125,255,0),rgba(47,125,255,.6) 14%,#5aa2ff 32%,#bfe3ff 50%,#5aa2ff 68%,rgba(47,125,255,.6) 86%,rgba(47,125,255,0));
+}
+/* Sotto la barra: la riga (prima fila di pixel, che coincide con l'ultima
+   della barra) e un alone di pochi pixel, la luce che resta del cumulo.
+   Stanno dentro la stessa maschera, quindi sono entrambi a pettine. */
+.nav__comb{top:calc(100% - 1px);height:9px;z-index:1}
+.nav__comb::before,.nav__comb::after{content:"";position:absolute;left:0;right:0}
+.nav__comb::before{top:0;height:1px}
+.nav__comb::after{top:1px;height:8px;background:radial-gradient(40% 100% at 50% 0,rgba(120,185,255,.38),rgba(47,125,255,.14) 55%,transparent 100%)}
+html.menu-open .nav__comb{opacity:0 !important}
 
 /* --------------------------------------------------------------------------
-   Il fascio. Quattro strati, nessuna immagine:
-   glow    — la sorgente, un'ellisse sfocata che sale dal bordo inferiore;
-   stripes — righe verticali da 1 px, ritagliate dalla stessa forma del glow,
-             così esistono solo dentro la luce e non su tutto lo schermo;
-   stars   — puntini fermi, quattro gradienti ripetuti;
-   grain   — rumore, l'unica cosa che impedisce al gradiente di sembrare
-             plastica su uno schermo grande.
+   Hero. Il canvas sporge sotto la sezione (bottom negativo, dallo script):
+   la luce si spegne dentro la pagina invece di essere tagliata da un bordo.
    -------------------------------------------------------------------------- */
 .hero{
-  position:relative;isolation:isolate;overflow:hidden;
-  min-height:100svh;display:flex;flex-direction:column;justify-content:center;
-  padding:150px 0 240px;
-  background:var(--ink);
+  position:relative;z-index:1;isolation:isolate;
+  min-height:100vh;min-height:100svh;
+  padding:clamp(128px, 19vh, 210px) var(--m) 0;
+  text-align:center;
 }
-.hero__bg{position:absolute;inset:0;z-index:-1;pointer-events:none}
-.hero__bg>*{position:absolute;display:block}
-
-.hero__glow{
-  left:50%;bottom:-14vh;transform:translateX(-50%);
-  width:min(1700px,150vw);height:100vh;
+/* Nuvole indaco in alto: l'unica luce che non viene dal pettine. */
+.hero__sky{
+  position:absolute;inset:0;z-index:-2;pointer-events:none;
   background:
-    /* il nucleo: basso, largo, quasi bianco al centro */
-    radial-gradient(58% 34% at 50% 68%,
-      rgba(240,250,255,1) 0%,
-      rgba(186,228,255,.97) 13%,
-      rgba(110,190,255,.88) 28%,
-      rgba(52,138,250,.7) 44%,
-      rgba(26,88,195,.44) 60%,
-      rgba(12,46,118,.2) 74%,
-      transparent 88%),
-    /* la base: la luce arriva fino ai bordi, come un orizzonte */
-    radial-gradient(104% 50% at 50% 104%,rgba(48,134,246,.92),rgba(26,88,200,.5) 42%,rgba(12,48,126,.2) 66%,transparent 84%);
-  filter:blur(18px);
-  animation:breathe 14s ease-in-out infinite;
+    radial-gradient(30% 34% at 9% 22%,rgba(70,54,150,.32),transparent 72%),
+    radial-gradient(28% 30% at 92% 14%,rgba(62,48,140,.28),transparent 72%),
+    radial-gradient(54% 30% at 50% 0%,rgba(22,40,110,.24),transparent 78%);
 }
-@keyframes breathe{
-  0%,100%{opacity:.94;transform:translateX(-50%) scale(1)}
-  50%    {opacity:1;transform:translateX(-50%) scale(1.03)}
+.hero__comb{position:absolute;left:0;bottom:0;width:100%;height:100%;z-index:-1;pointer-events:none;display:block}
+.hero__horizon{bottom:0;height:3px;z-index:-1;transform-origin:50% 100%}
+.hero__in{position:relative;max-width:1120px;margin:0 auto}
+.hero h1{
+  font:400 clamp(50px, 7.4vw, 116px)/.98 var(--serif);letter-spacing:-.018em;
+  color:#f4f8ff;text-wrap:balance;
+  text-shadow:0 1px 30px rgba(3,6,14,.5);
 }
-
-/* Le nuvole: due macchie indaco in alto, sfocate forte. Sono quelle che
-   impediscono al nero di sembrare un fondo pieno. */
-.hero__curtains{
-  left:50%;bottom:-14vh;transform:translateX(-50%);
-  width:min(1700px,150vw);height:100vh;
-  background:
-    radial-gradient(26% 30% at 17% 30%,rgba(72,56,150,.34),transparent 72%),
-    radial-gradient(24% 26% at 83% 25%,rgba(58,48,132,.3),transparent 72%),
-    radial-gradient(44% 24% at 50% 14%,rgba(20,44,112,.28),transparent 76%);
-  filter:blur(44px);
+.hero h1 em{font-style:italic}
+.hero__deck{
+  margin:28px auto 0;max-width:46ch;
+  font:400 17px/1.55 var(--sans);color:var(--paper-dim);text-wrap:balance;
+  text-shadow:0 1px 18px rgba(3,6,14,.8);
 }
-
-/* Il pettine. È questo che dà la texture: righe verticali fitte, scure,
-   che esistono solo dove c'è luce. Passo 5 px: più larghe diventano una
-   grata, più strette spariscono sugli schermi non retina. */
-.hero__stripes{
-  left:50%;bottom:-14vh;transform:translateX(-50%);
-  width:min(1700px,150vw);height:100vh;
-  background:repeating-linear-gradient(90deg,
-    rgba(3,10,28,.72) 0 1.6px,
-    transparent 1.6px 5px);
-  -webkit-mask-image:radial-gradient(86% 60% at 50% 84%,#000 0%,rgba(0,0,0,.95) 40%,rgba(0,0,0,.58) 64%,rgba(0,0,0,.2) 82%,transparent 96%);
-          mask-image:radial-gradient(86% 60% at 50% 84%,#000 0%,rgba(0,0,0,.95) 40%,rgba(0,0,0,.58) 64%,rgba(0,0,0,.2) 82%,transparent 96%);
+.hero__links{display:flex;justify-content:center;gap:30px;margin-top:16px}
+.hero__links a{
+  display:inline-flex;align-items:center;min-height:44px;
+  font:500 15px/1 var(--sans);color:var(--paper);
+  text-decoration-color:rgba(233,239,250,.45);
+  text-shadow:0 1px 14px rgba(3,6,14,.8);
 }
-
-/* Le stesse righe, chiare, molto più deboli: si vedono solo nella zona
-   scura sopra il fascio, dove quelle scure non avrebbero contrasto. */
-.hero__combs{
-  left:50%;bottom:-14vh;transform:translateX(-50%);
-  width:min(1700px,150vw);height:100vh;
-  background:repeating-linear-gradient(90deg,
-    rgba(150,195,255,.09) 0 1.6px,
-    transparent 1.6px 5px);
-  -webkit-mask-image:radial-gradient(60% 40% at 50% 58%,#000 0%,rgba(0,0,0,.5) 48%,transparent 86%);
-          mask-image:radial-gradient(60% 40% at 50% 58%,#000 0%,rgba(0,0,0,.5) 48%,transparent 86%);
-}
-.hero__stars{
-  inset:0;opacity:.5;
-  background-image:
-    radial-gradient(1.2px 1.2px at 12% 18%,rgba(255,255,255,.9),transparent),
-    radial-gradient(1px 1px at 78% 12%,rgba(190,215,255,.8),transparent),
-    radial-gradient(1.4px 1.4px at 33% 62%,rgba(255,255,255,.55),transparent),
-    radial-gradient(1px 1px at 63% 44%,rgba(255,255,255,.6),transparent),
-    radial-gradient(1px 1px at 88% 68%,rgba(190,215,255,.5),transparent),
-    radial-gradient(1.2px 1.2px at 22% 84%,rgba(255,255,255,.45),transparent),
-    radial-gradient(1px 1px at 52% 8%,rgba(255,255,255,.5),transparent),
-    radial-gradient(1px 1px at 5% 52%,rgba(255,255,255,.4),transparent);
-}
-/* Rumore: feTurbulence in un data-URI, nessuna richiesta di rete. */
-.grain{
-  position:absolute;inset:0;pointer-events:none;z-index:2;
-  opacity:.17;mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
-}
-/* La luce non va tagliata dal bordo della sezione: si spegne dentro la
-   pagina. Senza questo strato si vede una riga netta dove finisce l'hero. */
-.hero__fade{
-  left:0;right:0;bottom:0;height:19vh;width:100%;
-  background:linear-gradient(transparent,rgba(3,6,14,.3) 42%,rgba(3,6,14,.8) 76%,var(--ink) 100%);
-}
-
-/* Vignettatura: spegne gli angoli, così lo sguardo cade al centro. */
-.hero::after{
-  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:radial-gradient(118% 82% at 50% 54%,transparent 48%,rgba(3,6,14,.62) 100%);
-}
-
-.hero__in{position:relative;z-index:3;text-align:center}
-
-.eyebrow{
-  display:inline-flex;align-items:center;gap:10px;margin:0 0 28px;
-  font-size:10.5px;font-weight:500;line-height:1;color:var(--paper-dim);
-}
-.eyebrow .dot{
-  width:5px;height:5px;border-radius:50%;background:var(--beam-lit);
-  box-shadow:0 0 0 4px rgba(156,200,255,.14);
-  animation:pulse 2.6s ease-in-out infinite;
-}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-
-.hero__h1{margin:0;font-weight:400}
-.hero__name{
-  display:block;margin-bottom:22px;
-  font:500 11px/1 var(--mono);letter-spacing:.42em;text-transform:uppercase;
-  color:var(--paper-mute);
-}
-.hero__claim{
-  display:block;
-  font-family:var(--serif);font-weight:400;
-  font-size:clamp(44px,8.6vw,104px);line-height:1.02;letter-spacing:-.015em;
-  color:#f4f8ff;
-  text-shadow:0 0 60px rgba(120,180,255,.22),0 2px 40px rgba(3,6,14,.6);
-}
-/* Il corsivo è l'accento: una parola per riga, mai di più. */
-.hero__claim em{
-  font-style:italic;color:#fff;
-  text-shadow:0 0 44px rgba(156,200,255,.55);
-}
-.hero__claim .br{display:inline}
-
-.typing{
-  margin:30px 0 0;min-height:1.8em;
-  font:400 clamp(12.5px,1.5vw,15px)/1.6 var(--mono);
-  letter-spacing:.04em;color:var(--beam-lit);
-}
-.caret{display:inline-block;width:.6em;margin-left:3px;color:var(--beam);animation:blink 1.05s step-end infinite}
-@keyframes blink{50%{opacity:0}}
-
-.hero__cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:34px}
-.btn{
-  display:inline-flex;align-items:center;gap:9px;
-  padding:13px 22px;border-radius:999px;
-  border:1px solid var(--line);background:rgba(255,255,255,.04);
-  font:500 12.5px/1 var(--mono);letter-spacing:.06em;color:var(--paper);
-  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-  transition:transform .18s cubic-bezier(.2,.7,.2,1),border-color .18s,background .18s,box-shadow .18s;
-}
-.btn:hover{color:#fff;border-color:rgba(156,200,255,.45);background:rgba(255,255,255,.08);transform:translateY(-2px)}
-.btn svg{width:15px;height:15px;fill:currentColor;flex:none}
-.btn--solid{background:#fff;border-color:#fff;color:#050914}
-.btn--solid:hover{background:#fff;color:#050914;box-shadow:0 16px 40px -18px rgba(190,220,255,.8)}
-.btn--bare{background:rgba(3,6,14,.3);border-color:transparent;color:var(--paper-dim);backdrop-filter:blur(6px) saturate(130%);-webkit-backdrop-filter:blur(6px) saturate(130%)}
-.btn--bare:hover{background:rgba(255,255,255,.05);border-color:transparent}
-
-/* Invito a scorrere: una linea che cala, non una freccia che rimbalza. */
-/* L'invito a scorrere sta a sinistra, fuori dal fascio: al centro, sopra il
-   nucleo bianco, sarebbe illeggibile. */
-.scroll{
-  position:absolute;left:28px;bottom:34px;z-index:3;
-  display:flex;flex-direction:column;align-items:flex-start;gap:10px;
-  font:400 9.5px/1 var(--mono);letter-spacing:.3em;text-transform:uppercase;
-  color:var(--paper-mute);
-}
-.scroll:hover{color:var(--paper)}
-.scroll i{display:block;width:1px;height:46px;background:linear-gradient(var(--line),transparent);position:relative;overflow:hidden}
-.scroll i::after{content:"";position:absolute;left:0;top:-46px;width:1px;height:46px;background:linear-gradient(transparent,var(--beam-lit));animation:fall 2.6s cubic-bezier(.6,0,.4,1) infinite}
-@keyframes fall{0%{transform:translateY(0)}60%,100%{transform:translateY(92px)}}
 
 /* --------------------------------------------------------------------------
-   Sezioni. Numerate dal CSS: il numero è un segno tipografico, non contenuto,
-   quindi non sta nel markup e non finisce nei lettori di schermo.
+   Pagina
    -------------------------------------------------------------------------- */
-main{counter-reset:sec;position:relative;z-index:1}
-section{padding:96px 0;counter-increment:sec}
-.rule{border:0;height:1px;margin:0;background:linear-gradient(90deg,transparent,var(--line-2) 20%,var(--line-2) 80%,transparent)}
-
+main{position:relative;z-index:2}
+section{padding:144px 0 0}
+#about{padding-top:72px}
+/* Il righello fra le sezioni: lo disegna lo script. */
+.sep{display:block;width:100%;height:22px;margin:0 0 64px}
 h2{
-  display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;
-  margin:0 0 26px;
-  font:400 clamp(30px,4.4vw,48px)/1.12 var(--serif);letter-spacing:-.01em;
-  color:#f2f6ff;
+  margin:0 0 56px;
+  font:400 clamp(46px, 5.6vw, 80px)/.98 var(--serif);letter-spacing:-.018em;color:#f2f6ff;
 }
-h2::before{
-  content:counter(sec,decimal-leading-zero);
-  font:500 11px/1 var(--mono);letter-spacing:.2em;color:var(--beam);
-  align-self:center;padding:5px 9px;border:1px solid var(--line-2);border-radius:6px;
-}
-h2 em{font-style:italic;color:#fff}
+figure{margin:0}
+.frame{display:block;overflow:hidden;background:var(--ink-2)}
+.frame img{width:100%;height:100%;object-fit:cover}
+figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mute)}
 
-.lede{margin:0 0 18px;color:var(--paper-dim);font-size:17px;line-height:1.75;max-width:66ch}
-.lede:last-of-type{margin-bottom:34px}
-.lede strong{color:var(--paper);font-weight:500}
-.lede a{border-bottom:1px solid rgba(156,200,255,.3)}
-p{margin:0 0 16px}
+/* ---------- Chi sono ------------------------------------------------------ */
+.about{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);column-gap:clamp(32px, 7vw, 120px);align-items:start}
+.about p{font-size:clamp(19px, 1.5vw, 21px);line-height:1.6;color:var(--paper-dim);max-width:44ch}
+.about p a{color:var(--paper)}
+.portrait .frame{aspect-ratio:1}
+.portrait img{object-position:50% 20%}
 
-.sub{margin:44px 0 20px;font-size:10.5px;font-weight:500;color:var(--paper-mute)}
+/* ---------- Progetti ------------------------------------------------------ */
+.meta{margin:0 0 14px;font:400 14px/1.5 var(--sans);color:var(--paper-mute)}
+.meta > span{display:block}
+.prize{display:flex;align-items:baseline;gap:12px;margin:24px 0 0;font:400 15.5px/1.45 var(--sans);color:var(--paper)}
+.prize b{flex:none;font:400 36px/1 var(--serif);color:var(--gold)}
+.specs{margin:18px 0 0;font:400 14px/1.6 var(--sans);color:var(--paper-mute)}
+.links{display:flex;flex-wrap:wrap;gap:0 26px;margin:14px 0 0;font-size:15.5px}
+.links a{display:inline-flex;align-items:center;min-height:44px}
 
-/* --------------------------------------------------------------------------
-   Chi sono
-   -------------------------------------------------------------------------- */
-.about{display:grid;grid-template-columns:1fr 300px;gap:56px;align-items:start}
+/* IceRoute: testo a sinistra, la console grande a destra, due foto sotto. */
+.flag{
+  display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);
+  column-gap:clamp(32px, 4vw, 64px);row-gap:16px;
+  padding-bottom:88px;border-bottom:1px solid var(--line);
+}
+.flag__text{grid-column:1;grid-row:1 / span 2}
+.flag__main{grid-column:2;grid-row:1}
+.flag__main .frame{aspect-ratio:1582 / 945}
+.flag__pair{grid-column:2;grid-row:2;display:grid;grid-template-columns:minmax(0,1.333fr) minmax(0,1.778fr);gap:16px;align-self:start}
+.flag__pair .shot--43 .frame{aspect-ratio:4 / 3}
+.flag__pair .shot--169 .frame{aspect-ratio:16 / 9}
+.flag h3{margin:0 0 20px;font:400 clamp(56px, 5.6vw, 80px)/.92 var(--serif);letter-spacing:-.02em;color:#f4f8ff}
+.deck{margin:0 0 18px;font:400 21px/1.45 var(--sans);color:var(--paper);max-width:28ch}
+.flag__text > p{color:var(--paper-dim)}
 
-/* Foto: cornice sottilissima, nessuna ombra, leggera desaturazione che
-   rientra al passaggio del mouse. Le immagini devono stare nella pagina,
-   non galleggiarci sopra. */
-.shot{position:relative;margin:0}
-.shot .frame{
-  position:relative;display:block;width:100%;overflow:hidden;
-  border-radius:var(--radius-s);border:1px solid var(--line-3);
-  background:var(--ink-2);
-}
-.shot--45 .frame{aspect-ratio:4/5}
-.shot--43 .frame{aspect-ratio:4/3}
-.shot--169 .frame{aspect-ratio:16/9}
-.shot img{
-  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
-  filter:saturate(.82) contrast(1.04);transition:filter .5s,transform .7s cubic-bezier(.2,.7,.2,1);
-}
-.shot:hover img{filter:saturate(1) contrast(1);transform:scale(1.025)}
-.plate{
-  position:absolute;inset:0;display:grid;place-content:center;gap:8px;text-align:center;padding:14px;
-  background:repeating-linear-gradient(45deg,#060b16,#060b16 11px,#080f1d 11px,#080f1d 22px);
-  border:1px dashed var(--line-2);border-radius:var(--radius-s);
-  font:400 12px/1.6 var(--mono);color:var(--paper-mute);
-}
-.plate b{display:block;font-weight:400;color:var(--paper-dim)}
-.plate span{display:block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;opacity:.65}
-.shot figcaption{margin-top:10px;font:400 11px/1.6 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--paper-mute)}
-.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+/* Scheda tecnica: etichetta a sinistra, valore in mono a destra. */
+.sheet{margin:28px 0 0;border-top:1px solid var(--line)}
+.sheet div{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:11px 0;border-bottom:1px solid var(--line)}
+.sheet dt{font:400 14.5px/1.4 var(--sans);color:var(--paper-mute)}
+.sheet dd{margin:0;text-align:right;font:400 14.5px/1.4 var(--mono);font-variant-numeric:tabular-nums;color:var(--paper)}
 
-/* Il blocco di codice resta: è l'unico punto dove il mono è contenuto e non
-   etichetta. Bordo a sinistra invece della scatola intera. */
-.code{
-  margin:34px 0 0;padding:22px 26px;
-  background:linear-gradient(90deg,rgba(47,125,255,.05),transparent 60%);
-  border-left:1px solid var(--line);
-  overflow-x:auto;
+/* Gli altri sei: righe a tutta larghezza, separate da una riga. */
+.row{
+  display:grid;grid-template-columns:minmax(0,2fr) minmax(0,5fr) minmax(0,5fr);
+  grid-template-areas:"meta title fig" "meta text fig";grid-template-rows:auto 1fr;
+  column-gap:var(--gap);padding:64px 0;border-bottom:1px solid var(--line);
 }
-.code pre{margin:0;font:400 13.5px/1.95 var(--mono);color:#b9c8dd}
-.k{color:#8fc5ff}
-.s{color:#a7d4ff}
-.v{color:var(--gold)}
-.p{color:#55647c}
+.row .meta{grid-area:meta;padding-top:10px}
+.row h3{grid-area:title;margin:0 0 18px;font:400 clamp(40px, 3.6vw, 52px)/1 var(--serif);letter-spacing:-.015em;color:#f4f8ff}
+.row h3 a{text-decoration:none}
+@media (hover:hover){ .row h3 a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px} }
+.row__text{grid-area:text}
+.row__text > p{font-size:16.5px;color:var(--paper-dim);max-width:56ch}
+.row__fig{grid-area:fig;padding-top:10px}
+.row__fig .frame{aspect-ratio:16 / 9}
+.row__fig.shot--43 .frame{aspect-ratio:4 / 3}
 
-/* --------------------------------------------------------------------------
-   Schede progetto
-   -------------------------------------------------------------------------- */
-.grid{display:grid;gap:18px;grid-template-columns:repeat(2,minmax(0,1fr))}
-.card{
-  position:relative;display:flex;flex-direction:column;overflow:hidden;
-  padding:26px;border-radius:var(--radius);
-  background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.012));
-  border:1px solid var(--line-3);
-  transition:border-color .25s,box-shadow .25s,transform .25s cubic-bezier(.2,.7,.2,1);
-}
-/* Filo di luce sul bordo alto: è il riflesso della sorgente del fondo. */
-.card::before{
-  content:"";position:absolute;left:14%;right:14%;top:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(156,200,255,.35),transparent);
-  opacity:0;transition:opacity .25s;
-}
-.card:hover{border-color:rgba(156,200,255,.22);transform:translateY(-3px);box-shadow:0 30px 70px -40px rgba(47,125,255,.65)}
-.card:hover::before{opacity:1}
-.card>.shot:first-child{margin:-26px -26px 20px}
-.card>.shot:first-child .frame{border:0;border-bottom:1px solid var(--line-3);border-radius:var(--radius) var(--radius) 0 0}
-.card>.shot:first-child .plate{border-radius:var(--radius) var(--radius) 0 0}
-.card>.shot:first-child figcaption{padding:0 26px}
-.card__top{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
-.ico{
-  flex:none;min-width:34px;height:34px;padding:0 10px;border-radius:9px;
-  display:grid;place-items:center;
-  font:500 11.5px/1 var(--mono);letter-spacing:.02em;color:var(--beam-lit);
-  background:rgba(47,125,255,.1);border:1px solid rgba(47,125,255,.2);
-}
-.ico--star{font-size:15px;color:var(--gold);background:rgba(230,194,118,.09);border-color:rgba(230,194,118,.24)}
-.card h3{
-  margin:0;font:400 25px/1.2 var(--serif);letter-spacing:-.005em;color:#f2f6ff;
-}
-.card h3 a{color:inherit}
-.card h3 a:hover{color:var(--beam-lit)}
-.card p{margin:0 0 16px;color:var(--paper-dim);font-size:15.5px;line-height:1.72}
-.card .foot{margin-top:auto;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;padding-top:6px}
+/* f4kit non ha ancora una foto: al suo posto l'invariante che regge il
+   parser, scritto come una formula. Quando la foto c'è, si sostituisce. */
+.eq{align-self:start;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 0 26px}
+.eq__f{margin:0 0 16px;font:400 clamp(25px, 2.3vw, 32px)/1.25 var(--serif);color:#f2f6ff}
+.eq__f sub{font-size:.6em;line-height:0}
+.eq__n{margin:0;font:400 14px/1.5 var(--mono);color:var(--paper-mute)}
 
-.tag{
-  padding:5px 10px;border-radius:999px;
-  font-size:9.5px;font-weight:500;line-height:1.3;
-  background:none;color:var(--paper-dim);border:1px solid var(--line-2);
+/* Altro su GitHub */
+.more{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,10fr);column-gap:var(--gap);margin-top:88px}
+.more h3{padding-top:20px;font:500 15px/1.4 var(--sans);color:var(--paper)}
+.more ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.more a{
+  display:grid;grid-template-columns:minmax(0,3fr) minmax(0,7fr);column-gap:var(--gap);
+  padding:20px 0;border-bottom:1px solid var(--line);text-decoration:none;
 }
-.tag--live{color:var(--live);border-color:rgba(110,231,168,.28)}
-.tag--wip{color:var(--gold);border-color:rgba(230,194,118,.28)}
-.tag--win{color:var(--gold);border-color:rgba(230,194,118,.4);background:rgba(230,194,118,.07)}
+.more .name{font:400 15.5px/1.5 var(--mono);color:var(--paper);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;text-decoration-color:rgba(156,200,255,.4)}
+.more .desc{font-size:15.5px;line-height:1.55;color:var(--paper-dim)}
+@media (hover:hover){ .more a:hover .name{text-decoration-color:currentColor;color:#fff} }
 
-.go{font:500 11.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--beam-lit);transition:letter-spacing .2s}
-.go::after{content:" →";opacity:.8}
-a:hover .go,.go:hover{letter-spacing:.17em}
-.muted{font-size:10px;font-weight:400;color:var(--paper-mute)}
-
-/* Scheda ammiraglia */
-.card--flag{grid-column:1/-1;background:linear-gradient(145deg,rgba(47,125,255,.08),rgba(255,255,255,.012) 48%)}
-.card--flag h3{font-size:34px}
-.card--flag>p{font-size:17px;max-width:74ch}
-
-/* I numeri sono il punto: serif grande, allineati, senza scatole intorno. */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:14px 0 26px;border-top:1px solid var(--line-2)}
-.stat{padding:20px 22px 18px;border-bottom:1px solid var(--line-2);border-right:1px solid var(--line-2)}
-.stat:last-child{border-right:0}
-.stat b{
-  display:block;font:400 34px/1 var(--serif);color:#fff;letter-spacing:-.01em;
-  font-variant-numeric:tabular-nums lining-nums;
+/* ---------- Percorso ------------------------------------------------------ */
+.lede-i{
+  margin:-20px 0 80px;max-width:30ch;
+  font:italic 400 clamp(26px, 2.6vw, 36px)/1.25 var(--serif);color:var(--paper);
 }
-.stat i{display:block;margin-top:9px;font-size:9.5px;font-style:normal;font-weight:400;color:var(--paper-mute);line-height:1.5}
-.pair{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:6px 0 22px}
+.block{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,10fr);column-gap:var(--gap);margin-bottom:80px}
+.block > h3{padding-top:30px;font:500 15px/1.4 var(--sans);color:var(--paper)}
+.ledger{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.ledger > li{
+  display:grid;grid-template-columns:minmax(0,3fr) minmax(0,7fr);
+  grid-template-areas:"when text";column-gap:var(--gap);
+  padding:30px 0;border-bottom:1px solid var(--line);
+}
+.when{grid-area:when;padding-top:9px;font:400 14px/1.5 var(--mono);color:var(--paper-mute)}
+.ledger__text{grid-area:text}
+.ledger h4{margin:0 0 6px;font:400 clamp(28px, 2.4vw, 34px)/1.12 var(--serif);color:#f2f6ff}
+.role{margin:0 0 14px;font:400 15px/1.5 var(--sans);color:var(--paper-dim)}
+.ledger__text > p:not(.role){font-size:16.5px;color:var(--paper-dim);max-width:60ch}
+.ledger ul{list-style:none;margin:0;padding:0;font-size:16.5px;color:var(--paper-dim)}
+.ledger ul li{position:relative;padding-left:22px;margin-bottom:6px}
+.ledger ul li::before{content:"";position:absolute;left:0;top:.8em;width:10px;height:1px;background:var(--paper-mute)}
+/* I piazzamenti: il numero in oro è l'unico segno di premio della pagina. */
+.ledger--prize > li{grid-template-columns:minmax(0,3fr) minmax(0,5.6fr) minmax(0,1.4fr);grid-template-areas:"when text ord"}
+.ord{grid-area:ord;text-align:right;font:400 clamp(60px, 6vw, 88px)/.86 var(--serif);color:var(--gold)}
 
-/* Repo secondari: righe, non riquadri. */
-.mini{display:grid;gap:0;grid-template-columns:1fr;margin-top:22px;border-top:1px solid var(--line-2)}
-.mini a{
-  display:grid;grid-template-columns:200px 1fr;gap:4px 26px;align-items:baseline;
-  padding:18px 4px;border-bottom:1px solid var(--line-2);color:var(--paper);
-  transition:padding-left .25s,background .25s;
-}
-.mini a:hover{background:rgba(255,255,255,.022);padding-left:14px;color:var(--paper)}
-.mini strong{font:400 20px/1.3 var(--serif);letter-spacing:-.005em}
-.mini strong::after{content:" →";font-size:13px;color:var(--paper-mute);vertical-align:2px}
-.mini span{font-size:15px;color:var(--paper-dim);line-height:1.6}
+.photos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 10px}
+.photos .frame{aspect-ratio:4 / 3}
 
-/* --------------------------------------------------------------------------
-   Stack: niente shields colorati. Il colore del linguaggio resta, ridotto
-   a un punto; il resto è una lista tipografica.
-   -------------------------------------------------------------------------- */
-.stack{display:grid;gap:0;border-top:1px solid var(--line-2)}
-.stack-row{
-  display:grid;grid-template-columns:190px 1fr;gap:10px 26px;align-items:baseline;
-  padding:22px 0;border-bottom:1px solid var(--line-2);
-}
-.stack-row>.lab{font-size:10px;font-weight:500;color:var(--paper-mute)}
-.badges{display:flex;flex-wrap:wrap;gap:8px 20px}
-.badge{
-  display:inline-flex;align-items:center;gap:8px;
-  background:none;color:var(--paper);
-  font:400 14.5px/1.4 var(--sans);letter-spacing:0;white-space:nowrap;
-}
-.badge::before{
-  content:"";width:6px;height:6px;border-radius:50%;flex:none;
-  background:var(--c,#6b7a92);
-  box-shadow:0 0 10px -1px var(--c,#6b7a92),inset 0 0 0 1px rgba(255,255,255,.3);
-}
+/* ---------- Stack --------------------------------------------------------- */
+.stack{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.stack li{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,10fr);column-gap:var(--gap);align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)}
+.stack .lab{font:400 14.5px/1.5 var(--sans);color:var(--paper-mute)}
+.stack .val{font:400 18px/1.55 var(--sans);color:var(--paper)}
 
-/* --------------------------------------------------------------------------
-   Percorso
-   -------------------------------------------------------------------------- */
-.tl{list-style:none;margin:0;padding:0}
-.tl>li{display:grid;grid-template-columns:190px 1fr;gap:0 34px;padding:0 0 42px;position:relative}
-.tl>li::before{content:"";position:absolute;left:196px;top:14px;bottom:-10px;width:1px;background:var(--line-2)}
-.tl>li:last-child::before{display:none}
-/* Marcatore: un quadrato ruotato di 45°, 7 px. Un cerchio pieno sarebbe
-   stato il default di chiunque. */
-.tl>li::after{
-  content:"";position:absolute;left:193px;top:9px;width:7px;height:7px;
-  background:var(--ink);border:1px solid var(--beam);transform:rotate(45deg);
-}
-.tl>li.award::after{border-color:var(--gold);background:var(--gold)}
-.tl .when{font-size:10px;font-weight:500;line-height:1.8;color:var(--paper-mute);text-align:right;padding:4px 22px 0 0}
-.tl .what{padding-left:34px}
-.tl h3{margin:0 0 4px;font:400 23px/1.3 var(--serif);letter-spacing:-.005em;color:#f2f6ff}
-.tl .role{margin:0 0 10px;font:400 11px/1.6 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--beam-lit)}
-.tl p{margin:0 0 10px;color:var(--paper-dim);font-size:15.5px}
-.tl ul{margin:10px 0 0;padding-left:0;list-style:none;color:var(--paper-dim);font-size:15px}
-.tl ul li{margin-bottom:7px;padding-left:20px;position:relative}
-.tl ul li::before{content:"";position:absolute;left:0;top:.72em;width:9px;height:1px;background:var(--line)}
+/* ---------- Contatti ------------------------------------------------------ */
+.contact{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);column-gap:clamp(32px, 7vw, 120px);align-items:end}
+.contact p{font-size:19px;line-height:1.6;color:var(--paper-dim);max-width:44ch}
+.mail{display:inline-block;margin-top:14px;padding:6px 0;font:400 clamp(30px, 3.2vw, 44px)/1.15 var(--serif);color:#f4f8ff}
+.clist{margin:0;border-top:1px solid var(--line)}
+.clist div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid var(--line)}
+.clist dt{padding:14px 0;font:400 14.5px/1.4 var(--sans);color:var(--paper-mute)}
+.clist dd{margin:0;text-align:right;font-size:15.5px;min-width:0;overflow-wrap:anywhere}
+.clist dd a{display:inline-block;padding:13px 0}
 
-/* --------------------------------------------------------------------------
-   Contatti
-   -------------------------------------------------------------------------- */
-.mail{
-  display:inline-block;margin:10px 0 26px;
-  font:400 clamp(26px,5.2vw,56px)/1.15 var(--serif);letter-spacing:-.015em;
-  color:#f2f6ff;word-break:break-word;
-  background-image:linear-gradient(var(--beam-lit),var(--beam-lit));
-  background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;
-  transition:background-size .45s cubic-bezier(.2,.7,.2,1),color .25s;
+/* ---------- Coda: la stessa luce, ferma, vista da lontano ---------------- */
+.foot{position:relative;overflow:hidden;margin-top:176px;padding:150px 0 44px}
+.foot::before{
+  content:"";position:absolute;left:50%;bottom:-30px;transform:translateX(-50%);
+  width:min(1500px, 150vw);height:300px;pointer-events:none;
+  background:radial-gradient(48% 62% at 50% 100%,rgba(140,200,255,.5),rgba(47,125,255,.3) 38%,rgba(14,56,135,.12) 66%,transparent 84%);
+  -webkit-mask-image:repeating-linear-gradient(90deg,#000 0 2.6px,rgba(0,0,0,.42) 2.6px 5px);
+          mask-image:repeating-linear-gradient(90deg,#000 0 2.6px,rgba(0,0,0,.42) 2.6px 5px);
 }
-.mail:hover{color:#fff;background-size:100% 1px}
-
-.pills{display:flex;flex-wrap:wrap;gap:10px;margin:0}
-.pill{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:11px 18px;border-radius:999px;
-  border:1px solid var(--line-2);background:none;
-  font:400 12px/1 var(--mono);letter-spacing:.08em;color:var(--paper-dim);
-  transition:border-color .18s,color .18s,transform .18s;
-}
-.pill:hover{border-color:rgba(156,200,255,.4);color:#fff;transform:translateY(-2px)}
-.pill svg{width:14px;height:14px;fill:currentColor;flex:none}
-.pill--on{background:#fff;border-color:#fff;color:#050914}
-.pill--on:hover{background:#fff;color:#050914}
-
-.kv{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:44px;border-top:1px solid var(--line-2)}
-.kv>div{padding:20px 22px 20px 0;border-bottom:1px solid var(--line-2)}
-.kv dt{font-size:9.5px;font-weight:500;color:var(--paper-mute);margin-bottom:8px}
-.kv dd{margin:0;font-size:15px;line-height:1.5}
-.kv dd a{color:var(--paper)}
-.kv dd a:hover{color:var(--beam-lit)}
-
-/* --------------------------------------------------------------------------
-   Coda: la stessa sorgente del fascio, vista da lontano.
-   -------------------------------------------------------------------------- */
-footer{position:relative;isolation:isolate;overflow:hidden;margin-top:0;padding:92px 0 48px;background:var(--ink)}
-footer::before{
-  content:"";position:absolute;left:50%;bottom:-54%;transform:translateX(-50%);
-  width:min(1300px,130vw);height:130%;z-index:-1;
-  background:radial-gradient(46% 46% at 50% 50%,rgba(140,195,255,.5),rgba(47,125,255,.3) 38%,rgba(11,47,122,.12) 62%,transparent 78%);
-  filter:blur(30px);
-}
-footer .wrap{position:relative;text-align:center}
-.foot-mark{width:34px;height:21px;margin:0 auto 22px;display:block;overflow:visible}
-.foot-mark rect{fill:var(--beam-lit);opacity:.85}
-footer p{margin:0;font:400 11px/2 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--paper-mute)}
-footer a{color:var(--paper-dim);border-bottom:1px solid var(--line)}
-footer a:hover{color:#fff}
+.foot__in{position:relative;display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;font:400 14px/1.5 var(--sans);color:var(--paper-dim)}
+.foot__in p{margin:0}
+.foot__in a{display:inline-block;padding:10px 0;margin:-10px 0}
 
 /* --------------------------------------------------------------------------
    Schermi stretti
    -------------------------------------------------------------------------- */
 @media (max-width:980px){
-  .about{grid-template-columns:1fr;gap:38px}
-  .about .shot{max-width:280px}
-  .nav__links{justify-content:flex-start}
+  .nav__links{gap:20px}
+  .about,.contact{grid-template-columns:1fr;row-gap:40px}
+  .about .portrait{max-width:300px}
+  .flag{grid-template-columns:1fr}
+  .flag__text,.flag__main,.flag__pair{grid-column:1;grid-row:auto}
+  .flag__main{margin-top:24px}
+  .row{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"meta meta" "title title" "text fig";grid-template-rows:auto}
+  .row .meta{padding-top:0}
 }
-@media (max-width:860px){
-  .grid,.pair,.kv{grid-template-columns:1fr}
-  .stats,.shots{grid-template-columns:repeat(2,1fr)}
-  .stat:nth-child(2n){border-right:0}
-  .mini a{grid-template-columns:1fr;gap:6px}
-  .stack-row{grid-template-columns:1fr;gap:12px}
-  .tl>li{grid-template-columns:1fr;gap:0}
-  .tl>li::before{left:3px;top:30px}
-  .tl>li::after{left:0;top:25px}
-  .tl .when{text-align:left;padding:4px 0 0 28px}
-  .tl .what{padding-left:28px}
-  .kv>div{padding-right:0}
-  section{padding:70px 0}
-  .hero{padding:124px 0 250px}
-  .hero__claim .br{display:none}
-  .card--flag h3{font-size:28px}
-}
-/* Il tasto del menu esiste solo sotto i 700 px: sopra, i link stanno
-   già nella barra e un hamburger sarebbe un clic in più per niente. */
-.burger{
-  display:none;align-items:center;gap:8px;flex:none;
-  padding:9px 14px;border-radius:999px;border:1px solid var(--line-2);
-  background:none;cursor:pointer;
-  font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--paper);
-}
-.burger b{display:block;width:13px;height:9px;position:relative}
-.burger b::before,.burger b::after{
-  content:"";position:absolute;left:0;right:0;height:1px;background:currentColor;
-  transition:transform .26s cubic-bezier(.2,.7,.2,1),top .26s;
-}
-.burger b::before{top:0}
-.burger b::after{top:8px}
-html.menu-open .burger b::before{top:4px;transform:rotate(45deg)}
-html.menu-open .burger b::after{top:4px;transform:rotate(-45deg)}
 
-@media (max-width:700px){
-  .wrap{padding:0 20px}
-  .brand__name{display:none}
-  .burger{display:inline-flex}
+/* Il menu: la stessa <ul> della barra, a tutto schermo. Nessun link
+   duplicato. Si apre e si chiude con lo script in fondo alla pagina. */
+@media (max-width:760px){
+  :root{--nav-h:52px}
+  .nav__in{gap:16px;justify-content:space-between}
   .brand,.nav__end{position:relative;z-index:1}
+  .nav__gh{display:none}
+  .nav__end{gap:14px}
+  .burger{
+    display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0 2px;
+    font:400 13px/1 var(--mono);color:var(--paper);
+  }
+  .burger i{position:relative;display:block;width:14px;height:9px}
+  .burger i::before,.burger i::after{content:"";position:absolute;left:0;right:0;height:1px;background:currentColor;transition:transform .25s,top .25s}
+  .burger i::before{top:0}
+  .burger i::after{top:8px}
+  html.menu-open .burger i::before{top:4px;transform:rotate(45deg)}
+  html.menu-open .burger i::after{top:4px;transform:rotate(-45deg)}
   html.menu-open{overflow:hidden}
-  html.menu-open .nav{background:none;border-bottom-color:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
 
-  /* La lista diventa il menu: stessa <ul>, altra forma. */
   .nav__links{
     position:fixed;inset:0;z-index:0;
-    flex-direction:column;justify-content:center;align-items:flex-start;
-    gap:2px;padding:0 32px;overflow:hidden;
-    background:rgba(3,6,14,.97);
-    backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
-    opacity:0;pointer-events:none;transition:opacity .3s ease;
+    flex-direction:column;justify-content:center;gap:0;
+    padding:calc(var(--nav-h) + 24px) var(--m) 40px;
+    background:var(--ink);
+    opacity:0;visibility:hidden;transition:opacity .25s,visibility 0s linear .25s;
   }
-  html.menu-open .nav__links{opacity:1;pointer-events:auto}
-  .nav__links li{width:100%;border-bottom:1px solid var(--line-3)}
-  .nav a.lnk{
-    padding:18px 2px;border-radius:0;
-    font:400 32px/1.25 var(--serif);letter-spacing:-.01em;text-transform:none;
-    color:var(--paper);
-  }
-  .nav a.lnk:hover{background:none;color:var(--beam-lit)}
-  .hero__name{letter-spacing:.3em;font-size:10px}
-  .scroll{display:none}
-}
-@media (max-width:560px){
-  .nav .gh span{display:none}
-  .nav .gh{padding:9px 11px}
-  .typing{min-height:3.6em}
-  .stats{grid-template-columns:1fr}
-  .stat{border-right:0}
-  .shots{grid-template-columns:1fr}
+  html.menu-open .nav__links{opacity:1;visibility:visible;transition:opacity .25s}
+  .nav__links li{border-bottom:1px solid var(--line)}
+  .nav__links a{padding:16px 0;font:400 36px/1.1 var(--serif);color:var(--paper)}
+  .nav__extra{display:block}
+  .nav__links li.nav__extra{border:0}
+  .nav__links li.nav__extra:first-of-type{margin-top:28px}
+  .nav__links .nav__extra a{display:inline-block;padding:12px 0;font:400 15px/1.2 var(--sans);color:var(--paper-dim);text-decoration:underline;text-decoration-color:rgba(156,200,255,.4)}
+
+  .hero{min-height:88vh;min-height:88svh;padding-top:clamp(104px, 15svh, 140px)}
+  .hero h1{font-size:clamp(42px, 12.2vw, 62px);line-height:1}
+  .hero__deck{margin-top:22px;font-size:16px;max-width:34ch}
+  .hero__links{gap:26px;margin-top:10px}
+
+  section{padding-top:96px}
+  #about{padding-top:40px}
+  .sep{height:16px;margin-bottom:40px}
+  h2{margin-bottom:36px;font-size:clamp(44px, 12vw, 58px)}
+  .about p,.contact p{font-size:18px}
+  .about .portrait{max-width:240px}
+
+  .flag{padding-bottom:64px}
+  .flag h3{font-size:clamp(50px, 14vw, 64px)}
+  .deck{font-size:19px}
+  .flag__main{margin:24px calc(-1 * var(--m)) 0}
+  .flag__pair{grid-template-columns:1fr;gap:20px}
+
+  .row{grid-template-columns:1fr;grid-template-areas:"meta" "title" "fig" "text";padding:52px 0}
+  .row .meta > span{display:inline}
+  .row .meta > span + span::before{content:" · "}
+  .row h3{margin-bottom:20px;font-size:clamp(38px, 10.5vw, 46px)}
+  .row__fig{padding-top:0;margin-bottom:22px}
+
+  .more{grid-template-columns:1fr;margin-top:64px}
+  .more h3{padding:0 0 14px}
+  .more a{grid-template-columns:1fr;row-gap:4px;padding:16px 0}
+
+  .lede-i{margin:-8px 0 56px}
+  .block{grid-template-columns:1fr;margin-bottom:56px}
+  .block > h3{padding:0 0 14px}
+  .ledger > li,.ledger--prize > li{grid-template-columns:1fr auto;grid-template-areas:"when ord" "text text";padding:24px 0}
+  .when{padding-top:0;margin-bottom:8px}
+  .ord{font-size:56px;margin-top:-6px}
+  .photos{grid-template-columns:1fr 1fr;gap:10px 8px}
+  .photos figcaption{font-size:12.5px}
+
+  .stack li{grid-template-columns:1fr;row-gap:4px;padding:16px 0}
+  .stack .val{font-size:17px}
+
+  .clist dd{font-size:15px}
+  .foot{margin-top:120px;padding-top:110px}
+  .foot__in{flex-direction:column}
 }
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  *{animation:none!important;transition:none!important}
-  .hero__glow{opacity:.96}
+  *,*::before,*::after{animation:none !important;transition:none !important}
 }
 </style>
 </head>
-
 <body>
 <a class="skip" href="#main" data-l="en">Skip to content</a>
 <a class="skip" href="#main" data-l="it">Salta al contenuto</a>
 
 <nav class="nav" id="nav">
-  <div class="wrap nav__in">
-    <a class="brand" href="#top" aria-label="Federico Fassio">
-      <svg class="brand__mark" viewBox="0 0 26 16" aria-hidden="true"><rect x="0" y="6" width="2.6" height="4" rx="1.3"/><rect x="5.6" y="3" width="2.6" height="10" rx="1.3"/><rect x="11.2" y="0" width="2.6" height="16" rx="1.3"/><rect x="16.8" y="3" width="2.6" height="10" rx="1.3"/><rect x="22.4" y="6" width="2.6" height="4" rx="1.3"/></svg>
-      <span class="brand__name">Federico Fassio</span>
+  <div class="nav__in">
+    <a class="brand" href="#top">
+      <!-- Il marchio: nove tacche a campana su una riga, come il cumulo dell'hero -->
+      <svg viewBox="0 0 17 14" aria-hidden="true"><rect class="h" x="0" y="11" width="1" height="2"/><rect class="h" x="2" y="9" width="1" height="4"/><rect x="4" y="6" width="1" height="7"/><rect x="6" y="3" width="1" height="10"/><rect x="8" y="0" width="1" height="13"/><rect x="10" y="3" width="1" height="10"/><rect x="12" y="6" width="1" height="7"/><rect class="h" x="14" y="9" width="1" height="4"/><rect class="h" x="16" y="11" width="1" height="2"/><rect class="h" x="0" y="13" width="17" height="1"/></svg>
+      Federico Fassio
     </a>
     <ul class="nav__links" id="navlinks">
-      <li><a class="lnk" href="#about"><span data-l="en">About</span><span data-l="it">Chi sono</span></a></li>
-      <li><a class="lnk" href="#projects"><span data-l="en">Work</span><span data-l="it">Progetti</span></a></li>
-      <li><a class="lnk" href="#stack">Stack</a></li>
-      <li><a class="lnk" href="#path"><span data-l="en">Path</span><span data-l="it">Percorso</span></a></li>
-      <li><a class="lnk" href="#contact"><span data-l="en">Contact</span><span data-l="it">Contatti</span></a></li>
+      <li><a href="#about"><span data-l="en">About</span><span data-l="it">Chi sono</span></a></li>
+      <li><a href="#projects"><span data-l="en">Projects</span><span data-l="it">Progetti</span></a></li>
+      <li><a href="#path"><span data-l="en">Timeline</span><span data-l="it">Percorso</span></a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#contact"><span data-l="en">Contact</span><span data-l="it">Contatti</span></a></li>
+      <li class="nav__extra"><a href="https://github.com/DoubleF35" rel="me">GitHub</a></li>
+      <li class="nav__extra"><a href="https://www.instagram.com/federicofassioo/" rel="me">Instagram</a></li>
     </ul>
     <div class="nav__end">
-      <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="navlinks">
-        <b aria-hidden="true"></b>
-        <span data-l="en">Menu</span><span data-l="it">Menu</span>
-      </button>
       <div class="lang" id="lang" role="group" aria-label="Lingua / Language">
-        <button type="button" value="it" lang="it">IT</button>
-        <button type="button" value="en" lang="en">EN</button>
+        <button type="button" value="it" lang="it">IT</button><span aria-hidden="true">·</span><button type="button" value="en" lang="en">EN</button>
       </div>
-      <a class="gh" href="https://github.com/DoubleF35" rel="me">
-        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
-        <span>GitHub</span>
-      </a>
+      <a class="nav__gh" href="https://github.com/DoubleF35" rel="me">GitHub</a>
+      <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="navlinks">
+        <i aria-hidden="true"></i>Menu
+      </button>
     </div>
   </div>
+  <span class="nav__comb" aria-hidden="true"></span>
 </nav>
 
 <header class="hero" id="top">
-  <!-- Il fascio: quattro strati, nessuna immagine. Vedi il CSS. -->
-  <div class="hero__bg" aria-hidden="true">
-    <span class="hero__curtains"></span>
-    <span class="hero__glow"></span>
-    <span class="hero__combs"></span>
-    <span class="hero__stripes"></span>
-    <span class="hero__stars"></span>
-    <span class="hero__fade"></span>
-  </div>
-  <span class="grain" aria-hidden="true"></span>
-
-  <div class="wrap hero__in">
-    <p class="eyebrow">
-      <span class="dot" aria-hidden="true"></span>
-      <span data-l="en">Torino, Italy · Space Eagle APS</span>
-      <span data-l="it">Torino, Italia · Space Eagle APS</span>
-    </p>
-
-    <h1 class="hero__h1">
-      <span class="hero__name">Federico Fassio</span>
-      <span class="hero__claim" data-l="en">I build things that have<br class="br"> to work <em>alone</em>.</span>
-      <span class="hero__claim" data-l="it">Costruisco cose che devono<br class="br"> funzionare <em>da&nbsp;sole</em>.</span>
+  <div class="hero__sky" aria-hidden="true"></div>
+  <canvas class="hero__comb" aria-hidden="true"></canvas>
+  <span class="hero__horizon" aria-hidden="true"></span>
+  <div class="hero__in">
+    <h1>
+      <span data-l="en">I build things that have to work <em>on their own</em>.</span>
+      <span data-l="it">Costruisco cose che devono funzionare <em>da&nbsp;sole</em>.</span>
     </h1>
-
-    <p class="typing" id="typing">Onboard ML for satellites<span class="caret">▌</span></p>
-
-    <div class="hero__cta">
-      <a class="btn btn--solid" href="#projects"><span data-l="en">See the work</span><span data-l="it">Guarda i progetti</span></a>
-      <a class="btn" href="https://github.com/DoubleF35" rel="me">
-        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
-        @DoubleF35
-      </a>
-      <a class="btn btn--bare" href="mailto:fedefas.210@gmail.com">Email</a>
-    </div>
+    <p class="hero__deck" data-l="en">Federico Fassio, Turin. I work on onboard machine learning for satellites, radar and rockets.</p>
+    <p class="hero__deck" data-l="it">Federico Fassio, Torino. Lavoro su machine learning a bordo dei satelliti, radar e razzi.</p>
+    <p class="hero__links">
+      <a href="#projects"><span data-l="en">Projects</span><span data-l="it">Progetti</span></a>
+      <a href="#contact"><span data-l="en">Get in touch</span><span data-l="it">Scrivimi</span></a>
+    </p>
   </div>
-
-  <a class="scroll" href="#about">
-    <span data-l="en">Scroll</span><span data-l="it">Scorri</span>
-    <i aria-hidden="true"></i>
-  </a>
 </header>
 
 <main id="main">
 
-
   <!-- ====================== CHI SONO ====================== -->
-  <div class="wrap"><hr class="rule"></div>
   <section id="about"><div class="wrap">
-    <h2><span data-l="en">Hey</span><span data-l="it">Ciao</span></h2>
+    <h2><span data-l="en">About</span><span data-l="it">Chi sono</span></h2>
     <div class="about">
       <div>
-        <p class="lede" data-l="en">
-          I build things that fly, things that predict, and things that ship. I work across
-          <strong>aerospace</strong>, <strong>applied machine learning</strong> and
-          <strong>products built from scratch</strong>: usually starting from a real physical
-          problem and ending with something that runs.
+        <p data-l="en">
+          Student at Liceo Scientifico Galileo Ferraris in Turin. I am project manager of
+          <a href="#iceroute">IceRoute</a> and <a href="#cubesar">CubeSAR</a> at
+          <a href="https://www.spaceeagle.it">Space Eagle APS</a>, the student rocketry team.
+          I co-founded <a href="#edunity">EdUnity</a> and <a href="#yet">YET</a>, and built the
+          <a href="#seeker">Seeker programme</a>: rockets designed in simulation, instrumented,
+          flown and recovered.
         </p>
-        <p class="lede" data-l="it">
-          Progetto sistemi che devono funzionare lontano da chi li ha costruiti:
-          <strong>aerospazio</strong>, <strong>machine learning applicato</strong> e
-          <strong>prodotti costruiti da zero</strong>. Di solito si parte da un problema fisico
-          vero e si finisce con qualcosa che gira.
-        </p>
-        <p class="lede" data-l="en">
-          Secondary-school student at Liceo Scientifico Galileo Ferraris, Turin. Project manager of
-          <strong>IceRoute</strong> and <strong>CubeSAR</strong> at
-          <a href="https://www.spaceeagle.it">Space Eagle APS</a>, the student rocketry team. I co-founded <strong>EdUnity</strong> and
-          <strong>YET</strong>, and built the <strong>Seeker</strong> programme: rockets designed in
-          simulation, instrumented, flown and recovered.
-        </p>
-        <p class="lede" data-l="it">
-          Studente al Liceo Scientifico Galileo Ferraris di Torino. Project manager di
-          <strong>IceRoute</strong> e <strong>CubeSAR</strong> in
+        <p data-l="it">
+          Studente al Liceo Scientifico Galileo Ferraris di Torino. Sono project manager di
+          <a href="#iceroute">IceRoute</a> e <a href="#cubesar">CubeSAR</a> in
           <a href="https://www.spaceeagle.it">Space Eagle APS</a>, il team studentesco di
-          missilistica. Ho cofondato <strong>EdUnity</strong>
-          e <strong>YET</strong>, e costruito il programma <strong>Seeker</strong>: razzi progettati
-          in simulazione, strumentati, lanciati e recuperati.
+          missilistica. Ho cofondato <a href="#edunity">EdUnity</a> e <a href="#yet">YET</a>, e ho
+          costruito il <a href="#seeker">programma Seeker</a>: razzi progettati in simulazione,
+          strumentati, lanciati e recuperati.
         </p>
-        <p class="lede" data-l="en">
-          The thread is always the same. Measure instead of assuming; and when the data does not
-          exist, pull it out of somewhere nobody is looking.
-        </p>
-        <p class="lede" data-l="it">
-          Il filo è sempre lo stesso. Misurare invece di supporre; e quando i dati non esistono,
-          estrarli da dove nessuno sta guardando.
-        </p>
+        <p data-l="en">I usually start from a real physical problem and try to end up with something that runs.</p>
+        <p data-l="it">Di solito parto da un problema fisico vero e cerco di arrivare a qualcosa che gira.</p>
       </div>
-
-      <figure class="shot shot--45">
-        <span class="frame">
-          <img src="img/ritratto.jpeg" width="1000" height="1250" alt="Federico Fassio">
-        </span>
-        <figcaption>Torino.</figcaption>
+      <figure class="portrait">
+        <span class="frame"><img src="img/ritratto.jpeg" width="1000" height="1250" alt="Federico Fassio"></span>
       </figure>
-    </div>
-
-    <div class="code">
-<pre><span class="v">federico</span> <span class="p">=</span> <span class="p">{</span>
-    <span class="k">"location"</span><span class="p">:</span>  <span class="s">"Torino, IT"</span><span class="p">,</span>
-    <span class="k">"focus"</span><span class="p">:</span>     <span class="p">[</span><span class="s">"onboard ML"</span><span class="p">,</span> <span class="s">"SAR"</span><span class="p">,</span> <span class="s">"simulation"</span><span class="p">],</span>
-    <span class="k">"stack"</span><span class="p">:</span>     <span class="p">[</span><span class="s">"Python"</span><span class="p">,</span> <span class="s">"PyTorch"</span><span class="p">,</span> <span class="s">"ONNX"</span><span class="p">,</span> <span class="s">"React"</span><span class="p">],</span>
-    <span class="k">"currently"</span><span class="p">:</span> <span class="s">"segmenting sea ice inside a satellite"</span><span class="p">,</span>
-    <span class="k">"fun_fact"</span><span class="p">:</span>  <span class="s">"my water rockets have a serious simulator"</span><span class="p">,</span>
-<span class="p">}</span></pre>
     </div>
   </div></section>
 
   <!-- ====================== PROGETTI ====================== -->
-  <div class="wrap"><hr class="rule"></div>
   <section id="projects"><div class="wrap">
-    <h2><span data-l="en">Featured projects</span><span data-l="it">Progetti in evidenza</span></h2>
-    <p class="lede" data-l="en">Seven projects across radar, flight, the city, ventures and data.</p>
-    <p class="lede" data-l="it">Sette progetti tra radar, volo, città, impresa e dati.</p>
+    <canvas class="sep" aria-hidden="true"></canvas>
+    <h2><span data-l="en">Projects</span><span data-l="it">Progetti</span></h2>
 
-    <div class="grid">
-
-      <article class="card card--flag">
-        <div class="card__top">
-          <span class="ico ico--star" aria-hidden="true">★</span>
-          <h3>IceRoute</h3>
-          <span class="tag" data-l="en">Flagship</span>
-          <span class="tag" data-l="it">Progetto di punta</span>
-          <span class="tag tag--win" data-l="en">★ 1st place · EO Makerspace Hackathon 2026</span>
-          <span class="tag tag--win" data-l="it">★ 1° posto · EO Makerspace Hackathon 2026</span>
-        </div>
+    <article class="flag" id="iceroute">
+      <div class="flag__text">
+        <p class="meta">Project manager · Space Eagle APS</p>
+        <h3>IceRoute</h3>
+        <p class="deck" data-l="en">Sea ice segmentation onboard the satellite.</p>
+        <p class="deck" data-l="it">Segmentazione del ghiaccio marino a bordo del satellite.</p>
         <p data-l="en">
-          Sea ice segmentation <strong>onboard the satellite</strong>. An INT8 quantized U-Net runs on
-          Sentinel-1 C-band SAR imagery inside a GPU@SAT FPGA, produces the ice mask, computes the
-          optimal Arctic route within POLARIS operational limits, and downlinks mask and route instead
-          of the raw scene. Polar charts reach a bridge 12 to 24 hours late: by then the ice has moved.
+          Polar charts reach a ship's bridge 12 to 24 hours late, and by then the ice has moved.
+          In IceRoute an INT8 quantized U-Net runs on Sentinel-1 C-band SAR imagery inside a GPU@SAT
+          FPGA, produces the ice mask, computes the optimal Arctic route within POLARIS operational
+          limits, and downlinks mask and route instead of the raw scene.
         </p>
         <p data-l="it">
-          Segmentazione del ghiaccio marino <strong>a bordo del satellite</strong>. Una U-Net
-          quantizzata INT8 gira sulle immagini SAR in banda C di Sentinel-1 dentro un FPGA GPU@SAT,
-          produce la maschera del ghiaccio, calcola la rotta artica ottimale entro i limiti operativi
-          POLARIS e manda a terra maschera e rotta invece della scena grezza. Le carte polari arrivano
-          in plancia con 12-24 ore di ritardo: nel frattempo il ghiaccio si è mosso.
+          Le carte polari arrivano in plancia con 12-24 ore di ritardo, e nel frattempo il ghiaccio
+          si è mosso. In IceRoute una U-Net quantizzata INT8 gira sulle immagini SAR in banda C di
+          Sentinel-1 dentro un FPGA GPU@SAT, produce la maschera del ghiaccio, calcola la rotta
+          artica ottimale entro i limiti operativi POLARIS e manda a terra maschera e rotta invece
+          della scena grezza.
         </p>
-        <div class="stats">
-          <div class="stat"><b>200 : 1</b><i data-l="en">onboard data reduction</i><i data-l="it">riduzione dati a bordo</i></div>
-          <div class="stat"><b>&lt; 4 KB</b><i data-l="en">the transmitted packet</i><i data-l="it">il pacchetto trasmesso</i></div>
-          <div class="stat"><b>5</b><i data-l="en">ice classes, segmented in orbit</i><i data-l="it">classi di ghiaccio, in orbita</i></div>
-          <div class="stat"><b>100 %</b><i data-l="en">of the vision work runs in space</i><i data-l="it">della computer vision gira in orbita</i></div>
-        </div>
-        <figure class="shot shot--169" style="margin-bottom:14px">
-          <span class="frame">
-            <img src="img/iceroute-console.jpg" width="1582" height="945" alt="La console IceRoute" loading="lazy">
-          </span>
-          <figcaption data-l="en">The console: SAR scene, ice mask, route, downlink budget.</figcaption>
-          <figcaption data-l="it">La console: scena SAR, maschera del ghiaccio, rotta, bilancio del downlink.</figcaption>
+        <p class="prize"><b>1°</b> EO Makerspace Hackathon 2026, ESA Φ-lab</p>
+        <dl class="sheet">
+          <div><dt><span data-l="en">Onboard data reduction</span><span data-l="it">Riduzione dei dati a bordo</span></dt><dd>200 : 1</dd></div>
+          <div><dt><span data-l="en">Transmitted packet</span><span data-l="it">Pacchetto trasmesso</span></dt><dd>&lt; 4 KB</dd></div>
+          <div><dt><span data-l="en">Ice classes</span><span data-l="it">Classi di ghiaccio</span></dt><dd>5</dd></div>
+          <div><dt><span data-l="en">Altitude</span><span data-l="it">Quota</span></dt><dd>550 km</dd></div>
+          <div><dt><span data-l="en">Platform</span><span data-l="it">Piattaforma</span></dt><dd>12U CubeSat, Zynq UltraScale+</dd></div>
+        </dl>
+        <p class="links"><a href="https://www.spaceeagle.it">spaceeagle.it</a></p>
+      </div>
+      <figure class="flag__main">
+        <span class="frame"><img src="img/iceroute-console.jpg" width="1582" height="945" alt="La console di IceRoute: scena SAR, maschera del ghiaccio, rotta e bilancio del downlink" loading="lazy"></span>
+        <figcaption data-l="en">The console: SAR scene, ice mask, route, downlink budget.</figcaption>
+        <figcaption data-l="it">La console: scena SAR, maschera del ghiaccio, rotta, bilancio del downlink.</figcaption>
+      </figure>
+      <div class="flag__pair">
+        <figure class="shot--43">
+          <span class="frame"><img src="img/iceroute-premio.jpeg" width="1400" height="1050" alt="EO Makerspace Hackathon 2026 all'ESA Φ-lab" loading="lazy"></span>
+          <figcaption>EO Makerspace Hackathon, ESA Φ-lab.</figcaption>
         </figure>
-        <div class="pair">
-          <figure class="shot shot--43">
-            <span class="frame">
-              <img src="img/iceroute-premio.jpeg" width="1400" height="1050" alt="EO Makerspace Hackathon 2026, ESA" loading="lazy">
-            </span>
-            <figcaption data-l="en">EO Makerspace Hackathon, ESA &#934;-lab.</figcaption>
-            <figcaption data-l="it">EO Makerspace Hackathon, ESA &#934;-lab.</figcaption>
-          </figure>
-          <figure class="shot shot--43">
-            <span class="frame">
-              <img src="img/teenventures-pitch.jpg" width="1600" height="900" alt="La GUI di IceRoute alla TeenVentures Demo Night" loading="lazy">
-            </span>
-            <figcaption data-l="en">Presenting the GUI, TeenVentures Demo Night.</figcaption>
-            <figcaption data-l="it">La GUI alla TeenVentures Demo Night.</figcaption>
-          </figure>
-        </div>
-        <div class="foot">
-          <span class="muted" data-l="en">Project manager · Space Eagle APS</span>
-          <span class="muted" data-l="it">Project manager · Space Eagle APS</span>
-          <span class="muted">12U CubeSat · Zynq UltraScale+ · IR-Net</span>
-          <a class="go" href="https://www.spaceeagle.it">spaceeagle.it</a>
-        </div>
-      </article>
+        <figure class="shot--169">
+          <span class="frame"><img src="img/teenventures-pitch.jpg" width="1600" height="900" alt="La GUI di IceRoute presentata alla TeenVentures Demo Night" loading="lazy"></span>
+          <figcaption data-l="en">Presenting the GUI at TeenVentures Demo Night.</figcaption>
+          <figcaption data-l="it">La GUI alla TeenVentures Demo Night.</figcaption>
+        </figure>
+      </div>
+    </article>
 
-      <article class="card">
-        <figure class="shot shot--169">
-          <span class="frame">
-            <img src="img/hackturin-premio.jpg" width="1600" height="1067" alt="Premiazione di hackTurin 2026" loading="lazy">
-          </span>
-          <figcaption data-l="en">hackTurin 2026, with the Space Eagle — To.Be team.</figcaption>
-          <figcaption data-l="it">hackTurin 2026, con il team Space Eagle — To.Be.</figcaption>
-        </figure>
-        <div class="card__top">
-          <span class="ico" aria-hidden="true">TB</span>
-          <h3>To.Be</h3>
-          <span class="tag tag--win" data-l="en">★ 2nd place · hackTurin 2026</span>
-          <span class="tag tag--win" data-l="it">★ 2° posto · hackTurin 2026</span>
-        </div>
+    <article class="row" id="tobe">
+      <p class="meta"><span>hackTurin 2026</span><span>Space Eagle / To.Be</span></p>
+      <h3>To.Be</h3>
+      <figure class="row__fig">
+        <span class="frame"><img src="img/hackturin-premio.jpg" width="1600" height="1067" alt="Premiazione di hackTurin 2026" loading="lazy"></span>
+        <figcaption data-l="en">hackTurin 2026, with the Space Eagle / To.Be team.</figcaption>
+        <figcaption data-l="it">hackTurin 2026, con il team Space Eagle / To.Be.</figcaption>
+      </figure>
+      <div class="row__text">
         <p data-l="en">
           A citizen-science sensor that rides on a city bus. A phone collects GPS, images and IMU and
           feeds an Arduino UNO Q, where an INT8 vision model recognises potholes, litter and full bins
-          and files a report with its position. The reports land on <strong>TorinoSegnala</strong>, a
-          platform with a public map, a dashboard and a council-side area. Built in a weekend, by four.
+          and files a report with its position. The reports land on TorinoSegnala, a platform with a
+          public map, a dashboard and a council-side area. Four of us built it over a weekend.
         </p>
         <p data-l="it">
           Un sensore di citizen science che viaggia su un bus di linea. Un telefono raccoglie GPS,
           immagini e IMU e li passa a una Arduino UNO Q, dove un modello di visione INT8 riconosce
           buche, rifiuti e cassonetti pieni e salva una segnalazione con la sua posizione. Le
-          segnalazioni arrivano su <strong>TorinoSegnala</strong>, piattaforma con mappa pubblica,
-          statistiche e area riservata al Comune. Costruito in un fine settimana, in quattro.
+          segnalazioni arrivano su TorinoSegnala, piattaforma con mappa pubblica, statistiche e area
+          riservata al Comune. L'abbiamo costruito in quattro, in un fine settimana.
         </p>
-        <div class="foot">
-          <span class="muted">Arduino UNO Q · LiteRT int8 · Next.js · Supabase</span>
-          <span class="muted" data-l="en">Smart Crossing challenge · GOMA Elettronica</span>
-          <span class="muted" data-l="it">Challenge Smart Crossing · GOMA Elettronica</span>
-        </div>
-      </article>
+        <p class="prize"><b>2°</b><span data-l="en">hackTurin 2026, Smart Crossing challenge by GOMA Elettronica</span><span data-l="it">hackTurin 2026, challenge Smart Crossing di GOMA Elettronica</span></p>
+        <p class="specs">Arduino UNO Q, LiteRT int8, Next.js, Supabase</p>
+      </div>
+    </article>
 
-      <article class="card">
-        <figure class="shot shot--169">
-          <span class="frame">
-            <img src="img/cubesar.png" width="1400" height="788" alt="CubeSAR" loading="lazy">
-          </span>
-        </figure>
-        <div class="card__top">
-          <span class="ico" aria-hidden="true">SAR</span>
-          <h3><a href="https://github.com/DoubleF35/CubeSAR">CubeSAR</a></h3>
-          <span class="tag tag--wip" data-l="en">In development</span>
-          <span class="tag tag--wip" data-l="it">In sviluppo</span>
-        </div>
+    <article class="row" id="cubesar">
+      <p class="meta"><span>Project manager</span><span><span data-l="en">In development</span><span data-l="it">In sviluppo</span></span></p>
+      <h3><a href="https://github.com/DoubleF35/CubeSAR">CubeSAR</a></h3>
+      <figure class="row__fig">
+        <span class="frame"><img src="img/cubesar.png" width="1400" height="788" alt="CubeSAR" loading="lazy"></span>
+      </figure>
+      <div class="row__text">
         <p data-l="en">
-          A desk-sized CubeSat that images its surroundings using synthetic aperture radar: the same
-          principle as Sentinel-1, rebuilding an image by moving the antenna and recombining the echoes
-          in phase, scaled down to a tabletop. It is the step below IceRoute, where a mistake costs an
-          afternoon rather than a mission.
+          A desk-sized CubeSat that makes radar images of what is around it. It uses the same
+          principle as Sentinel-1, synthetic aperture radar: the antenna moves and the echoes are
+          recombined in phase to rebuild the image. It sits one step below IceRoute.
         </p>
         <p data-l="it">
-          Un CubeSat da tavolo che riprende quello che ha intorno con il radar ad apertura sintetica:
-          lo stesso principio di Sentinel-1, ricostruire un'immagine muovendo l'antenna e ricombinando
-          gli echi in fase, ridotto alle dimensioni di una scrivania. È il gradino sotto IceRoute, dove
-          uno sbaglio costa un pomeriggio e non una missione.
+          Un CubeSat da tavolo che fa immagini radar di quello che ha intorno. Usa lo stesso
+          principio di Sentinel-1, il radar ad apertura sintetica: l'antenna si sposta e gli echi
+          vengono ricombinati in fase per ricostruire l'immagine. È il gradino sotto IceRoute.
         </p>
-        <div class="foot">
-          <span class="muted" data-l="en">Project manager</span>
-          <span class="muted" data-l="it">Project manager</span>
-          <a class="go" href="https://github.com/DoubleF35/CubeSAR" data-l="en">Repository</a>
-          <a class="go" href="https://github.com/DoubleF35/CubeSAR" data-l="it">Repository</a>
-        </div>
-      </article>
+        <p class="links"><a href="https://github.com/DoubleF35/CubeSAR">Repository</a></p>
+      </div>
+    </article>
 
-      <article class="card">
-        <figure class="shot shot--169">
-          <span class="frame">
-            <img src="img/seeker-ii.jpeg" width="1400" height="788" alt="Seeker-II" loading="lazy">
-          </span>
-        </figure>
-        <div class="card__top">
-          <span class="ico" aria-hidden="true">SK</span>
-          <h3><a href="https://github.com/DoubleF35/Seeker-II"><span data-l="en">Seeker programme</span><span data-l="it">Programma Seeker</span></a></h3>
-          <span class="tag" data-l="en">2 vehicles</span>
-          <span class="tag" data-l="it">2 vettori</span>
-        </div>
+    <article class="row" id="seeker">
+      <p class="meta"><span><span data-l="en">2 vehicles</span><span data-l="it">2 vettori</span></span></p>
+      <h3><a href="https://github.com/DoubleF35/Seeker-II"><span data-l="en">Seeker programme</span><span data-l="it">Programma Seeker</span></a></h3>
+      <figure class="row__fig">
+        <span class="frame"><img src="img/seeker-ii.jpeg" width="1400" height="788" alt="Il razzo Seeker-II" loading="lazy"></span>
+      </figure>
+      <div class="row__text">
         <p data-l="en">
-          Model rockets designed end to end: OpenRocket for stability and flight profile, Fusion 360
-          for structure and mass, fabrication, launch, recovery. Seeker-II carries a flight computer of
-          my own design: ESP32-C3, altimeter and IMU, telemetry over LoRa at 433 MHz. If the real
-          flight does not look like the simulation, the model is wrong, and it has to be found before
-          the next launch.
+          Model rockets designed end to end. Stability and flight profile in OpenRocket, structure
+          and mass in Fusion 360, then fabrication, launch and recovery. Seeker-II carries a flight
+          computer I designed, with an ESP32-C3, altimeter, IMU and LoRa telemetry at 433&nbsp;MHz.
+          If the real flight does not match the simulation, the model is wrong, and the error has to
+          be found before the next launch.
         </p>
         <p data-l="it">
-          Razzi modellistici progettati dall'inizio alla fine: OpenRocket per stabilità e profilo di
-          volo, Fusion 360 per struttura e masse, fabbricazione, lancio, recupero. Seeker-II porta a
-          bordo un computer di volo che ho progettato io: ESP32-C3, altimetro e IMU, telemetria su LoRa
-          a 433 MHz. Se il volo vero non somiglia alla simulazione, è il modello a essere sbagliato, e
-          va trovato prima del lancio dopo.
+          Razzi modellistici progettati dall'inizio alla fine. Stabilità e profilo di volo in
+          OpenRocket, struttura e masse in Fusion 360, poi fabbricazione, lancio e recupero.
+          Seeker-II porta un computer di volo progettato da me, con ESP32-C3, altimetro, IMU e
+          telemetria LoRa a 433&nbsp;MHz. Se il volo vero non somiglia alla simulazione, è sbagliato
+          il modello, e l'errore va trovato prima del lancio successivo.
         </p>
-        <div class="foot">
-          <span class="muted">≈364 g · Tsp E20-6 · ESP32-C3</span>
-          <a class="go" href="https://github.com/DoubleF35/Seeker-II">Repository</a>
-          <a class="go" href="https://www.thingiverse.com/thing:7338519" data-l="en">CAD model</a>
-          <a class="go" href="https://www.thingiverse.com/thing:7338519" data-l="it">Modello CAD</a>
-        </div>
-      </article>
+        <p class="specs num">≈364 g · Tsp E20-6 · ESP32-C3</p>
+        <p class="links">
+          <a href="https://github.com/DoubleF35/Seeker-II">Repository</a>
+          <a href="https://www.thingiverse.com/thing:7338519"><span data-l="en">CAD model</span><span data-l="it">Modello CAD</span></a>
+        </p>
+      </div>
+    </article>
 
-      <article class="card">
-        <figure class="shot shot--169">
-          <span class="frame">
-            <img src="img/edunity.jpeg" width="1400" height="788" alt="EdUnity" loading="lazy">
-          </span>
-        </figure>
-        <div class="card__top">
-          <span class="ico" aria-hidden="true">Ed</span>
-          <h3><a href="https://edunityedu.it">EdUnity</a></h3>
-          <span class="tag tag--live">Live</span>
-          <span class="tag tag--win" data-l="en">★ 2nd, Fin4Teen 2026</span>
-          <span class="tag tag--win" data-l="it">★ 2° al Fin4Teen 2026</span>
-        </div>
+    <article class="row" id="edunity">
+      <p class="meta"><span><span data-l="en">Co-founder</span><span data-l="it">Cofondatore</span></span><span>Online</span></p>
+      <h3><a href="https://edunityedu.it">EdUnity</a></h3>
+      <figure class="row__fig">
+        <span class="frame"><img src="img/edunity.jpeg" width="1400" height="788" alt="EdUnity" loading="lazy"></span>
+      </figure>
+      <div class="row__text">
         <p data-l="en">
-          Study better with AI, for free. Co-founded with four schoolmates: it records the lesson with
-          hybrid transcription and generates summaries, flashcards, marked quizzes and concept maps.
-          Built for everyone, with specific attention to students with learning disabilities and student
-          athletes. No AI key ever reaches the browser.
+          A free platform for studying with AI, co-founded with four schoolmates. It records the
+          lesson with hybrid transcription and turns it into summaries, flashcards, marked quizzes
+          and concept maps. It is designed especially for students with learning disabilities and
+          student athletes. No AI key ever reaches the browser.
         </p>
         <p data-l="it">
-          Studiare meglio con l'AI, gratis. Cofondata con quattro compagni di scuola: registra la
-          lezione con trascrizione ibrida e genera riassunti, flashcard, quiz corretti e mappe
-          concettuali. È pensata per tutti, con attenzione specifica agli studenti con DSA e agli
-          studenti-atleti. Nessuna chiave AI arriva mai al browser.
+          Piattaforma gratuita per studiare con l'AI, cofondata con quattro compagni di scuola.
+          Registra la lezione con una trascrizione ibrida e ne ricava riassunti, flashcard, quiz con
+          correzione e mappe concettuali. È pensata in particolare per studenti con DSA e
+          studenti-atleti. Nessuna chiave AI arriva al browser.
         </p>
-        <div class="foot">
-          <span class="muted" data-l="en">Co-founder · Firebase + Cloudflare Worker</span>
-          <span class="muted" data-l="it">Cofondatore · Firebase + Cloudflare Worker</span>
-          <a class="go" href="https://edunityedu.it">edunityedu.it</a>
-          <a class="go" href="https://github.com/DoubleF35/EdUnity">Repository</a>
-        </div>
-      </article>
+        <p class="prize"><b>2°</b>Fin4Teen 2026, SellaLab</p>
+        <p class="specs">Firebase, Cloudflare Worker</p>
+        <p class="links">
+          <a href="https://edunityedu.it">edunityedu.it</a>
+          <a href="https://github.com/DoubleF35/EdUnity">Repository</a>
+        </p>
+      </div>
+    </article>
 
-      <article class="card">
-        <figure class="shot shot--43">
-          <span class="frame">
-            <img src="img/yet.jpg" width="1600" height="1200" alt="Un incontro della community YET" loading="lazy">
-          </span>
-          <figcaption data-l="en">A YET evening, Turin, October 2026.</figcaption>
-          <figcaption data-l="it">Una serata YET, Torino, ottobre 2026.</figcaption>
-        </figure>
-        <div class="card__top">
-          <span class="ico" aria-hidden="true">YET</span>
-          <h3><a href="https://yetcommunity.it">YET</a></h3>
-          <span class="tag tag--live" data-l="en">150 members</span>
-          <span class="tag tag--live" data-l="it">150 membri</span>
-        </div>
+    <article class="row" id="yet">
+      <p class="meta"><span><span data-l="en">Co-founder</span><span data-l="it">Cofondatore</span></span><span><span data-l="en">150 members</span><span data-l="it">150 membri</span></span></p>
+      <h3><a href="https://yetcommunity.it">YET</a></h3>
+      <figure class="row__fig shot--43">
+        <span class="frame"><img src="img/yet.jpg" width="1600" height="1200" alt="Un incontro della community YET" loading="lazy"></span>
+        <figcaption data-l="en">A YET evening, Turin, October 2026.</figcaption>
+        <figcaption data-l="it">Una serata YET, Torino, ottobre 2026.</figcaption>
+      </figure>
+      <div class="row__text">
         <p data-l="en">
-          Young Entrepreneurs Together: the club for 16-to-23-year-olds who are building something —
-          a product, an association, an idea still taking shape. No selection, no fee: what counts is
-          the attitude, not an already-running project. We founded it because Turin had nothing like
-          it, and at seventeen trying to build a company almost always means doing it alone. Today
-          there are 150 of us, from Turin to Rome. At the meetings you present what you are doing,
-          and you get told the truth about it.
+          Young Entrepreneurs Together is a club for 16 to 23-year-olds who are building something,
+          even if it is only an idea so far. There is no selection and no fee. We started it because
+          Turin had nothing like it, and at seventeen anyone trying to start a company usually does
+          it alone. There are 150 of us now, from Turin to Rome. At the meetings each person presents
+          what they are working on and gets direct criticism.
         </p>
         <p data-l="it">
-          Young Entrepreneurs Together: il club dei ragazzi fra i 16 e i 23 anni che stanno
-          costruendo qualcosa — un prodotto, un'associazione, un'idea ancora confusa. Nessuna
-          selezione e nessuna quota: conta l'attitudine, non il progetto già avviato. L'abbiamo
-          fondato perché a Torino un posto così non c'era, e chi a diciassette anni prova a fare
-          impresa quasi sempre lo fa da solo. Oggi siamo 150, da Torino a Roma. Agli incontri
-          presenti quello che stai facendo, e ti viene detto come sta davvero.
+          Young Entrepreneurs Together è il club per ragazzi fra i 16 e i 23 anni che stanno
+          costruendo qualcosa, anche solo un'idea. Non c'è selezione e non si paga quota. L'abbiamo
+          fondato perché a Torino non c'era niente del genere, e a diciassette anni chi prova a fare
+          impresa di solito lo fa da solo. Oggi siamo 150, da Torino a Roma. Agli incontri ognuno
+          presenta quello che sta facendo e riceve critiche dirette.
         </p>
-        <div class="foot">
-          <span class="muted" data-l="en">Co-founder · tech and digital</span>
-          <span class="muted" data-l="it">Cofondatore · tecnica e digitale</span>
-          <a class="go" href="https://yetcommunity.it">yetcommunity.it</a>
-          <a class="go" href="https://github.com/DoubleF35/yet">Repository</a>
-        </div>
-      </article>
+        <p class="links">
+          <a href="https://yetcommunity.it">yetcommunity.it</a>
+          <a href="https://github.com/DoubleF35/yet">Repository</a>
+        </p>
+      </div>
+    </article>
 
-      <article class="card">
-        <figure class="shot shot--169">
-          <!-- foto: metti il file in img/ (qualsiasi estensione) e lancia: node tools/attiva-foto.js -->
-          <span class="frame">
-            <!-- <img src="img/f4kit.jpg" width="1400" height="788" alt="f4kit" loading="lazy"> -->
-            <span class="plate"><b>img/f4kit.jpg</b><span>16:9</span></span>
-          </span>
-        </figure>
-        <div class="card__top">
-          <span class="ico" aria-hidden="true">F4</span>
-          <h3>f4kit</h3>
-          <span class="tag tag--wip" data-l="en">Not public yet</span>
-          <span class="tag tag--wip" data-l="it">Non ancora pubblico</span>
-        </div>
+    <article class="row" id="f4kit">
+      <p class="meta"><span><span data-l="en">Not public yet</span><span data-l="it">Non ancora pubblico</span></span></p>
+      <h3>f4kit</h3>
+      <!-- Quando c'è una foto: sostituire questo blocco con una <figure class="row__fig"> come le altre -->
+      <div class="row__fig eq">
+        <p class="eq__f" data-l="en">crossing<sub>2</sub> − crossing<sub>1</sub> = lap&nbsp;time ±&nbsp;2&nbsp;ms</p>
+        <p class="eq__f" data-l="it">passaggio<sub>2</sub> − passaggio<sub>1</sub> = tempo sul&nbsp;giro ±&nbsp;2&nbsp;ms</p>
+        <p class="eq__n" data-l="en">416 / 416 laps · 58 tests</p>
+        <p class="eq__n" data-l="it">416 / 416 giri · 58 test</p>
+      </div>
+      <div class="row__text">
         <p data-l="en">
           Italian Formula 4 qualifying, read straight out of ACI Sport's official timing PDFs, to the
           millisecond. One invariant holds the whole parser together: for two consecutive laps by the
-          same driver, the gap between the two line crossings must equal the lap time, within 2 ms. It
-          holds across all 416 laps of the two Misano 2025 sessions. A change that breaks it is wrong,
-          even when the output looks plausible.
+          same driver, the gap between the two line crossings must equal the lap time, within
+          2&nbsp;ms. It holds across all 416 laps of the two Misano 2025 sessions. A change that
+          breaks it is wrong, even when the output looks plausible.
         </p>
         <p data-l="it">
           Le qualifiche della Formula 4 italiana, lette direttamente dai PDF cronometrici ufficiali di
           ACI Sport, al millesimo. Un invariante tiene insieme tutto il parser: per due giri
           consecutivi dello stesso pilota, lo scarto fra i due passaggi sul traguardo deve essere
-          uguale al tempo sul giro, con tolleranza di 2 ms. Regge su tutti i 416 giri delle due
+          uguale al tempo sul giro, con tolleranza di 2&nbsp;ms. Regge su tutti i 416 giri delle due
           sessioni di Misano 2025. Una modifica che lo rompe è sbagliata, anche quando il risultato
           sembra plausibile.
         </p>
-        <div class="foot">
-          <span class="muted" data-l="en">2 ms across 416 laps · 58 tests</span>
-          <span class="muted" data-l="it">2 ms su 416 giri · 58 test</span>
-          <a class="go" href="mailto:fedefas.210@gmail.com" data-l="en">Get in touch</a>
-          <a class="go" href="mailto:fedefas.210@gmail.com" data-l="it">Scrivimi</a>
-        </div>
-      </article>
+        <p class="links"><a href="mailto:fedefas.210@gmail.com"><span data-l="en">Get in touch</span><span data-l="it">Scrivimi</span></a></p>
+      </div>
+    </article>
 
-    </div>
-
-    <p class="sub" data-l="en">Also on GitHub</p>
-    <p class="sub" data-l="it">Altro su GitHub</p>
-    <div class="mini">
-      <a href="https://doublef35.github.io/waterrocketsim/">
-        <strong>waterrocketsim</strong>
-        <span data-l="en">The most complete water rocket simulator on the web. Design your rocket, run the simulation.</span>
-        <span data-l="it">Il simulatore di razzi ad acqua più completo del web. Progetti il razzo, lanci la simulazione.</span>
-      </a>
-      <a href="https://github.com/DoubleF35/afterword">
-        <strong>afterword</strong>
-        <span data-l="en">Chat with someone from your message history, in their voice. Style and memory, no fine-tuning.</span>
-        <span data-l="it">Parlare con qualcuno a partire dalla cronologia dei messaggi, con la sua voce. Stile e memoria, senza fine-tuning.</span>
-      </a>
-      <a href="https://doublef35.github.io/unsited/">
-        <strong>unsited</strong>
-        <span data-l="en">Find local businesses with no website, on the map. Fully client-side, built on Google Maps.</span>
-        <span data-l="it">Trova sulla mappa le attività locali senza sito. Tutto lato client, costruito su Google Maps.</span>
-      </a>
-    </div>
-  </div></section>
-
-  <!-- ====================== STACK ====================== -->
-  <div class="wrap"><hr class="rule"></div>
-  <section id="stack"><div class="wrap">
-    <h2>Stack</h2>
-    <div class="stack">
-      <div class="stack-row">
-        <span class="lab" data-l="en">Core</span><span class="lab" data-l="it">Base</span>
-        <div class="badges">
-          <span class="badge" style="--c:#3776AB">Python</span>
-          <span class="badge" style="--c:#00599C">C++</span>
-          <span class="badge" style="--c:#F7DF1E;--t:#111">JavaScript</span>
-          <span class="badge" style="--c:#4EAA25">Bash</span>
-        </div>
-      </div>
-      <div class="stack-row">
-        <span class="lab" data-l="en">ML &amp; data</span><span class="lab" data-l="it">ML e dati</span>
-        <div class="badges">
-          <span class="badge" style="--c:#EE4C2C">PyTorch</span>
-          <span class="badge" style="--c:#005CED">ONNX Runtime</span>
-          <span class="badge" style="--c:#013243">NumPy</span>
-          <span class="badge" style="--c:#150458">pandas</span>
-          <span class="badge" style="--c:#F7931E;--t:#111">scikit-learn</span>
-          <span class="badge" style="--c:#FF4B4B">Streamlit</span>
-        </div>
-      </div>
-      <div class="stack-row">
-        <span class="lab">Web</span>
-        <div class="badges">
-          <span class="badge" style="--c:#61DAFB;--t:#111">React</span>
-          <span class="badge" style="--c:#646CFF">Vite</span>
-          <span class="badge" style="--c:#E34F26">HTML5</span>
-          <span class="badge" style="--c:#1572B6">CSS3</span>
-          <span class="badge" style="--c:#FFCA28;--t:#111">Firebase</span>
-          <span class="badge" style="--c:#F38020">Cloudflare</span>
-        </div>
-      </div>
-      <div class="stack-row">
-        <span class="lab" data-l="en">Hardware &amp; sim</span><span class="lab" data-l="it">Hardware e simulazione</span>
-        <div class="badges">
-          <span class="badge" style="--c:#E7352C">ESP32</span>
-          <span class="badge" style="--c:#0B7285">LoRa</span>
-          <span class="badge" style="--c:#0696D7">Fusion 360</span>
-          <span class="badge" style="--c:#C8102E">OpenRocket</span>
-          <span class="badge" style="--c:#1F6FEB">FPGA · VHDL</span>
-        </div>
-      </div>
-      <div class="stack-row">
-        <span class="lab" data-l="en">Tooling</span><span class="lab" data-l="it">Strumenti</span>
-        <div class="badges">
-          <span class="badge" style="--c:#FCC624;--t:#111">Linux</span>
-          <span class="badge" style="--c:#F05032">Git</span>
-          <span class="badge" style="--c:#2088FF">GitHub Actions</span>
-          <span class="badge" style="--c:#A42E2B">GNU Make</span>
-        </div>
-      </div>
+    <div class="more">
+      <h3><span data-l="en">Also on GitHub</span><span data-l="it">Altro su GitHub</span></h3>
+      <ul>
+        <li><a href="https://doublef35.github.io/waterrocketsim/">
+          <span class="name">waterrocketsim</span>
+          <span class="desc" data-l="en">A web simulator for water rockets: design the rocket and simulate the launch.</span>
+          <span class="desc" data-l="it">Simulatore web di razzi ad acqua: progetti il razzo e simuli il lancio.</span>
+        </a></li>
+        <li><a href="https://github.com/DoubleF35/afterword">
+          <span class="name">afterword</span>
+          <span class="desc" data-l="en">Chat with someone from your message history, in their voice. Style and memory, no fine-tuning.</span>
+          <span class="desc" data-l="it">Parlare con qualcuno a partire dalla cronologia dei messaggi, con la sua voce. Stile e memoria, senza fine-tuning.</span>
+        </a></li>
+        <li><a href="https://doublef35.github.io/unsited/">
+          <span class="name">unsited</span>
+          <span class="desc" data-l="en">Find local businesses with no website, on the map. Fully client-side, built on Google Maps.</span>
+          <span class="desc" data-l="it">Trova sulla mappa le attività locali senza sito. Tutto lato client, costruito su Google Maps.</span>
+        </a></li>
+      </ul>
     </div>
   </div></section>
 
   <!-- ====================== PERCORSO ====================== -->
-  <div class="wrap"><hr class="rule"></div>
   <section id="path"><div class="wrap">
-    <h2><span data-l="en">Path</span><span data-l="it">Percorso</span></h2>
-    <p class="lede" data-l="en">The dates matter: nearly everything on this page happened in the last two years, alongside school.</p>
-    <p class="lede" data-l="it">Le date contano: quasi tutto quello che sta in questa pagina è successo negli ultimi due anni, insieme alla scuola.</p>
+    <canvas class="sep" aria-hidden="true"></canvas>
+    <h2><span data-l="en">Timeline</span><span data-l="it">Percorso</span></h2>
+    <p class="lede-i" data-l="en">Almost everything on this page happened in the last two years, alongside school.</p>
+    <p class="lede-i" data-l="it">Quasi tutto quello che c'è in questa pagina l'ho fatto negli ultimi due anni, insieme alla scuola.</p>
 
-    <p class="sub" data-l="en">Experience</p>
-    <p class="sub" data-l="it">Esperienza</p>
-    <ol class="tl">
-      <li>
-        <div class="when"><span data-l="en">Feb 2026 → now</span><span data-l="it">Feb 2026 → oggi</span></div>
-        <div class="what">
-          <h3>Space Eagle APS</h3>
-          <p class="role" data-l="en">Project manager · Turin, part-time</p>
-          <p class="role" data-l="it">Project manager · Torino, part-time</p>
-          <p data-l="en">
-            A student rocketry team that develops everything
-            in house, from propulsion to avionics. Since August 2026 I run the two radar projects,
-            CubeSAR and IceRoute: planning, splitting the work, and keeping the technical side and the
-            outward-facing side consistent. Associate member since February, on ICARO and IceRoute.
-          </p>
-          <p data-l="it">
-            Team studentesco di missilistica che sviluppa tutto
-            in casa, dalla propulsione all'avionica. Da agosto 2026 seguo i due progetti radar, CubeSAR
-            e IceRoute: pianificazione, divisione del lavoro, e coerenza fra la parte tecnica e quella
-            che si vede da fuori. Socio dal febbraio precedente, su ICARO e IceRoute.
-          </p>
-        </div>
-      </li>
-      <li>
-        <div class="when"><span data-l="en">Jul 2026 → now</span><span data-l="it">Lug 2026 → oggi</span></div>
-        <div class="what">
-          <h3>YET · Young Entrepreneurs Together</h3>
-          <p class="role" data-l="en">Co-founder · Turin</p>
-          <p class="role" data-l="it">Cofondatore · Torino</p>
-          <p data-l="en">
-            Founded because Piedmont has plenty of capable young people and almost nowhere to meet and
-            get concrete feedback before university. Today 150 members from across Italy.
-          </p>
-          <p data-l="it">
-            Fondata perché in Piemonte i ragazzi in gamba ci sono, ma non c'è quasi nessun posto dove
-            incontrarsi e ricevere un parere concreto prima dell'università. Oggi siamo 150 membri da
-            tutta Italia.
-          </p>
-          <ul data-l="en">
-            <li>I run the meetings where members present their projects and get real criticism</li>
-            <li>I handle relationships with founders, mentors and the local startup ecosystem</li>
-            <li>I own the technical and digital side: site, tools, online presence</li>
-          </ul>
-          <ul data-l="it">
-            <li>Conduco gli incontri in cui i membri presentano i progetti e ricevono critiche vere</li>
-            <li>Curo i rapporti con founder, mentor e l'ecosistema startup del territorio</li>
-            <li>Mi occupo di tutta la parte tecnica e digitale: sito, strumenti, presenza online</li>
-          </ul>
-        </div>
-      </li>
-      <li class="award">
-        <div class="when"><span data-l="en">Oct 2026</span><span data-l="it">Ott 2026</span></div>
-        <div class="what">
-          <h3>hackTurin 2026
-            <span class="tag tag--win" data-l="en">★ 2nd place</span>
-            <span class="tag tag--win" data-l="it">★ 2° posto</span>
-          </h3>
-          <p class="role" data-l="en">Smart Crossing challenge, GOMA Elettronica · Turin</p>
-          <p class="role" data-l="it">Challenge Smart Crossing, GOMA Elettronica · Torino</p>
-          <p data-l="en">
-            Second place and a €1,000 prize with the Space Eagle — To.Be team, presenting
-            <strong>To.Be</strong>: a crossing, and a city, that understand what is
-            happening around them.
-          </p>
-          <p data-l="it">
-            Secondo posto e un riconoscimento da 1.000 € con il team Space Eagle — To.Be, presentando
-            <strong>To.Be</strong>: un attraversamento, e una città, che capiscono quello
-            che accade intorno.
-          </p>
-        </div>
-      </li>
-      <li class="award">
-        <div class="when"><span data-l="en">Dec 2025 → Jun 2026</span><span data-l="it">Dic 2025 → Giu 2026</span></div>
-        <div class="what">
-          <h3>EO Makerspace Hackathon 2026
-            <span class="tag tag--win" data-l="en">★ 1st place</span>
-            <span class="tag tag--win" data-l="it">★ 1° posto</span>
-          </h3>
-          <p class="role">ESA Φ-lab Challenges · Frascati</p>
-          <p data-l="en">
-            First place with my team, presenting <strong>IceRoute</strong>. Run in collaboration with
-            WMF (We Make Future) and IngeniArs s.r.l. Team: Simone Avella, Federico Fassio, Giuseppe
-            Mondilla, Lorenzo Razzano. Advisor: Riccardo Apa.
-          </p>
-          <p data-l="it">
-            Primo posto con la mia squadra, presentando <strong>IceRoute</strong>. In collaborazione
-            con WMF (We Make Future) e IngeniArs s.r.l. Squadra: Simone Avella, Federico Fassio,
-            Giuseppe Mondilla, Lorenzo Razzano. Advisor: Riccardo Apa.
-          </p>
-        </div>
-      </li>
-      <li class="award">
-        <div class="when"><span data-l="en">Feb 2026 → Jun 2026</span><span data-l="it">Feb 2026 → Giu 2026</span></div>
-        <div class="what">
-          <h3>Fin4Teen 2026
-            <span class="tag tag--win" data-l="en">★ 2nd nationally</span>
-            <span class="tag tag--win" data-l="it">★ 2° a livello nazionale</span>
-          </h3>
-          <p class="role">SellaLab · Biella</p>
-          <p data-l="en">
-            SellaLab's startup programme, taken through with <strong>EdUnity</strong>, the platform for
-            improving school learning for students with learning disabilities and student athletes.
-          </p>
-          <p data-l="it">
-            Il programma per startup di SellaLab, affrontato con <strong>EdUnity</strong>, la
-            piattaforma per rendere lo studio più efficace per studenti con DSA e studenti-atleti.
-          </p>
-        </div>
-      </li>
-    </ol>
+    <div class="block">
+      <h3><span data-l="en">Experience</span><span data-l="it">Esperienza</span></h3>
+      <ol class="ledger">
+        <li>
+          <p class="when"><span data-l="en">Feb 2026 – now</span><span data-l="it">feb 2026 – oggi</span></p>
+          <div class="ledger__text">
+            <h4>Space Eagle APS</h4>
+            <p class="role" data-l="en">Project manager · Turin, part-time</p>
+            <p class="role" data-l="it">Project manager · Torino, part-time</p>
+            <p data-l="en">
+              A student rocketry team that builds everything in house, from propulsion to avionics.
+              Associate member since February 2026, on ICARO and IceRoute. Since August 2026 I have
+              been project manager of the two radar projects, CubeSAR and IceRoute: I plan and split
+              the work, and check that what we present outside matches the technical side.
+            </p>
+            <p data-l="it">
+              Team studentesco di missilistica che sviluppa tutto in casa, dalla propulsione
+              all'avionica. Socio da febbraio 2026, su ICARO e IceRoute. Da agosto 2026 sono project
+              manager dei due progetti radar, CubeSAR e IceRoute: pianifico e divido il lavoro, e
+              controllo che quello che presentiamo all'esterno corrisponda alla parte tecnica.
+            </p>
+          </div>
+        </li>
+        <li>
+          <p class="when"><span data-l="en">Jul 2026 – now</span><span data-l="it">lug 2026 – oggi</span></p>
+          <div class="ledger__text">
+            <h4>YET · Young Entrepreneurs Together</h4>
+            <p class="role" data-l="en">Co-founder · Turin</p>
+            <p class="role" data-l="it">Cofondatore · Torino</p>
+            <ul data-l="en">
+              <li>I run the meetings where members present their projects and get direct criticism</li>
+              <li>I keep in touch with local founders, mentors and startups</li>
+              <li>I look after the website, the tools and the online channels</li>
+            </ul>
+            <ul data-l="it">
+              <li>Conduco gli incontri in cui i membri presentano i loro progetti e ricevono critiche dirette</li>
+              <li>Tengo i contatti con founder, mentor e startup del territorio</li>
+              <li>Curo il sito, gli strumenti e i canali online</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
 
-    <p class="sub" data-l="en">Education</p>
-    <p class="sub" data-l="it">Formazione</p>
-    <ol class="tl">
-      <li>
-        <div class="when"><span data-l="en">2023 → now</span><span data-l="it">2023 → oggi</span></div>
-        <div class="what">
-          <h3>Liceo Scientifico Galileo Ferraris</h3>
-          <p class="role" data-l="en">Scientific track · Torino</p>
-          <p class="role" data-l="it">Indirizzo scientifico · Torino</p>
-          <p data-l="en">Everything on this page was built alongside school, not instead of it.</p>
-          <p data-l="it">Tutto quello che sta in questa pagina è stato costruito insieme alla scuola, non al posto della scuola.</p>
-        </div>
-      </li>
-    </ol>
+    <div class="block">
+      <h3><span data-l="en">Awards</span><span data-l="it">Riconoscimenti</span></h3>
+      <ol class="ledger ledger--prize">
+        <li>
+          <p class="when"><span data-l="en">Oct 2026</span><span data-l="it">ott 2026</span></p>
+          <div class="ledger__text">
+            <h4>hackTurin 2026</h4>
+            <p class="role" data-l="en">Smart Crossing challenge, GOMA Elettronica · Turin</p>
+            <p class="role" data-l="it">Challenge Smart Crossing, GOMA Elettronica · Torino</p>
+            <p data-l="en">A €1,000 prize with the Space Eagle / To.Be team, presenting <a href="#tobe">To.Be</a>.</p>
+            <p data-l="it">Un riconoscimento da 1.000 € con il team Space Eagle / To.Be, presentando <a href="#tobe">To.Be</a>.</p>
+          </div>
+          <p class="ord" aria-label="secondo posto">2°</p>
+        </li>
+        <li>
+          <p class="when"><span data-l="en">Dec 2025 – Jun 2026</span><span data-l="it">dic 2025 – giu 2026</span></p>
+          <div class="ledger__text">
+            <h4>EO Makerspace Hackathon 2026</h4>
+            <p class="role">ESA Φ-lab Challenges · Frascati</p>
+            <p data-l="en">
+              With my team, presenting <a href="#iceroute">IceRoute</a>. Run in collaboration with WMF
+              (We Make Future) and IngeniArs s.r.l. Team: Simone Avella, Federico Fassio, Giuseppe
+              Mondilla, Lorenzo Razzano. Advisor: Riccardo Apa.
+            </p>
+            <p data-l="it">
+              Con la mia squadra, presentando <a href="#iceroute">IceRoute</a>. In collaborazione con
+              WMF (We Make Future) e IngeniArs s.r.l. Squadra: Simone Avella, Federico Fassio,
+              Giuseppe Mondilla, Lorenzo Razzano. Advisor: Riccardo Apa.
+            </p>
+          </div>
+          <p class="ord" aria-label="primo posto">1°</p>
+        </li>
+        <li>
+          <p class="when"><span data-l="en">Feb – Jun 2026</span><span data-l="it">feb – giu 2026</span></p>
+          <div class="ledger__text">
+            <h4>Fin4Teen 2026</h4>
+            <p class="role">SellaLab · Biella</p>
+            <p data-l="en">SellaLab's startup programme, which we entered with <a href="#edunity">EdUnity</a>. Second nationally.</p>
+            <p data-l="it">Il programma per startup di SellaLab, a cui abbiamo partecipato con <a href="#edunity">EdUnity</a>. Secondi a livello nazionale.</p>
+          </div>
+          <p class="ord" aria-label="secondo posto">2°</p>
+        </li>
+      </ol>
+    </div>
 
-    <div class="shots">
-      <figure class="shot shot--43">
-        <span class="frame">
-          <img src="img/esa-hackathon.jpeg" width="1400" height="1050" alt="ESA, Frascati" loading="lazy">
-        </span>
-        <figcaption>ESA Φ-lab, Frascati.</figcaption>
+    <div class="block">
+      <h3><span data-l="en">Education</span><span data-l="it">Formazione</span></h3>
+      <ol class="ledger">
+        <li>
+          <p class="when"><span data-l="en">2023 – now</span><span data-l="it">2023 – oggi</span></p>
+          <div class="ledger__text">
+            <h4>Liceo Scientifico Galileo Ferraris</h4>
+            <p class="role" data-l="en">Student · Turin</p>
+            <p class="role" data-l="it">Studente · Torino</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="photos">
+      <figure>
+        <span class="frame"><img src="img/esa-hackathon.jpeg" width="1400" height="1050" alt="All'ESA, Frascati" loading="lazy"></span>
+        <figcaption>ESA Φ-lab, Frascati</figcaption>
       </figure>
-      <figure class="shot shot--43">
-        <span class="frame">
-          <img src="img/hackturin-team.jpg" width="1400" height="933" alt="hackTurin 2026" loading="lazy">
-        </span>
-        <figcaption>hackTurin 2026.</figcaption>
+      <figure>
+        <span class="frame"><img src="img/hackturin-team.jpg" width="1400" height="933" alt="Il team a hackTurin 2026" loading="lazy"></span>
+        <figcaption>hackTurin 2026</figcaption>
       </figure>
-      <figure class="shot shot--43">
-        <span class="frame">
-          <img src="img/teenventures-iceroute.jpg" width="1396" height="785" alt="TeenVentures Demo Night" loading="lazy">
-        </span>
-        <figcaption>TeenVentures Demo Night.</figcaption>
+      <figure>
+        <span class="frame"><img src="img/teenventures-iceroute.jpg" width="1396" height="785" alt="IceRoute alla TeenVentures Demo Night" loading="lazy"></span>
+        <figcaption>TeenVentures Demo Night</figcaption>
       </figure>
-      <figure class="shot shot--43">
-        <span class="frame">
-          <img src="img/yet-sala.jpg" width="1600" height="1200" alt="Un incontro YET" loading="lazy">
-        </span>
-        <figcaption data-l="en">A YET meeting.</figcaption>
-        <figcaption data-l="it">Un incontro YET.</figcaption>
+      <figure>
+        <span class="frame"><img src="img/yet-sala.jpg" width="1600" height="1200" alt="Un incontro YET" loading="lazy"></span>
+        <figcaption data-l="en">A YET meeting</figcaption>
+        <figcaption data-l="it">Un incontro YET</figcaption>
       </figure>
-      <figure class="shot shot--43">
-        <span class="frame">
-          <img src="img/space-eagle.jpeg" width="1400" height="1050" alt="Space Eagle APS" loading="lazy">
-        </span>
-        <figcaption>Space Eagle.</figcaption>
+      <figure>
+        <span class="frame"><img src="img/space-eagle.jpeg" width="1400" height="1050" alt="Space Eagle APS" loading="lazy"></span>
+        <figcaption>Space Eagle APS</figcaption>
       </figure>
-      <figure class="shot shot--43">
-        <span class="frame">
-          <img src="img/fin4teen.jpeg" width="1400" height="1050" alt="Fin4Teen, SellaLab" loading="lazy">
-        </span>
-        <figcaption>Fin4Teen, SellaLab.</figcaption>
+      <figure>
+        <span class="frame"><img src="img/fin4teen.jpeg" width="1400" height="1050" alt="Fin4Teen, SellaLab" loading="lazy"></span>
+        <figcaption>Fin4Teen, SellaLab</figcaption>
       </figure>
-      <figure class="shot shot--43">
-        <span class="frame">
-          <img src="img/yet-palco.jpg" width="1100" height="825" alt="Sul palco a una serata YET" loading="lazy">
-        </span>
-        <figcaption data-l="en">Opening a YET evening.</figcaption>
-        <figcaption data-l="it">L'apertura di una serata YET.</figcaption>
+      <figure>
+        <span class="frame"><img src="img/yet-palco.jpg" width="1100" height="825" alt="Sul palco a una serata YET" loading="lazy"></span>
+        <figcaption data-l="en">Opening a YET evening</figcaption>
+        <figcaption data-l="it">L'apertura di una serata YET</figcaption>
       </figure>
-      <figure class="shot shot--43">
-        <span class="frame">
-          <img src="img/teenventures-team.jpg" width="1400" height="788" alt="TeenVentures" loading="lazy">
-        </span>
-        <figcaption>TeenVentures.</figcaption>
+      <figure>
+        <span class="frame"><img src="img/teenventures-team.jpg" width="1400" height="788" alt="Il team a TeenVentures" loading="lazy"></span>
+        <figcaption>TeenVentures</figcaption>
       </figure>
     </div>
   </div></section>
 
+  <!-- ====================== STACK ====================== -->
+  <section id="stack"><div class="wrap">
+    <canvas class="sep" aria-hidden="true"></canvas>
+    <h2>Stack</h2>
+    <ul class="stack">
+      <li><span class="lab"><span data-l="en">Languages</span><span data-l="it">Linguaggi</span></span><span class="val">Python, C++, JavaScript, Bash</span></li>
+      <li><span class="lab"><span data-l="en">ML and data</span><span data-l="it">ML e dati</span></span><span class="val">PyTorch, ONNX Runtime, NumPy, pandas, scikit-learn, Streamlit</span></li>
+      <li><span class="lab">Web</span><span class="val">React, Vite, HTML, CSS, Firebase, Cloudflare</span></li>
+      <li><span class="lab"><span data-l="en">Hardware and simulation</span><span data-l="it">Hardware e simulazione</span></span><span class="val">ESP32, LoRa, Fusion 360, OpenRocket, FPGA, VHDL</span></li>
+      <li><span class="lab"><span data-l="en">Tools</span><span data-l="it">Strumenti</span></span><span class="val">Linux, Git, GitHub Actions, GNU Make</span></li>
+    </ul>
+  </div></section>
+
   <!-- ====================== CONTATTI ====================== -->
-  <div class="wrap"><hr class="rule"></div>
   <section id="contact"><div class="wrap">
-    <h2><span data-l="en">Let's talk</span><span data-l="it">Parliamone</span></h2>
-    <p class="lede" data-l="en">
-      Write to me if you work on Earth observation, onboard computing or rocketry; if you are building
-      something in Turin; or if you have a public dataset nobody has properly looked at yet.
-    </p>
-    <p class="lede" data-l="it">
-      Scrivimi se ti occupi di osservazione della Terra, calcolo di bordo o missilistica; se stai
-      costruendo qualcosa a Torino; o se hai un dataset pubblico che nessuno ha ancora guardato davvero.
-    </p>
-    <a class="mail" href="mailto:fedefas.210@gmail.com">fedefas.210@gmail.com</a>
-    <div class="pills" style="justify-content:flex-start">
-      <a class="pill pill--on" href="https://www.linkedin.com/in/federico-fassio-202a623b8/" rel="me">LinkedIn</a>
-      <a class="pill" href="https://github.com/DoubleF35" rel="me">GitHub</a>
-      <a class="pill" href="https://www.instagram.com/federicofassioo/" rel="me">Instagram</a>
+    <canvas class="sep" aria-hidden="true"></canvas>
+    <h2><span data-l="en">Contact</span><span data-l="it">Contatti</span></h2>
+    <div class="contact">
+      <div>
+        <p data-l="en">Write to me if you work on Earth observation, onboard computing or rocketry, or if you are building something in Turin.</p>
+        <p data-l="it">Scrivimi se lavori su osservazione della Terra, calcolo di bordo o missilistica, o se stai costruendo qualcosa a Torino.</p>
+        <a class="mail" href="mailto:fedefas.210@gmail.com">fedefas.210@gmail.com</a>
+      </div>
+      <dl class="clist">
+        <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/federico-fassio-202a623b8/" rel="me">Federico Fassio</a></dd></div>
+        <div><dt>GitHub</dt><dd><a href="https://github.com/DoubleF35" rel="me">@DoubleF35</a></dd></div>
+        <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/federicofassioo/" rel="me">@federicofassioo</a></dd></div>
+        <div><dt>Space Eagle</dt><dd><a href="mailto:federico.fassio@spaceeagle.it">federico.fassio@spaceeagle.it</a></dd></div>
+      </dl>
     </div>
-    <dl class="kv">
-      <div>
-        <dt data-l="en">Other email</dt><dt data-l="it">Altra email</dt>
-        <dd><a href="mailto:federico.fassio@spaceeagle.it">federico.fassio@spaceeagle.it</a></dd>
-      </div>
-      <div>
-        <dt>Team</dt>
-        <dd><a href="https://www.spaceeagle.it">spaceeagle.it</a></dd>
-      </div>
-      <div>
-        <dt>EdUnity</dt>
-        <dd><a href="https://edunityedu.it">edunityedu.it</a></dd>
-      </div>
-      <div>
-        <dt data-l="en">Where</dt><dt data-l="it">Dove</dt>
-        <dd>Torino, Italia</dd>
-      </div>
-    </dl>
   </div></section>
 
 </main>
 
-<footer>
-  <div class="wrap">
-    <svg class="foot-mark" viewBox="0 0 26 16" aria-hidden="true"><rect x="0" y="6" width="2.6" height="4" rx="1.3"/><rect x="5.6" y="3" width="2.6" height="10" rx="1.3"/><rect x="11.2" y="0" width="2.6" height="16" rx="1.3"/><rect x="16.8" y="3" width="2.6" height="10" rx="1.3"/><rect x="22.4" y="6" width="2.6" height="4" rx="1.3"/></svg>
-
-    <p data-l="en">© 2026 Federico Fassio · One page, no framework, no build step · <a href="https://github.com/DoubleF35/doublef35.github.io">source</a></p>
-    <p data-l="it">© 2026 Federico Fassio · Una pagina sola, nessun framework, nessun build step · <a href="https://github.com/DoubleF35/doublef35.github.io">sorgente</a></p>
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p data-l="en">© 2026 Federico Fassio, Turin</p>
+    <p data-l="it">© 2026 Federico Fassio, Torino</p>
+    <p><a href="https://github.com/DoubleF35/doublef35.github.io"><span data-l="en">Source on GitHub</span><span data-l="it">Sorgente su GitHub</span></a></p>
   </div>
 </footer>
 
 <script>
-/* -------- Menu mobile ---------------------------------------------------
-   La <ul> è una sola: il CSS la trasforma in pannello sotto i 700 px, qui
-   si apre e si chiude. Si chiude anche al clic su un link e con Escape.  */
-(function(){
-  var b = document.getElementById('burger');
-  var root = document.documentElement;
-  if(!b) return;
-  function set(open){
-    root.classList.toggle('menu-open', open);
-    b.setAttribute('aria-expanded', open ? 'true' : 'false');
-  }
-  b.addEventListener('click', function(){ set(!root.classList.contains('menu-open')); });
-  var list = document.getElementById('navlinks');
-  if(list) list.addEventListener('click', function(e){ if(e.target.closest('a')) set(false); });
-  addEventListener('keydown', function(e){ if(e.key === 'Escape') set(false); });
-  matchMedia('(min-width:701px)').addEventListener('change', function(m){ if(m.matches) set(false); });
-})();
-
-/* -------- La barra si materializza dopo i primi 40 px --------------------
-   Un listener passivo e una classe: nessuna libreria per una cosa sola.   */
-(function(){
-  var nav = document.getElementById('nav');
-  if(!nav) return;
-  var on = false;
-  function check(){
-    var want = window.scrollY > 40;
-    if(want !== on){ on = want; nav.classList.toggle('is-stuck', on); }
-  }
-  addEventListener('scroll', check, {passive:true});
-  check();
-})();
-
 /* -------- Lingua ---------------------------------------------------------
-   Il toggle riscrive solo html[data-lang]: il resto lo fa il CSS.          */
+   Il pulsante riscrive solo html[data-lang]: il resto lo fa il CSS.       */
 (function(){
   var box = document.getElementById('lang');
   if(!box) return;
   box.addEventListener('click', function(e){
     var b = e.target.closest('button');
     if(!b) return;
-    var v = b.value;
-    document.documentElement.setAttribute('data-lang', v);
-    document.documentElement.setAttribute('lang', v);
-    try{ localStorage.setItem('lang', v); }catch(err){}
-    if(window.retype) window.retype();
+    document.documentElement.setAttribute('data-lang', b.value);
+    document.documentElement.setAttribute('lang', b.value);
+    try{ localStorage.setItem('lang', b.value); }catch(err){}
   });
 })();
 
-/* -------- Le righe che si scrivono da sole -------------------------------
-   Le stesse del typing SVG nel README, scritte a mano invece che chieste a
-   un servizio esterno, e in due lingue. Con reduced-motion resta la prima. */
+/* -------- Menu sul telefono ----------------------------------------------
+   La <ul> della barra diventa un pannello a tutto schermo sotto i 760 px.
+   Qui si apre e si chiude: al clic su un link, con Escape, e se lo schermo
+   si allarga. Il fuoco entra nel pannello e torna al pulsante.           */
 (function(){
-  var el = document.getElementById('typing');
-  if(!el) return;
+  var b = document.getElementById('burger'), list = document.getElementById('navlinks');
+  var root = document.documentElement;
+  if(!b || !list) return;
+  function set(open, keepFocus){
+    root.classList.toggle('menu-open', open);
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if(open){ var a = list.querySelector('a'); if(a) setTimeout(function(){ a.focus(); }, 30); }
+    else if(!keepFocus) b.focus();
+  }
+  b.addEventListener('click', function(){ set(!root.classList.contains('menu-open')); });
+  list.addEventListener('click', function(e){ if(e.target.closest('a') && root.classList.contains('menu-open')) set(false, true); });
+  addEventListener('keydown', function(e){ if(e.key === 'Escape' && root.classList.contains('menu-open')) set(false); });
+  var wide = matchMedia('(min-width:761px)');
+  var onWide = function(m){ if(m.matches && root.classList.contains('menu-open')) set(false, true); };
+  if(wide.addEventListener) wide.addEventListener('change', onWide);
+})();
 
-  var LINES = {
-    en: [
-      'Onboard ML for satellites',
-      'Sentinel-1 SAR → ice maps → Arctic routes',
-      'An INT8 U-Net segmenting sea ice at 550 km',
-      'Rockets designed in simulation, flown, recovered',
-      'F4 timing PDFs → 416 laps, 2 ms tolerance',
-      'Water rockets, CubeSats, startups. From Torino.'
-    ],
-    it: [
-      'ML di bordo per satelliti',
-      'SAR Sentinel-1 → mappe del ghiaccio → rotte artiche',
-      'Una U-Net INT8 che segmenta il ghiaccio a 550 km',
-      'Razzi progettati in simulazione, lanciati, recuperati',
-      'PDF cronometrici F4 → 416 giri, 2 ms di tolleranza',
-      'Razzi ad acqua, CubeSat, startup. Da Torino.'
-    ]
-  };
+/* -------- Il pettine dell'hero --------------------------------------------
+   Barra per barra su un <canvas>. Scorrendo, la luce si comprime verso
+   l'orizzonte come un impulso radar compresso in range: le barre si
+   abbassano, prima ai bordi e poi al centro, finché resta una riga che sale
+   con la pagina e diventa il bordo inferiore della barra di navigazione.
 
-  function lang(){ return document.documentElement.getAttribute('data-lang') === 'it' ? 'it' : 'en'; }
-  function write(s){ el.firstChild.nodeValue = s; }
+   Il campo di luce sta in una texture minuscola (quattro texel per barra:
+   bordo, barra, barra, fessura) che a ogni fotogramma viene stirata barra
+   per barra. Un fotogramma costa meno di un millisecondo anche su telefono,
+   e il ciclo si ferma da solo appena la luce smette di muoversi: da fermo
+   non si ridisegna niente.                                                */
+(function(){
+  var hero = document.querySelector('.hero');
+  var nav = document.getElementById('nav');
+  var cv = hero && hero.querySelector('.hero__comb');
+  if(!cv || !nav || !cv.getContext) return;
+  var ctx = cv.getContext('2d');
+  if(!ctx) return;
+  var sky = hero.querySelector('.hero__sky');
+  var hz = hero.querySelector('.hero__horizon');
+  var dockEl = nav.querySelector('.nav__comb');
+  var rootStyle = document.documentElement.style;
+  var mq = window.matchMedia ? matchMedia('(prefers-reduced-motion: reduce)') : { matches:false };
+  var still = mq.matches;
 
-  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var i = 0, n = 0, del = false, timer = null;
+  // VS: la luce è liscia in verticale, il dettaglio è nel pettine, quindi il
+  // canvas ha mezza risoluzione in altezza: metà pixel da riempire.
+  var VS = .5, TH = 128, UH = 24, DMAX = .3, INTRO = 1400, GAP = .5, MAXPX = 9e6;
+  var dpr, sy, W = 0, H = 0, O = 0, P, n, half, x0, navH = 56;
+  var cols, under, halo, delay, vein;
+  var qs = -1, lastT = 0, raf = 0, onScreen = true, stuck = false;
+  var introAt = 0, introDone = false, lastC = -1, lastDist = 1e9;
+  var hzO = '', hzT = '', skyO = '', dockO = '';
 
-  window.retype = function(){
-    clearTimeout(timer);
-    i = 0; n = 0; del = false;
-    if(still){ write(LINES[lang()][0]); return; }
-    write('');
-    timer = setTimeout(tick, 260);
-  };
+  function clamp(v, a, b){ if(a === undefined){ a = 0; b = 1; } return v < a ? a : v > b ? b : v; }
+  function sstep(a, b, v){ v = clamp((v - a) / (b - a)); return v * v * (3 - 2 * v); }
+  function g2(x){ return Math.exp(-x * x); }
 
-  function tick(){
-    var lines = LINES[lang()], line = lines[i % lines.length];
-    n += del ? -1 : 1;
-    write(line.slice(0, n));
-    var wait = del ? 28 : 55;
-    if(!del && n >= line.length){ del = true; wait = 2000; }
-    else if(del && n <= 0){ del = false; i++; wait = 300; }
-    timer = setTimeout(tick, wait);
+  // Rampa per intensità: blu profondo, fascio, ciano. Si ferma al ciano:
+  // il riferimento non arriva mai al bianco pieno, e nemmeno noi.
+  var RAMP = [[0,8,22,76,0],[.1,10,34,112,.34],[.25,18,62,180,.72],[.42,36,108,240,.95],
+    [.58,58,148,250,1],[.72,92,186,252,1],[.85,132,212,255,1],[.95,160,226,255,1],[1,178,234,255,1]];
+  function px(d, k, I, a){
+    I = clamp(I); var j = 1;
+    while(RAMP[j][0] < I) j++;
+    var A = RAMP[j - 1], Z = RAMP[j], f = (I - A[0]) / (Z[0] - A[0]);
+    for(var c = 1; c < 4; c++) d[k + c - 1] = A[c] + (Z[c] - A[c]) * f;
+    d[k + 3] = 255 * a * (A[4] + (Z[4] - A[4]) * f);
+  }
+  function tex(w, h, fn){
+    var c = document.createElement('canvas'); c.width = w; c.height = h;
+    var x = c.getContext('2d'), im = x.createImageData(w, h);
+    for(var r = 0; r < h; r++) for(var i = 0; i < w; i++) fn(im.data, (r * w + i) * 4, i, r);
+    x.putImageData(im, 0, 0); return c;
+  }
+  // Una barra è fatta di quattro texel: bordo, barra, barra, fessura. Stirati
+  // su 8-10 pixel danno una lamella netta ma non tagliente, con la fessura
+  // che resta blu: la luce si vede anche fra un dente e l'altro.
+  function slat(I, q){ var s = I * (GAP + (1 - GAP) * I * I); return q === 3 ? s : q === 0 ? (I + s) / 2 : I; }
+
+  function measure(){
+    W = hero.clientWidth; H = hero.offsetHeight; navH = nav.offsetHeight || navH;
+    O = Math.round(Math.min(220, H * .24));
+  }
+  function sizeCanvas(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var area = W * (H + O) * VS;
+    if(area * dpr * dpr > MAXPX) dpr = Math.max(1, Math.sqrt(MAXPX / area));
+    sy = dpr * VS;
+    cv.width = Math.round(W * dpr); cv.height = Math.round((H + O) * sy);
+    cv.style.height = H + O + 'px'; cv.style.bottom = -O + 'px';
   }
 
-  if(still){ write(LINES[lang()][0]); return; }
-  timer = setTimeout(tick, 1800);
+  function build(){
+    measure(); sizeCanvas();
+    var pitch = W < 520 ? 4 : 5;
+    P = Math.max(3, Math.round(pitch * dpr));
+    var Wd = cv.width;
+    half = Math.ceil(Wd / 2 / P) + 1;
+    n = half * 2 + 1; x0 = Math.round(Wd / 2 - P / 2) - half * P;
+    // Le due righe in CSS (orizzonte e bordo della barra) usano lo stesso passo.
+    rootStyle.setProperty('--comb-p', P / dpr + 'px');
+    rootStyle.setProperty('--comb-x', ((x0 / dpr) % (P / dpr)) + 'px');
+
+    // Il cumulo: basso e largo, picco ciano a circa tre quarti dell'altezza,
+    // e una base blu che arriva ai bordi come un orizzonte. Sopra resta buio:
+    // il titolo sta sul cielo, non dentro la luce.
+    var port = H > W * 1.1, vc = port ? .74 : .76, vb = vc + .07;
+    var rc = port ? W * .42 : Math.min(W * .3, 640), rb = port ? W * .85 : W * .72;
+    function dxOf(i){ return (x0 + (i + .5) * P) / dpr - W / 2; }
+    function field(dx, v){
+      return 1 - Math.exp(-1.3 * (
+        g2(dx / rc) * g2((v - vc) / (v < vc ? .16 : .2)) +
+        .7 * g2(dx / rb) * g2((v - vb) / (v < vb ? .15 : .22)) +
+        .2 * g2((1 - v) / .12)));
+    }
+    // Venature ferme: ogni colonna lascia passare un po' più o meno luce.
+    var s = 7; function rnd(){ return (s = (s * 16807) % 2147483647) / 2147483647; }
+    var F = new Float32Array(n * TH), bot = new Float32Array(n), st = 0, i, r, k, dx;
+    for(i = 0; i < n; i++){
+      st = st * .8 + (rnd() - .5) * .9;
+      dx = dxOf(i); k = 1 + .035 * st;
+      bot[i] = field(dx, 1) * k;
+      for(r = 0; r < TH; r++) F[r * n + i] = field(dx, r / (TH - 1)) * k;
+    }
+    cols = tex(4 * n, TH, function(d, o, x, r){ px(d, o, slat(F[r * n + (x >> 2)], x & 3), 1); });
+    under = tex(4 * n, UH, function(d, o, x, r){ var w = r / (UH - 1); px(d, o, slat(bot[x >> 2], x & 3) * g2(w / .62), g2(w / .5)); });
+    halo = tex(n, 16, function(d, o, i, r){ px(d, o, .4, .5 * g2(dxOf(i) / (W * .5)) * g2((r - 7.5) / 3.4)); });
+
+    // Ritardo per barra, a campana: i bordi cedono per primi, il centro per
+    // ultimo, e la sagoma che resta è sempre una curva liscia.
+    delay = new Float32Array(n); vein = new Float32Array(n);
+    for(i = 0; i < n; i++){
+      var u = (i - half) / half;
+      delay[i] = DMAX * g2(u / .42);
+      vein[i] = .6 * Math.sin(.071 * i + 4.1) + .4 * Math.sin(.19 * i + 1.3);
+    }
+    lastC = -1;
+  }
+
+  // c: 0 = cumulo pieno, 1 = solo orizzonte. dist: px fra orizzonte e barra.
+  function draw(c, dist){
+    var Wd = cv.width, yH = Math.round(H * sy), top = yH, i, x, e, h, a;
+    var uh = O * sy * (1 - .9 * sstep(0, .8, c));
+    // Nel primo tratto di scroll anche il centro si abbassa un poco: il
+    // primo colpo di pollice deve già spostare la luce.
+    var squeeze = 1 - .16 * sstep(0, .3, c);
+    ctx.clearRect(0, 0, Wd, cv.height);
+    for(i = 0; i < n; i++){
+      x = clamp((c - delay[i]) / (1 - DMAX));
+      e = 1 - (1 - x) * (1 - x);
+      if(e >= 1) continue;
+      h = yH * (1 + .05 * vein[i]) * (1 - e) * squeeze;
+      a = clamp(.97 + .03 * vein[i]) * (1 - sstep(.72, 1, e));
+      if(h < 1 || a <= 0) continue;
+      ctx.globalAlpha = a;
+      ctx.drawImage(cols, 4 * i, 0, 4, TH, x0 + i * P, yH - h, P, h);
+      // Sotto l'orizzonte la luce si spegne nella pagina. Ogni colonna segue
+      // la sua barra: nessun gradino dove finisce l'hero.
+      if(uh > .5) ctx.drawImage(under, 4 * i, 0, 4, UH, x0 + i * P, yH, P, uh);
+      if(yH - h < top) top = yH - h;
+    }
+    // La riga d'orizzonte (CSS) si accende mentre il cumulo si schiaccia e
+    // passa il testimone alla barra in ±3 px, quando le due righe coincidono.
+    var la = sstep(.15, .6, c) * clamp((dist + 3) / 3);
+    if(la > 0){
+      var hh = (80 - 56 * sstep(.2, 1, c)) * sy;
+      ctx.globalAlpha = la * (.9 - .5 * c) * clamp(dist / 48);
+      ctx.drawImage(halo, 0, 0, n, 16, x0, yH - hh / 2, n * P, hh);
+    }
+    ctx.globalAlpha = 1;
+    if(hz){
+      var o = la.toFixed(3), t = 'scaleY(' + (1 - 2 * sstep(.4, .95, c) / 3).toFixed(3) + ')';
+      if(o !== hzO) hz.style.opacity = hzO = o;
+      if(t !== hzT) hz.style.transform = hzT = t;
+    }
+  }
+
+  // La barra si materializza appena si scorre; quando l'orizzonte la
+  // raggiunge, il suo bordo inferiore diventa la stessa riga a pettine.
+  function dock(dist){
+    if(dockEl){
+      var o = still ? String(+(dist <= 0)) : (1 - clamp(dist / 3)).toFixed(3);
+      if(o !== dockO) dockEl.style.opacity = dockO = o;
+    }
+    var s = window.scrollY > 4;
+    if(s !== stuck) nav.classList.toggle('is-stuck', stuck = s);
+  }
+
+  function frame(t){
+    raf = 0;
+    var y = Math.max(0, window.scrollY), dist = H - y - navH;
+    dock(dist);
+    if(!onScreen || document.hidden) return;
+    if(still){
+      if(lastC !== 0){ draw(0, dist); lastC = 0; lastDist = dist; }
+      return;
+    }
+    var dt = Math.min(64, t - (lastT || t)); lastT = t;
+    var q = clamp(y / Math.max(1, H - navH));
+    // Smorzamento corto: la luce segue lo scroll come un ago, non a scatti.
+    if(qs < 0) qs = q;
+    qs += (q - qs) * (1 - Math.exp(-dt / 85)); if(Math.abs(q - qs) < 4e-4) qs = q;
+    // Il cumulo sale dall'orizzonte una volta sola, dopo i font e il primo
+    // disegno della pagina. Finché non parte, resta solo l'orizzonte.
+    var k = introDone ? 1 : introAt ? clamp((t - introAt) / INTRO) : 0;
+    if(k >= 1) introDone = true;
+    var c = Math.max(qs, Math.pow(1 - k, 3));
+    if(Math.abs(c - lastC) > 1e-4 || Math.abs(dist - lastDist) > .5){
+      draw(c, dist); lastC = c; lastDist = dist;
+      if(sky){ var so = (1 - .75 * sstep(0, .9, qs)).toFixed(3); if(so !== skyO) sky.style.opacity = skyO = so; }
+    }
+    // Il ciclo vive solo mentre qualcosa si muove.
+    if(qs !== q || (introAt && !introDone)) raf = requestAnimationFrame(frame);
+  }
+
+  function kick(){ if(!raf) raf = requestAnimationFrame(frame); }
+  function onResize(){
+    var w = hero.clientWidth, h = hero.offsetHeight;
+    if(w !== W || Math.abs(h - H) > 120){ build(); }
+    else { measure(); sizeCanvas(); lastC = -1; }
+    kick();
+  }
+
+  addEventListener('scroll', kick, { passive:true });
+  addEventListener('resize', onResize);
+  if(window.ResizeObserver) new ResizeObserver(function(){
+    if(hero.clientWidth !== W || hero.offsetHeight !== H) onResize();
+  }).observe(hero);
+  document.addEventListener('visibilitychange', function(){ lastT = 0; kick(); });
+  if(window.IntersectionObserver) new IntersectionObserver(function(es){
+    onScreen = es[es.length - 1].isIntersecting;
+    lastT = 0; kick();
+  }).observe(cv);
+  if(mq.addEventListener) mq.addEventListener('change', function(){
+    still = mq.matches; lastC = -1; qs = -1; introDone = true;
+    if(sky) sky.style.opacity = skyO = '';
+    kick();
+  });
+
+  build();
+  // Se la pagina si apre già scesa (un link a #progetti, un ricaricamento),
+  // niente salita del cumulo: si disegna direttamente lo stato giusto.
+  if(still || window.scrollY > 40) introDone = true;
+  else {
+    var go = function(){ if(!introAt) requestAnimationFrame(function(t){ introAt = t; kick(); }); };
+    if(document.fonts && document.fonts.ready) document.fonts.ready.then(go);
+    setTimeout(go, 1500);
+  }
+  kick();
+})();
+
+/* -------- I divisori ------------------------------------------------------
+   Un righello sottile fra una sezione e l'altra: tacche da 1 px, altezza a
+   campana come il cumulo dell'hero, una tacca più alta ogni dieci. Quando
+   il divisore entra in vista, una testa lo percorre da sinistra a destra e
+   ogni tacca si accende al passaggio, come un'eco, poi si assesta.
+   Succede una volta sola per divisore; da quel momento è un disegno fermo. */
+(function(){
+  var els = document.querySelectorAll('canvas.sep');
+  if(!els.length) return;
+  var still = (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) || !window.IntersectionObserver;
+  var SWEEP = 900, DECAY = 320, BEAM = '#2f7dff', LIT = '#cfe6ff';
+
+  function Sep(el){
+    var c = el.getContext && el.getContext('2d');
+    if(!c) return;
+    var W, H, dpr, pitch, n, done = still;
+    function size(){
+      W = el.clientWidth; H = el.clientHeight; dpr = Math.min(window.devicePixelRatio || 1, 2);
+      el.width = Math.round(W * dpr); el.height = Math.round(H * dpr);
+      pitch = W < 520 ? 4 : 6; n = Math.floor((W - 1) / pitch) + 1;
+    }
+    function draw(t){ // t: ms dall'inizio della passata; Infinity = assestato
+      c.setTransform(dpr, 0, 0, dpr, 0, 0); c.clearRect(0, 0, W, H);
+      var head = t / SWEEP * (W + 60) - 30, i, x, u, env, rest, e, h;
+      for(i = 0; i < n; i++){
+        x = i * pitch; u = (x - W / 2) / (W * .3); env = Math.exp(-u * u);
+        rest = Math.min(H, H * (.16 + .5 * env) * (i % 10 === 0 ? 1.7 : 1));
+        if(x > head){
+          c.globalAlpha = .16; c.fillStyle = BEAM;
+          c.fillRect(x, H - rest * .55, 1, rest * .55);
+          continue;
+        }
+        e = t === Infinity ? 0 : Math.exp(-Math.max(0, t - (x + 30) / (W + 60) * SWEEP) / DECAY);
+        h = rest + (H - rest) * .85 * e;
+        c.globalAlpha = Math.min(1, .3 + .62 * env + .25 * e);
+        c.fillStyle = e > .3 ? LIT : BEAM;
+        c.fillRect(x, H - h, 1, h);
+      }
+      c.globalAlpha = 1;
+    }
+    function run(t0){
+      requestAnimationFrame(function step(now){
+        var t = now - t0;
+        if(t > SWEEP + DECAY * 5){ done = true; draw(Infinity); return; }
+        draw(t); requestAnimationFrame(step);
+      });
+    }
+    size(); draw(done ? Infinity : -1);
+    this.resize = function(){ size(); draw(done ? Infinity : -1); };
+    if(done) return;
+    var io = new IntersectionObserver(function(en){
+      if(en[en.length - 1].isIntersecting){ io.disconnect(); run(performance.now()); }
+    }, { threshold:1, rootMargin:'0px 0px -18% 0px' });
+    io.observe(el);
+  }
+
+  var list = [], w0 = window.innerWidth;
+  for(var i = 0; i < els.length; i++) list.push(new Sep(els[i]));
+  addEventListener('resize', function(){
+    if(window.innerWidth === w0) return;
+    w0 = window.innerWidth;
+    for(var j = 0; j < list.length; j++) if(list[j].resize) list[j].resize();
+  });
 })();
 </script>
 </body>
