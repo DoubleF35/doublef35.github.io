@@ -304,6 +304,13 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 .row__fig{grid-area:fig;padding-top:10px}
 /* Ogni foto nelle sue proporzioni: width e height veri sull'<img>, nessun ritaglio. */
 .row__fig .frame img{height:auto}
+/* CubeSAR: la foto verticale a sinistra, CAD e banco impilati a destra.
+   Le colonne stanno a 1,13 : 1 perché le due altezze coincidano; la foto
+   grande riempie l'altezza della colonna destra e perde al massimo pochi px. */
+.mosaic{display:grid;grid-template-columns:minmax(0,1.13fr) minmax(0,1fr);gap:16px;align-content:start}
+.mosaic__big{grid-row:1 / span 2;position:relative}
+.row__fig .mosaic__big img{position:absolute;inset:0;height:100%}
+.mosaic figcaption{grid-column:1 / -1;margin-top:-6px}
 
 /* f4kit non ha ancora una foto: al suo posto l'invariante che regge il
    parser, scritto come una formula. Quando la foto c'è, si sostituisce. */
@@ -460,6 +467,8 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
   .row .meta > span + span::before{content:" · "}
   .row h3{margin-bottom:20px;font-size:clamp(38px, 10.5vw, 46px)}
   .row__fig{padding-top:0;margin-bottom:22px}
+  .mosaic{gap:10px}
+  .mosaic figcaption{margin-top:0}
 
   .more{grid-template-columns:1fr;margin-top:64px}
   .more h3{padding:0 0 14px}
@@ -650,8 +659,12 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
     <article class="row" id="cubesar">
       <p class="meta"><span>Project manager</span><span><span data-l="en">In development</span><span data-l="it">In sviluppo</span></span></p>
       <h3><a href="https://github.com/DoubleF35/CubeSAR">CubeSAR</a></h3>
-      <figure class="row__fig">
-        <span class="frame"><img src="img/cubesar.png" width="1600" height="1100" alt="CubeSAR" loading="lazy"></span>
+      <figure class="row__fig mosaic">
+        <span class="frame mosaic__big"><img src="img/cubesar-2u.jpg" width="1200" height="1600" alt="CubeSAR 2U assembled, held in one hand" data-alt-it="CubeSAR 2U montato, tenuto in una mano" loading="lazy"></span>
+        <span class="frame"><img src="img/cubesar.png" width="1600" height="1100" alt="CubeSAR CAD model" data-alt-it="Il modello CAD di CubeSAR" loading="lazy"></span>
+        <span class="frame"><img src="img/cubesar-banco.jpg" width="1600" height="1200" alt="CubeSAR frame and electronics on the bench, with Seeker-II behind" data-alt-it="Struttura ed elettronica di CubeSAR sul banco, dietro Seeker-II" loading="lazy"></span>
+        <figcaption data-l="en">Left, the assembled 2U. Right, the CAD model and the frame on the bench.</figcaption>
+        <figcaption data-l="it">A sinistra il 2U montato. A destra il modello CAD e la struttura sul banco.</figcaption>
       </figure>
       <div class="row__text">
         <p data-l="en">
