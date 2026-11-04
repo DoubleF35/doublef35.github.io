@@ -557,10 +557,11 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 .crumb a{display:inline-flex;align-items:center;min-height:44px;color:var(--paper-mute)}
 .proj .row,.proj .flag{padding-top:28px;padding-bottom:0;border-bottom:0}
 .gal{margin-top:64px}
-/* Un video breve dentro il testo del progetto: parte solo con play, senza
-   audio, con la copertina finché non si avvia. */
+/* Un video breve dentro il testo del progetto: muto, parte da solo e si
+   ripete come una foto che si muove. Un tocco lo ferma e lo fa ripartire;
+   con "riduci movimento" resta fermo sulla copertina, con i comandi. */
 .vid{margin:30px 0 26px}
-.vid video{display:block;width:100%;height:auto;aspect-ratio:4 / 3;background:var(--ink-2)}
+.vid video{display:block;width:100%;height:auto;aspect-ratio:4 / 3;background:var(--ink-2);cursor:pointer}
 .photos--fit{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
 .pnav{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:var(--gap);margin:80px 0 96px;border-top:1px solid var(--line)}
 .pnav a{display:block;padding:22px 0 0;color:inherit;text-decoration:none}

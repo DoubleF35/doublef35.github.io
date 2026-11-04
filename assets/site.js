@@ -437,3 +437,26 @@
   if('ResizeObserver' in window) new ResizeObserver(kick).observe(tl);
   measure(); update();
 })();
+
+/* I video brevi (muted, autoplay, loop) girano solo quando sono in vista,
+   così fuori schermo non consumano batteria. Un tocco li ferma e li fa
+   ripartire. Con "riduci movimento" restano fermi, con i comandi. */
+(function(){
+  var vs = document.querySelectorAll('video[autoplay][loop]');
+  if(!vs.length) return;
+  var mq = window.matchMedia ? matchMedia('(prefers-reduced-motion: reduce)') : null;
+  function play(v){ var p = v.play(); if(p && p.catch) p.catch(function(){}); }
+  for(var i = 0; i < vs.length; i++) (function(v){
+    v.muted = true;
+    if(mq && mq.matches){ v.removeAttribute('autoplay'); v.pause(); v.controls = true; return; }
+    var held = false;
+    v.addEventListener('click', function(){ held = !v.paused; if(held) v.pause(); else play(v); });
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){
+        for(var k = 0; k < es.length; k++){
+          if(es[k].isIntersecting){ if(!held) play(v); } else v.pause();
+        }
+      }, { threshold: .2 }).observe(v);
+    }
+  })(vs[i]);
+})();
