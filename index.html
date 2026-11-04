@@ -827,11 +827,11 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
       <h3><a href="https://github.com/DoubleF35/Seeker-II"><span data-l="en">Seeker programme</span><span data-l="it">Programma Seeker</span></a></h3>
       <figure class="row__fig quad">
         <span class="frame"><img src="img/seeker-one.jpg" width="900" height="1200" alt="Seeker-One, a black model rocket with four swept fins, held in one hand" data-alt-it="Seeker-One, un razzo modellistico nero con quattro alette a freccia, tenuto in una mano" loading="lazy"></span>
-        <span class="frame"><img src="img/seeker-one-recupero.jpg" width="900" height="1200" alt="Seeker-One's recovery system hung on a wall: parachute, nose cone and body on one cord" data-alt-it="Il sistema di recupero di Seeker-One appeso al muro: paracadute, ogiva e corpo sullo stesso cavo" loading="lazy"></span>
-        <span class="frame"><img src="img/primo-razzo-2024.jpg" width="900" height="675" alt="My first rocket, 2024, on the desk next to the soldering station" data-alt-it="Il mio primo razzo, 2024, sulla scrivania accanto alla stazione di saldatura" loading="lazy"></span>
+        <span class="frame"><img src="img/seeker-one-recupero.jpg" width="900" height="1200" alt="Seeker-One hung on a wall by its parachute, with the nose cone and the body below it on the same cord" data-alt-it="Seeker-One appeso al muro per il paracadute, con l'ogiva e il corpo più in basso sullo stesso cordino" loading="lazy"></span>
+        <span class="frame"><img src="img/primo-razzo-2024.jpg" width="900" height="675" alt="My first rocket, 2024, held in one hand above my desk: a grey body with a clear top section showing the electronics" data-alt-it="Il mio primo razzo, 2024, tenuto in una mano sopra la scrivania: corpo grigio e sezione superiore trasparente con l'elettronica a vista" loading="lazy"></span>
         <span class="frame"><img src="img/seeker-ii.jpeg" width="1600" height="1200" alt="Seeker-II on the desk" data-alt-it="Seeker-II sulla scrivania" loading="lazy"></span>
-        <figcaption data-l="en">Top, <span class="nw">Seeker-One</span> (2025) and its recovery system: parachute, nose cone and body on one cord. Bottom, my first rocket (2024) and <span class="nw">Seeker-II</span> (2026).</figcaption>
-        <figcaption data-l="it">Sopra, <span class="nw">Seeker-One</span> (2025) e il suo sistema di recupero: paracadute, ogiva e corpo sullo stesso cavo. Sotto, il mio primo razzo (2024) e <span class="nw">Seeker-II</span> (2026).</figcaption>
+        <figcaption data-l="en">Top, <span class="nw">Seeker-One</span> (2025), in hand and hung on the wall by its parachute. Bottom, my first rocket (2024) and <span class="nw">Seeker-II</span> (2026).</figcaption>
+        <figcaption data-l="it">Sopra, <span class="nw">Seeker-One</span> (2025), in mano e appeso al muro per il paracadute. Sotto, il mio primo razzo (2024) e <span class="nw">Seeker-II</span> (2026).</figcaption>
       </figure>
       <div class="row__text">
         <p data-l="en">
@@ -848,17 +848,28 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
         <p data-l="en">
           I built my first rocket in 2024, at 14. <span class="nw">Seeker-One</span> came the year after and set the
           baseline for the programme: geometry, stability margin, recovery under a parachute. What it
-          could not do was measure its own flight, so <span class="nw">Seeker-II</span> was built around that: it carries a
-          flight computer I designed, with an <span class="nw">ESP32-C3</span>, altimeter, IMU and LoRa telemetry at 433&nbsp;MHz.
+          could not do was measure its own flight, so <span class="nw">Seeker-II</span> was built around that.
         </p>
         <p data-l="it">
           Il mio primo razzo l'ho costruito nel 2024, a 14 anni. <span class="nw">Seeker-One</span> è arrivato l'anno dopo e
           ha fissato la base del programma: geometria, margine di stabilità, recupero con il
           paracadute. Quello che non poteva fare era misurare il proprio volo, e <span class="nw">Seeker-II</span> è nato
-          intorno a questo: porta un computer di volo progettato da me, con <span class="nw">ESP32-C3</span>, altimetro, IMU
-          e telemetria LoRa a 433&nbsp;MHz.
+          intorno a questo.
         </p>
-        <p class="specs num"><span class="nw">Seeker-II</span> · ≈364 g · Tsp E20-6 · ESP32-C3</p>
+        <p data-l="en">
+          <span class="nw">Seeker-II</span> carries a flight computer I designed, with an <span class="nw">ESP32-C3</span>, altimeter, IMU and
+          LoRa telemetry at 433&nbsp;MHz. On the ground, a second <span class="nw">ESP32</span> receives the packets, and a
+          dashboard I wrote in Python shows altitude, acceleration and signal strength live and saves
+          the flight to CSV. In the OpenRocket simulation it reaches 320&nbsp;m, at up to 82&nbsp;m/s.
+        </p>
+        <p data-l="it">
+          <span class="nw">Seeker-II</span> porta un computer di volo progettato da me, con <span class="nw">ESP32-C3</span>, altimetro, IMU e
+          telemetria LoRa a 433&nbsp;MHz. A terra un secondo <span class="nw">ESP32</span> riceve i pacchetti, e una
+          dashboard che ho scritto in Python mostra in diretta quota, accelerazione e potenza del
+          segnale, e salva il volo in CSV. Nella simulazione OpenRocket arriva a 320&nbsp;m, con una
+          velocità massima di 82&nbsp;m/s.
+        </p>
+        <p class="specs num"><span class="nw">Seeker-II</span>&nbsp;· <span class="nw">≈364 g</span>&nbsp;· <span class="nw">Tsp E20-6</span>&nbsp;· <span class="nw">ESP32-C3</span></p>
         <p class="links">
           <a href="https://github.com/DoubleF35/Seeker-II">Repository</a>
           <a href="https://www.thingiverse.com/thing:7338519"><span data-l="en">CAD model</span><span data-l="it">Modello CAD</span></a>
