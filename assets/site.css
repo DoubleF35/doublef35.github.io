@@ -251,6 +251,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 .mosaic__big{grid-row:1 / span 2;position:relative}
 .row__fig .mosaic__big img{position:absolute;inset:0;height:100%}
 .mosaic figcaption{grid-column:1 / -1;margin-top:-6px}
+.fig-next{margin-top:32px}
 /* Seeker: sopra le due verticali di Seeker-One (3:4), sotto due orizzontali
    (4:3). Stesse proporzioni per riga, quindi le altezze coincidono da sole. */
 .quad{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-content:start}
@@ -482,6 +483,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
   .row h3,.row h1{margin-bottom:20px;font-size:clamp(38px, 10.5vw, 46px)}
   .row__fig{padding-top:0;margin-bottom:22px}
   .mosaic,.quad{gap:10px}
+  .fig-next{margin-top:24px}
   .mosaic figcaption,.quad figcaption{margin-top:0}
 
   .more{grid-template-columns:1fr;margin-top:64px}
