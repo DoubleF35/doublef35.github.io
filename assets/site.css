@@ -407,7 +407,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
   .nav__links{gap:20px}
   .nav__in{gap:22px}
   .about,.contact{grid-template-columns:1fr;row-gap:40px}
-  .about .portrait{max-width:300px}
+  .about .portrait{width:100%;max-width:420px;margin-inline:auto}
   .flag{grid-template-columns:1fr}
   .flag__text,.flag__main,.flag__pair{grid-column:1;grid-row:auto}
   .flag__main{margin-top:24px}
@@ -467,7 +467,8 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
   .sep{height:16px;margin-bottom:40px}
   h2{margin-bottom:36px;font-size:clamp(44px, 12vw, 58px)}
   .about p,.contact p{font-size:18px}
-  .about .portrait{max-width:240px}
+  .about .portrait{max-width:none}
+  .about .portrait .frame{aspect-ratio:4 / 5}
 
   .flag{padding-bottom:64px}
   .flag h3,.flag h1{font-size:clamp(50px, 14vw, 64px)}

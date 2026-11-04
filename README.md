@@ -11,8 +11,8 @@ il branch `main` sul dominio scritto in `CNAME`.
 - `assets/site.css` e `assets/site.js`: stile e script comuni a tutte le
   pagine. Ogni script controlla da solo se nella pagina c'è il suo pezzo
   (l'hero, la timeline, i divisori), quindi si include sempre lo stesso file.
-- Le pagine li includono con un numero di versione (`site.css?v=3`,
-  `site.js?v=3`). **Ogni volta che cambi `site.css` o `site.js`, alza quel
+- Le pagine li includono con un numero di versione (`site.css?v=4`,
+  `site.js?v=4`). **Ogni volta che cambi `site.css` o `site.js`, alza quel
   numero in tutte le pagine** (cerca `?v=`): i browser, Safari sul
   telefono in particolare, tengono in memoria il file vecchio fino a
   10 minuti, e una pagina nuova con lo stile vecchio si vede rotta.
@@ -63,7 +63,8 @@ prima che la foto arrivi, così la pagina non salta.
 uguali non serve toccare niente. Se cambiano, aggiorna `width` e `height`.
 
 **Il ritratto** in About è `img/ritratto.jpeg`, mostrato quadrato e
-centrato in alto sul viso. Va bene qualsiasi proporzione: viene ritagliato.
+centrato in alto sul viso; su telefono è a tutta larghezza e in
+verticale 4:5. Va bene qualsiasi proporzione: viene ritagliato.
 
 **CubeSAR (`cubesar/`) ha tre foto del 2U in un mosaico**: `cubesar-2u.jpg`
 (la demo da banco, verticale 3:4) a sinistra, `cubesar-2u-cad.jpg` (il
@@ -72,8 +73,8 @@ impilati a destra. Le colonne stanno a 1,13 : 1 (regola `.mosaic` nel CSS)
 perché le due altezze coincidano. Se cambi una di queste foto con una di
 proporzioni diverse, quel rapporto va ricalcolato. Sotto il mosaico c'è
 il CAD del 6U, `cubesar.png`, in una figura a sé (`.fig-next`). In fondo
-alla pagina c'è una galleria con la foto verticale 2:3 del 2U,
-`cubesar-2u-foto.jpg` (regola `.photos--tall`: su telefono a tutta
+alla pagina c'è una galleria con il poster verticale 2:3 del 2U,
+`cubesar-2u-poster.jpg` (regola `.photos--tall`: su telefono a tutta
 larghezza).
 
 **Seeker (`seeker/`) ha quattro foto in una griglia 2×2** (regola `.quad`): sopra
