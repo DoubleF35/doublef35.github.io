@@ -73,8 +73,10 @@ simulazione CFD, tutte e tre 4:3.
 
 **CubeSAR ha anche un video** (`img/cubesar-montaggio.mp4`, 16 s, 960×720,
 H.264 senza audio, con la copertina `img/cubesar-montaggio.jpg`), nel testo
-della pagina dentro `figure.vid`. Parte solo quando si preme play. Un
-video nuovo va compresso così:
+della pagina dentro `figure.vid`. È muto, parte da solo e si ripete
+(`autoplay muted loop playsinline`); gira solo quando è in vista, un tocco
+lo ferma, e con "riduci movimento" resta fermo con i comandi. Un video
+nuovo va compresso così:
 `ffmpeg -i originale.mov -an -vf "scale=960:-2,format=yuv420p" -c:v libx264 -preset slow -crf 26 -movflags +faststart nuovo.mp4`.
 
 **f4kit non ha ancora una foto.** Al suo posto c'è la formula
