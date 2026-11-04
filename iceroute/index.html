@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en" data-lang="en" data-title-en="IceRoute · Federico Fassio" data-title-it="IceRoute · Federico Fassio">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IceRoute · Federico Fassio</title>
+<meta name="description" content="IceRoute: sea ice segmentation onboard a CubeSat, with the Arctic route computed in orbit. 1st at the EO Makerspace Hackathon 2026, ESA Φ-lab. Project manager: Federico Fassio, Space Eagle APS.">
+<meta name="author" content="Federico Fassio">
+<link rel="canonical" href="https://federicofassio.it/iceroute/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Federico Fassio">
+<meta property="og:title" content="IceRoute · Federico Fassio">
+<meta property="og:description" content="IceRoute: sea ice segmentation onboard a CubeSat, with the Arctic route computed in orbit. 1st at the EO Makerspace Hackathon 2026, ESA Φ-lab. Project manager: Federico Fassio, Space Eagle APS.">
+<meta property="og:url" content="https://federicofassio.it/iceroute/">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:image" content="https://federicofassio.it/img/iceroute-console.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1582">
+<meta property="og:image:height" content="945">
+<meta property="og:image:alt" content="IceRoute console: SAR scene, ice mask, route and downlink budget">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="IceRoute · Federico Fassio">
+<meta name="twitter:description" content="IceRoute: sea ice segmentation onboard a CubeSat, with the Arctic route computed in orbit. 1st at the EO Makerspace Hackathon 2026, ESA Φ-lab. Project manager: Federico Fassio, Space Eagle APS.">
+<meta name="twitter:image" content="https://federicofassio.it/img/iceroute-console.jpg">
+<meta name="twitter:image:alt" content="IceRoute console: SAR scene, ice mask, route and downlink budget">
+<meta name="theme-color" content="#03060e">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-96x96.png" sizes="96x96" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Federico Fassio","item":"https://federicofassio.it/"},{"@type":"ListItem","position":2,"name":"IceRoute","item":"https://federicofassio.it/iceroute/"}]}
+</script>
+
+<!-- La lingua scelta si applica prima del disegno, così non si vede il cambio -->
+<script>
+try{
+  var L = localStorage.getItem('lang');
+  if(L === 'it' || L === 'en'){
+    document.documentElement.setAttribute('data-lang', L);
+    document.documentElement.setAttribute('lang', L);
+  }
+}catch(e){}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main" data-l="en">Skip to content</a>
+<a class="skip" href="#main" data-l="it">Salta al contenuto</a>
+
+<nav class="nav is-stuck nav--page" id="nav">
+  <div class="nav__in">
+    <a class="brand" href="../">
+      <!-- Il marchio: nove tacche a campana su una riga, come il cumulo dell'hero -->
+      <svg viewBox="0 0 17 14" aria-hidden="true"><rect class="h" x="0" y="11" width="1" height="2"/><rect class="h" x="2" y="9" width="1" height="4"/><rect x="4" y="6" width="1" height="7"/><rect x="6" y="3" width="1" height="10"/><rect x="8" y="0" width="1" height="13"/><rect x="10" y="3" width="1" height="10"/><rect x="12" y="6" width="1" height="7"/><rect class="h" x="14" y="9" width="1" height="4"/><rect class="h" x="16" y="11" width="1" height="2"/><rect class="h" x="0" y="13" width="17" height="1"/></svg>
+      Federico Fassio
+    </a>
+    <ul class="nav__links" id="navlinks">
+      <li><a href="../#about"><span data-l="en">About</span><span data-l="it">Chi sono</span></a></li>
+      <li><a href="../#projects"><span data-l="en">Projects</span><span data-l="it">Progetti</span></a></li>
+      <li><a href="../#path"><span data-l="en">Timeline</span><span data-l="it">Percorso</span></a></li>
+      <li><a href="../#stack">Stack</a></li>
+      <li><a href="../#contact"><span data-l="en">Contact</span><span data-l="it">Contatti</span></a></li>
+      <li class="nav__extra"><a href="https://github.com/DoubleF35" rel="me">GitHub</a></li>
+      <li class="nav__extra"><a href="https://www.instagram.com/federicofassioo/" rel="me">Instagram</a></li>
+      <li class="nav__extra"><a href="https://www.tiktok.com/@imdoublef" rel="me">TikTok</a></li>
+    </ul>
+    <div class="nav__end">
+      <div class="lang" id="lang" role="group" aria-label="Lingua / Language">
+        <button type="button" value="en" lang="en" aria-pressed="true">EN</button><span aria-hidden="true">·</span><button type="button" value="it" lang="it" aria-pressed="false">IT</button>
+      </div>
+      <a class="nav__gh" href="https://github.com/DoubleF35" rel="me">GitHub</a>
+      <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="navlinks">
+        <i aria-hidden="true"></i>Menu
+      </button>
+    </div>
+  </div>
+  <span class="nav__comb" aria-hidden="true"></span>
+</nav>
+
+<main id="main" class="proj">
+  <div class="wrap">
+    <p class="crumb"><a href="../#projects"><span data-l="en">All projects</span><span data-l="it">Tutti i progetti</span></a></p>
+    <article class="flag" id="iceroute">
+      <div class="flag__text">
+        <p class="meta">Project manager · Space Eagle APS</p>
+        <h1>IceRoute</h1>
+        <p class="deck" data-l="en">Sea ice segmentation onboard the satellite.</p>
+        <p class="deck" data-l="it">Segmentazione del ghiaccio marino a bordo del satellite.</p>
+        <p data-l="en">
+          Polar charts reach a ship's bridge 12 to 24&nbsp;hours late, and by then the ice has moved.
+          In IceRoute an INT8 quantized U-Net runs on Sentinel-1 C-band SAR imagery inside a GPU@SAT
+          FPGA, produces the ice mask, computes the optimal Arctic route within POLARIS operational
+          limits, and downlinks mask and route instead of the raw scene.
+        </p>
+        <p data-l="it">
+          Le carte polari arrivano in plancia con 12-24&nbsp;ore di ritardo, e nel frattempo il ghiaccio
+          si è mosso. In IceRoute una U-Net quantizzata INT8 gira sulle immagini SAR in banda C di
+          Sentinel-1 dentro un FPGA GPU@SAT, produce la maschera del ghiaccio, calcola la rotta
+          artica ottimale entro i limiti operativi POLARIS e manda a terra maschera e rotta invece
+          della scena grezza.
+        </p>
+        <p class="prize"><b><span data-l="en">1st</span><span data-l="it">1º</span></b><span>EO Makerspace Hackathon 2026, ESA <span class="nw">Φ-lab</span></span></p>
+        <dl class="sheet">
+          <div><dt><span data-l="en">Onboard data reduction</span><span data-l="it">Riduzione dei dati a bordo</span></dt><dd>200 : 1</dd></div>
+          <div><dt><span data-l="en">Transmitted packet</span><span data-l="it">Pacchetto trasmesso</span></dt><dd>&lt; 4 KB</dd></div>
+          <div><dt><span data-l="en">Ice classes</span><span data-l="it">Classi di ghiaccio</span></dt><dd>5</dd></div>
+          <div><dt><span data-l="en">Altitude</span><span data-l="it">Quota</span></dt><dd>550 km</dd></div>
+          <div><dt><span data-l="en">Platform</span><span data-l="it">Piattaforma</span></dt><dd>12U CubeSat, Zynq&nbsp;UltraScale+</dd></div>
+        </dl>
+        <p class="links"><a href="https://www.spaceeagle.it">spaceeagle.it</a></p>
+      </div>
+      <figure class="flag__main">
+        <span class="frame"><img src="../img/iceroute-console.jpg" width="1582" height="945" alt="IceRoute console: SAR scene, ice mask, route and downlink budget" data-alt-it="La console di IceRoute: scena SAR, maschera del ghiaccio, rotta e bilancio del downlink" loading="lazy"></span>
+        <figcaption data-l="en">The console: SAR scene, ice mask, route, downlink budget.</figcaption>
+        <figcaption data-l="it">La console: scena SAR, maschera del ghiaccio, rotta, bilancio del downlink.</figcaption>
+      </figure>
+      <div class="flag__pair">
+        <figure class="shot--169">
+          <span class="frame"><img src="../img/iceroute-premio.jpeg" width="1600" height="900" alt="EO Makerspace Hackathon 2026 at ESA Φ-lab" data-alt-it="EO Makerspace Hackathon 2026 all'ESA Φ-lab" loading="lazy"></span>
+        </figure>
+        <figure class="shot--169">
+          <span class="frame"><img src="../img/teenventures-pitch.jpg" width="1600" height="900" alt="Presenting the IceRoute GUI at TeenVentures Demo Night" data-alt-it="La GUI di IceRoute presentata alla TeenVentures Demo Night" loading="lazy"></span>
+          <figcaption data-l="en">Presenting the GUI at TeenVentures Demo Night.</figcaption>
+          <figcaption data-l="it">La GUI alla TeenVentures Demo Night.</figcaption>
+        </figure>
+      </div>
+    </article>
+    <div class="gal">
+      <div class="photos photos--fit">
+        <figure>
+          <span class="frame"><img src="../img/iceroute-rotta.png" width="895" height="917" alt="The ice mask with the direct route (dashed) and the IceRoute route" data-alt-it="La maschera del ghiaccio con la rotta diretta (tratteggiata) e la rotta di IceRoute" loading="lazy"></span>
+          <figcaption data-l="en">The ice mask with the direct route (dashed) and the IceRoute route</figcaption>
+          <figcaption data-l="it">La maschera del ghiaccio con la rotta diretta (tratteggiata) e la rotta di IceRoute</figcaption>
+        </figure>
+        <figure>
+          <span class="frame"><img src="../img/teenventures-iceroute.jpg" width="1396" height="785" alt="IceRoute at TeenVentures Demo Night" data-alt-it="IceRoute alla TeenVentures Demo Night" loading="lazy"></span>
+          <figcaption data-l="en">IceRoute at TeenVentures Demo Night</figcaption>
+          <figcaption data-l="it">IceRoute alla TeenVentures Demo Night</figcaption>
+        </figure>
+        <figure>
+          <span class="frame"><img src="../img/esa-hackathon.jpeg" width="1125" height="671" alt="At ESA, Frascati" data-alt-it="All'ESA, Frascati" loading="lazy"></span>
+          <figcaption data-l="en">At ESA, Frascati</figcaption>
+          <figcaption data-l="it">All'ESA, Frascati</figcaption>
+        </figure>
+        <figure>
+          <span class="frame"><img src="../img/teenventures-team.jpg" width="1400" height="788" alt="The team at TeenVentures" data-alt-it="Il team a TeenVentures" loading="lazy"></span>
+          <figcaption data-l="en">The team at TeenVentures</figcaption>
+          <figcaption data-l="it">Il team a TeenVentures</figcaption>
+        </figure>
+      </div>
+    </div>
+    <nav class="pnav" aria-label="Projects">
+      <a class="prev" href="../f4kit/"><span class="lab"><span data-l="en">Previous project</span><span data-l="it">Progetto precedente</span></span><span class="name"><span data-l="en">f4kit</span><span data-l="it">f4kit</span></span></a>
+      <a class="next" href="../cubesar/"><span class="lab"><span data-l="en">Next project</span><span data-l="it">Progetto successivo</span></span><span class="name"><span data-l="en">CubeSAR</span><span data-l="it">CubeSAR</span></span></a>
+    </nav>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p data-l="en">© 2026 Federico Fassio, Turin</p>
+    <p data-l="it">© 2026 Federico Fassio, Torino</p>
+    <p><a href="https://github.com/DoubleF35/doublef35.github.io"><span data-l="en">Source on GitHub</span><span data-l="it">Sorgente su GitHub</span></a></p>
+  </div>
+</footer>
+
+<script src="../assets/site.js"></script>
+</body>
+</html>
