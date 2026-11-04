@@ -6,8 +6,8 @@ il branch `main` sul dominio scritto in `CNAME`.
 - `index.html`: la homepage (hero, About, elenco dei progetti, timeline,
   stack, contatti).
 - Una cartella per progetto, con dentro `index.html`: `iceroute/`,
-  `cubesar/`, `yet/`, `tobe/`, `seeker/`, `edunity/`, `f4kit/`. Gli
-  indirizzi sono `federicofassio.it/seeker/` e così via.
+  `cubesar/`, `yet-community/`, `tobe/`, `seeker/`, `edunity/`, `f4kit/`.
+  Gli indirizzi sono `federicofassio.it/seeker/` e così via.
 - `assets/site.css` e `assets/site.js`: stile e script comuni a tutte le
   pagine. Ogni script controlla da solo se nella pagina c'è il suo pezzo
   (l'hero, la timeline, i divisori), quindi si include sempre lo stesso file.
@@ -32,6 +32,12 @@ in `../img/` e i link alla homepage sono `../#about`, `../#projects`...
 Aggiungi la voce in `ul.plist` della homepage, aggiorna "precedente /
 successivo" nelle due pagine vicine e aggiungi l'indirizzo a
 `sitemap.xml`.
+
+**Il nome della cartella non può essere quello di un tuo repo che ha
+GitHub Pages attivo.** GitHub dà l'indirizzo `federicofassio.it/<repo>/`
+al sito di quel repo, non alla cartella di questo. Per questo YET sta in
+`yet-community/`: il repo `yet` pubblica il sito di YET, e
+`federicofassio.it/yet/` porta lì.
 
 ## Lingue
 
