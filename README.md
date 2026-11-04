@@ -11,6 +11,11 @@ il branch `main` sul dominio scritto in `CNAME`.
 - `assets/site.css` e `assets/site.js`: stile e script comuni a tutte le
   pagine. Ogni script controlla da solo se nella pagina c'è il suo pezzo
   (l'hero, la timeline, i divisori), quindi si include sempre lo stesso file.
+- Le pagine li includono con un numero di versione (`site.css?v=2`,
+  `site.js?v=2`). **Ogni volta che cambi `site.css` o `site.js`, alza quel
+  numero in tutte le pagine** (cerca `?v=`): i browser, Safari sul
+  telefono in particolare, tengono in memoria il file vecchio fino a
+  10 minuti, e una pagina nuova con lo stile vecchio si vede rotta.
 
 ## Progetti
 
