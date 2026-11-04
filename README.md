@@ -61,9 +61,9 @@ impilati a destra. Le colonne stanno a 1,13 : 1 (regola `.mosaic` nel CSS)
 perché le due altezze coincidano. Se cambi una di queste foto con una di
 proporzioni diverse, quel rapporto va ricalcolato. Sotto il mosaico c'è
 il CAD del 6U, `cubesar.png`, in una figura a sé (`.fig-next`). In fondo
-alla pagina c'è una galleria con due foto verticali 2:3 (regola
-`.photos--tall`): `cubesar-2u-foto.jpg` e la sua versione poster,
-`cubesar-2u-poster.jpg`.
+alla pagina c'è una galleria con la foto verticale 2:3 del 2U,
+`cubesar-2u-foto.jpg` (regola `.photos--tall`: su telefono a tutta
+larghezza).
 
 **Seeker (`seeker/`) ha quattro foto in una griglia 2×2** (regola `.quad`): sopra
 `seeker-one.jpg` e `seeker-one-recupero.jpg`, tutte e due verticali 3:4;
