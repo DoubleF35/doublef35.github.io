@@ -99,6 +99,13 @@ resti leggibile. Funziona come quello di CubeSAR. La foto
 l'anteprima del link. Se cambi il video con uno di proporzioni diverse,
 aggiorna `aspect-ratio` in `.flag__main .frame`.
 
+**To.Be ha un video di YouTube** dentro la pagina, in cima alla galleria
+(`figure.yt`, riquadro 16:9). È un `<iframe>` da `youtube-nocookie.com`,
+che non lascia cookie finché non si preme play, e si carica solo quando
+arriva vicino allo schermo (`loading="lazy"`). Per cambiarlo basta
+sostituire l'ID nell'indirizzo (`/embed/R6ej7PeYbj8`) con quello del
+video nuovo: è la parte dopo `youtu.be/` nel link di condivisione.
+
 **f4kit non ha ancora una foto.** Al suo posto c'è la formula
 dell'invariante. In `f4kit/index.html` un commento dice quale blocco
 sostituire con una `<figure class="row__fig">` come quella degli altri
