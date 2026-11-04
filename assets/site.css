@@ -215,7 +215,8 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 }
 .flag__text{grid-column:1;grid-row:1 / span 2}
 .flag__main{grid-column:2;grid-row:1}
-.flag__main .frame{aspect-ratio:1582 / 945}
+.flag__main .frame{aspect-ratio:1280 / 748}
+.frame video{display:block;width:100%;height:100%;object-fit:cover;cursor:pointer}
 .flag__pair{grid-column:2;grid-row:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-self:start}
 .flag__pair .shot--43 .frame{aspect-ratio:4 / 3}
 .flag__pair .shot--169 .frame{aspect-ratio:16 / 9}
@@ -472,6 +473,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
   .flag h3,.flag h1{font-size:clamp(50px, 14vw, 64px)}
   .deck{font-size:19px}
   .flag__main{margin:24px calc(-1 * var(--m)) 0}
+  .flag__main figcaption{padding:0 var(--m)}
   .flag__pair{grid-template-columns:1fr;gap:20px}
 
   .row{grid-template-columns:1fr;grid-template-areas:"meta" "title" "fig" "text";padding:52px 0}

@@ -80,6 +80,16 @@ lo ferma, e con "riduci movimento" resta fermo con i comandi. Un video
 nuovo va compresso così:
 `ffmpeg -i originale.mov -an -vf "scale=960:-2,format=yuv420p" -c:v libx264 -preset slow -crf 26 -movflags +faststart nuovo.mp4`.
 
+**Anche IceRoute ha un video**, al posto della foto grande della console
+(`img/iceroute-console.mp4`, 21 s, 1280×748, copertina
+`img/iceroute-console-poster.jpg`). È la registrazione dello schermo
+ritagliata sulla sola console (`crop=1532:896:376:144` sull'originale
+1920×1080), compressa con `-crf 23 -tune stillimage` perché il testo
+resti leggibile. Funziona come quello di CubeSAR. La foto
+`img/iceroute-console.jpg` resta per la miniatura in homepage e per
+l'anteprima del link. Se cambi il video con uno di proporzioni diverse,
+aggiorna `aspect-ratio` in `.flag__main .frame`.
+
 **f4kit non ha ancora una foto.** Al suo posto c'è la formula
 dell'invariante. In `f4kit/index.html` un commento dice quale blocco
 sostituire con una `<figure class="row__fig">` come quella degli altri
