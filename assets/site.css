@@ -590,6 +590,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
   .pitem__eq span{font-size:22px}
   .proj{padding-top:calc(var(--nav-h) + 16px)}
   .gal{margin-top:44px}
+  .photos--tall{grid-template-columns:minmax(0,1fr)}
   .pnav{margin:56px 0 72px}
   .pnav .name{font-size:28px}
 }
