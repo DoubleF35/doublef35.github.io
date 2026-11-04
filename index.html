@@ -337,6 +337,10 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 .mosaic__big{grid-row:1 / span 2;position:relative}
 .row__fig .mosaic__big img{position:absolute;inset:0;height:100%}
 .mosaic figcaption{grid-column:1 / -1;margin-top:-6px}
+/* Seeker: sopra le due verticali di Seeker-One (3:4), sotto due orizzontali
+   (4:3). Stesse proporzioni per riga, quindi le altezze coincidono da sole. */
+.quad{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-content:start}
+.quad figcaption{grid-column:1 / -1;margin-top:-6px}
 
 /* f4kit non ha ancora una foto: al suo posto l'invariante che regge il
    parser, scritto come una formula. Quando la foto c'è, si sostituisce. */
@@ -552,8 +556,8 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
   .row .meta > span + span::before{content:" · "}
   .row h3{margin-bottom:20px;font-size:clamp(38px, 10.5vw, 46px)}
   .row__fig{padding-top:0;margin-bottom:22px}
-  .mosaic{gap:10px}
-  .mosaic figcaption{margin-top:0}
+  .mosaic,.quad{gap:10px}
+  .mosaic figcaption,.quad figcaption{margin-top:0}
 
   .more{grid-template-columns:1fr;margin-top:64px}
   .more h3{padding:0 0 14px}
@@ -819,27 +823,53 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
     </article>
 
     <article class="row" id="seeker">
-      <p class="meta"><span><span data-l="en">2 vehicles</span><span data-l="it">2 vettori</span></span></p>
+      <p class="meta"><span><span data-l="en">2 vehicles</span><span data-l="it">2 vettori</span></span><span><span data-l="en">First rocket at 14</span><span data-l="it">Primo razzo a 14 anni</span></span></p>
       <h3><a href="https://github.com/DoubleF35/Seeker-II"><span data-l="en">Seeker programme</span><span data-l="it">Programma Seeker</span></a></h3>
-      <figure class="row__fig">
-        <span class="frame"><img src="img/seeker-ii.jpeg" width="1600" height="1200" alt="The Seeker-II rocket" data-alt-it="Il razzo Seeker-II" loading="lazy"></span>
+      <figure class="row__fig quad">
+        <span class="frame"><img src="img/seeker-one.jpg" width="900" height="1200" alt="Seeker-One, a black model rocket with four swept fins, held in one hand" data-alt-it="Seeker-One, un razzo modellistico nero con quattro alette a freccia, tenuto in una mano" loading="lazy"></span>
+        <span class="frame"><img src="img/seeker-one-recupero.jpg" width="900" height="1200" alt="Seeker-One hung on a wall by its parachute, with the nose cone and the body below it on the same cord" data-alt-it="Seeker-One appeso al muro per il paracadute, con l'ogiva e il corpo più in basso sullo stesso cordino" loading="lazy"></span>
+        <span class="frame"><img src="img/primo-razzo-2024.jpg" width="900" height="675" alt="My first rocket, 2024, held in one hand above my desk: a grey body with a clear top section showing the electronics" data-alt-it="Il mio primo razzo, 2024, tenuto in una mano sopra la scrivania: corpo grigio e sezione superiore trasparente con l'elettronica a vista" loading="lazy"></span>
+        <span class="frame"><img src="img/seeker-ii.jpeg" width="1600" height="1200" alt="Seeker-II on the desk" data-alt-it="Seeker-II sulla scrivania" loading="lazy"></span>
+        <figcaption data-l="en">Top, <span class="nw">Seeker-One</span> (2025), in hand and hung on the wall by its parachute. Bottom, my first rocket (2024) and <span class="nw">Seeker-II</span> (2026).</figcaption>
+        <figcaption data-l="it">Sopra, <span class="nw">Seeker-One</span> (2025), in mano e appeso al muro per il paracadute. Sotto, il mio primo razzo (2024) e <span class="nw">Seeker-II</span> (2026).</figcaption>
       </figure>
       <div class="row__text">
         <p data-l="en">
           Model rockets designed end to end. Stability and flight profile in OpenRocket, structure
-          and mass in Fusion 360, then fabrication, launch and recovery. Seeker-II carries a flight
-          computer I designed, with an <span class="nw">ESP32-C3</span>, altimeter, IMU and LoRa telemetry at 433&nbsp;MHz.
-          If the real flight does not match the simulation, the model is wrong, and the error has to
-          be found before the next launch.
+          and mass in Fusion 360, then fabrication, launch and recovery. If the real flight does not
+          match the simulation, the model is wrong, and the error has to be found before the next launch.
         </p>
         <p data-l="it">
           Razzi modellistici progettati dall'inizio alla fine. Stabilità e profilo di volo in
-          OpenRocket, struttura e masse in Fusion 360, poi fabbricazione, lancio e recupero.
-          Seeker-II porta un computer di volo progettato da me, con <span class="nw">ESP32-C3</span>, altimetro, IMU e
-          telemetria LoRa a 433&nbsp;MHz. Se il volo vero non somiglia alla simulazione, è sbagliato
-          il modello, e l'errore va trovato prima del lancio successivo.
+          OpenRocket, struttura e masse in Fusion 360, poi fabbricazione, lancio e recupero. Se il
+          volo vero non somiglia alla simulazione, è sbagliato il modello, e l'errore va trovato
+          prima del lancio successivo.
         </p>
-        <p class="specs num">≈364 g · Tsp E20-6 · ESP32-C3</p>
+        <p data-l="en">
+          I built my first rocket in 2024, at 14. <span class="nw">Seeker-One</span> came the year after and set the
+          baseline for the programme: geometry, stability margin, recovery under a parachute. What it
+          could not do was measure its own flight, so <span class="nw">Seeker-II</span> was built around that.
+        </p>
+        <p data-l="it">
+          Il mio primo razzo l'ho costruito nel 2024, a 14 anni. <span class="nw">Seeker-One</span> è arrivato l'anno dopo e
+          ha fissato la base del programma: geometria, margine di stabilità, recupero con il
+          paracadute. Quello che non poteva fare era misurare il proprio volo, e <span class="nw">Seeker-II</span> è nato
+          intorno a questo.
+        </p>
+        <p data-l="en">
+          <span class="nw">Seeker-II</span> carries a flight computer I designed, with an <span class="nw">ESP32-C3</span>, altimeter, IMU and
+          LoRa telemetry at 433&nbsp;MHz. On the ground, a second <span class="nw">ESP32</span> receives the packets, and a
+          dashboard I wrote in Python shows altitude, acceleration and signal strength live and saves
+          the flight to CSV. In the OpenRocket simulation it reaches 320&nbsp;m, at up to 82&nbsp;m/s.
+        </p>
+        <p data-l="it">
+          <span class="nw">Seeker-II</span> porta un computer di volo progettato da me, con <span class="nw">ESP32-C3</span>, altimetro, IMU e
+          telemetria LoRa a 433&nbsp;MHz. A terra un secondo <span class="nw">ESP32</span> riceve i pacchetti, e una
+          dashboard che ho scritto in Python mostra in diretta quota, accelerazione e potenza del
+          segnale, e salva il volo in CSV. Nella simulazione OpenRocket arriva a 320&nbsp;m, con una
+          velocità massima di 82&nbsp;m/s.
+        </p>
+        <p class="specs num"><span class="nw">Seeker-II</span>&nbsp;· <span class="nw">≈364 g</span>&nbsp;· <span class="nw">Tsp E20-6</span>&nbsp;· <span class="nw">ESP32-C3</span></p>
         <p class="links">
           <a href="https://github.com/DoubleF35/Seeker-II">Repository</a>
           <a href="https://www.thingiverse.com/thing:7338519"><span data-l="en">CAD model</span><span data-l="it">Modello CAD</span></a>
@@ -1067,6 +1097,18 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
             <p class="tl__role" data-l="it">Razzo modellistico · programma Seeker</p>
             <p class="tl__line" data-l="en">The first vehicle of the programme, designed in OpenRocket to set the baseline: geometry, stability margin, recovery.</p>
             <p class="tl__line" data-l="it">Il primo vettore del programma, progettato in OpenRocket per fissare la base: geometria, margine di stabilità, recupero.</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <p class="tl__when"><span class="tl__date"><span data-l="en">2024</span><span data-l="it">2024</span></span><span class="tl__age"><span data-l="en">age 14</span><span data-l="it">14 anni</span></span></p>
+        <div class="tl__body">
+          <div class="tl__text">
+            <h3 class="tl__name"><a href="#seeker"><span data-l="en">First rocket</span><span data-l="it">Primo razzo</span></a></h3>
+            <p class="tl__role" data-l="en">Model rocket · before Seeker</p>
+            <p class="tl__role" data-l="it">Razzo modellistico · prima di Seeker</p>
+            <p class="tl__line" data-l="en">The first rocket I built, at my desk, a year before <span class="nw">Seeker-One</span>.</p>
+            <p class="tl__line" data-l="it">Il primo razzo che ho costruito, sulla mia scrivania, un anno prima di <span class="nw">Seeker-One</span>.</p>
           </div>
         </div>
       </li>
