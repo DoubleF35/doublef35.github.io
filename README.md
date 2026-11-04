@@ -34,9 +34,13 @@ una di proporzioni diverse, quel rapporto va ricalcolato.
 
 **Seeker ha quattro foto in una griglia 2×2** (regola `.quad`): sopra
 `seeker-one.jpg` e `seeker-one-recupero.jpg`, tutte e due verticali 3:4;
-sotto `primo-razzo-2024.jpg` e `seeker-ii.jpeg`, tutte e due orizzontali
-4:3. Le altezze coincidono perché ogni riga ha foto delle stesse
-proporzioni: una foto nuova va ritagliata come quella che sostituisce.
+sotto `primo-razzo-2024.jpg` e `seeker-ii-scrivania.jpg`, tutte e due
+orizzontali 4:3. Le altezze coincidono perché ogni riga ha foto delle
+stesse proporzioni: una foto nuova va ritagliata come quella che
+sostituisce. Sotto la riga c'è una striscia su Seeker-II (regola
+`.row__strip`, attiva con `class="row row--strip"`): lo screenshot di
+OpenRocket a tutta larghezza, poi Fusion 360 e le due immagini della
+simulazione CFD, tutte e tre 4:3.
 
 **f4kit non ha ancora una foto.** Al suo posto c'è la formula
 dell'invariante. In `index.html`, cerca `f4kit`: un commento dice quale
