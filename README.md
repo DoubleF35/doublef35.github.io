@@ -32,6 +32,12 @@ colonne stanno a 1,13 : 1 (regola `.mosaic` nel CSS) perché le due
 altezze coincidano. Se cambi una di queste foto con
 una di proporzioni diverse, quel rapporto va ricalcolato.
 
+**Seeker ha quattro foto in una griglia 2×2** (regola `.quad`): sopra
+`seeker-one.jpg` e `seeker-one-recupero.jpg`, tutte e due verticali 3:4;
+sotto `primo-razzo-2024.jpg` e `seeker-ii.jpeg`, tutte e due orizzontali
+4:3. Le altezze coincidono perché ogni riga ha foto delle stesse
+proporzioni: una foto nuova va ritagliata come quella che sostituisce.
+
 **f4kit non ha ancora una foto.** Al suo posto c'è la formula
 dell'invariante. In `index.html`, cerca `f4kit`: un commento dice quale
 blocco sostituire con una `<figure class="row__fig">` come quella degli
