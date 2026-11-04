@@ -54,12 +54,13 @@ uguali non serve toccare niente. Se cambiano, aggiorna `width` e `height`.
 **Il ritratto** in About è `img/ritratto.jpeg`, mostrato quadrato e
 centrato in alto sul viso. Va bene qualsiasi proporzione: viene ritagliato.
 
-**CubeSAR (`cubesar/`) ha tre foto in un mosaico**: `cubesar-2u.jpg` (la demo da
-banco 2U, verticale 3:4) a sinistra, `cubesar.png` (il CAD del 6U) e
-`cubesar-banco.jpg` (la demo in montaggio, 4:3) impilati a destra. Le
-colonne stanno a 1,13 : 1 (regola `.mosaic` nel CSS) perché le due
-altezze coincidano. Se cambi una di queste foto con
-una di proporzioni diverse, quel rapporto va ricalcolato.
+**CubeSAR (`cubesar/`) ha tre foto del 2U in un mosaico**: `cubesar-2u.jpg`
+(la demo da banco, verticale 3:4) a sinistra, `cubesar-2u-cad.jpg` (il
+render del 2U, 4:3) e `cubesar-banco.jpg` (la demo in montaggio, 4:3)
+impilati a destra. Le colonne stanno a 1,13 : 1 (regola `.mosaic` nel CSS)
+perché le due altezze coincidano. Se cambi una di queste foto con una di
+proporzioni diverse, quel rapporto va ricalcolato. Sotto il mosaico c'è
+il CAD del 6U, `cubesar.png`, in una figura a sé (`.fig-next`).
 
 **Seeker (`seeker/`) ha quattro foto in una griglia 2×2** (regola `.quad`): sopra
 `seeker-one.jpg` e `seeker-one-recupero.jpg`, tutte e due verticali 3:4;
