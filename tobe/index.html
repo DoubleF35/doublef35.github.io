@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>To.Be · hackTurin 2026 · Federico Fassio</title>
-<meta name="description" content="To.Be: a citizen-science sensor on a city bus that spots potholes, litter and full bins. 2nd at hackTurin 2026, Smart Crossing challenge by GOMA Elettronica.">
+<meta name="description" content="To.Be: Sentinella Torino, an open civic platform where pods on city buses spot abandoned waste and full bins and each report goes to whoever has to fix it. 2nd at hackTurin 2026, Smart Crossing challenge by GOMA Elettronica.">
 <meta name="author" content="Federico Fassio">
 <link rel="canonical" href="https://federicofassio.it/tobe/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Federico Fassio">
 <meta property="og:title" content="To.Be · hackTurin 2026 · Federico Fassio">
-<meta property="og:description" content="To.Be: a citizen-science sensor on a city bus that spots potholes, litter and full bins. 2nd at hackTurin 2026, Smart Crossing challenge by GOMA Elettronica.">
+<meta property="og:description" content="To.Be: Sentinella Torino, an open civic platform where pods on city buses spot abandoned waste and full bins and each report goes to whoever has to fix it. 2nd at hackTurin 2026, Smart Crossing challenge by GOMA Elettronica.">
 <meta property="og:url" content="https://federicofassio.it/tobe/">
 <meta property="og:locale" content="en_GB">
 <meta property="og:locale:alternate" content="it_IT">
@@ -21,7 +21,7 @@
 <meta property="og:image:alt" content="Award ceremony at hackTurin 2026">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="To.Be · hackTurin 2026 · Federico Fassio">
-<meta name="twitter:description" content="To.Be: a citizen-science sensor on a city bus that spots potholes, litter and full bins. 2nd at hackTurin 2026, Smart Crossing challenge by GOMA Elettronica.">
+<meta name="twitter:description" content="To.Be: Sentinella Torino, an open civic platform where pods on city buses spot abandoned waste and full bins and each report goes to whoever has to fix it. 2nd at hackTurin 2026, Smart Crossing challenge by GOMA Elettronica.">
 <meta name="twitter:image" content="https://federicofassio.it/img/hackturin-premio.jpg">
 <meta name="twitter:image:alt" content="Award ceremony at hackTurin 2026">
 <meta name="theme-color" content="#03060e">
@@ -95,20 +95,38 @@ try{
       </figure>
       <div class="row__text">
         <p data-l="en">
-          A citizen-science sensor that rides on a city bus. A phone collects GPS, images and IMU and
-          feeds an Arduino UNO&nbsp;Q, where an INT8 vision model recognises potholes, litter and full bins
-          and files a report with its position. The reports land on TorinoSegnala, a platform with a
-          public map, a dashboard and a council-side area. Four of us built it over a weekend.
+          Sentinella Torino, an open civic platform for Turin. Pods with a camera ride on city
+          buses: on an Arduino UNO&nbsp;Q a vision model spots abandoned waste, bulky items and full
+          bins, and the pod files a report only after seeing the object in three frames in a row.
+          Citizens add reports and confirmations from their phone, and any other team can plug in
+          its own sensors through an API: traffic lights, air quality, pedestrian counters.
         </p>
         <p data-l="it">
-          Un sensore di citizen science che viaggia su un bus di linea. Un telefono raccoglie GPS,
-          immagini e IMU e li passa a una Arduino UNO&nbsp;Q, dove un modello di visione INT8 riconosce
-          buche, rifiuti e cassonetti pieni e salva una segnalazione con la sua posizione. Le
-          segnalazioni arrivano su TorinoSegnala, piattaforma con mappa pubblica, statistiche e area
-          riservata al Comune. L'abbiamo costruito in quattro, in un fine settimana.
+          Sentinella Torino, una piattaforma civica aperta per Torino. Sui bus di linea viaggiano
+          dei pod con una camera: su una Arduino UNO&nbsp;Q un modello di visione riconosce rifiuti
+          abbandonati, ingombranti e cassonetti pieni, e il pod manda la segnalazione solo dopo
+          aver visto l'oggetto in tre frame di fila. I cittadini aggiungono segnalazioni e
+          conferme dal telefono, e qualsiasi altro team può collegare i suoi sensori tramite API:
+          semafori, qualità dell'aria, contapedoni.
+        </p>
+        <p data-l="en">
+          The platform merges duplicates within 40&nbsp;m, marks a report as verified when a bus and
+          a citizen agree, ranks it by severity, confirmations and waiting time, and sends it to
+          whoever has to fix it, from Amiat to the council. When a bus passes the spot twice
+          without seeing the problem, the report closes on its own. Only the category, the
+          position, the confidence and a crop of the object leave the pod: never whole frames,
+          never people. Four of us built it over a weekend.
+        </p>
+        <p data-l="it">
+          La piattaforma unisce i doppioni entro 40&nbsp;m, segna una segnalazione come verificata
+          quando bus e cittadino concordano, la ordina per gravità, conferme e attesa e la manda a
+          chi deve intervenire, da Amiat al Comune. Quando un bus ripassa due volte dal punto
+          senza più vedere il problema, la segnalazione si chiude da sola. Dal pod escono solo
+          categoria, posizione, confidenza e il ritaglio dell'oggetto: mai frame interi, mai
+          persone. L'abbiamo costruita in quattro, in un fine settimana.
         </p>
         <p class="prize"><b><span data-l="en">2nd</span><span data-l="it">2º</span></b><span data-l="en">hackTurin 2026, Smart Crossing challenge by GOMA Elettronica</span><span data-l="it">hackTurin 2026, challenge Smart Crossing di GOMA Elettronica</span></p>
-        <p class="specs">Arduino UNO&nbsp;Q, LiteRT int8, Next.js, Supabase</p>
+        <p class="specs">Arduino UNO&nbsp;Q, OpenCV, FastAPI, SQLite, Leaflet</p>
       </div>
     </article>
     <div class="gal">
