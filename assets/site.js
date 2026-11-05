@@ -438,26 +438,25 @@
   measure(); update();
 })();
 
-/* I video brevi (muted, autoplay, loop) girano solo quando sono in vista,
-   così fuori schermo non consumano batteria. Un tocco li ferma e li fa
-   ripartire. Con "riduci movimento" restano fermi, con i comandi.
-   Se il telefono blocca l'avvio automatico (un iPhone in Risparmio
-   energetico blocca tutti i video dei siti) il video viene sostituito
-   dalla sua versione animata in AVIF (data-anim): è un'immagine, e le
-   immagini animate si muovono anche in Risparmio energetico. Un tocco la
-   ferma sulla copertina e la fa ripartire. Se il browser non sa mostrare
+/* I video brevi (muted, autoplay, loop) partono appena si apre la pagina,
+   anche se sono più in basso, e vanno sempre avanti. Un tocco li ferma e
+   li fa ripartire. Con "riduci movimento" restano fermi, con i comandi.
+   Se il telefono non li fa partire (un iPhone in Risparmio energetico
+   blocca tutti i video dei siti) il video viene sostituito subito dalla
+   sua versione animata in AVIF (data-anim): è un'immagine, e le immagini
+   animate si muovono anche in Risparmio energetico. Un tocco la ferma
+   sulla copertina e la fa ripartire. Se il browser non sa mostrare
    l'AVIF, resta il video con il tasto play e parte al primo tocco. */
 (function(){
   var vs = document.querySelectorAll('video[autoplay][loop]');
   if(!vs.length) return;
   var mq = window.matchMedia ? matchMedia('(prefers-reduced-motion: reduce)') : null;
   var blocked = [], waiting = false;
-  function inView(v){ var r = v.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; }
   function retry(){
     document.removeEventListener('touchend', retry); document.removeEventListener('click', retry, true);
     waiting = false;
     var list = blocked; blocked = [];
-    for(var i = 0; i < list.length; i++) if(list[i].parentNode && inView(list[i])) play(list[i], true);
+    for(var i = 0; i < list.length; i++) if(list[i].parentNode) play(list[i], true);
   }
   function wait(v){
     v.controls = true;
@@ -470,6 +469,7 @@
     if(v._swap) return;
     v._swap = true;
     var img = new Image();
+    img.decoding = 'async';
     img.onload = function(){
       if(!v.parentNode) return;
       var still = v.getAttribute('poster'), on = true;
@@ -492,12 +492,11 @@
     if(mq && mq.matches){ v.removeAttribute('autoplay'); v.pause(); v.controls = true; return; }
     var held = false;
     v.addEventListener('click', function(){ if(v.controls) return; held = !v.paused; if(held) v.pause(); else play(v, true); });
-    if('IntersectionObserver' in window){
-      new IntersectionObserver(function(es){
-        for(var k = 0; k < es.length; k++){
-          if(es[k].isIntersecting){ if(!held) play(v); } else v.pause();
-        }
-      }, { threshold: .2 }).observe(v);
-    }
+    play(v);
+    /* Alcuni telefoni non fanno partire il video e non danno nemmeno un
+       errore: se dopo un attimo è ancora fermo, si passa all'AVIF. */
+    setTimeout(function(){ if(v.parentNode && v.paused && !held && !v.controls) swap(v); }, 1500);
+    /* Se il browser lo ferma (scheda in secondo piano), riparte al ritorno. */
+    document.addEventListener('visibilitychange', function(){ if(!document.hidden && v.parentNode && v.paused && !held && !v.controls) play(v); });
   })(vs[i]);
 })();
