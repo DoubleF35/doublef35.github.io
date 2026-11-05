@@ -11,8 +11,8 @@ il branch `main` sul dominio scritto in `CNAME`.
 - `assets/site.css` e `assets/site.js`: stile e script comuni a tutte le
   pagine. Ogni script controlla da solo se nella pagina c'è il suo pezzo
   (l'hero, la timeline, i divisori), quindi si include sempre lo stesso file.
-- Le pagine li includono con un numero di versione (`site.css?v=7`,
-  `site.js?v=7`). **Ogni volta che cambi `site.css` o `site.js`, alza quel
+- Le pagine li includono con un numero di versione (`site.css?v=8`,
+  `site.js?v=8`). **Ogni volta che cambi `site.css` o `site.js`, alza quel
   numero in tutte le pagine** (cerca `?v=`): i browser, Safari sul
   telefono in particolare, tengono in memoria il file vecchio fino a
   10 minuti, e una pagina nuova con lo stile vecchio si vede rotta.
@@ -90,10 +90,12 @@ simulazione CFD, tutte e tre 4:3.
 **CubeSAR ha anche un video** (`img/cubesar-montaggio.mp4`, 16 s, 960×720,
 H.264 senza audio, con la copertina `img/cubesar-montaggio.jpg`), nel testo
 della pagina dentro `figure.vid`. È muto, parte da solo e si ripete
-(`autoplay muted loop playsinline`); gira solo quando è in vista, un tocco
-lo ferma, e con "riduci movimento" resta fermo con i comandi. Se il
-telefono blocca l'avvio automatico (un iPhone con Risparmio energetico
-attivo lo fa sempre) il video viene sostituito dalla sua versione
+(`autoplay muted loop playsinline`): parte appena si apre la pagina, anche
+se è più in basso, e va sempre avanti; un tocco lo ferma, e con "riduci
+movimento" resta fermo con i comandi. Se il telefono non lo fa partire
+(un iPhone con Risparmio energetico attivo lo blocca sempre, a volte
+senza dare errore: dopo 1,5 s fermo si considera bloccato) il video viene
+sostituito subito dalla sua versione
 animata in AVIF, indicata in `data-anim` (`img/cubesar-montaggio.avif`,
 `img/iceroute-console.avif`, `img/yet-serata.avif`): le immagini animate
 si muovono anche in Risparmio energetico. Se il browser non mostra
