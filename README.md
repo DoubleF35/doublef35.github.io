@@ -11,8 +11,8 @@ il branch `main` sul dominio scritto in `CNAME`.
 - `assets/site.css` e `assets/site.js`: stile e script comuni a tutte le
   pagine. Ogni script controlla da solo se nella pagina c'è il suo pezzo
   (l'hero, la timeline, i divisori), quindi si include sempre lo stesso file.
-- Le pagine li includono con un numero di versione (`site.css?v=6`,
-  `site.js?v=6`). **Ogni volta che cambi `site.css` o `site.js`, alza quel
+- Le pagine li includono con un numero di versione (`site.css?v=7`,
+  `site.js?v=7`). **Ogni volta che cambi `site.css` o `site.js`, alza quel
   numero in tutte le pagine** (cerca `?v=`): i browser, Safari sul
   telefono in particolare, tengono in memoria il file vecchio fino a
   10 minuti, e una pagina nuova con lo stile vecchio si vede rotta.
@@ -93,8 +93,13 @@ della pagina dentro `figure.vid`. È muto, parte da solo e si ripete
 (`autoplay muted loop playsinline`); gira solo quando è in vista, un tocco
 lo ferma, e con "riduci movimento" resta fermo con i comandi. Se il
 telefono blocca l'avvio automatico (un iPhone con Risparmio energetico
-attivo lo fa sempre) compare il tasto play, e il video parte al primo
-tocco sulla pagina. Un video
+attivo lo fa sempre) il video viene sostituito dalla sua versione
+animata in AVIF, indicata in `data-anim` (`img/cubesar-montaggio.avif`,
+`img/iceroute-console.avif`, `img/yet-serata.avif`): le immagini animate
+si muovono anche in Risparmio energetico. Se il browser non mostra
+l'AVIF, compare il tasto play e il video parte al primo tocco. Per un
+video nuovo crea anche l'AVIF:
+`ffmpeg -i nuovo.mp4 -an -vf "fps=24,format=yuv420p" -c:v libsvtav1 -crf 40 -preset 6 -g 48 -loop 0 nuovo.avif`. Un video
 nuovo va compresso così:
 `ffmpeg -i originale.mov -an -vf "scale=960:-2,format=yuv420p" -c:v libx264 -preset slow -crf 26 -movflags +faststart nuovo.mp4`.
 

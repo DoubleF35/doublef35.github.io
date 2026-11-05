@@ -441,9 +441,12 @@
 /* I video brevi (muted, autoplay, loop) girano solo quando sono in vista,
    così fuori schermo non consumano batteria. Un tocco li ferma e li fa
    ripartire. Con "riduci movimento" restano fermi, con i comandi.
-   Se il telefono blocca l'avvio automatico (iPhone con Risparmio
-   energetico, per esempio) compare il tasto play e i video in vista
-   partono al primo tocco sulla pagina. */
+   Se il telefono blocca l'avvio automatico (un iPhone in Risparmio
+   energetico blocca tutti i video dei siti) il video viene sostituito
+   dalla sua versione animata in AVIF (data-anim): è un'immagine, e le
+   immagini animate si muovono anche in Risparmio energetico. Un tocco la
+   ferma sulla copertina e la fa ripartire. Se il browser non sa mostrare
+   l'AVIF, resta il video con il tasto play e parte al primo tocco. */
 (function(){
   var vs = document.querySelectorAll('video[autoplay][loop]');
   if(!vs.length) return;
@@ -454,15 +457,34 @@
     document.removeEventListener('touchend', retry); document.removeEventListener('click', retry, true);
     waiting = false;
     var list = blocked; blocked = [];
-    for(var i = 0; i < list.length; i++) if(inView(list[i])) play(list[i], true);
+    for(var i = 0; i < list.length; i++) if(list[i].parentNode && inView(list[i])) play(list[i], true);
+  }
+  function wait(v){
+    v.controls = true;
+    if(blocked.indexOf(v) < 0) blocked.push(v);
+    if(!waiting){ waiting = true; document.addEventListener('touchend', retry, { passive: true }); document.addEventListener('click', retry, true); }
+  }
+  function swap(v){
+    var moving = v.getAttribute('data-anim');
+    if(!moving){ wait(v); return; }
+    if(v._swap) return;
+    v._swap = true;
+    var img = new Image();
+    img.onload = function(){
+      if(!v.parentNode) return;
+      var still = v.getAttribute('poster'), on = true;
+      img.alt = ''; img.className = 'anim';
+      if(still) img.addEventListener('click', function(){ on = !on; img.src = on ? moving : still; });
+      v.parentNode.replaceChild(img, v);
+    };
+    img.onerror = function(){ wait(v); };
+    img.src = moving;
   }
   function play(v, gesture){
     var p = v.play();
     if(!p || !p.then) return;
-    p.then(function(){ if(gesture) v.controls = false; }, function(){
-      v.controls = true;
-      if(blocked.indexOf(v) < 0) blocked.push(v);
-      if(!waiting){ waiting = true; document.addEventListener('touchend', retry, { passive: true }); document.addEventListener('click', retry, true); }
+    p.then(function(){ if(gesture) v.controls = false; }, function(e){
+      if(e && e.name === 'NotAllowedError') swap(v);
     });
   }
   for(var i = 0; i < vs.length; i++) (function(v){
