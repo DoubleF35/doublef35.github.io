@@ -440,17 +440,36 @@
 
 /* I video brevi (muted, autoplay, loop) girano solo quando sono in vista,
    così fuori schermo non consumano batteria. Un tocco li ferma e li fa
-   ripartire. Con "riduci movimento" restano fermi, con i comandi. */
+   ripartire. Con "riduci movimento" restano fermi, con i comandi.
+   Se il telefono blocca l'avvio automatico (iPhone con Risparmio
+   energetico, per esempio) compare il tasto play e i video in vista
+   partono al primo tocco sulla pagina. */
 (function(){
   var vs = document.querySelectorAll('video[autoplay][loop]');
   if(!vs.length) return;
   var mq = window.matchMedia ? matchMedia('(prefers-reduced-motion: reduce)') : null;
-  function play(v){ var p = v.play(); if(p && p.catch) p.catch(function(){}); }
+  var blocked = [], waiting = false;
+  function inView(v){ var r = v.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; }
+  function retry(){
+    document.removeEventListener('touchend', retry); document.removeEventListener('click', retry, true);
+    waiting = false;
+    var list = blocked; blocked = [];
+    for(var i = 0; i < list.length; i++) if(inView(list[i])) play(list[i], true);
+  }
+  function play(v, gesture){
+    var p = v.play();
+    if(!p || !p.then) return;
+    p.then(function(){ if(gesture) v.controls = false; }, function(){
+      v.controls = true;
+      if(blocked.indexOf(v) < 0) blocked.push(v);
+      if(!waiting){ waiting = true; document.addEventListener('touchend', retry, { passive: true }); document.addEventListener('click', retry, true); }
+    });
+  }
   for(var i = 0; i < vs.length; i++) (function(v){
     v.muted = true;
     if(mq && mq.matches){ v.removeAttribute('autoplay'); v.pause(); v.controls = true; return; }
     var held = false;
-    v.addEventListener('click', function(){ held = !v.paused; if(held) v.pause(); else play(v); });
+    v.addEventListener('click', function(){ if(v.controls) return; held = !v.paused; if(held) v.pause(); else play(v, true); });
     if('IntersectionObserver' in window){
       new IntersectionObserver(function(es){
         for(var k = 0; k < es.length; k++){
