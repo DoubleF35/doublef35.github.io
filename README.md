@@ -11,8 +11,8 @@ il branch `main` sul dominio scritto in `CNAME`.
 - `assets/site.css` e `assets/site.js`: stile e script comuni a tutte le
   pagine. Ogni script controlla da solo se nella pagina c'è il suo pezzo
   (l'hero, la timeline, i divisori), quindi si include sempre lo stesso file.
-- Le pagine li includono con un numero di versione (`site.css?v=5`,
-  `site.js?v=5`). **Ogni volta che cambi `site.css` o `site.js`, alza quel
+- Le pagine li includono con un numero di versione (`site.css?v=6`,
+  `site.js?v=6`). **Ogni volta che cambi `site.css` o `site.js`, alza quel
   numero in tutte le pagine** (cerca `?v=`): i browser, Safari sul
   telefono in particolare, tengono in memoria il file vecchio fino a
   10 minuti, e una pagina nuova con lo stile vecchio si vede rotta.
@@ -107,6 +107,14 @@ resti leggibile. Funziona come quello di CubeSAR. La foto
 `img/iceroute-console.jpg` resta per la miniatura in homepage e per
 l'anteprima del link. Se cambi il video con uno di proporzioni diverse,
 aggiorna `aspect-ratio` in `.flag__main .frame`.
+
+**YET (`yet-community/`) ha una fila in cima alla galleria** (`div.jrow`):
+i quattro fondatori (`yet-fondatori.jpg`), la serata del 13 settembre 2026
+(`yet-13-settembre.jpg`), tutte e due 3:2 (`class="r-32"`), e un video
+verticale 9:16 (`yet-serata.mp4`, 14 s, 576×1024, senza audio, copertina
+`yet-serata.jpg`, `class="r-916"`) che parte da solo come gli altri. Ogni
+figura prende larghezza in proporzione al suo formato, così sono tutte
+alte uguali; su telefono vanno una sotto l'altra.
 
 **To.Be ha un video di YouTube** dentro la pagina, in cima alla galleria
 (`figure.yt`, riquadro 16:9). È un `<iframe>` da `youtube-nocookie.com`,
