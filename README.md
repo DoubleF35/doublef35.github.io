@@ -11,8 +11,8 @@ il branch `main` sul dominio scritto in `CNAME`.
 - `assets/site.css` e `assets/site.js`: stile e script comuni a tutte le
   pagine. Ogni script controlla da solo se nella pagina c'è il suo pezzo
   (l'hero, la timeline, i divisori), quindi si include sempre lo stesso file.
-- Le pagine li includono con un numero di versione (`site.css?v=4`,
-  `site.js?v=4`). **Ogni volta che cambi `site.css` o `site.js`, alza quel
+- Le pagine li includono con un numero di versione (`site.css?v=5`,
+  `site.js?v=5`). **Ogni volta che cambi `site.css` o `site.js`, alza quel
   numero in tutte le pagine** (cerca `?v=`): i browser, Safari sul
   telefono in particolare, tengono in memoria il file vecchio fino a
   10 minuti, e una pagina nuova con lo stile vecchio si vede rotta.
@@ -91,7 +91,10 @@ simulazione CFD, tutte e tre 4:3.
 H.264 senza audio, con la copertina `img/cubesar-montaggio.jpg`), nel testo
 della pagina dentro `figure.vid`. È muto, parte da solo e si ripete
 (`autoplay muted loop playsinline`); gira solo quando è in vista, un tocco
-lo ferma, e con "riduci movimento" resta fermo con i comandi. Un video
+lo ferma, e con "riduci movimento" resta fermo con i comandi. Se il
+telefono blocca l'avvio automatico (un iPhone con Risparmio energetico
+attivo lo fa sempre) compare il tasto play, e il video parte al primo
+tocco sulla pagina. Un video
 nuovo va compresso così:
 `ffmpeg -i originale.mov -an -vf "scale=960:-2,format=yuv420p" -c:v libx264 -preset slow -crf 26 -movflags +faststart nuovo.mp4`.
 
