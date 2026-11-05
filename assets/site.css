@@ -571,6 +571,19 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 .photos--tall .frame{aspect-ratio:2 / 3}
 .photos--sq .frame{aspect-ratio:1}
 .photos + .photos{margin-top:24px}
+/* Fila "giustificata": le figure prendono larghezza in proporzione al loro
+   formato, così hanno tutte la stessa altezza (foto 3:2 e video 9:16) */
+.jrow{display:flex;gap:12px;align-items:flex-start;margin-bottom:24px}
+.jrow > figure{flex:1 1 0;min-width:0}
+.jrow > .r-32{flex-grow:1.5}
+.jrow > .r-916{flex-grow:.5625}
+.r-32 .frame{aspect-ratio:3 / 2}
+.r-916 .frame{aspect-ratio:9 / 16}
+@media (max-width:760px){
+  .jrow{flex-direction:column;gap:20px}
+  .jrow > figure{flex:none;width:100%}
+  .jrow > .r-916{max-width:300px;margin-inline:auto}
+}
 .yt{margin:0 0 28px}
 .yt .frame{position:relative;aspect-ratio:16 / 9}
 .yt iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
