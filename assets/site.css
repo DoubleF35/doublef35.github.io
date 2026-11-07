@@ -265,13 +265,6 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 .row__strip .frame img{height:auto}
 .row__strip figcaption{grid-column:1 / -1;margin-top:-6px}
 
-/* f4kit non ha ancora una foto: al suo posto l'invariante che regge il
-   parser, scritto come una formula. Quando la foto c'è, si sostituisce. */
-.eq{align-self:start;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 0 26px}
-.eq__f{margin:0 0 16px;font:400 clamp(25px, 2.3vw, 32px)/1.25 var(--serif);color:#f2f6ff}
-.eq__f sub{font-size:.6em;line-height:0}
-.eq__n{margin:0;font:400 14px/1.5 var(--mono);color:var(--paper-mute)}
-
 /* Altro su GitHub */
 .more{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,10fr);column-gap:var(--gap);margin-top:88px}
 .more h3{padding-top:20px;font:500 15px/1.4 var(--sans);color:var(--paper)}
@@ -546,9 +539,6 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
   .pitem:hover .pitem__go{color:#fff;text-decoration-color:currentColor}
   .pitem:hover .frame img{opacity:.88}
 }
-/* f4kit non ha foto: al posto della miniatura, la tolleranza dell'invariante */
-.pitem__eq{display:grid;place-items:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:none}
-.pitem__eq span{font:400 clamp(28px, 2.6vw, 36px)/1 var(--serif);color:#f2f6ff}
 
 /* --------------------------------------------------------------------------
    Pagina di un progetto: stessa barra (già piena, con la riga accesa), poi
@@ -609,7 +599,6 @@ img.anim{cursor:pointer}
   .pitem__prize{font-size:13px}
   .pitem__prize b{font-size:20px}
   .pitem__go{margin-top:10px}
-  .pitem__eq span{font-size:22px}
   .proj{padding-top:calc(var(--nav-h) + 16px)}
   .gal{margin-top:44px}
   .photos--tall{grid-template-columns:minmax(0,1fr)}
