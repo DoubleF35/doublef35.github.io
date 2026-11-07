@@ -6,13 +6,13 @@ il branch `main` sul dominio scritto in `CNAME`.
 - `index.html`: la homepage (hero, About, elenco dei progetti, timeline,
   stack, contatti).
 - Una cartella per progetto, con dentro `index.html`: `iceroute/`,
-  `cubesar/`, `yet-community/`, `tobe/`, `seeker/`, `edunity/`, `f4kit/`.
+  `cubesar/`, `yet-community/`, `tobe/`, `seeker/`, `edunity/`.
   Gli indirizzi sono `federicofassio.it/seeker/` e così via.
 - `assets/site.css` e `assets/site.js`: stile e script comuni a tutte le
   pagine. Ogni script controlla da solo se nella pagina c'è il suo pezzo
   (l'hero, la timeline, i divisori), quindi si include sempre lo stesso file.
-- Le pagine li includono con un numero di versione (`site.css?v=8`,
-  `site.js?v=8`). **Ogni volta che cambi `site.css` o `site.js`, alza quel
+- Le pagine li includono con un numero di versione (`site.css?v=9`,
+  `site.js?v=9`). **Ogni volta che cambi `site.css` o `site.js`, alza quel
   numero in tutte le pagine** (cerca `?v=`): i browser, Safari sul
   telefono in particolare, tengono in memoria il file vecchio fino a
   10 minuti, e una pagina nuova con lo stile vecchio si vede rotta.
@@ -129,11 +129,6 @@ che non lascia cookie finché non si preme play, e si carica solo quando
 arriva vicino allo schermo (`loading="lazy"`). Per cambiarlo basta
 sostituire l'ID nell'indirizzo (`/embed/R6ej7PeYbj8`) con quello del
 video nuovo: è la parte dopo `youtu.be/` nel link di condivisione.
-
-**f4kit non ha ancora una foto.** Al suo posto c'è la formula
-dell'invariante. In `f4kit/index.html` un commento dice quale blocco
-sostituire con una `<figure class="row__fig">` come quella degli altri
-progetti; in homepage la miniatura è il riquadro `.pitem__eq`.
 
 Esporta in JPEG qualità 80, lato lungo massimo 1600 px, sotto i 300 KB
 quando possibile.
