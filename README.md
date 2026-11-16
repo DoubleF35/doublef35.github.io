@@ -3,7 +3,7 @@
 Sito statico, nessun framework e nessun build step. GitHub Pages pubblica
 il branch `main` sul dominio scritto in `CNAME`.
 
-- `index.html`: la homepage (hero, About, elenco dei progetti, timeline,
+- `index.html`: la homepage (hero, risultati, About, progetti, timeline,
   stack, contatti).
 - Una cartella per progetto, con dentro `index.html`: `iceroute/`,
   `cubesar/`, `yet-community/`, `tobe/`, `seeker/`, `edunity/`.
@@ -19,10 +19,30 @@ il branch `main` sul dominio scritto in `CNAME`.
 
 ## Progetti
 
-In homepage ogni progetto è una voce di `ul.plist`: miniatura, ruolo,
-nome, una riga di descrizione, l'eventuale piazzamento e il link alla sua
+In homepage ogni progetto è una voce di `ul.plist`: foto, ruolo, nome,
+una riga di descrizione, l'eventuale piazzamento e il link alla sua
 pagina. Tutto il resto (testo completo, foto, dati tecnici, link) sta
 nella pagina del progetto.
+
+Le voci sono in ordine di peso: **una grande, due medie, tre piccole**.
+Il markup è lo stesso per tutte (`a.pitem > .frame + .pitem__text`),
+cambia la classe sul `<li>`: `is-feat` per la prima (IceRoute, a tutta
+larghezza, con la console che gira e tre righe di scheda tecnica),
+`is-wide` per le due sotto, nessuna classe per le altre. Per cambiare
+l'ordine basta spostare i `<li>` e le classi. Sotto i 980 px tornano un
+elenco con la miniatura a sinistra.
+
+Il video di IceRoute in homepage ha `data-lazy` al posto di `autoplay`:
+il file si scarica solo quando sta per entrare nello schermo. Essendo
+dentro un link non mostra comandi e non si ferma al tocco.
+
+## Risultati
+
+La striscia sotto l'hero (`section.facts`): cinque numeri, ognuno con il
+link alla pagina che lo spiega. `class="is-prize"` sui piazzamenti, che
+prendono l'oro; i conteggi restano bianchi. Sono gli stessi dati di
+About, dei progetti e della timeline: se ne cambia uno, va cambiato
+anche lì.
 
 **Una pagina di progetto** ha la barra già piena, il link "Tutti i
 progetti", il progetto nello stesso impaginato della homepage di prima

@@ -75,7 +75,6 @@
   if(!cv || !nav || !cv.getContext) return;
   var ctx = cv.getContext('2d');
   if(!ctx) return;
-  var sky = hero.querySelector('.hero__sky');
   var hz = hero.querySelector('.hero__horizon');
   var dockEl = nav.querySelector('.nav__comb');
   var rootStyle = document.documentElement.style;
@@ -89,7 +88,7 @@
   var cols, under, halo, delay, vein;
   var qs = -1, lastT = 0, raf = 0, onScreen = true, stuck = false;
   var introAt = 0, introDone = false, lastC = -1, lastDist = 1e9;
-  var hzO = '', hzT = '', skyO = '', dockO = '';
+  var hzO = '', hzT = '', dockO = '';
 
   function clamp(v, a, b){ if(a === undefined){ a = 0; b = 1; } return v < a ? a : v > b ? b : v; }
   function sstep(a, b, v){ v = clamp((v - a) / (b - a)); return v * v * (3 - 2 * v); }
@@ -257,7 +256,6 @@
     var c = Math.max(qs, Math.pow(1 - k, 3));
     if(Math.abs(c - lastC) > 1e-4 || Math.abs(dist - lastDist) > .5){
       draw(c, dist); lastC = c; lastDist = dist;
-      if(sky){ var so = (1 - .75 * sstep(0, .9, qs)).toFixed(2); if(so !== skyO) sky.style.opacity = skyO = so; }
     }
     // Il ciclo vive solo mentre qualcosa si muove.
     if(qs !== q || (introAt && !introDone)) raf = requestAnimationFrame(frame);
@@ -299,7 +297,6 @@
   }).observe(cv);
   if(mq.addEventListener) mq.addEventListener('change', function(){
     still = mq.matches; lastC = -1; qs = -1; introDone = true;
-    if(sky) sky.style.opacity = skyO = '';
     kick();
   });
 
@@ -448,7 +445,7 @@
    sulla copertina e la fa ripartire. Se il browser non sa mostrare
    l'AVIF, resta il video con il tasto play e parte al primo tocco. */
 (function(){
-  var vs = document.querySelectorAll('video[autoplay][loop]');
+  var vs = document.querySelectorAll('video[autoplay][loop], video[data-lazy]');
   if(!vs.length) return;
   var mq = window.matchMedia ? matchMedia('(prefers-reduced-motion: reduce)') : null;
   var blocked = [], waiting = false;
@@ -458,8 +455,11 @@
     var list = blocked; blocked = [];
     for(var i = 0; i < list.length; i++) if(list[i].parentNode) play(list[i], true);
   }
+  /* Un video dentro un link (la console di IceRoute in homepage) non mostra
+     mai i comandi e non si ferma al tocco: lì il tocco apre il progetto. */
+  function linked(v){ return !!(v.closest && v.closest('a')); }
   function wait(v){
-    v.controls = true;
+    if(!linked(v)) v.controls = true;
     if(blocked.indexOf(v) < 0) blocked.push(v);
     if(!waiting){ waiting = true; document.addEventListener('touchend', retry, { passive: true }); document.addEventListener('click', retry, true); }
   }
@@ -474,7 +474,7 @@
       if(!v.parentNode) return;
       var still = v.getAttribute('poster'), on = true;
       img.alt = ''; img.className = 'anim';
-      if(still) img.addEventListener('click', function(){ on = !on; img.src = on ? moving : still; });
+      if(still && !linked(v)) img.addEventListener('click', function(){ on = !on; img.src = on ? moving : still; });
       v.parentNode.replaceChild(img, v);
     };
     img.onerror = function(){ wait(v); };
@@ -489,14 +489,24 @@
   }
   for(var i = 0; i < vs.length; i++) (function(v){
     v.muted = true;
-    if(mq && mq.matches){ v.removeAttribute('autoplay'); v.pause(); v.controls = true; return; }
-    var held = false;
-    v.addEventListener('click', function(){ if(v.controls) return; held = !v.paused; if(held) v.pause(); else play(v, true); });
-    play(v);
-    /* Alcuni telefoni non fanno partire il video e non danno nemmeno un
-       errore: se dopo un attimo è ancora fermo, si passa all'AVIF. */
-    setTimeout(function(){ if(v.parentNode && v.paused && !held && !v.controls) swap(v); }, 1500);
+    if(mq && mq.matches){ v.removeAttribute('autoplay'); v.pause(); if(!linked(v)) v.controls = true; return; }
+    var held = false, started = false;
+    if(!linked(v)) v.addEventListener('click', function(){ if(v.controls) return; held = !v.paused; if(held) v.pause(); else play(v, true); });
+    function start(){
+      started = true;
+      play(v);
+      /* Alcuni telefoni non fanno partire il video e non danno nemmeno un
+         errore: se dopo un attimo è ancora fermo, si passa all'AVIF. */
+      setTimeout(function(){ if(v.parentNode && v.paused && !held && !v.controls) swap(v); }, 1500);
+    }
+    /* data-lazy (homepage): il file si scarica solo quando il video sta per
+       entrare nello schermo, non all'apertura della pagina. */
+    if(v.hasAttribute('data-lazy') && window.IntersectionObserver){
+      new IntersectionObserver(function(en, io){
+        if(en[en.length - 1].isIntersecting){ io.disconnect(); start(); }
+      }, { rootMargin:'500px 0px' }).observe(v);
+    } else start();
     /* Se il browser lo ferma (scheda in secondo piano), riparte al ritorno. */
-    document.addEventListener('visibilitychange', function(){ if(!document.hidden && v.parentNode && v.paused && !held && !v.controls) play(v); });
+    document.addEventListener('visibilitychange', function(){ if(started && !document.hidden && v.parentNode && v.paused && !held && !v.controls) play(v); });
   })(vs[i]);
 })();
