@@ -230,6 +230,10 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 .flag__text{grid-column:1;grid-row:1 / span 2}
 .flag__main{grid-column:2;grid-row:1}
 .flag__main .frame{aspect-ratio:1280 / 748}
+.flag__main--43 .frame{aspect-ratio:4 / 3}
+/* --fit: l'immagine intera nelle sue proporzioni, senza ritaglio (la mappa di Egida) */
+.flag__main--fit .frame{aspect-ratio:auto}
+.flag__main--fit .frame img{height:auto}
 .frame video{display:block;width:100%;height:100%;object-fit:cover;cursor:pointer}
 .flag__pair{grid-column:2;grid-row:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-self:start}
 .flag__pair .shot--43 .frame{aspect-ratio:4 / 3}
@@ -259,14 +263,6 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 .row__fig{grid-area:fig;padding-top:10px}
 /* Ogni foto nelle sue proporzioni: width e height veri sull'<img>, nessun ritaglio. */
 .row__fig .frame img{height:auto}
-/* CubeSAR: la foto verticale a sinistra, CAD e banco impilati a destra.
-   Le colonne stanno a 1,13 : 1 perché le due altezze coincidano; la foto
-   grande riempie l'altezza della colonna destra e perde al massimo pochi px. */
-.mosaic{display:grid;grid-template-columns:minmax(0,1.13fr) minmax(0,1fr);gap:16px;align-content:start}
-.mosaic__big{grid-row:1 / span 2;position:relative}
-.row__fig .mosaic__big img{position:absolute;inset:0;height:100%}
-.mosaic figcaption{grid-column:1 / -1;margin-top:-6px}
-.fig-next{margin-top:32px}
 /* Seeker: sopra le due verticali di Seeker-One (3:4), sotto due orizzontali
    (4:3). Stesse proporzioni per riga, quindi le altezze coincidono da sole. */
 .quad{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-content:start}
@@ -492,9 +488,8 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
   .row .meta > span + span::before{content:" · "}
   .row h3,.row h1{margin-bottom:20px;font-size:clamp(38px, 10.5vw, 46px)}
   .row__fig{padding-top:0;margin-bottom:22px}
-  .mosaic,.quad{gap:10px}
-  .fig-next{margin-top:24px}
-  .mosaic figcaption,.quad figcaption{margin-top:0}
+  .quad{gap:10px}
+  .quad figcaption{margin-top:0}
 
   .more{grid-template-columns:1fr;margin-top:64px}
   .more h3{padding:0 0 14px}
@@ -531,6 +526,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 }
 @media (prefers-reduced-motion:reduce){
   .tl__more::details-content{transition:none !important}
+  .slides__track{scroll-behavior:auto}
 }
 
 /* --------------------------------------------------------------------------
@@ -570,6 +566,22 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 .is-feat .sheet{margin-top:26px}
 .is-feat .pitem__go{margin-top:24px}
 
+/* Egida in homepage: una riga sotto IceRoute, perché ne fa parte. */
+.has-sub .pitem{padding-bottom:44px}
+.psub{
+  display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr) minmax(0,5fr) auto;
+  column-gap:var(--gap);align-items:baseline;padding:22px 0 64px;
+  border-top:1px solid var(--line);color:inherit;text-decoration:none;
+}
+.psub__lab{font:400 13.5px/1.45 var(--sans);color:var(--paper-mute)}
+.psub__name{font:400 clamp(32px, 2.8vw, 40px)/1 var(--serif);letter-spacing:-.012em;color:#f4f8ff}
+.psub__deck{font-size:15.5px;line-height:1.5;color:var(--paper-dim)}
+.psub .pitem__go{margin:0;white-space:nowrap}
+@media (hover:hover){
+  .psub:hover .psub__name{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
+  .psub:hover .pitem__go{color:#fff;text-decoration-color:currentColor}
+}
+
 @media (hover:hover){
   .pitem:hover .pitem__name{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
   .pitem:hover .pitem__go{color:#fff;text-decoration-color:currentColor}
@@ -596,8 +608,50 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 .vid img.anim{display:block;width:100%;height:auto;aspect-ratio:4 / 3;object-fit:cover;background:var(--ink-2)}
 img.anim{cursor:pointer}
 .photos--fit{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.photos--tall .frame{aspect-ratio:2 / 3}
 .photos--sq .frame{aspect-ratio:1}
+.photos--169 .frame{aspect-ratio:16 / 9}
+.photos--3{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 16px}
+a.frame img{transition:opacity .2s}
+@media (hover:hover){ a.frame:hover img{opacity:.86} }
+
+/* Una pagina di progetto con più parti (Egida: MVP, slide): ogni parte ha
+   un titolo più piccolo dell'<h1> e una colonna di testo. */
+.part{margin-top:112px}
+.proj h2{margin:0 0 26px;font-size:clamp(40px, 4vw, 60px)}
+.part__text{max-width:64ch;margin-bottom:36px}
+.part__text > p{font-size:16.5px;color:var(--paper-dim)}
+.part__text > .links{margin-top:6px;color:var(--paper)}
+
+/* Un progetto dentro un altro (Egida nella pagina di IceRoute). */
+.sub{margin-top:96px;border-top:1px solid var(--line)}
+.proj .sub__lab{margin:0;padding-top:20px;font:500 15px/1.4 var(--sans);letter-spacing:0;color:var(--paper)}
+.sub .pitem{
+  display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);
+  column-gap:clamp(32px, 4vw, 64px);align-items:center;padding:28px 0 0;
+}
+.sub .pitem .frame{aspect-ratio:3 / 2;margin:0}
+.sub .pitem .frame img{object-position:50% 82%}
+.sub .pitem__name{margin-bottom:14px;font-size:clamp(44px, 4.4vw, 64px);line-height:.95;letter-spacing:-.018em}
+.sub .pitem__deck{max-width:42ch;font-size:17px}
+.sub .pitem__prize{font-size:15px}
+
+/* Le slide: una fila orizzontale che si ferma su ogni slide (scroll-snap).
+   Si sfoglia col dito, con la rotella o con le frecce anche senza script;
+   pulsanti e contatore compaiono solo quando lo script c'è (.is-live). */
+.slides__track{
+  list-style:none;margin:0;padding:0;display:flex;gap:16px;
+  overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  overscroll-behavior-x:contain;scrollbar-width:none;
+}
+.slides__track::-webkit-scrollbar{display:none}
+.slides__track > li{flex:0 0 100%;scroll-snap-align:start;background:var(--ink-2)}
+.slides__track img{width:100%;height:auto;aspect-ratio:16 / 9}
+.slides__bar{display:none;align-items:center;justify-content:space-between;gap:16px;margin:8px 0 0;font:400 13px/1 var(--mono);color:var(--paper-mute)}
+.slides.is-live .slides__bar{display:flex}
+.slides__bar button{min-height:44px;color:var(--paper);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;text-decoration-color:rgba(156,200,255,.4)}
+.slides__bar button:disabled{color:var(--paper-mute);text-decoration:none;cursor:default;opacity:.55}
+@media (hover:hover){ .slides__bar button:not(:disabled):hover{color:#fff;text-decoration-color:currentColor} }
+.slides__count b{font-weight:400;color:var(--paper)}
 .photos + .photos{margin-top:24px}
 /* Fila "giustificata": le figure prendono larghezza in proporzione al loro
    formato, così hanno tutte la stessa altezza (foto 3:2 e video 9:16) */
@@ -607,6 +661,9 @@ img.anim{cursor:pointer}
 .jrow > .r-916{flex-grow:.5625}
 .r-32 .frame{aspect-ratio:3 / 2}
 .r-916 .frame{aspect-ratio:9 / 16}
+/* Qualsiasi altro formato: style="--r:larghezza/altezza" sulla figura. */
+.jrow > [style*="--r"]{flex-grow:var(--r)}
+.jrow > [style*="--r"] .frame{aspect-ratio:var(--r)}
 @media (max-width:760px){
   .jrow{flex-direction:column;gap:20px}
   .jrow > figure{flex:none;width:100%}
@@ -634,6 +691,11 @@ img.anim{cursor:pointer}
   .is-wide .pitem__name{font-size:clamp(32px, 4.6vw, 40px);line-height:1.02}
   .is-wide .pitem__deck{font-size:15.5px}
   .is-feat .pitem{display:block;padding:28px 0 44px}
+  .has-sub .pitem{padding-bottom:36px}
+  .psub{grid-template-columns:minmax(0,1fr) auto;row-gap:6px;padding:20px 0 44px}
+  .psub__lab,.psub__deck{grid-column:1 / -1}
+  .psub__deck{max-width:52ch}
+  .psub .pitem__go{grid-column:2;grid-row:2;align-self:center}
   .is-feat .pitem .frame{margin:0 0 28px}
   .is-feat .pitem__deck{max-width:34ch}
 }
@@ -655,6 +717,19 @@ img.anim{cursor:pointer}
   .pitem__prize b{font-size:20px}
   .pitem__go{margin-top:10px}
   .is-feat .pitem{padding:20px 0 36px}
+  .has-sub .pitem{padding-bottom:28px}
+  .psub{grid-template-columns:minmax(0,1fr);padding:16px 0 28px}
+  .psub .pitem__go{grid-column:1;grid-row:auto;justify-self:start;margin-top:6px}
+  .part{margin-top:72px}
+  .proj h2{margin-bottom:20px;font-size:clamp(38px, 10.5vw, 46px)}
+  .part__text{margin-bottom:26px}
+  .photos--3{grid-template-columns:minmax(0,1fr);gap:18px}
+  .sub{margin-top:64px}
+  .sub .pitem{display:block;padding-top:20px}
+  .sub .pitem .frame{margin-bottom:20px}
+  .sub .pitem__name{font-size:clamp(40px, 11vw, 48px);margin-bottom:10px}
+  .sub .pitem__deck{font-size:16px}
+  .slides__track{gap:10px;margin:0 calc(-1 * var(--m))}
   .is-feat .pitem .frame{margin:0 calc(-1 * var(--m)) 22px}
   .is-feat .pitem__name{font-size:clamp(50px, 14vw, 64px);margin-bottom:14px}
   .is-feat .pitem__deck{font-size:18px}
@@ -663,7 +738,6 @@ img.anim{cursor:pointer}
   .mail{font-size:clamp(26px, 7.6vw, 34px)}
   .proj{padding-top:calc(var(--nav-h) + 16px)}
   .gal{margin-top:44px}
-  .photos--tall{grid-template-columns:minmax(0,1fr)}
   .pnav{margin:56px 0 72px}
   .pnav .name{font-size:28px}
 }
