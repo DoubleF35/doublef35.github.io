@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>IceRoute · Federico Fassio</title>
-<meta name="description" content="IceRoute: sea ice segmentation onboard a CubeSat, with the Arctic route computed in orbit. 1st at the EO Makerspace Hackathon 2026, ESA Φ-lab. Project manager: Federico Fassio, Space Eagle APS.">
+<meta name="description" content="IceRoute: sea ice segmentation onboard a CubeSat and the Arctic route computed in orbit. 1st at the EO Makerspace Hackathon 2026, ESA Φ-lab. Open-source software by Federico Fassio: 2 MB INT8 U-Net, POLARIS routing, 439:1 downlink reduction.">
 <meta name="author" content="Federico Fassio">
 <link rel="canonical" href="https://federicofassio.it/iceroute/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Federico Fassio">
 <meta property="og:title" content="IceRoute · Federico Fassio">
-<meta property="og:description" content="IceRoute: sea ice segmentation onboard a CubeSat, with the Arctic route computed in orbit. 1st at the EO Makerspace Hackathon 2026, ESA Φ-lab. Project manager: Federico Fassio, Space Eagle APS.">
+<meta property="og:description" content="IceRoute: sea ice segmentation onboard a CubeSat and the Arctic route computed in orbit. 1st at the EO Makerspace Hackathon 2026, ESA Φ-lab. Open-source software by Federico Fassio: 2 MB INT8 U-Net, POLARIS routing, 439:1 downlink reduction.">
 <meta property="og:url" content="https://federicofassio.it/iceroute/">
 <meta property="og:locale" content="en_GB">
 <meta property="og:locale:alternate" content="it_IT">
@@ -21,7 +21,7 @@
 <meta property="og:image:alt" content="IceRoute console: SAR scene, ice mask, route and downlink budget">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="IceRoute · Federico Fassio">
-<meta name="twitter:description" content="IceRoute: sea ice segmentation onboard a CubeSat, with the Arctic route computed in orbit. 1st at the EO Makerspace Hackathon 2026, ESA Φ-lab. Project manager: Federico Fassio, Space Eagle APS.">
+<meta name="twitter:description" content="IceRoute: sea ice segmentation onboard a CubeSat and the Arctic route computed in orbit. 1st at the EO Makerspace Hackathon 2026, ESA Φ-lab. Open-source software by Federico Fassio: 2 MB INT8 U-Net, POLARIS routing, 439:1 downlink reduction.">
 <meta name="twitter:image" content="https://federicofassio.it/img/iceroute-console.jpg">
 <meta name="twitter:image:alt" content="IceRoute console: SAR scene, ice mask, route and downlink budget">
 <meta name="theme-color" content="#03060e">
@@ -89,30 +89,50 @@ try{
     <p class="crumb"><a href="../#projects"><span data-l="en">All projects</span><span data-l="it">Tutti i progetti</span></a></p>
     <article class="flag" id="iceroute">
       <div class="flag__text">
-        <p class="meta">Project manager · Space Eagle APS</p>
+        <p class="meta"><span data-l="en">Project manager and software author · Space Eagle APS</span><span data-l="it">Project manager e autore del software · Space Eagle APS</span></p>
         <h1>IceRoute</h1>
         <p class="deck" data-l="en">Sea ice segmentation onboard the satellite.</p>
         <p class="deck" data-l="it">Segmentazione del ghiaccio marino a bordo del satellite.</p>
         <p data-l="en">
-          Polar charts reach a ship's bridge 12 to 24&nbsp;hours late, and by then the ice has moved.
-          In IceRoute an INT8 quantized U-Net runs on Sentinel-1 C-band SAR imagery inside a GPU@SAT
-          FPGA, produces the ice mask, computes the optimal Arctic route within POLARIS operational
-          limits, and downlinks mask and route instead of the raw scene.
+          Ice charts reach a ship's bridge hours after the satellite saw the ice, and the fastest
+          service today still processes the scene on the ground. IceRoute moves that step into
+          orbit: a 2&nbsp;MB INT8 U-Net reads a Sentinel-1 radar scene and maps the ice, the IMO
+          POLARIS rules turn the map into where a given ship may go and how fast, and A* finds the
+          fastest legal route. The satellite sends down the verdict, 148&nbsp;KB of ice map and
+          route, instead of 55&nbsp;MB of radar.
         </p>
         <p data-l="it">
-          Le carte polari arrivano in plancia con 12-24&nbsp;ore di ritardo, e nel frattempo il ghiaccio
-          si è mosso. In IceRoute una U-Net quantizzata INT8 gira sulle immagini SAR in banda C di
-          Sentinel-1 dentro un FPGA GPU@SAT, produce la maschera del ghiaccio, calcola la rotta
-          artica ottimale entro i limiti operativi POLARIS e manda a terra maschera e rotta invece
-          della scena grezza.
+          Le carte del ghiaccio arrivano in plancia ore dopo che il satellite ha visto il ghiaccio, e
+          il servizio più rapido di oggi elabora ancora la scena a terra. IceRoute porta quel passo
+          in orbita: una U-Net INT8 da 2&nbsp;MB legge una scena radar Sentinel-1 e mappa il
+          ghiaccio, le regole POLARIS dell'IMO trasformano la mappa in dove una certa nave può
+          andare e a che velocità, e A* trova la rotta lecita più veloce. Il satellite manda a terra
+          il verdetto, 148&nbsp;KB di mappa e rotta, invece di 55&nbsp;MB di radar.
+        </p>
+        <p data-l="en">
+          The concept won the EO Makerspace Hackathon with the Space Eagle team. After it I wrote
+          the whole software on my own: data pipeline on the AI4Arctic dataset,
+          training, ONNX export and INT8 quantization, probability calibration, POLARIS routing,
+          evaluation on the official test set and an offline console. About 25,000 lines of
+          Python, more than 600 tests, and every engineering decision written down with the
+          measurement that settled it.
+        </p>
+        <p data-l="it">
+          Il concept ha vinto l'EO Makerspace Hackathon con il team Space Eagle. Dopo ho scritto da
+          solo tutto il software: pipeline dei dati sul dataset AI4Arctic,
+          addestramento, export ONNX e quantizzazione INT8, calibrazione delle probabilità, rotte
+          POLARIS, valutazione sul test set ufficiale e una console che funziona offline. Circa
+          25.000 righe di Python, più di 600 test, e ogni scelta tecnica scritta con la misura che
+          l'ha decisa.
         </p>
         <p class="prize"><b><span data-l="en">1st</span><span data-l="it">1º</span></b><span>EO Makerspace Hackathon 2026, ESA <span class="nw">Φ-lab</span></span></p>
         <dl class="sheet">
-          <div><dt><span data-l="en">Onboard data reduction</span><span data-l="it">Riduzione dei dati a bordo</span></dt><dd>200 : 1</dd></div>
-          <div><dt><span data-l="en">Transmitted packet</span><span data-l="it">Pacchetto trasmesso</span></dt><dd>&lt; 4 KB</dd></div>
-          <div><dt><span data-l="en">Ice classes</span><span data-l="it">Classi di ghiaccio</span></dt><dd>5</dd></div>
-          <div><dt><span data-l="en">Altitude</span><span data-l="it">Quota</span></dt><dd>550 km</dd></div>
-          <div><dt><span data-l="en">Platform</span><span data-l="it">Piattaforma</span></dt><dd>12U CubeSat, Zynq&nbsp;UltraScale+</dd></div>
+          <div><dt><span data-l="en">Segmentation, official test set</span><span data-l="it">Segmentazione, test set ufficiale</span></dt><dd>mIoU 0.532</dd></div>
+          <div><dt><span data-l="en">Ice / water accuracy</span><span data-l="it">Accuratezza ghiaccio / acqua</span></dt><dd>90.6&nbsp;%</dd></div>
+          <div><dt><span data-l="en">Model on board</span><span data-l="it">Modello a bordo</span></dt><dd><span data-l="en">2.05&nbsp;MB INT8, 1.96&nbsp;M parameters</span><span data-l="it">2,05&nbsp;MB INT8, 1,96&nbsp;M parametri</span></dd></div>
+          <div><dt><span data-l="en">Downlink reduction, measured</span><span data-l="it">Riduzione del downlink, misurata</span></dt><dd>439 : 1</dd></div>
+          <div><dt><span data-l="en">Packet sent to the ship</span><span data-l="it">Pacchetto inviato alla nave</span></dt><dd><span data-l="en">148&nbsp;KB, route alone 431&nbsp;bytes</span><span data-l="it">148&nbsp;KB, la rotta da sola 431&nbsp;byte</span></dd></div>
+          <div><dt><span data-l="en">Calibration error (ECE)</span><span data-l="it">Errore di calibrazione (ECE)</span></dt><dd>16.4 → 3.9&nbsp;%</dd></div>
         </dl>
         <p class="links"><a href="https://www.spaceeagle.it">spaceeagle.it</a></p>
       </div>
@@ -135,9 +155,9 @@ try{
     <div class="gal">
       <div class="photos photos--fit">
         <figure>
-          <span class="frame"><img src="../img/iceroute-rotta.png" width="895" height="917" alt="The ice mask with the direct route (dashed) and the IceRoute route" data-alt-it="La maschera del ghiaccio con la rotta diretta (tratteggiata) e la rotta di IceRoute" loading="lazy"></span>
-          <figcaption data-l="en">The ice mask with the direct route (dashed) and the IceRoute route</figcaption>
-          <figcaption data-l="it">La maschera del ghiaccio con la rotta diretta (tratteggiata) e la rotta di IceRoute</figcaption>
+          <span class="frame"><img src="../img/iceroute-rotta.png" width="895" height="975" alt="The ice map for a PC6 ship: the direct route (dashed) crosses ice POLARIS forbids; the IceRoute route goes around it" data-alt-it="La maschera del ghiaccio con la rotta diretta (tratteggiata) e la rotta di IceRoute" loading="lazy"></span>
+          <figcaption data-l="en">A PC6 ship: the direct route (dashed) crosses ice POLARIS forbids. Only the four waypoints are sent down.</figcaption>
+          <figcaption data-l="it">Una nave PC6: la rotta diretta (tratteggiata) attraversa ghiaccio che POLARIS vieta. A terra scendono solo i quattro waypoint.</figcaption>
         </figure>
         <figure>
           <span class="frame"><img src="../img/teenventures-iceroute.jpg" width="1396" height="785" alt="IceRoute at TeenVentures Demo Night" data-alt-it="IceRoute alla TeenVentures Demo Night" loading="lazy"></span>
