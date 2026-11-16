@@ -48,7 +48,7 @@ try{
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/site.css?v=10">
+<link rel="stylesheet" href="../assets/site.css?v=11">
 </head>
 <body>
 <a class="skip" href="#main" data-l="en">Skip to content</a>
@@ -87,60 +87,80 @@ try{
 <main id="main" class="proj">
   <div class="wrap">
     <p class="crumb"><a href="../#projects"><span data-l="en">All projects</span><span data-l="it">Tutti i progetti</span></a></p>
-    <article class="row" id="cubesar">
-      <p class="meta"><span><span data-l="en">Project manager and chief engineer</span><span data-l="it">Project manager e chief engineer</span></span><span><span data-l="en">In development</span><span data-l="it">In sviluppo</span></span></p>
-      <h1>CubeSAR</h1>
-      <div class="row__fig">
-        <figure class="mosaic">
-          <span class="frame mosaic__big"><img src="../img/cubesar-2u.jpg" width="1200" height="1600" alt="The CubeSAR 2U bench demo, held in one hand" data-alt-it="La demo da banco CubeSAR 2U, tenuta in una mano" loading="lazy"></span>
-          <span class="frame"><img src="../img/cubesar-2u-cad.jpg" width="933" height="700" alt="CAD render of the CubeSAR 2U" data-alt-it="Il render CAD del CubeSAR 2U" loading="lazy"></span>
-          <span class="frame"><img src="../img/cubesar-banco.jpg" width="1600" height="1200" alt="The 2U demo being assembled on the bench, with Seeker-II behind" data-alt-it="La demo 2U in montaggio sul banco, con Seeker-II sullo sfondo" loading="lazy"></span>
-          <figcaption data-l="en">Left, the 2U bench demo, built on an Arduino UNO&nbsp;Q. Right, the 2U in CAD and during assembly.</figcaption>
-          <figcaption data-l="it">A sinistra la demo da banco 2U, costruita con una Arduino UNO&nbsp;Q. A destra il 2U in CAD e durante il montaggio.</figcaption>
-        </figure>
-        <figure class="fig-next">
-          <span class="frame"><img src="../img/cubesar.png" width="1600" height="1100" alt="CAD model of the CubeSAR 6U" data-alt-it="Il modello CAD del CubeSAR 6U" loading="lazy"></span>
-          <figcaption data-l="en">The 6U, in CAD.</figcaption>
-          <figcaption data-l="it">Il 6U, in CAD.</figcaption>
-        </figure>
-      </div>
-      <div class="row__text">
+    <!-- Stesso impaginato di IceRoute (article.flag): testo e scheda a
+         sinistra, il video del montaggio grande a destra, due foto sotto.
+         In fondo una fila con le tre immagini di formato diverso. -->
+    <article class="flag" id="cubesar">
+      <div class="flag__text">
+        <p class="meta"><span data-l="en">Project manager and chief engineer · In development</span><span data-l="it">Project manager e chief engineer · In sviluppo</span></p>
+        <h1>CubeSAR</h1>
+        <p class="deck" data-l="en">A 2U CubeSat demo that runs on its own on the desk.</p>
+        <p class="deck" data-l="it">Una demo di CubeSat 2U che sulla scrivania lavora da sola.</p>
         <p data-l="en">
-          A 2U CubeSat demo that runs on its own on the desk. Reaction wheels turn it until it
-          finds where the light is strongest; there it opens its solar panels and recharges. It
-          takes pictures with a Pi Camera and a spectrometer, and a neural model running onboard
-          processes them on the spot, edge computing, then sends the result to the ground station.
+          Reaction wheels turn it until it finds where the light is strongest; there it opens
+          its solar panels and recharges. It takes pictures with a Pi Camera and a spectrometer,
+          and a neural model running onboard processes them on the spot, edge computing, then
+          sends the result to the ground station.
         </p>
         <p data-l="it">
-          Una demo di CubeSat 2U che sulla scrivania lavora da sola. Le ruote di reazione la fanno
-          girare finché trova il punto con più luce: lì apre i pannelli solari e si ricarica. Fa le
-          foto con una Pi Camera e uno spettrometro, e un modello neurale che gira a bordo le
-          elabora sul posto, in edge computing, poi manda il risultato alla stazione di terra.
+          Le ruote di reazione la fanno girare finché trova il punto con più luce: lì apre i
+          pannelli solari e si ricarica. Fa le foto con una Pi Camera e uno spettrometro, e un
+          modello neurale che gira a bordo le elabora sul posto, in edge computing, poi manda il
+          risultato alla stazione di terra.
         </p>
         <p data-l="en">
-          It is the step below IceRoute: the same idea of processing onboard and sending down the
-          result, on a desk where a mistake costs an afternoon rather than a mission.
+          It is the step below <a href="../iceroute/">IceRoute</a>: the same idea of processing
+          onboard and sending down the result, on a desk where a mistake costs an afternoon
+          rather than a mission.
         </p>
         <p data-l="it">
-          È il gradino sotto IceRoute: la stessa idea di elaborare a bordo e mandare giù il
-          risultato, su una scrivania dove uno sbaglio costa un pomeriggio e non una missione.
+          È il gradino sotto <a href="../iceroute/">IceRoute</a>: la stessa idea di elaborare a
+          bordo e mandare giù il risultato, su una scrivania dove uno sbaglio costa un pomeriggio
+          e non una missione.
         </p>
-        <figure class="vid">
-          <video data-anim="../img/cubesar-montaggio.avif" autoplay muted loop playsinline preload="auto" width="960" height="720" poster="../img/cubesar-montaggio.jpg">
-            <source src="../img/cubesar-montaggio.mp4" type="video/mp4">
-          </video>
-          <figcaption data-l="en">Me assembling the 2U demo on the bench.</figcaption>
-          <figcaption data-l="it">Mentre monto la demo 2U sul banco.</figcaption>
-        </figure>
+        <dl class="sheet">
+          <div><dt><span data-l="en">Form factor</span><span data-l="it">Formato</span></dt><dd><span data-l="en">2U, bench demo</span><span data-l="it">2U, demo da banco</span></dd></div>
+          <div><dt><span data-l="en">Board</span><span data-l="it">Scheda</span></dt><dd>Arduino UNO&nbsp;Q</dd></div>
+          <div><dt><span data-l="en">Attitude</span><span data-l="it">Assetto</span></dt><dd><span data-l="en">reaction wheels</span><span data-l="it">ruote di reazione</span></dd></div>
+          <div><dt><span data-l="en">Sensors</span><span data-l="it">Sensori</span></dt><dd><span data-l="en">Pi Camera, spectrometer</span><span data-l="it">Pi Camera, spettrometro</span></dd></div>
+          <div><dt><span data-l="en">Processing</span><span data-l="it">Elaborazione</span></dt><dd><span data-l="en">neural model, onboard</span><span data-l="it">modello neurale, a bordo</span></dd></div>
+        </dl>
         <p class="links"><a href="https://github.com/DoubleF35/CubeSAR">Repository</a></p>
+      </div>
+      <figure class="flag__main flag__main--43">
+        <span class="frame"><video data-anim="../img/cubesar-montaggio.avif" autoplay muted loop playsinline preload="auto" width="960" height="720" poster="../img/cubesar-montaggio.jpg"><source src="../img/cubesar-montaggio.mp4" type="video/mp4"></video></span>
+        <figcaption data-l="en">Me assembling the 2U demo on the bench.</figcaption>
+        <figcaption data-l="it">Mentre monto la demo 2U sul banco.</figcaption>
+      </figure>
+      <div class="flag__pair">
+        <figure class="shot--43">
+          <span class="frame"><img src="../img/cubesar-2u-cad.jpg" width="933" height="700" alt="CAD render of the CubeSAR 2U" data-alt-it="Il render CAD del CubeSAR 2U" loading="lazy"></span>
+          <figcaption data-l="en">The 2U, in CAD.</figcaption>
+          <figcaption data-l="it">Il 2U, in CAD.</figcaption>
+        </figure>
+        <figure class="shot--43">
+          <span class="frame"><img src="../img/cubesar-banco.jpg" width="1600" height="1200" alt="The 2U demo being assembled on the bench, with Seeker-II behind" data-alt-it="La demo 2U in montaggio sul banco, con Seeker-II sullo sfondo" loading="lazy"></span>
+          <figcaption data-l="en">On the bench, with Seeker-II behind.</figcaption>
+          <figcaption data-l="it">Sul banco, con Seeker-II sullo sfondo.</figcaption>
+        </figure>
       </div>
     </article>
     <div class="gal">
-      <div class="photos photos--tall">
-        <figure>
+      <div class="jrow">
+        <figure style="--r:.75">
+          <span class="frame"><img src="../img/cubesar-2u.jpg" width="1200" height="1600" alt="The CubeSAR 2U bench demo, held in one hand" data-alt-it="La demo da banco CubeSAR 2U, tenuta in una mano" loading="lazy"></span>
+          <figcaption data-l="en">The 2U bench demo, built on an Arduino UNO&nbsp;Q.</figcaption>
+          <figcaption data-l="it">La demo da banco 2U, costruita con una Arduino UNO&nbsp;Q.</figcaption>
+        </figure>
+        <figure style="--r:.667">
           <span class="frame"><img src="../img/cubesar-2u-poster.jpg" width="1067" height="1600" alt="Poster of the CubeSAR 2U: the satellite with the title CubeSar 2U written over the photo" data-alt-it="Il poster del CubeSAR 2U: il satellite con il titolo CubeSar 2U scritto sopra la foto" loading="lazy"></span>
           <figcaption data-l="en">The CubeSAR 2U</figcaption>
           <figcaption data-l="it">Il CubeSAR 2U</figcaption>
+        </figure>
+        <figure style="--r:1.4545">
+          <span class="frame"><img src="../img/cubesar.png" width="1600" height="1100" alt="CAD model of the CubeSAR 6U" data-alt-it="Il modello CAD del CubeSAR 6U" loading="lazy"></span>
+          <figcaption data-l="en">The 6U, in CAD.</figcaption>
+          <figcaption data-l="it">Il 6U, in CAD.</figcaption>
         </figure>
       </div>
     </div>
@@ -159,6 +179,6 @@ try{
   </div>
 </footer>
 
-<script src="../assets/site.js?v=10"></script>
+<script src="../assets/site.js?v=11"></script>
 </body>
 </html>

@@ -58,6 +58,25 @@ Aggiungi la voce in `ul.plist` della homepage, aggiorna "precedente /
 successivo" nelle due pagine vicine e aggiungi l'indirizzo a
 `sitemap.xml`.
 
+**Un progetto dentro un altro**: Egida fa parte di IceRoute, quindi non
+è una voce di `ul.plist` ma sta in `iceroute/egida/` (indirizzo
+`federicofassio.it/iceroute/egida/`). Ci si arriva da tre punti: la riga
+`a.psub` sotto IceRoute in homepage (il `<li>` ha anche `has-sub`), il
+blocco `section.sub` in fondo alla pagina di IceRoute e la tappa nella
+timeline. Stando un livello più giù, nella sua pagina i percorsi sono
+`../../img/`, `../../assets/` e `../../#about`.
+
+La pagina di Egida ha due parti sotto il progetto (`section.part`, con un
+`<h2>`): l'MVP, che è online su `egida-rho.vercel.app` e qui ha tre
+schermate che ci portano, e le slide. Le slide sono dodici JPEG
+1600×900 (`img/egida-slide-01.jpg` … `12.jpg`) dentro `div.slides`: una
+fila che scorre in orizzontale e si ferma su ogni slide; lo script
+aggiunge pulsanti e contatore. Per rifarle da un PDF nuovo:
+`pdftoppm -jpeg -jpegopt quality=84 -scale-to-x 1600 -scale-to-y 900 slide.pdf s`,
+poi rinomina i file e, se cambia il numero, aggiorna i `<li>` e il
+"/ 12" del contatore. I numeri della scheda vengono da
+`demo_sostenibilita/results.json` del repo privato di IceRoute.
+
 **Il nome della cartella non può essere quello di un tuo repo che ha
 GitHub Pages attivo.** GitHub dà l'indirizzo `federicofassio.it/<repo>/`
 al sito di quel repo, non alla cartella di questo. Per questo YET sta in
@@ -86,16 +105,18 @@ uguali non serve toccare niente. Se cambiano, aggiorna `width` e `height`.
 centrato in alto sul viso; su telefono è a tutta larghezza e in
 verticale 4:5. Va bene qualsiasi proporzione: viene ritagliato.
 
-**CubeSAR (`cubesar/`) ha tre foto del 2U in un mosaico**: `cubesar-2u.jpg`
-(la demo da banco, verticale 3:4) a sinistra, `cubesar-2u-cad.jpg` (il
-render del 2U, 4:3) e `cubesar-banco.jpg` (la demo in montaggio, 4:3)
-impilati a destra. Le colonne stanno a 1,13 : 1 (regola `.mosaic` nel CSS)
-perché le due altezze coincidano. Se cambi una di queste foto con una di
-proporzioni diverse, quel rapporto va ricalcolato. Sotto il mosaico c'è
-il CAD del 6U, `cubesar.png`, in una figura a sé (`.fig-next`). In fondo
-alla pagina c'è una galleria con il poster verticale 2:3 del 2U,
-`cubesar-2u-poster.jpg` (regola `.photos--tall`: su telefono a tutta
-larghezza).
+**CubeSAR (`cubesar/`) ha lo stesso impaginato di IceRoute**
+(`article.flag`): testo e scheda tecnica (`dl.sheet`) a sinistra; a destra
+il video del montaggio in grande (`figure.flag__main.flag__main--43`,
+riquadro 4:3) e sotto due foto 4:3, `cubesar-2u-cad.jpg` e
+`cubesar-banco.jpg` (`div.flag__pair`, ogni figura `class="shot--43"`).
+In fondo una fila (`div.jrow`) con tre immagini di formato diverso:
+`cubesar-2u.jpg` (3:4), il poster `cubesar-2u-poster.jpg` (2:3) e il CAD
+del 6U `cubesar.png` (16:11). Ogni figura dichiara il suo formato con
+`style="--r:larghezza/altezza"` (0.75, 0.667, 1.4545) e prende larghezza
+in proporzione, così sono tutte alte uguali. Se cambi una foto con una di
+proporzioni diverse, aggiorna quel numero. Su telefono vanno una sotto
+l'altra.
 
 **Seeker (`seeker/`) ha quattro foto in una griglia 2×2** (regola `.quad`): sopra
 `seeker-one.jpg` e `seeker-one-recupero.jpg`, tutte e due verticali 3:4;
@@ -107,9 +128,8 @@ sostituisce. Sotto la riga c'è una striscia su Seeker-II (regola
 OpenRocket a tutta larghezza, poi Fusion 360 e le due immagini della
 simulazione CFD, tutte e tre 4:3.
 
-**CubeSAR ha anche un video** (`img/cubesar-montaggio.mp4`, 16 s, 960×720,
-H.264 senza audio, con la copertina `img/cubesar-montaggio.jpg`), nel testo
-della pagina dentro `figure.vid`. È muto, parte da solo e si ripete
+**Il video di CubeSAR** è `img/cubesar-montaggio.mp4` (16 s, 960×720,
+H.264 senza audio, con la copertina `img/cubesar-montaggio.jpg`). È muto, parte da solo e si ripete
 (`autoplay muted loop playsinline`): parte appena si apre la pagina, anche
 se è più in basso, e va sempre avanti; un tocco lo ferma, e con "riduci
 movimento" resta fermo con i comandi. Se il telefono non lo fa partire

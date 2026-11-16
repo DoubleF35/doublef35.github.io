@@ -83,7 +83,7 @@ try{
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/site.css?v=10">
+<link rel="stylesheet" href="assets/site.css?v=11">
 </head>
 <body>
 <a class="skip" href="#main" data-l="en">Skip to content</a>
@@ -218,7 +218,7 @@ try{
          markup per tutti (a.pitem > .frame + .pitem__text), cambia solo la
          classe sul <li>: is-feat, is-wide, niente. -->
     <ul class="plist">
-      <li id="iceroute" class="is-feat"><a class="pitem" href="iceroute/">
+      <li id="iceroute" class="is-feat has-sub"><a class="pitem" href="iceroute/">
         <span class="frame"><video data-lazy data-anim="img/iceroute-console.avif" muted loop playsinline preload="none" width="1280" height="748" poster="img/iceroute-console-poster.jpg"><source src="img/iceroute-console.mp4" type="video/mp4"></video></span>
         <div class="pitem__text">
           <p class="pitem__meta"><span data-l="en">Project manager and software author · Space Eagle APS</span><span data-l="it">Project manager e autore del software · Space Eagle APS</span></p>
@@ -233,6 +233,13 @@ try{
           </dl>
           <span class="pitem__go"><span data-l="en">Open the project</span><span data-l="it">Apri il progetto</span></span>
         </div>
+      </a>
+      <!-- Egida sta dentro IceRoute: una riga sotto, non una voce a sé -->
+      <a class="psub" href="iceroute/egida/">
+        <span class="psub__lab"><span data-l="en">Inside IceRoute</span><span data-l="it">Dentro IceRoute</span></span>
+        <span class="psub__name">Egida</span>
+        <span class="psub__deck"><span data-l="en">The Arctic route that burns the least fuel. Selected by SVST, Silicon Valley Study Tour.</span><span data-l="it">La rotta artica che consuma meno carburante. Selezionata da SVST, Silicon Valley Study Tour.</span></span>
+        <span class="pitem__go"><span data-l="en">Open Egida</span><span data-l="it">Apri Egida</span></span>
       </a></li>
       <li id="cubesar" class="is-wide"><a class="pitem" href="cubesar/">
         <span class="frame"><img src="img/cubesar-montaggio.jpg" width="960" height="720" alt="" loading="lazy"></span>
@@ -371,6 +378,20 @@ try{
                 </ul>
               </div>
             </details>
+          </div>
+        </div>
+      </li>
+      <li>
+        <p class="tl__when"><span class="tl__date"><span data-l="en">Nov&nbsp;2026</span><span data-l="it">nov&nbsp;2026</span></span><span class="tl__age"><span data-l="en">age 16</span><span data-l="it">16 anni</span></span></p>
+        <div class="tl__body">
+          <div class="tl__text">
+            <h3 class="tl__name"><a href="iceroute/egida/">SVST Hackathon</a></h3>
+            <p class="tl__role" data-l="en">With Egida · Verbania</p>
+            <p class="tl__role" data-l="it">Con Egida · Verbania</p>
+            <p class="tl__line" data-l="en">Egida is built on <a href="iceroute/">IceRoute</a>: the Arctic route that burns the least fuel, computed from the ice the satellite sees, with an MVP that runs the neural network in the browser.</p>
+            <p class="tl__line" data-l="it">Egida nasce da <a href="iceroute/">IceRoute</a>: la rotta artica che consuma meno carburante, calcolata dal ghiaccio che vede il satellite, con un MVP che fa girare la rete neurale nel browser.</p>
+            <p class="tl__prize" data-l="en">Selected by SVST, Silicon Valley Study Tour</p>
+            <p class="tl__prize" data-l="it">Selezionata da SVST, Silicon Valley Study Tour</p>
           </div>
         </div>
       </li>
@@ -569,6 +590,6 @@ try{
   </div>
 </footer>
 
-<script src="assets/site.js?v=10"></script>
+<script src="assets/site.js?v=11"></script>
 </body>
 </html>

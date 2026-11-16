@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en" data-lang="en" data-title-en="Egida · IceRoute · Federico Fassio" data-title-it="Egida · IceRoute · Federico Fassio">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Egida · IceRoute · Federico Fassio</title>
+<meta name="description" content="Egida: the Arctic route that burns the least fuel, computed from the sea ice a satellite sees. Built on IceRoute, pitched at the SVST Hackathon in Verbania and selected by SVST (Silicon Valley Study Tour).">
+<meta name="author" content="Federico Fassio">
+<link rel="canonical" href="https://federicofassio.it/iceroute/egida/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Federico Fassio">
+<meta property="og:title" content="Egida · IceRoute · Federico Fassio">
+<meta property="og:description" content="Egida: the Arctic route that burns the least fuel, computed from the sea ice a satellite sees. Built on IceRoute, pitched at the SVST Hackathon in Verbania and selected by SVST (Silicon Valley Study Tour).">
+<meta property="og:url" content="https://federicofassio.it/iceroute/egida/">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:image" content="https://federicofassio.it/img/egida-slide-01.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta property="og:image:alt" content="Egida, SVST Hackathon, Verbania 2026">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Egida · IceRoute · Federico Fassio">
+<meta name="twitter:description" content="Egida: the Arctic route that burns the least fuel, computed from the sea ice a satellite sees. Built on IceRoute, pitched at the SVST Hackathon in Verbania and selected by SVST (Silicon Valley Study Tour).">
+<meta name="twitter:image" content="https://federicofassio.it/img/egida-slide-01.jpg">
+<meta name="twitter:image:alt" content="Egida, SVST Hackathon, Verbania 2026">
+<meta name="theme-color" content="#03060e">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-96x96.png" sizes="96x96" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Federico Fassio","item":"https://federicofassio.it/"},{"@type":"ListItem","position":2,"name":"IceRoute","item":"https://federicofassio.it/iceroute/"},{"@type":"ListItem","position":3,"name":"Egida","item":"https://federicofassio.it/iceroute/egida/"}]}
+</script>
+
+<!-- La lingua scelta si applica prima del disegno, così non si vede il cambio -->
+<script>
+try{
+  var L = localStorage.getItem('lang');
+  if(L === 'it' || L === 'en'){
+    document.documentElement.setAttribute('data-lang', L);
+    document.documentElement.setAttribute('lang', L);
+  }
+}catch(e){}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/site.css?v=11">
+</head>
+<body>
+<a class="skip" href="#main" data-l="en">Skip to content</a>
+<a class="skip" href="#main" data-l="it">Salta al contenuto</a>
+
+<nav class="nav is-stuck nav--page" id="nav">
+  <div class="nav__in">
+    <a class="brand" href="../../">
+      <!-- Il marchio: nove tacche a campana su una riga, come il cumulo dell'hero -->
+      <svg viewBox="0 0 17 14" aria-hidden="true"><rect class="h" x="0" y="11" width="1" height="2"/><rect class="h" x="2" y="9" width="1" height="4"/><rect x="4" y="6" width="1" height="7"/><rect x="6" y="3" width="1" height="10"/><rect x="8" y="0" width="1" height="13"/><rect x="10" y="3" width="1" height="10"/><rect x="12" y="6" width="1" height="7"/><rect class="h" x="14" y="9" width="1" height="4"/><rect class="h" x="16" y="11" width="1" height="2"/><rect class="h" x="0" y="13" width="17" height="1"/></svg>
+      Federico Fassio
+    </a>
+    <ul class="nav__links" id="navlinks">
+      <li><a href="../../#about"><span data-l="en">About</span><span data-l="it">Chi sono</span></a></li>
+      <li><a href="../../#projects"><span data-l="en">Projects</span><span data-l="it">Progetti</span></a></li>
+      <li><a href="../../#path"><span data-l="en">Timeline</span><span data-l="it">Percorso</span></a></li>
+      <li><a href="../../#stack">Stack</a></li>
+      <li><a href="../../#contact"><span data-l="en">Contact</span><span data-l="it">Contatti</span></a></li>
+      <li class="nav__extra"><a href="https://github.com/DoubleF35" rel="me">GitHub</a></li>
+      <li class="nav__extra"><a href="https://www.instagram.com/federicofassioo/" rel="me">Instagram</a></li>
+      <li class="nav__extra"><a href="https://www.tiktok.com/@imdoublef" rel="me">TikTok</a></li>
+    </ul>
+    <div class="nav__end">
+      <div class="lang" id="lang" role="group" aria-label="Lingua / Language">
+        <button type="button" value="en" lang="en" aria-pressed="true">EN</button><span aria-hidden="true">·</span><button type="button" value="it" lang="it" aria-pressed="false">IT</button>
+      </div>
+      <a class="nav__gh" href="https://github.com/DoubleF35" rel="me">GitHub</a>
+      <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="navlinks">
+        <i aria-hidden="true"></i>Menu
+      </button>
+    </div>
+  </div>
+  <span class="nav__comb" aria-hidden="true"></span>
+</nav>
+
+<main id="main" class="proj">
+  <div class="wrap">
+    <p class="crumb"><a href="../"><span data-l="en">Back to IceRoute</span><span data-l="it">Torna a IceRoute</span></a></p>
+    <article class="flag" id="egida">
+      <div class="flag__text">
+        <p class="meta"><span data-l="en">Part of IceRoute · SVST Hackathon, Verbania 2026</span><span data-l="it">Parte di IceRoute · SVST Hackathon, Verbania 2026</span></p>
+        <h1>Egida</h1>
+        <p class="deck" data-l="en">The Arctic route that burns the least fuel, computed from the ice the satellite sees.</p>
+        <p class="deck" data-l="it">La rotta artica che consuma meno carburante, calcolata dal ghiaccio che vede il satellite.</p>
+        <p data-l="en">
+          <a href="../">IceRoute</a> says where a ship can pass. Egida adds what it costs to pass
+          there. It takes the ice mask from the same U-Net, splits the sea into bands of open
+          water, scattered ice and medium ice, and looks for the route that burns the least fuel
+          rather than the shortest one. Ice that is navigable still slows a ship down, so a few
+          more miles in open water can mean fewer hours and less fuel. The result comes out as
+          hours, tonnes of fuel, CO₂ and EU&nbsp;ETS cost.
+        </p>
+        <p data-l="it">
+          <a href="../">IceRoute</a> dice dove una nave può passare. Egida aggiunge quanto costa
+          passarci. Prende la maschera del ghiaccio dalla stessa U-Net, divide il mare in bande di
+          acqua libera, ghiaccio sparso e ghiaccio medio, e cerca la rotta che consuma meno
+          carburante invece della più corta. Anche il ghiaccio navigabile rallenta la nave, quindi
+          qualche miglio in più in acqua libera può voler dire meno ore e meno carburante. Il
+          risultato esce in ore, tonnellate di carburante, CO₂ e costo EU&nbsp;ETS.
+        </p>
+        <p data-l="en">
+          Five of us pitched it at the SVST Hackathon in Verbania: Giuseppe Mondilla, Federico
+          Fassio, Giuseppe Fiamingo, Leonardo Pellicciotta and Francesco Pio Orsini.
+        </p>
+        <p data-l="it">
+          L'abbiamo presentata in cinque all'SVST Hackathon di Verbania: Giuseppe Mondilla,
+          Federico Fassio, Giuseppe Fiamingo, Leonardo Pellicciotta e Francesco Pio Orsini.
+        </p>
+        <p class="prize"><span data-l="en">Selected by SVST, Silicon Valley Study Tour</span><span data-l="it">Selezionata da SVST, Silicon Valley Study Tour</span></p>
+        <dl class="sheet">
+          <div><dt><span data-l="en">Test scene</span><span data-l="it">Scena di prova</span></dt><dd><span data-l="en">Hudson Bay, 7 Jul 2018</span><span data-l="it">Baia di Hudson, 7 lug 2018</span></dd></div>
+          <div><dt><span data-l="en">Sailing time</span><span data-l="it">Tempo di navigazione</span></dt><dd><span data-l="en">−17.8%</span><span data-l="it">−17,8%</span></dd></div>
+          <div><dt><span data-l="en">Fuel and CO₂</span><span data-l="it">Carburante e CO₂</span></dt><dd><span data-l="en">−11.7%</span><span data-l="it">−11,7%</span></dd></div>
+          <div><dt><span data-l="en">Distance</span><span data-l="it">Distanza</span></dt><dd><span data-l="en">+3.3%</span><span data-l="it">+3,3%</span></dd></div>
+          <div><dt><span data-l="en">Alert sent to the ship</span><span data-l="it">Allerta mandata alla nave</span></dt><dd>526 byte</dd></div>
+          <div><dt><span data-l="en">U-Net on the whole scene</span><span data-l="it">U-Net sulla scena intera</span></dt><dd><span data-l="en">21 s on a CPU</span><span data-l="it">21 s su CPU</span></dd></div>
+        </dl>
+        <p class="specs" data-l="en">Egida against the shortest route between the same two points, on a Sentinel-1 scene the model had never seen. Speeds and fuel use in ice are stated assumptions, not measurements.</p>
+        <p class="specs" data-l="it">Egida rispetto alla rotta più corta fra gli stessi due punti, su una scena Sentinel-1 che il modello non aveva mai visto. Velocità e consumi nel ghiaccio sono ipotesi dichiarate, non misure.</p>
+        <p class="links"><a href="https://egida-rho.vercel.app/"><span data-l="en">Open the MVP</span><span data-l="it">Apri l'MVP</span></a><a href="#slides"><span data-l="en">Slides</span><span data-l="it">Slide</span></a></p>
+      </div>
+      <figure class="flag__main flag__main--fit">
+        <span class="frame"><img src="../../img/egida-rotte.jpg" width="1400" height="1653" alt="The Hudson Bay scene with the ice bands and two routes from A to B: the shortest in red, Egida in green" data-alt-it="La scena della Baia di Hudson con le bande di ghiaccio e due rotte da A a B: la più corta in rosso, Egida in verde"></span>
+        <figcaption data-l="en">Hudson Bay, 7 July 2018. Red, the shortest route; green, Egida. Blue and purple are scattered and medium ice, which slow the ship down; white is compact ice, where neither route goes.</figcaption>
+        <figcaption data-l="it">Baia di Hudson, 7 luglio 2018. In rosso la rotta più corta, in verde Egida. Blu e viola sono il ghiaccio sparso e medio, che rallentano la nave; in bianco il ghiaccio compatto, dove non passa nessuna delle due.</figcaption>
+      </figure>
+    </article>
+
+    <section class="part" id="mvp">
+      <h2>MVP</h2>
+      <div class="part__text">
+        <p data-l="en">
+          The MVP is a web page that runs the neural network on your own device. You pick one of
+          six real Sentinel-1 scenes, and the U-Net (1.96 million parameters, 2.1&nbsp;MB) classifies
+          every pixel as open water, thin ice or thick ice, in the browser, with no server
+          involved. Then you move the start and the end on the map, and the page computes the
+          route and gives it to you as a GeoJSON file, ready for the chart on board.
+        </p>
+        <p data-l="it">
+          L'MVP è una pagina web che fa girare la rete neurale sul tuo dispositivo. Scegli una di
+          sei scene Sentinel-1 reali, e la U-Net (1,96 milioni di parametri, 2,1&nbsp;MB) classifica
+          ogni pixel come acqua libera, ghiaccio sottile o ghiaccio spesso, nel browser, senza
+          nessun server. Poi sposti partenza e arrivo sulla mappa, e la pagina calcola la rotta e
+          te la dà in un file GeoJSON, pronto per la carta di bordo.
+        </p>
+        <p data-l="en">
+          It is the same computation the ship's computer would do. After the first load it keeps
+          working with the network unplugged.
+        </p>
+        <p data-l="it">
+          È lo stesso calcolo che farebbe il computer di bordo della nave. Dopo il primo
+          caricamento continua a funzionare anche staccando la rete.
+        </p>
+        <p class="links"><a href="https://egida-rho.vercel.app/">egida-rho.vercel.app</a></p>
+      </div>
+      <div class="photos photos--3 photos--169">
+        <figure>
+          <a class="frame" href="https://egida-rho.vercel.app/"><img src="../../img/egida-mvp-rete.jpg" width="1600" height="900" alt="The MVP showing the U-Net at work, one dot per channel" data-alt-it="L'MVP mostra la U-Net al lavoro, un punto per ogni canale" loading="lazy"></a>
+          <figcaption data-l="en">The network at work: every dot is a real channel of the U-Net.</figcaption>
+          <figcaption data-l="it">La rete al lavoro: ogni punto è un canale vero della U-Net.</figcaption>
+        </figure>
+        <figure>
+          <a class="frame" href="https://egida-rho.vercel.app/"><img src="../../img/egida-mvp-vede.jpg" width="1600" height="900" alt="The radar image, the probability of each class and the ice map" data-alt-it="L'immagine radar, la probabilità di ogni classe e la mappa del ghiaccio" loading="lazy"></a>
+          <figcaption data-l="en">From the radar image to the ice map.</figcaption>
+          <figcaption data-l="it">Dall'immagine radar alla mappa del ghiaccio.</figcaption>
+        </figure>
+        <figure>
+          <a class="frame" href="https://egida-rho.vercel.app/"><img src="../../img/egida-mvp-rotta.jpg" width="1600" height="900" alt="The route on the ice map, with its length and its GeoJSON" data-alt-it="La rotta sulla mappa del ghiaccio, con la lunghezza e il suo GeoJSON" loading="lazy"></a>
+          <figcaption data-l="en">The route, and the GeoJSON to send on board.</figcaption>
+          <figcaption data-l="it">La rotta, e il GeoJSON da mandare a bordo.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="part" id="slides">
+      <h2><span data-l="en">Slides</span><span data-l="it">Slide</span></h2>
+      <div class="part__text">
+        <p data-l="en">The twelve slides of the pitch, as we showed them in Verbania. They are in Italian.</p>
+        <p data-l="it">Le dodici slide del pitch, come le abbiamo mostrate a Verbania.</p>
+      </div>
+      <!-- Le slide: una fila che scorre in orizzontale e si ferma su ogni
+           slide. Funziona col dito e con la tastiera anche senza script; lo
+           script aggiunge i due pulsanti e il contatore. -->
+      <div class="slides">
+        <ol class="slides__track" tabindex="0" aria-label="Slides">
+          <li><img src="../../img/egida-slide-01.jpg" width="1600" height="900" alt="Slide 1. Cover: Egida, SVST Hackathon, Verbania 2026" data-alt-it="Slide 1. Copertina: Egida, SVST Hackathon, Verbania 2026" decoding="async"></li>
+          <li><img src="../../img/egida-slide-02.jpg" width="1600" height="900" alt="Slide 2. The problem: a new route is opening. Three figures with their sources" data-alt-it="Slide 2. Il problema: una nuova rotta si sta aprendo. Tre numeri con le fonti" loading="lazy" decoding="async"></li>
+          <li><img src="../../img/egida-slide-03.jpg" width="1600" height="900" alt="Slide 3. 60 incidents in 2023 alone" data-alt-it="Slide 3. 60 incidenti nel solo 2023" loading="lazy" decoding="async"></li>
+          <li><img src="../../img/egida-slide-04.jpg" width="1600" height="900" alt="Slide 4. Egida: a ship sailing next to an iceberg" data-alt-it="Slide 4. Egida: una nave accanto a un iceberg" loading="lazy" decoding="async"></li>
+          <li><img src="../../img/egida-slide-05.jpg" width="1600" height="900" alt="Slide 5. State of the art: 72 hours from the satellite image to the charts on board" data-alt-it="Slide 5. Stato dell'arte: 72 ore dall'immagine satellitare alle cartine a bordo" loading="lazy" decoding="async"></li>
+          <li><img src="../../img/egida-slide-06.jpg" width="1600" height="900" alt="Slide 6. The solution: input, AI inference at the edge, route optimisation, in 5 minutes" data-alt-it="Slide 6. La soluzione: input, inferenza AI in edge, ottimizzazione della rotta, in 5 minuti" loading="lazy" decoding="async"></li>
+          <li><img src="../../img/egida-slide-07.jpg" width="1600" height="900" alt="Slide 7. Sustainability and impact: fuel saved and energy used by the computation" data-alt-it="Slide 7. Sostenibilità e impatto: carburante risparmiato ed energia usata dal calcolo" loading="lazy" decoding="async"></li>
+          <li><img src="../../img/egida-slide-08.jpg" width="1600" height="900" alt="Slide 8. 600,000 euros saved per ship per year, assuming one sailing day saved per voyage" data-alt-it="Slide 8. 600.000 euro risparmiati per nave all'anno, stimando un giorno di navigazione in meno per viaggio" loading="lazy" decoding="async"></li>
+          <li><img src="../../img/egida-slide-09.jpg" width="1600" height="900" alt="Slide 9. Positioning: Egida against the other ice information services, by latency and readiness of the output" data-alt-it="Slide 9. Posizionamento: Egida rispetto agli altri servizi sul ghiaccio, per latenza e prontezza dell'output" loading="lazy" decoding="async"></li>
+          <li><img src="../../img/egida-slide-10.jpg" width="1600" height="900" alt="Slide 10. Market and technology roadmap, from the lab in 2027 to a validated service in 2030" data-alt-it="Slide 10. Mercato e sviluppo della tecnologia, dal laboratorio nel 2027 al servizio validato nel 2030" loading="lazy" decoding="async"></li>
+          <li><img src="../../img/egida-slide-11.jpg" width="1600" height="900" alt="Slide 11. The team: Giuseppe Mondilla, Federico Fassio, Giuseppe Fiamingo, Leonardo Pellicciotta, Francesco Pio Orsini" data-alt-it="Slide 11. Il team: Giuseppe Mondilla, Federico Fassio, Giuseppe Fiamingo, Leonardo Pellicciotta, Francesco Pio Orsini" loading="lazy" decoding="async"></li>
+          <li><img src="../../img/egida-slide-12.jpg" width="1600" height="900" alt="Slide 12. Thank you" data-alt-it="Slide 12. Grazie" loading="lazy" decoding="async"></li>
+        </ol>
+        <p class="slides__bar">
+          <button type="button" class="slides__prev"><span data-l="en">Previous</span><span data-l="it">Precedente</span></button>
+          <span class="slides__count num"><b>1</b> / 12</span>
+          <button type="button" class="slides__next"><span data-l="en">Next</span><span data-l="it">Successiva</span></button>
+        </p>
+      </div>
+    </section>
+
+    <nav class="pnav" aria-label="Projects">
+      <a class="prev" href="../"><span class="lab"><span data-l="en">Back to</span><span data-l="it">Torna a</span></span><span class="name">IceRoute</span></a>
+      <a class="next" href="../../cubesar/"><span class="lab"><span data-l="en">Next project</span><span data-l="it">Progetto successivo</span></span><span class="name">CubeSAR</span></a>
+    </nav>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p data-l="en">© 2026 Federico Fassio, Turin</p>
+    <p data-l="it">© 2026 Federico Fassio, Torino</p>
+    <p><a href="https://github.com/DoubleF35/doublef35.github.io"><span data-l="en">Source on GitHub</span><span data-l="it">Sorgente su GitHub</span></a></p>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=11"></script>
+</body>
+</html>

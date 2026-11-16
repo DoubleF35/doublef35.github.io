@@ -510,3 +510,35 @@
     document.addEventListener('visibilitychange', function(){ if(started && !document.hidden && v.parentNode && v.paused && !held && !v.controls) play(v); });
   })(vs[i]);
 })();
+
+/* Le slide (div.slides): la fila scorre già da sola con lo scroll-snap del CSS.
+   Qui si aggiungono i due pulsanti, il contatore e le frecce della tastiera.
+   Lo scorrimento resta quello del browser: lo script dice solo dove andare. */
+(function(){
+  var decks = document.querySelectorAll('.slides');
+  for(var k = 0; k < decks.length; k++) (function(d){
+    var tr = d.querySelector('.slides__track'), prev = d.querySelector('.slides__prev'), next = d.querySelector('.slides__next');
+    var num = d.querySelector('.slides__count b');
+    if(!tr || !prev || !next) return;
+    var n = tr.children.length, i = 0, pending = false;
+    if(n < 2) return;
+    // quanto dista una slide dalla successiva (larghezza + spazio)
+    function step(){ return tr.children[1].offsetLeft - tr.children[0].offsetLeft || tr.clientWidth; }
+    function update(){
+      pending = false;
+      i = Math.max(0, Math.min(n - 1, Math.round(tr.scrollLeft / step())));
+      if(num) num.textContent = i + 1;
+      prev.disabled = i === 0; next.disabled = i === n - 1;
+    }
+    function go(to){ tr.scrollTo({ left: Math.max(0, Math.min(n - 1, to)) * step() }); }
+    prev.addEventListener('click', function(){ go(i - 1); });
+    next.addEventListener('click', function(){ go(i + 1); });
+    tr.addEventListener('scroll', function(){ if(!pending){ pending = true; requestAnimationFrame(update); } }, { passive:true });
+    tr.addEventListener('keydown', function(e){
+      if(e.key === 'ArrowRight'){ e.preventDefault(); go(i + 1); }
+      else if(e.key === 'ArrowLeft'){ e.preventDefault(); go(i - 1); }
+    });
+    d.classList.add('is-live');
+    update();
+  })(decks[k]);
+})();
