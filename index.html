@@ -83,7 +83,7 @@ try{
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/site.css?v=9">
+<link rel="stylesheet" href="assets/site.css?v=10">
 </head>
 <body>
 <a class="skip" href="#main" data-l="en">Skip to content</a>
@@ -120,7 +120,6 @@ try{
 </nav>
 
 <header class="hero" id="top">
-  <div class="hero__sky" aria-hidden="true"></div>
   <canvas class="hero__comb" aria-hidden="true"></canvas>
   <span class="hero__horizon" aria-hidden="true"></span>
   <div class="hero__in">
@@ -138,6 +137,35 @@ try{
 </header>
 
 <main id="main">
+
+  <!-- ====================== RISULTATI ======================
+       Cinque numeri, e ognuno porta alla pagina che lo spiega. I piazzamenti
+       sono in oro, come nel resto del sito; i conteggi no. -->
+  <section class="facts" aria-labelledby="facts-h"><div class="wrap">
+    <h2 class="vh" id="facts-h"><span data-l="en">Results</span><span data-l="it">Risultati</span></h2>
+    <ul>
+      <li class="is-prize"><a href="iceroute/">
+        <b><span data-l="en">1<i>st</i></span><span data-l="it">1º</span></b>
+        <span class="lab">EO Makerspace Hackathon 2026, ESA <span class="nw">Φ-lab</span></span>
+      </a></li>
+      <li class="is-prize"><a href="tobe/">
+        <b><span data-l="en">2<i>nd</i></span><span data-l="it">2º</span></b>
+        <span class="lab"><span data-l="en">hackTurin 2026, Smart Crossing challenge</span><span data-l="it">hackTurin 2026, challenge Smart Crossing</span></span>
+      </a></li>
+      <li class="is-prize"><a href="edunity/">
+        <b><span data-l="en">2<i>nd</i></span><span data-l="it">2º</span></b>
+        <span class="lab"><span data-l="en">Fin4Teen 2026, SellaLab, national ranking</span><span data-l="it">Fin4Teen 2026, SellaLab, classifica nazionale</span></span>
+      </a></li>
+      <li><a href="yet-community/">
+        <b>150</b>
+        <span class="lab"><span data-l="en">YET members, from Turin to Rome</span><span data-l="it">membri di YET, da Torino a Roma</span></span>
+      </a></li>
+      <li><a href="https://www.tiktok.com/@imdoublef" rel="me">
+        <b>10<i>M+</i></b>
+        <span class="lab"><span data-l="en">views across my accounts</span><span data-l="it">visualizzazioni sui miei account</span></span>
+      </a></li>
+    </ul>
+  </div></section>
 
   <!-- ====================== CHI SONO ====================== -->
   <section id="about"><div class="wrap">
@@ -186,20 +214,28 @@ try{
     <canvas class="sep" aria-hidden="true"></canvas>
     <h2><span data-l="en">Projects</span><span data-l="it">Progetti</span></h2>
 
+    <!-- Uno grande, due medi, tre piccoli: il peso segue l'ordine. Stesso
+         markup per tutti (a.pitem > .frame + .pitem__text), cambia solo la
+         classe sul <li>: is-feat, is-wide, niente. -->
     <ul class="plist">
-      <li id="iceroute"><a class="pitem" href="iceroute/">
-        <span class="frame"><img src="img/iceroute-console.jpg" width="1582" height="945" alt="" loading="lazy"></span>
+      <li id="iceroute" class="is-feat"><a class="pitem" href="iceroute/">
+        <span class="frame"><video data-lazy data-anim="img/iceroute-console.avif" muted loop playsinline preload="none" width="1280" height="748" poster="img/iceroute-console-poster.jpg"><source src="img/iceroute-console.mp4" type="video/mp4"></video></span>
         <div class="pitem__text">
           <p class="pitem__meta">Project manager · Space Eagle APS</p>
           <h3 class="pitem__name">IceRoute</h3>
           <p class="pitem__deck" data-l="en">Sea ice segmentation onboard the satellite, and the Arctic route computed in orbit.</p>
           <p class="pitem__deck" data-l="it">Segmentazione del ghiaccio marino a bordo del satellite, e la rotta artica calcolata in orbita.</p>
           <p class="pitem__prize"><b><span data-l="en">1st</span><span data-l="it">1º</span></b><span>EO Makerspace Hackathon 2026, ESA <span class="nw">Φ-lab</span></span></p>
+          <dl class="sheet">
+            <div><dt><span data-l="en">Onboard data reduction</span><span data-l="it">Riduzione dei dati a bordo</span></dt><dd>200 : 1</dd></div>
+            <div><dt><span data-l="en">Transmitted packet</span><span data-l="it">Pacchetto trasmesso</span></dt><dd>&lt; 4 KB</dd></div>
+            <div><dt><span data-l="en">Platform</span><span data-l="it">Piattaforma</span></dt><dd>12U CubeSat, Zynq&nbsp;UltraScale+</dd></div>
+          </dl>
           <span class="pitem__go"><span data-l="en">Open the project</span><span data-l="it">Apri il progetto</span></span>
         </div>
       </a></li>
-      <li id="cubesar"><a class="pitem" href="cubesar/">
-        <span class="frame"><img src="img/cubesar-2u.jpg" width="1200" height="1600" alt="" loading="lazy"></span>
+      <li id="cubesar" class="is-wide"><a class="pitem" href="cubesar/">
+        <span class="frame"><img src="img/cubesar-montaggio.jpg" width="960" height="720" alt="" loading="lazy"></span>
         <div class="pitem__text">
           <p class="pitem__meta"><span data-l="en">Project manager and chief engineer · In development</span><span data-l="it">Project manager e chief engineer · In sviluppo</span></p>
           <h3 class="pitem__name">CubeSAR</h3>
@@ -208,7 +244,7 @@ try{
           <span class="pitem__go"><span data-l="en">Open the project</span><span data-l="it">Apri il progetto</span></span>
         </div>
       </a></li>
-      <li id="yet"><a class="pitem" href="yet-community/">
+      <li id="yet" class="is-wide"><a class="pitem" href="yet-community/">
         <span class="frame"><img src="img/yet.jpg" width="1600" height="1200" alt="" loading="lazy"></span>
         <div class="pitem__text">
           <p class="pitem__meta"><span data-l="en">Co-founder · 150 members</span><span data-l="it">Cofondatore · 150 membri</span></p>
@@ -533,6 +569,6 @@ try{
   </div>
 </footer>
 
-<script src="assets/site.js?v=9"></script>
+<script src="assets/site.js?v=10"></script>
 </body>
 </html>

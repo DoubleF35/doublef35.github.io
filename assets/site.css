@@ -3,7 +3,7 @@
 
    Regole, e tutto il resto scende da queste:
    1. Il fondo è quasi nero e la luce arriva da un punto solo, il pettine
-      dell'hero. Il resto della pagina ne riprende solo il segno: la riga
+      dell'hero: nessun altro alone, nessuna sfumatura decorativa. Il resto della pagina ne riprende solo il segno: la riga
       sotto la barra e i righelli fra le sezioni.
    2. I titoli sono in Instrument Serif. Il corsivo è un accento, uno solo.
    3. Il monospace serve solo a ciò che si conta: date, misure, unità, nomi
@@ -142,14 +142,6 @@ html.menu-open .nav__comb{opacity:0 !important}
   padding:clamp(96px, 19vh, 210px) var(--m) 0;
   text-align:center;
 }
-/* Nuvole indaco in alto: l'unica luce che non viene dal pettine. */
-.hero__sky{
-  position:absolute;inset:0;z-index:-2;pointer-events:none;will-change:opacity;
-  background:
-    radial-gradient(30% 34% at 9% 22%,rgba(70,54,150,.32),transparent 72%),
-    radial-gradient(28% 30% at 92% 14%,rgba(62,48,140,.28),transparent 72%),
-    radial-gradient(54% 30% at 50% 0%,rgba(22,40,110,.24),transparent 78%);
-}
 .hero__comb{position:absolute;left:0;bottom:0;width:100%;height:100%;z-index:-1;pointer-events:none;display:block}
 .hero__horizon{bottom:0;height:3px;z-index:-1;transform-origin:50% 100%}
 .hero__in{position:relative;max-width:1120px;margin:0 auto}
@@ -177,7 +169,29 @@ html.menu-open .nav__comb{opacity:0 !important}
    -------------------------------------------------------------------------- */
 main{position:relative;z-index:2}
 section{padding:144px 0 0}
-#about{padding-top:72px}
+#about{padding-top:128px}
+.vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* ---------- Risultati ----------------------------------------------------
+   Cinque colonne separate da una riga, subito sotto l'hero: è la prima cosa
+   che si legge dopo il titolo. Oro solo ai piazzamenti. */
+.facts{padding-top:72px}
+.facts ul{
+  list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.facts li{border-left:1px solid var(--line)}
+.facts li:first-child{border-left:0}
+.facts a{display:block;height:100%;padding:28px 24px 30px;text-decoration:none}
+.facts li:first-child a{padding-left:0}
+.facts b{
+  display:block;font:400 clamp(60px, 6.2vw, 92px)/.86 var(--serif);letter-spacing:-.02em;
+  color:#f4f8ff;font-variant-numeric:lining-nums;
+}
+.facts b i{font-style:normal;font-size:.5em;letter-spacing:0;margin-left:.04em}
+.facts .is-prize b{color:var(--gold)}
+.facts .lab{display:block;margin-top:18px;max-width:24ch;font:400 14.5px/1.45 var(--sans);color:var(--paper-dim);transition:color .15s}
+@media (hover:hover){ .facts a:hover .lab{color:#fff} }
 /* Il righello fra le sezioni: lo disegna lo script. */
 .sep{display:block;width:100%;height:22px;margin:0 0 64px}
 h2{
@@ -194,7 +208,7 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 .about p{font-size:clamp(19px, 1.5vw, 21px);line-height:1.6;color:var(--paper-dim);max-width:44ch}
 .about p a{color:var(--paper)}
 .portrait .frame{aspect-ratio:1}
-.portrait img{object-position:50% 20%}
+.portrait img{object-position:50% 20%;filter:grayscale(1) contrast(1.08) brightness(.94)}
 
 /* ---------- Progetti ------------------------------------------------------ */
 .meta{margin:0 0 14px;font:400 14px/1.5 var(--sans);color:var(--paper-mute)}
@@ -371,9 +385,9 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 .stack .val{font:400 18px/1.55 var(--sans);color:var(--paper)}
 
 /* ---------- Contatti ------------------------------------------------------ */
-.contact{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);column-gap:clamp(32px, 7vw, 120px);align-items:end}
+.contact{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);column-gap:clamp(32px, 7vw, 120px);align-items:start}
 .contact p{font-size:19px;line-height:1.6;color:var(--paper-dim);max-width:44ch}
-.mail{display:inline-block;margin-top:14px;padding:6px 0;font:400 clamp(30px, 3.2vw, 44px)/1.15 var(--serif);color:#f4f8ff}
+.mail{display:inline-block;margin-top:22px;padding:6px 0;font:400 clamp(34px, 4.4vw, 64px)/1.1 var(--serif);letter-spacing:-.012em;color:#f4f8ff;text-underline-offset:8px;overflow-wrap:anywhere}
 .clist{margin:0;border-top:1px solid var(--line)}
 .clist div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid var(--line)}
 .clist dt{padding:14px 0;font:400 14.5px/1.4 var(--sans);color:var(--paper-mute)}
@@ -520,24 +534,46 @@ figcaption{margin-top:10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mu
 }
 
 /* --------------------------------------------------------------------------
-   Progetti in homepage: un elenco compatto, una voce per progetto, che porta
-   alla pagina del progetto. Niente schede: righe da 1 px e spazio.
+   Progetti in homepage: uno grande, due medi, tre piccoli. Il peso segue
+   l'ordine, quindi IceRoute ha la console che gira e la sua scheda tecnica,
+   gli altri una foto e tre righe. Niente schede: una riga da 1 px sopra ogni
+   voce, e lo spazio. Sotto i 980 px tornano un elenco con la miniatura a
+   sinistra.
    -------------------------------------------------------------------------- */
-.plist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--gap);border-top:1px solid var(--line)}
-.plist > li{border-bottom:1px solid var(--line)}
-.pitem{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:24px;align-items:start;padding:28px 0;color:inherit;text-decoration:none}
-.pitem .frame{aspect-ratio:4 / 3}
-.pitem__meta{margin:0 0 8px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mute)}
-.pitem__name{margin:0 0 10px;font:400 clamp(30px, 2.6vw, 38px)/1.02 var(--serif);letter-spacing:-.01em;color:#f4f8ff}
-.pitem__deck{margin:0;font-size:15.5px;line-height:1.5;color:var(--paper-dim)}
-.pitem__prize{display:flex;align-items:baseline;gap:9px;margin:12px 0 0;font:400 14px/1.4 var(--sans);color:var(--paper)}
+.plist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--gap)}
+.plist > li{grid-column:span 2;border-top:1px solid var(--line)}
+.plist > li.is-wide{grid-column:span 3}
+.plist > li.is-feat{grid-column:1 / -1}
+.pitem{display:block;padding:28px 0 72px;color:inherit;text-decoration:none}
+.pitem .frame{aspect-ratio:4 / 3;margin-bottom:24px}
+.is-wide .pitem .frame{aspect-ratio:3 / 2}
+.pitem .frame img,.pitem .frame video{transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .3s}
+.pitem__meta{margin:0 0 10px;font:400 13.5px/1.45 var(--sans);color:var(--paper-mute)}
+.pitem__name{margin:0 0 12px;font:400 clamp(32px, 2.8vw, 40px)/1.02 var(--serif);letter-spacing:-.012em;color:#f4f8ff}
+.is-wide .pitem__name{font-size:clamp(40px, 3.8vw, 56px);line-height:1}
+.pitem__deck{margin:0;max-width:46ch;font-size:15.5px;line-height:1.5;color:var(--paper-dim)}
+.is-wide .pitem__deck{font-size:16.5px}
+.pitem__prize{display:flex;align-items:baseline;gap:9px;margin:14px 0 0;font:400 14px/1.4 var(--sans);color:var(--paper)}
 .pitem__prize b{flex:none;font:400 24px/1 var(--serif);color:var(--gold)}
-.pitem__go{display:inline-block;margin-top:14px;font:400 13px/1 var(--mono);color:var(--paper-dim);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;text-decoration-color:rgba(156,200,255,.4)}
-.pitem .frame img{transition:opacity .2s}
+.pitem__go{display:inline-block;margin-top:16px;font:400 13px/1 var(--mono);color:var(--paper-dim);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;text-decoration-color:rgba(156,200,255,.4)}
+
+/* IceRoute: la console a sinistra, larga sette colonne su dodici. */
+.is-feat .pitem{
+  display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);
+  column-gap:clamp(32px, 4vw, 64px);align-items:center;padding:36px 0 88px;
+}
+.is-feat .pitem .frame{aspect-ratio:1280 / 748;margin:0}
+.is-feat .pitem__name{margin-bottom:18px;font-size:clamp(56px, 6vw, 88px);line-height:.92;letter-spacing:-.02em}
+.is-feat .pitem__deck{max-width:30ch;font-size:19px;line-height:1.45;color:var(--paper)}
+.is-feat .pitem__prize{margin-top:22px;font-size:15.5px}
+.is-feat .pitem__prize b{font-size:36px}
+.is-feat .sheet{margin-top:26px}
+.is-feat .pitem__go{margin-top:24px}
+
 @media (hover:hover){
   .pitem:hover .pitem__name{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
   .pitem:hover .pitem__go{color:#fff;text-decoration-color:currentColor}
-  .pitem:hover .frame img{opacity:.88}
+  .pitem:hover .frame img,.pitem:hover .frame video{transform:scale(1.025)}
 }
 
 /* --------------------------------------------------------------------------
@@ -587,18 +623,44 @@ img.anim{cursor:pointer}
 .pnav .next{text-align:right}
 @media (hover:hover){ .pnav a:hover .name{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px} }
 
+@media (max-width:1100px){
+  .facts a{padding:24px 16px 26px}
+}
 @media (max-width:980px){
-  .plist{grid-template-columns:1fr}
-  .pitem{grid-template-columns:minmax(0,240px) minmax(0,1fr)}
+  .plist{grid-template-columns:minmax(0,1fr)}
+  .plist > li,.plist > li.is-wide{grid-column:auto}
+  .pitem{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);column-gap:24px;align-items:start;padding:28px 0}
+  .pitem .frame,.is-wide .pitem .frame{aspect-ratio:4 / 3;margin:0}
+  .is-wide .pitem__name{font-size:clamp(32px, 4.6vw, 40px);line-height:1.02}
+  .is-wide .pitem__deck{font-size:15.5px}
+  .is-feat .pitem{display:block;padding:28px 0 44px}
+  .is-feat .pitem .frame{margin:0 0 28px}
+  .is-feat .pitem__deck{max-width:34ch}
 }
 @media (max-width:760px){
+  .facts{padding-top:48px}
+  .facts ul{grid-template-columns:minmax(0,1fr)}
+  .facts li{border-left:0;border-top:1px solid var(--line)}
+  .facts li:first-child{border-top:0}
+  .facts a,.facts li:first-child a{display:grid;grid-template-columns:104px minmax(0,1fr);column-gap:16px;align-items:center;padding:16px 0}
+  .facts b{font-size:52px;line-height:.9}
+  .facts .lab{margin:0;max-width:none;font-size:14.5px}
+  #about{padding-top:88px}
+
   .pitem{grid-template-columns:112px minmax(0,1fr);column-gap:16px;padding:20px 0}
   .pitem__meta{font-size:12.5px;margin-bottom:6px}
-  .pitem__name{font-size:28px;margin-bottom:6px}
-  .pitem__deck{font-size:15px}
+  .pitem__name,.is-wide .pitem__name{font-size:28px;margin-bottom:6px}
+  .pitem__deck,.is-wide .pitem__deck{font-size:15px}
   .pitem__prize{font-size:13px}
   .pitem__prize b{font-size:20px}
   .pitem__go{margin-top:10px}
+  .is-feat .pitem{padding:20px 0 36px}
+  .is-feat .pitem .frame{margin:0 calc(-1 * var(--m)) 22px}
+  .is-feat .pitem__name{font-size:clamp(50px, 14vw, 64px);margin-bottom:14px}
+  .is-feat .pitem__deck{font-size:18px}
+  .is-feat .pitem__prize{font-size:14.5px}
+  .is-feat .pitem__prize b{font-size:30px}
+  .mail{font-size:clamp(26px, 7.6vw, 34px)}
   .proj{padding-top:calc(var(--nav-h) + 16px)}
   .gal{margin-top:44px}
   .photos--tall{grid-template-columns:minmax(0,1fr)}
